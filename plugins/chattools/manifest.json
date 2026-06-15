@@ -1,0 +1,8 @@
+{
+  "id": "chattools",
+  "name": "ChatTools",
+  "description": "Chat capture + quality-of-life chat tools.",
+  "version": "1.0.0",
+  "dll": "StarMod.ChatTools.dll",
+  "author": "Stellar"
+}

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Stellar.EntityInspector</RootNamespace>
+    <AssemblyName>Stellar.EntityInspector</AssemblyName>
+    <Description>ZDPS-style per-entity character panel. Opened by right-clicking a CombatMeter row (via IEntityContextMenu). Shows identity, full broadcast attributes, gear, and skill book for any in-AOI entity (data from IEntityDetail/ICombatLookup + game-data tables), plus a live 3D portrait for self. Depends only on Stellar.Abstractions.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.Abstractions/Stellar.Abstractions.csproj" />
+  </ItemGroup>
+
+  <!-- UnityEngine for cursor-anchored popups (Input.mousePosition / Screen) — CombatMeter precedent;
+       plugins may reference Abstractions + UnityEngine.* per the architecture rules. -->
+  <ItemGroup>
+    <Reference Include="UnityEngine"><HintPath>$(GameInterop)/UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameInterop)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameInterop)/UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <!-- ImageConversion.EncodeToPNG + Texture2D.SetPixels/Object.Destroy marshalling — bake the native
+         profile-card "Inspect" icon into ProfileCardActionSpec.IconPng (StatInspector precedent). -->
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameInterop)/UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Runtime"><HintPath>$(BepInExCore)/Il2CppInterop.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2Cppmscorlib"><HintPath>$(GameInterop)/Il2Cppmscorlib.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppSystem"><HintPath>$(GameInterop)/Il2CppSystem.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

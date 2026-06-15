@@ -1,0 +1,33 @@
+<Project>
+  <!--
+    Shared MSBuild properties for the reference sample plugins.
+
+    Building these requires (a) a local checkout of the framework
+    (StellarResonanceModSystem) for Stellar.Abstractions, and (b) the game's
+    IL2CPP interop assemblies generated from your own install. Override on the
+    command line if your layout differs:
+
+      dotnet build samples/Stellar.PlayerHUD/Stellar.PlayerHUD.csproj -c Release \
+        -p:StellarFrameworkSrc=/path/to/StellarResonanceModSystem/src \
+        -p:BepInExCore=/path/to/<game_mini>/BepInEx/core \
+        -p:GameInterop=/path/to/<game_mini>/BepInEx/interop
+
+    The registry (plugins/ + tools/build-registry.py) does NOT build these — it
+    validates and publishes prebuilt DLLs. The source here is reference material.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <NoWarn>CS8632;CS8765</NoWarn>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <StellarFrameworkSrc Condition="'$(StellarFrameworkSrc)' == ''">$(MSBuildThisFileDirectory)../../StellarResonanceModSystem/src</StellarFrameworkSrc>
+    <BepInExCore Condition="'$(BepInExCore)' == ''">$(MSBuildThisFileDirectory)../.local/bepinex/core</BepInExCore>
+    <GameInterop Condition="'$(GameInterop)' == ''">$(MSBuildThisFileDirectory)../.local/interop</GameInterop>
+  </PropertyGroup>
+</Project>

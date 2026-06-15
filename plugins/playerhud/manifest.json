@@ -1,0 +1,8 @@
+{
+  "id": "playerhud",
+  "name": "PlayerHUD",
+  "description": "Compact player HP / MP / buff HUD.",
+  "version": "1.0.0",
+  "dll": "StarMod.PlayerHUD.dll",
+  "author": "Stellar"
+}

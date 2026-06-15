@@ -1,0 +1,8 @@
+{
+  "id": "moduleoptimizer",
+  "name": "ModuleOptimizer",
+  "description": "Module / gear loadout optimizer.",
+  "version": "1.0.0",
+  "dll": "StarMod.ModuleOptimizer.dll",
+  "author": "Stellar"
+}

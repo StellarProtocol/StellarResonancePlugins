@@ -1,0 +1,30 @@
+name: publish-registry
+# Validates plugin manifests and publishes plugins.json + DLLs to the public
+# `stellar` MinIO bucket. Runs on every push to main (and manual dispatch).
+# PRs run validation only (no publish) so community submissions are checked.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate + build registry
+        run: python tools/build-registry.py        # validation only (no creds needed)
+
+      - name: Publish to MinIO
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+        run: python tools/build-registry.py --publish
