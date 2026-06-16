@@ -4,5 +4,6 @@
   "description": "Chat capture + quality-of-life chat tools.",
   "version": "1.0.0",
   "dll": "StarMod.ChatTools.dll",
-  "author": "Stellar"
+  "author": "Stellar",
+  "minModSystemVersion": "1.0.0"
 }

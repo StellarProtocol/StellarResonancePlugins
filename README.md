@@ -21,7 +21,7 @@ bucket the launcher reads (`https://minio.revette.io/stellar/plugins.json`). It 
 ```
 plugins/
   <id>/
-    manifest.json     # id, name, description, version, dll, author
+    manifest.json     # id, name, description, version, dll, author, minModSystemVersion
     <Plugin>.dll      # the built plugin assembly
 samples/
   Stellar.<Name>/     # reference plugin SOURCE (build against the framework — see below)
@@ -29,8 +29,21 @@ tools/build-registry.py        # validates manifests, computes sha256, builds + 
 .github/workflows/publish.yml  # PR = validate; push to main = validate + publish to MinIO
 ```
 
-`plugins.json` (generated) is the launcher's curated registry:
-each entry = `{ id, name, description, version, dllUrl, sha256, author }`.
+`plugins.json` (generated) is the launcher's curated registry. Each entry carries a **version
+history** so the launcher can offer a version picker, and each version declares the framework
+(modsystem) range it runs on:
+
+```jsonc
+{ "id", "name", "description", "author",
+  "versions": [
+    { "version", "date", "dllUrl", "sha256",
+      "minModSystemVersion", "maxModSystemVersion" /* null = no upper bound */, "changelog" }
+  ] }
+```
+
+Each release is appended to the published history (older versions keep working — DLLs are stored
+under version-specific keys `plugins/<id>/<Name>-<version>.dll`). The full contract is in the
+[manifest standard](https://github.com/StellarProtocol/StellarResonance-DevKit/blob/main/docs/manifest-standard.md).
 
 ## Reference plugin source (`samples/`)
 
@@ -63,7 +76,7 @@ The full plugin-facing contract is documented in the framework's
         dist/plugins.json
             │
             ▼   CI (push to main, Production env)   upload to MinIO
-   minio.revette.io/stellar/plugins.json  +  /stellar/plugins/<Plugin>.dll
+   minio.revette.io/stellar/plugins.json  +  /stellar/plugins/<id>/<Plugin>-<version>.dll
             │
             ▼
    the StellarResonance Launcher reads plugins.json and offers each plugin
@@ -91,7 +104,11 @@ You add a plugin by contributing a **manifest + its built DLL** under `plugins/<
      "description": "One-line summary shown in the launcher.",
      "version": "1.0.0",
      "dll": "YourPlugin.dll",
-     "author": "your-handle"
+     "author": "your-handle",
+     "minModSystemVersion": "1.0.0",
+     "maxModSystemVersion": null,
+     "date": "2026-06-16",
+     "changelog": { "added": ["…"], "changed": [], "fixed": [], "removed": [] }
    }
    ```
 
@@ -102,6 +119,13 @@ You add a plugin by contributing a **manifest + its built DLL** under `plugins/<
    | `version` | semver; bump it on every update |
    | `dll` | exact filename of the DLL beside this manifest |
    | `author` | your name/handle |
+   | `minModSystemVersion` | **required** — lowest framework version this build runs on |
+   | `maxModSystemVersion` | optional (omit/`null` = no upper bound); set when a newer framework breaks this build |
+   | `date` | optional `YYYY-MM-DD` |
+   | `changelog` | optional `{ added, changed, fixed, removed }` — shown when reviewing the version |
+
+   The manifest describes the **current** version; the builder appends it to the published history,
+   so previously released versions remain available in the launcher's picker.
 
 4. **Validate locally** before opening a PR:
 
