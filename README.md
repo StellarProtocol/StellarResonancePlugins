@@ -36,7 +36,7 @@ history** so the launcher can offer a version picker, and each version declares 
 ```jsonc
 { "id", "name", "description", "author",
   "versions": [
-    { "version", "date", "dllUrl", "sha256",
+    { "version", "date", "dll" /* canonical install filename */, "dllUrl", "sha256",
       "minModSystemVersion", "maxModSystemVersion" /* null = no upper bound */, "changelog" }
   ] }
 ```
