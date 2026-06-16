@@ -3,6 +3,15 @@ using Stellar.Abstractions.Domain;
 
 namespace Stellar.CombatMeter;
 
+/// <summary>Frozen per-source time-series (one archived encounter), one array per channel.</summary>
+internal struct SourceSeries
+{
+    public int    BucketMs;
+    public long[] Dealt;
+    public long[] Healing;
+    public long[] Taken;
+}
+
 public sealed partial class Plugin
 {
     private const int HistoryCapacity = 10;
@@ -16,6 +25,7 @@ public sealed partial class Plugin
         public long     ArchivedAtMs;
         public long     CombatDurationMs;
         public Dictionary<EntityId, SourceStats> Stats = new();
+        public Dictionary<EntityId, SourceSeries> Series = new();   // NEW
         public PartyType PartyType;
         public int       MemberCount;
     }
@@ -51,6 +61,7 @@ public sealed partial class Plugin
             ArchivedAtMs     = _services.CombatSnapshot.ServerNowMs,
             CombatDurationMs = ComputeDurationMs(),
             Stats            = DeepCopyStats(),
+            Series           = FreezeTimelines(),
             PartyType        = _services.PartySnapshot.PartyType,
             // Combatant count — every entity that participated, not just party.
             // Guarded by _stats.Count == 0 early-return above, so >= 1 here.
@@ -82,6 +93,7 @@ public sealed partial class Plugin
             {
                 TotalDamage  = src.TotalDamage,
                 TotalHealing = src.TotalHealing,
+                TotalTaken   = src.TotalTaken,
                 TopHit       = src.TopHit,
                 Hits         = src.Hits,
                 Crits        = src.Crits,
@@ -89,19 +101,56 @@ public sealed partial class Plugin
                 FirstHitMs   = src.FirstHitMs,
                 LastHitMs    = src.LastHitMs,
                 BySkill      = new Dictionary<int, SkillStats>(src.BySkill.Count),
+                IncomingBySkill = new Dictionary<int, IncomingSkillStats>(src.IncomingBySkill.Count),
             };
             foreach (var (sid, sk) in src.BySkill)
             {
                 s2.BySkill[sid] = new SkillStats
                 {
-                    Total  = sk.Total,
-                    Hits   = sk.Hits,
-                    Crits  = sk.Crits,
-                    TopHit = sk.TopHit,
+                    Total     = sk.Total,
+                    HealTotal = sk.HealTotal,
+                    Hits      = sk.Hits,
+                    Crits     = sk.Crits,
+                    TopHit    = sk.TopHit,
+                };
+            }
+            foreach (var (sid, inc) in src.IncomingBySkill)
+            {
+                s2.IncomingBySkill[sid] = new IncomingSkillStats
+                {
+                    Total  = inc.Total,
+                    Hits   = inc.Hits,
+                    TopHit = inc.TopHit,
                 };
             }
             copy[id] = s2;
         }
         return copy;
+    }
+
+    private Dictionary<EntityId, SourceSeries> FreezeTimelines()
+    {
+        var copy = new Dictionary<EntityId, SourceSeries>(_timelines.Count);
+        foreach (var (id, t) in _timelines)
+            copy[id] = new SourceSeries
+            {
+                BucketMs = t.BucketMs,
+                Dealt    = t.Freeze(TimelineChannel.Dealt),
+                Healing  = t.Freeze(TimelineChannel.Healing),
+                Taken    = t.Freeze(TimelineChannel.Taken),
+            };
+        return copy;
+    }
+
+    /// <summary>
+    /// Active-uptime fraction for a source: how much of the encounter the source was
+    /// dealing damage (FirstHit→LastHit span over the encounter duration, clamped 0..1).
+    /// </summary>
+    internal static float ComputeUptime(long firstHitMs, long lastHitMs, long durationMs)
+    {
+        if (durationMs <= 0 || lastHitMs <= firstHitMs) return 0f;
+        var span = (float)(lastHitMs - firstHitMs);
+        var frac = span / durationMs;
+        return frac < 0f ? 0f : frac > 1f ? 1f : frac;
     }
 }
