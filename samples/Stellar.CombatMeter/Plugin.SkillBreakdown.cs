@@ -15,7 +15,7 @@ public sealed partial class Plugin
 {
     private const int MaxSkillSlots = 40;
     private const float SkillScrollHeight = 280f;
-    private const float SkillColTotal = 90f, SkillColDps = 70f, SkillColCount = 56f;
+    private const float SkillColTotal = 90f, SkillColDps = 70f, SkillColCount = 56f, SkillColBar = 90f;
 
     private SkillBreakdownState? _skillBreakdown;
     private readonly List<SkillRow> _skillRows = new(MaxSkillSlots);
@@ -40,21 +40,22 @@ public sealed partial class Plugin
         {
             var idx = i;
             string F(Func<SkillRow, string> sel) => idx < _skillRows.Count ? sel(_skillRows[idx]) : "";
-            var row = new RowElement(new HudElement[]
+            // Explicit per-skill share bar (role-coloured) makes each row read as a bar chart. Replaces the
+            // old AccentRowElement wash — both encoded the same Share, so the wash was dropped to avoid
+            // double-encoding. Fill is baked at build time from the source captured at open (stable).
+            ColorRgba barColor = _skillBreakdown is { } sbColor ? RoleColorFor(sbColor.Source) : default;
+            slots[i] = new RowElement(new HudElement[]
             {
                 new CellElement(new ColumnElement(new HudElement[]
                 {
                     new TextElement(() => idx < _skillRows.Count ? $"{_skillRows[idx].Rank} {_skillRows[idx].Name}" : "", Emphasis: true),
                     new TextElement(() => F(r => r.Sub), MutedCol),
                 }, Gap: 0f), Weight: 1f),
+                new CellElement(new BarElement(() => idx < _skillRows.Count ? _skillRows[idx].Share : 0f, barColor), Width: SkillColBar),
                 NumCell(() => F(r => r.Total), SkillColTotal),
                 NumCell(() => F(r => r.Dps), SkillColDps),
                 NumCell(() => F(r => r.Count), SkillColCount),
             }, Gap: 6f);
-            // Skill rows share the source's role colour stripe; the wash tracks each skill's share of the source.
-            slots[i] = new AccentRowElement(row,
-                () => _skillBreakdown is { } sb ? RoleColorFor(sb.Source) : default,
-                () => idx < _skillRows.Count ? _skillRows[idx].Share : 0f);
         }
         return new ColumnElement(new HudElement[]
         {
@@ -65,6 +66,7 @@ public sealed partial class Plugin
             new RowElement(new HudElement[]
             {
                 new CellElement(new TextElement(() => "Skill", MutedCol), Weight: 1f),
+                new CellElement(new TextElement(() => "SHARE", MutedCol), Width: SkillColBar),
                 NumCell(() => _skillBreakdown is { } sb ? MetricColumnLabel(sb.Metric) : "TOTAL", SkillColTotal, muted: true),
                 NumCell(() => _skillBreakdown is { } sb ? MetricRateLabel(sb.Metric) : "DPS", SkillColDps, muted: true),
                 NumCell(() => "COUNT", SkillColCount, muted: true),
