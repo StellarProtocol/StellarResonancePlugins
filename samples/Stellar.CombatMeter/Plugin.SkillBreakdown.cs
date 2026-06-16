@@ -60,6 +60,7 @@ public sealed partial class Plugin
         {
             new TextElement(SkillHeader, Emphasis: true),
             new TextElement(SkillMeta, MutedCol),
+            BuildSkillDetailBlock(),
             new SeparatorElement(),
             new RowElement(new HudElement[]
             {
