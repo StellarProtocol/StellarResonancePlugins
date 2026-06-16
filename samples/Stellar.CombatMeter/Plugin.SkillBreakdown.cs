@@ -24,6 +24,7 @@ public sealed partial class Plugin
     {
         public EntityId Source;
         public EncounterHistoryEntry Session = null!;
+        public Metric Metric;   // captured at open time so the window is stable if the history metric later changes
     }
 
     private struct SkillRow
@@ -63,12 +64,12 @@ public sealed partial class Plugin
             new RowElement(new HudElement[]
             {
                 new CellElement(new TextElement(() => "Skill", MutedCol), Weight: 1f),
-                NumCell(() => "TOTAL DMG", SkillColTotal, muted: true),
-                NumCell(() => "DPS", SkillColDps, muted: true),
+                NumCell(() => _skillBreakdown is { } sb ? MetricColumnLabel(sb.Metric) : "TOTAL", SkillColTotal, muted: true),
+                NumCell(() => _skillBreakdown is { } sb ? MetricRateLabel(sb.Metric) : "DPS", SkillColDps, muted: true),
                 NumCell(() => "COUNT", SkillColCount, muted: true),
             }, Gap: 6f),
             new ConditionalElement(() => _skillRows.Count == 0,
-                new TextElement(() => "No skills recorded for this source.", MutedCol)),
+                new TextElement(SkillEmptyCaption, MutedCol)),
             new ConditionalElement(() => _skillRows.Count > 0,
                 new ScrollElement(new ListElement(() => _skillRows.Count, slots), SkillScrollHeight)),
         });
@@ -79,8 +80,16 @@ public sealed partial class Plugin
         if (_skillBreakdown is not { } sb) return "Skill Breakdown";
         EntityId self = _services.CombatSnapshot.LocalEntityId;
         var name = EntityLabel.Resolve(sb.Source, self, _services.PlayerState, _services.CombatLookup, _services.PartyRoster.Members);
-        return $"{name} — Skill Breakdown";
+        return $"{name} — {MetricColumnLabel(sb.Metric)} by skill";
     }
+
+    private string SkillEmptyCaption()
+        => _skillBreakdown?.Metric switch
+        {
+            Metric.Taken => "No incoming damage recorded.",
+            Metric.Hps   => "No healing recorded for this source.",
+            _            => "No skills recorded for this source.",
+        };
 
     private string SkillMeta()
     {
@@ -96,28 +105,66 @@ public sealed partial class Plugin
 
         // Stale-session guard: history capacity is 10; close if the drilled entry was evicted.
         if (!_history.Contains(state.Session)) { CloseSkillBreakdown(); return; }
-        if (!state.Session.Stats.TryGetValue(state.Source, out var src) || src.BySkill.Count == 0) return;
+        if (!state.Session.Stats.TryGetValue(state.Source, out var src)) return;
 
-        var rows = new List<KeyValuePair<int, SkillStats>>(src.BySkill.Count);
-        foreach (var kv in src.BySkill) rows.Add(kv);
-        rows.Sort(static (a, b) => b.Value.Total.CompareTo(a.Value.Total));
-
-        long sourceTotal = ComputeSourceSkillTotal(src);
         long durationMs = state.Session.CombatDurationMs;
+        if (state.Metric == Metric.Taken) RebuildIncomingRows(src, durationMs);
+        else                              RebuildOutgoingSkillRows(src, state.Metric, durationMs);
+    }
+
+    // DPS/HPS: per-skill outgoing rows. Metric total picks damage vs heal; pure-other skills (0 in this
+    // metric) are skipped so DPS mode hides heal-only skills and HPS hides damage-only ones.
+    private void RebuildOutgoingSkillRows(SourceStats src, Metric metric, long durationMs)
+    {
+        var rows = new List<KeyValuePair<int, SkillStats>>(src.BySkill.Count);
+        long sum = 0;
+        foreach (var kv in src.BySkill)
+        {
+            long v = SkillMetricTotal(kv.Value, metric);
+            if (v <= 0) continue;
+            rows.Add(kv);
+            sum += v;
+        }
+        rows.Sort((a, b) => SkillMetricTotal(b.Value, metric).CompareTo(SkillMetricTotal(a.Value, metric)));
+
         for (int i = 0; i < rows.Count && _skillRows.Count < MaxSkillSlots; i++)
         {
             var sk = rows[i].Value;
-            float pctDmg = sourceTotal > 0 ? 100f * sk.Total / sourceTotal : 0f;
+            long value = SkillMetricTotal(sk, metric);
+            float pct = sum > 0 ? 100f * value / sum : 0f;
             float critPct = sk.Hits > 0 ? 100f * sk.Crits / sk.Hits : 0f;
             _skillRows.Add(new SkillRow
             {
                 Rank = $"#{i + 1}",
                 Name = ResolveSkillName(rows[i].Key),
-                Sub = $"% DMG {pctDmg:F1}%   Count {sk.Hits}   Crit {critPct:F1}%",
-                Total = FormatAmount(sk.Total),
-                Dps = FormatAmount(ComputeArchivedDps(sk.Total, durationMs)),
+                Sub = $"% {MetricColumnLabel(metric)} {pct:F1}%   Count {sk.Hits}   Crit {critPct:F1}%",
+                Total = FormatAmount(value),
+                Dps = FormatAmount(ComputeArchivedDps(value, durationMs)),
                 Count = sk.Hits.ToString(),
-                Share = sourceTotal > 0 ? (float)sk.Total / sourceTotal : 0f,
+                Share = sum > 0 ? (float)value / sum : 0f,
+            });
+        }
+    }
+
+    // Taken: incoming damage grouped by attacker skill ("what hit you").
+    private void RebuildIncomingRows(SourceStats src, long durationMs)
+    {
+        var rows = BuildIncomingRows(src);
+        long sum = 0;
+        foreach (var r in rows) sum += r.Total;
+
+        for (int i = 0; i < rows.Count && _skillRows.Count < MaxSkillSlots; i++)
+        {
+            var r = rows[i];
+            _skillRows.Add(new SkillRow
+            {
+                Rank = $"#{i + 1}",
+                Name = ResolveSkillName(r.SkillId),
+                Sub = $"Count {r.Hits}   Max {FormatAmount(r.TopHit)}",
+                Total = FormatAmount(r.Total),
+                Dps = FormatAmount(ComputeArchivedDps(r.Total, durationMs)),
+                Count = r.Hits.ToString(),
+                Share = sum > 0 ? (float)r.Total / sum : 0f,
             });
         }
     }
@@ -126,13 +173,6 @@ public sealed partial class Plugin
     {
         var info = _services.GameData.Combat.GetSkill(skillId);
         return info is { Name: { Length: > 0 } name } ? name : $"#{skillId}";
-    }
-
-    private static long ComputeSourceSkillTotal(SourceStats stats)
-    {
-        long sum = 0;
-        foreach (var sk in stats.BySkill.Values) sum += sk.Total;
-        return sum;
     }
 
     // Metric-aware per-skill value: HPS reads the heal total, everything else (DPS/Taken) the damage total.
@@ -158,7 +198,7 @@ public sealed partial class Plugin
             CloseSkillBreakdown();
             return;
         }
-        _skillBreakdown = new SkillBreakdownState { Source = id, Session = session };
+        _skillBreakdown = new SkillBreakdownState { Source = id, Session = session, Metric = _historyMetric };
         RebuildSkillRows();
         _skillBreakdownWindow.SetVisible(true);
     }
