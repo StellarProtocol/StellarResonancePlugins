@@ -135,6 +135,22 @@ public sealed partial class Plugin
         return sum;
     }
 
+    // Metric-aware per-skill value: HPS reads the heal total, everything else (DPS/Taken) the damage total.
+    internal static long SkillMetricTotal(SkillStats sk, Metric m)
+        => m == Metric.Hps ? sk.HealTotal : sk.Total;
+
+    /// <summary>One incoming (Taken-mode) row: damage to the drilled source grouped by the attacker's skill.</summary>
+    internal readonly record struct IncomingRow(int SkillId, long Total, int Hits, long TopHit);
+
+    // Project a source's IncomingBySkill map into rows sorted by total taken (desc).
+    internal static IReadOnlyList<IncomingRow> BuildIncomingRows(SourceStats src)
+    {
+        var rows = new List<IncomingRow>(src.IncomingBySkill.Count);
+        foreach (var (sid, inc) in src.IncomingBySkill) rows.Add(new IncomingRow(sid, inc.Total, inc.Hits, inc.TopHit));
+        rows.Sort(static (a, b) => b.Total.CompareTo(a.Total));
+        return rows;
+    }
+
     private void HandleSkillBreakdownRequested(EntityId id, EncounterHistoryEntry session)
     {
         if (_skillBreakdown is { } sb && sb.Source == id && ReferenceEquals(sb.Session, session))
