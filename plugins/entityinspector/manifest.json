@@ -1,0 +1,9 @@
+{
+  "id": "entityinspector",
+  "name": "EntityInspector",
+  "description": "Inspect any entity: identity, attributes, gear and skill book. Adds an 'Inspect' item to CombatMeter rows and a magnifier button to the profile card.",
+  "version": "1.0.0",
+  "dll": "Stellar.EntityInspector.dll",
+  "author": "Stellar",
+  "minModSystemVersion": "1.0.0"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "statinspector",
+  "name": "StatInspector",
+  "description": "Live attribute readout (mini-HUD) with a grouped settings picker for the stats you want on screen.",
+  "version": "1.0.0",
+  "dll": "Stellar.StatInspector.dll",
+  "author": "Stellar",
+  "minModSystemVersion": "1.0.0"
+}
