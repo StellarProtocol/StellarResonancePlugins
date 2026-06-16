@@ -202,6 +202,9 @@ public sealed partial class Plugin
         var wasShown = _historyWindow.IsShown;
         _historyWindow.Remove();
         _historyWindow = RegisterHistoryWindow();
+        // Position actually survives via the Draggable window's persisted LayoutStorage rect (restored on the
+        // next mount); this SetRect is belt-and-suspenders (a no-op while Token is null pre-Tick) and the
+        // explicit guard matters only if this window ever becomes non-Draggable/non-persisted.
         if (rect.Width > 0f) _historyWindow.SetRect(rect);
         _historyWindow.SetVisible(wasShown);
     }
