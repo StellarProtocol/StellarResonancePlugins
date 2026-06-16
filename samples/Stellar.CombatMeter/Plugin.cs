@@ -143,17 +143,7 @@ public sealed partial class Plugin : IStellarPlugin
             BuildMainRoot()));
 
         _historyWindow = RegisterHistoryWindow();
-
-        _skillBreakdownWindow = _services.Windows.Register(new WindowRegistration(
-            new WindowSpec(
-                Id:          "combatmeter.skill-breakdown",
-                Title:       "Skill Breakdown",
-                DefaultRect: new WindowRect(1000f, 80f, 460f, 0f),
-                Category:    WindowCategory.HUD,
-                Style:       WindowPanelStyle.Party)   // popup dialog: free-drag + ✕ close (see history above)
-            { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
-            BuildSkillBreakdownRoot(),
-            OnClose: CloseSkillBreakdown));
+        _skillBreakdownWindow = RegisterSkillBreakdownWindow();
 
         _settingsWindow = BuildAndRegisterSettings();
         _rowMenuWindow = RegisterRowMenuWindow();

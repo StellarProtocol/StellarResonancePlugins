@@ -194,6 +194,34 @@ public sealed partial class Plugin
         return rows;
     }
 
+    // A popup dialog (opened from the History drill-in ►): free-drag + ✕ close, Party chrome. Shared by the
+    // initial registration (Plugin.cs) and the drill-in rebuild below.
+    private IWindowControl RegisterSkillBreakdownWindow() => _services.Windows.Register(new WindowRegistration(
+        new WindowSpec(
+            Id:          "combatmeter.skill-breakdown",
+            Title:       "Skill Breakdown",
+            DefaultRect: new WindowRect(1000f, 80f, 460f, 0f),
+            Category:    WindowCategory.HUD,
+            Style:       WindowPanelStyle.Party)   // popup dialog: free-drag + ✕ close (see history above)
+        { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
+        BuildSkillBreakdownRoot(),
+        OnClose: CloseSkillBreakdown));
+
+    // The per-skill BarElement bakes its Fill colour at element-BUILD time from _skillBreakdown.Source, so the
+    // root must be rebuilt once _skillBreakdown is set for the bars to read the drilled source's role colour
+    // (it is null at first registration, which would bake a transparent fill). Rebuild the window subtree
+    // (preserving rect + visibility) — the framework-sanctioned Remove()+Register() pattern (mirrors
+    // RebuildHistoryWindow). Fires only on drill-in (user action), never per-frame.
+    private void RebuildSkillBreakdownWindow()
+    {
+        var rect = _skillBreakdownWindow.Rect;
+        var wasShown = _skillBreakdownWindow.IsShown;
+        _skillBreakdownWindow.Remove();
+        _skillBreakdownWindow = RegisterSkillBreakdownWindow();
+        if (rect.Width > 0f) _skillBreakdownWindow.SetRect(rect);
+        _skillBreakdownWindow.SetVisible(wasShown);
+    }
+
     private void HandleSkillBreakdownRequested(EntityId id, EncounterHistoryEntry session)
     {
         if (_skillBreakdown is { } sb && sb.Source == id && ReferenceEquals(sb.Session, session))
@@ -203,6 +231,9 @@ public sealed partial class Plugin
         }
         _skillBreakdown = new SkillBreakdownState { Source = id, Session = session, Metric = _historyMetric };
         RebuildSkillRows();
+        // Rebuild the root now that _skillBreakdown is set so BuildSkillBreakdownRoot re-resolves the baked bar
+        // Fill to RoleColorFor(Source) — without this the bars keep the transparent fill baked at registration.
+        RebuildSkillBreakdownWindow();
         _skillBreakdownWindow.SetVisible(true);
     }
 
