@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace Stellar.CombatMeter;
 
@@ -29,8 +30,8 @@ internal sealed class SourceTimeline
         var idx = (int)((atMs - startMs) / BucketMs);
         if (idx < 0) idx = 0;
         while (idx >= _maxBuckets) { Coalesce(); idx = (int)((atMs - startMs) / BucketMs); }
-        var map = _ch[(int)channel];
-        map[idx] = map.TryGetValue(idx, out var cur) ? cur + amount : amount;
+        // Single hash lookup on the steady-state path: ref to the existing slot (or a freshly-added 0).
+        CollectionsMarshal.GetValueRefOrAddDefault(_ch[(int)channel], idx, out _) += amount;
     }
 
     private void Coalesce()
