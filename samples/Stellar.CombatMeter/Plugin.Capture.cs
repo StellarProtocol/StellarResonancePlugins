@@ -27,6 +27,14 @@ public sealed partial class Plugin
         // Damage taken: accrue onto the TARGET's stats (so Taken-mode can rank/aggregate victims).
         if (!d.IsHeal && d.TargetId.IsPlayer) CaptureTaken(d);
 
+        // Per-source stats/timeline: PLAYERS ONLY — mirror the _agg guard above. Mob sources are never
+        // shown (live rows come from _agg, which discards non-players; History/SkillBreakdown are
+        // player-focused), so a SourceStats (2 dicts) + SourceTimeline (3 dicts) per mob was pure dead
+        // weight. In a multi-round dungeon that grew _stats/_timelines with every mob ever seen (Clear()
+        // only fires on scene change/archive, never between rounds), ballooning the managed heap and
+        // driving the GC-pressure FPS decay users hit at the same dungeon spot each round.
+        if (!d.SourceId.IsPlayer) return;
+
         var s = StatsFor(d.SourceId);
 
         CaptureSpec(d);
