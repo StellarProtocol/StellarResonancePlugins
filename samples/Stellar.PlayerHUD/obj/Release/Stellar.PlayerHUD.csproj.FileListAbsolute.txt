@@ -1,0 +1,17 @@
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/bin/Release/Stellar.PlayerHUD.deps.json
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/bin/Release/Stellar.PlayerHUD.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/bin/Release/Stellar.PlayerHUD.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/bin/Release/Stellar.Abstractions.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/bin/Release/Stellar.Abstractions.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/bin/Release/Stellar.Abstractions.xml
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.csproj.AssemblyReference.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.GeneratedMSBuildEditorConfig.editorconfig
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.AssemblyInfoInputs.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.AssemblyInfo.cs
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.csproj.CoreCompileInputs.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.sourcelink.json
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar..6F784064.Up2Date
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/refint/Stellar.PlayerHUD.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/Stellar.PlayerHUD.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.PlayerHUD/obj/Release/ref/Stellar.PlayerHUD.dll

@@ -1,0 +1,17 @@
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/bin/Release/Stellar.CombatMeter.deps.json
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/bin/Release/Stellar.CombatMeter.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/bin/Release/Stellar.CombatMeter.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/bin/Release/Stellar.Abstractions.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/bin/Release/Stellar.Abstractions.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/bin/Release/Stellar.Abstractions.xml
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.csproj.AssemblyReference.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.GeneratedMSBuildEditorConfig.editorconfig
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.AssemblyInfoInputs.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.AssemblyInfo.cs
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.csproj.CoreCompileInputs.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.sourcelink.json
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar..3F28EFB4.Up2Date
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/refint/Stellar.CombatMeter.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/Stellar.CombatMeter.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.CombatMeter/obj/Release/ref/Stellar.CombatMeter.dll

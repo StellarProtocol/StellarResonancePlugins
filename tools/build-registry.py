@@ -84,6 +84,7 @@ def collect() -> list[dict]:
         version_entry = {
             "version": m["version"],
             "date": m.get("date", ""),
+            "dll": m["dll"],                 # canonical on-disk filename (the assembly name, e.g. Stellar.X.dll)
             "dllUrl": f"{ENDPOINT}/{BUCKET}/{key}",
             "sha256": sha256(dll),
             "minModSystemVersion": m["minModSystemVersion"],

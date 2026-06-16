@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Stellar.CooldownBar/1.0.0": {
+        "dependencies": {
+          "Stellar.Abstractions": "1.0.0"
+        },
+        "runtime": {
+          "Stellar.CooldownBar.dll": {}
+        }
+      },
+      "Stellar.Abstractions/1.0.0": {
+        "runtime": {
+          "Stellar.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Stellar.CooldownBar/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Stellar.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

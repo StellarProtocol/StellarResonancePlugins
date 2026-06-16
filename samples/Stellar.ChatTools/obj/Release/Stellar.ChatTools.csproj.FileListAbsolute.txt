@@ -1,0 +1,17 @@
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/bin/Release/Stellar.ChatTools.deps.json
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/bin/Release/Stellar.ChatTools.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/bin/Release/Stellar.ChatTools.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/bin/Release/Stellar.Abstractions.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/bin/Release/Stellar.Abstractions.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/bin/Release/Stellar.Abstractions.xml
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.csproj.AssemblyReference.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.GeneratedMSBuildEditorConfig.editorconfig
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.AssemblyInfoInputs.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.AssemblyInfo.cs
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.csproj.CoreCompileInputs.cache
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.sourcelink.json
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar..6197DB01.Up2Date
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/refint/Stellar.ChatTools.dll
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/Stellar.ChatTools.pdb
+/opt/game/game-project/stellar-plugins/samples/Stellar.ChatTools/obj/Release/ref/Stellar.ChatTools.dll
