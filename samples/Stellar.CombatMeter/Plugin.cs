@@ -55,6 +55,21 @@ public sealed partial class Plugin : IStellarPlugin
     private readonly Dictionary<EntityId, SourceStats> _stats = new();
     private readonly MeterAggregator _agg = new();
 
+    // EntityId -> per-second time-series (dealt/healing/taken). Frozen into history at archive.
+    internal const int TimelineBucketMs = 1000;
+    internal const int TimelineMaxBuckets = 600;
+    private readonly Dictionary<EntityId, SourceTimeline> _timelines = new();
+
+    private SourceTimeline TimelineFor(EntityId id)
+    {
+        if (!_timelines.TryGetValue(id, out var t))
+        {
+            t = new SourceTimeline(TimelineBucketMs, TimelineMaxBuckets);
+            _timelines[id] = t;
+        }
+        return t;
+    }
+
     private readonly IConfigSection _prefs;
 
     // Combat-timer state (unix ms).
@@ -234,18 +249,47 @@ public sealed partial class Plugin : IStellarPlugin
         if (evt is not CombatEvent.DamageDealt d) return;
 
         _agg.AddDamage(d.SourceId, d.Amount, d.IsHeal);
-        if (!d.IsHeal && d.TargetId.IsPlayer) _agg.AddTaken(d.TargetId, d.ActualAmount);
 
-        if (!_stats.TryGetValue(d.SourceId, out var s))
-        {
-            s = new SourceStats();
-            _stats[d.SourceId] = s;
-        }
+        // Damage taken: accrue onto the TARGET's stats (so Taken-mode can rank/aggregate victims).
+        if (!d.IsHeal && d.TargetId.IsPlayer) CaptureTaken(d);
+
+        var s = StatsFor(d.SourceId);
 
         CaptureSpec(d);
         ObserveResonanceCast(d);
-        if (d.IsHeal) { s.TotalHealing += d.Amount; return; }
+        if (d.IsHeal) { CaptureHeal(s, d); return; }
         AccumulateDamage(s, d);
+    }
+
+    // Get-or-create the per-source aggregate.
+    private SourceStats StatsFor(EntityId id)
+    {
+        if (!_stats.TryGetValue(id, out var s))
+        {
+            s = new SourceStats();
+            _stats[id] = s;
+        }
+        return s;
+    }
+
+    // Healing accrues to the source's total + per-skill heal total + healing timeline.
+    private void CaptureHeal(SourceStats s, CombatEvent.DamageDealt d)
+    {
+        s.TotalHealing += d.Amount;
+        if (!s.BySkill.TryGetValue(d.SkillId, out var hsk)) { hsk = new SkillStats(); s.BySkill[d.SkillId] = hsk; }
+        hsk.HealTotal += d.Amount;
+        if (_combatActive) TimelineFor(d.SourceId).Add(TimelineChannel.Healing, d.TimestampMs, _combatStartMs, d.Amount);
+    }
+
+    // Incoming damage to the target: total taken + per-attacker-skill breakdown + taken timeline.
+    private void CaptureTaken(CombatEvent.DamageDealt d)
+    {
+        _agg.AddTaken(d.TargetId, d.ActualAmount);
+        var ts = StatsFor(d.TargetId);
+        ts.TotalTaken += d.ActualAmount;
+        if (!ts.IncomingBySkill.TryGetValue(d.SkillId, out var inc)) { inc = new IncomingSkillStats(); ts.IncomingBySkill[d.SkillId] = inc; }
+        inc.Total += d.ActualAmount; inc.Hits += 1; if (d.ActualAmount > inc.TopHit) inc.TopHit = d.ActualAmount;
+        if (_combatActive) TimelineFor(d.TargetId).Add(TimelineChannel.Taken, d.TimestampMs, _combatStartMs, d.ActualAmount);
     }
 
     private void AccumulateDamage(SourceStats s, CombatEvent.DamageDealt d)
@@ -258,6 +302,7 @@ public sealed partial class Plugin : IStellarPlugin
         _lastDamageMs = d.TimestampMs;
 
         s.TotalDamage += d.Amount;
+        TimelineFor(d.SourceId).Add(TimelineChannel.Dealt, d.TimestampMs, _combatStartMs, d.Amount);
         s.Hits        += 1;
         if (d.IsCrit) s.Crits += 1;
         if (d.IsDead) s.Kills += 1;
@@ -317,6 +362,7 @@ public sealed partial class Plugin : IStellarPlugin
     private void Clear()
     {
         _stats.Clear();
+        _timelines.Clear();
         _agg.Reset();
         // Reset the per-entity bar-animation cache too — it's keyed by EntityId and would otherwise grow
         // unbounded across a session (one entry per entity ever ranked). Clear() is the encounter-reset hook
