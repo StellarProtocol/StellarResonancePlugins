@@ -80,41 +80,13 @@ public sealed partial class Plugin
     private HudElement BuildSessionDetail()
     {
         var slots = new HudElement[MaxSourceSlots];
-        for (var i = 0; i < MaxSourceSlots; i++)
-        {
-            var idx = i;
-            string F(Func<SourceRow, string> sel) => idx < _sessionRows.Count ? sel(_sessionRows[idx]) : "";
-            var row = new RowElement(new HudElement[]
-            {
-                new CellElement(new ColumnElement(new HudElement[]
-                {
-                    new TextElement(() => idx < _sessionRows.Count ? $"{_sessionRows[idx].Rank} {_sessionRows[idx].Name}" : "", Emphasis: true),
-                    new TextElement(() => F(r => r.Class), MutedCol),
-                }, Gap: 0f), Weight: 1f),
-                NumCell(() => F(r => r.Dmg), ColDmg),
-                NumCell(() => F(r => r.Dps), ColDps),
-                NumCell(() => F(r => r.Hps), ColHps),
-                NumCell(() => F(r => r.Count), ColCount),
-                NumCell(() => F(r => r.Heal), ColHeal),
-                NumCell(() => F(r => r.Pct), ColPct),
-                new CellElement(new ButtonElement(() => DrillLabel(idx), () => DrillIn(idx),
-                    Active: () => DrillOpen(idx)), Width: ColDrill),
-            }, Gap: 6f);
-            slots[i] = new AccentRowElement(row,
-                () => idx < _sessionRows.Count ? _sessionRows[idx].Role : default,
-                () => idx < _sessionRows.Count ? _sessionRows[idx].Share : 0f);
-        }
+        for (var i = 0; i < MaxSourceSlots; i++) slots[i] = BuildSourceRowSlot(i);
         var table = new ColumnElement(new HudElement[]
         {
+            BuildHistoryMetricRow(),
             new TextElement(SessionSummary, Emphasis: true),
-            new RowElement(new HudElement[]
-            {
-                new CellElement(new TextElement(() => "Source", MutedCol), Weight: 1f),
-                NumCell(() => "DMG", ColDmg, muted: true), NumCell(() => "DPS", ColDps, muted: true),
-                NumCell(() => "HPS", ColHps, muted: true), NumCell(() => "COUNT", ColCount, muted: true),
-                NumCell(() => "HEAL", ColHeal, muted: true), NumCell(() => "%DMG", ColPct, muted: true),
-                new CellElement(new TextElement(() => ""), Width: ColDrill),
-            }, Gap: 6f),
+            BuildHistoryChart(),
+            BuildDetailHeaderRow(),
             new ScrollElement(new ListElement(() => _sessionRows.Count, slots), HistDetailHeight),
         });
         return new ColumnElement(new HudElement[]
@@ -125,9 +97,70 @@ public sealed partial class Plugin
         });
     }
 
+    // The timeline chart: team-total (always) + a line per source toggled into _chartedSources. Axis scale +
+    // Y title follow _historyMetric; rebuilt (not refreshed) on metric change so the baked axis rescales.
+    private HudElement BuildHistoryChart() => new LineChartElement(
+        Series:          BuildChartSeries,
+        BucketSeconds:   () => _selectedSession is { } h ? SeriesBucketSeconds(h) : 1f,
+        FormatY:         v => FormatAmount((long)v),
+        FormatX:         FormatSeconds,
+        TitleY:          () => MetricAxisTitle(_historyMetric),
+        TitleX:          () => "Encounter time (m:ss)",
+        VisibleRange:    () => _chartVisibleRange,
+        SetVisibleRange: r => _chartVisibleRange = r,
+        Width:           500f,
+        Height:          180f);
+
+    // Metric-aware column header — the primary value column + rate column relabel with _historyMetric.
+    private HudElement BuildDetailHeaderRow() => new RowElement(new HudElement[]
+    {
+        new CellElement(new TextElement(() => "Source", MutedCol), Weight: 1f),
+        NumCell(() => MetricColumnLabel(_historyMetric), ColDmg, muted: true),
+        NumCell(() => MetricRateLabel(_historyMetric), ColDps, muted: true),
+        NumCell(() => "HPS", ColHps, muted: true), NumCell(() => "COUNT", ColCount, muted: true),
+        NumCell(() => "HEAL", ColHeal, muted: true), NumCell(() => "%", ColPct, muted: true),
+        new CellElement(new TextElement(() => ""), Width: ColDrill),
+    }, Gap: 6f);
+
+    // One source row: AccentRowElement (metric-share stripe) wrapped in a SelectableElement so a body click
+    // toggles the chart line, while the inner ► ButtonElement keeps its own hit area for the drill-in.
+    private HudElement BuildSourceRowSlot(int i)
+    {
+        var idx = i;
+        string F(Func<SourceRow, string> sel) => idx < _sessionRows.Count ? sel(_sessionRows[idx]) : "";
+        var row = new RowElement(new HudElement[]
+        {
+            new CellElement(new ColumnElement(new HudElement[]
+            {
+                new TextElement(() => idx < _sessionRows.Count ? $"{_sessionRows[idx].Rank} {_sessionRows[idx].Name}" : "", Emphasis: true),
+                new TextElement(() => F(r => r.Class), MutedCol),
+            }, Gap: 0f), Weight: 1f),
+            NumCell(() => F(r => r.Dmg), ColDmg),
+            NumCell(() => F(r => r.Dps), ColDps),
+            NumCell(() => F(r => r.Hps), ColHps),
+            NumCell(() => F(r => r.Count), ColCount),
+            NumCell(() => F(r => r.Heal), ColHeal),
+            NumCell(() => F(r => r.Pct), ColPct),
+            new CellElement(new ButtonElement(() => DrillLabel(idx), () => DrillIn(idx),
+                Active: () => DrillOpen(idx)), Width: ColDrill),
+        }, Gap: 6f);
+        var accent = new AccentRowElement(row,
+            () => idx < _sessionRows.Count ? _sessionRows[idx].Role : default,
+            () => idx < _sessionRows.Count ? _sessionRows[idx].Share : 0f);
+        return new SelectableElement(accent,
+            OnClick:  () => { if (idx < _sessionRows.Count) ToggleChartSource(_sessionRows[idx].Id); },
+            Selected: () => idx < _sessionRows.Count && _chartedSources.Contains(_sessionRows[idx].Id));
+    }
+
     // Right-aligned fixed-width numeric column cell.
     private HudElement NumCell(Func<string> text, float width, bool muted = false)
         => new CellElement(new TextElement(text, muted ? MutedCol : (Func<ColorRgba?>?)null, Align: TextAlign.Right), Width: width);
+
+    private static string FormatSeconds(float s)
+    {
+        var total = (int)(s < 0f ? 0f : s);
+        return $"{total / 60}:{total % 60:00}";
+    }
 
     private string SessionSummary()
     {
@@ -139,7 +172,36 @@ public sealed partial class Plugin
     {
         _historyIndex = historyIndex;
         _selectedSession = historyIndex >= 0 && historyIndex < _history.Count ? _history[historyIndex] : null;
+        // The visible (zoom) window covers the full encounter span when a session is selected.
+        var durationSeconds = _selectedSession is { } h ? h.CombatDurationMs / 1000f : 0f;
+        _chartVisibleRange = (0f, durationSeconds);
         RebuildSessionRows();
+    }
+
+    // A popup dialog (opened from the ≡ menu): free-drag + ✕ close. EditModeDragOnly defaults false, so it
+    // drags freely (not editor-managed) even though it wears the Party chrome. Shared by the initial
+    // registration (Plugin.cs) and the metric-change rebuild below.
+    private IWindowControl RegisterHistoryWindow() => _services.Windows.Register(new WindowRegistration(
+        new WindowSpec(
+            Id:          "combatmeter.history",
+            Title:       "Combat History",
+            DefaultRect: new WindowRect(900f, 380f, 780f, 0f),
+            Category:    WindowCategory.HUD,
+            Style:       WindowPanelStyle.Party)
+        { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
+        BuildHistoryRoot(),
+        OnClose: CloseHistory));
+
+    // The LineChartElement bakes axis ticks at build time; rebuild the window subtree (preserving rect +
+    // visibility) so a metric change rescales the Y axis. Framework-sanctioned Remove()+Register() pattern.
+    private void RebuildHistoryWindow()
+    {
+        var rect = _historyWindow.Rect;
+        var wasShown = _historyWindow.IsShown;
+        _historyWindow.Remove();
+        _historyWindow = RegisterHistoryWindow();
+        if (rect.Width > 0f) _historyWindow.SetRect(rect);
+        _historyWindow.SetVisible(wasShown);
     }
 
     // ----- drill-in (►) -----
@@ -182,24 +244,26 @@ public sealed partial class Plugin
         _sessionRows.Clear();
         if (_selectedSession is not { } h || h.Stats.Count == 0) return;
 
-        long totalDmg = ComputeSessionTotalDamage(h);
+        var metric = _historyMetric;
+        long metricTotal = ComputeSessionMetricTotal(h, metric);
         var rows = new List<KeyValuePair<EntityId, SourceStats>>(h.Stats.Count);
         foreach (var kv in h.Stats) rows.Add(kv);
-        rows.Sort(static (a, b) => b.Value.TotalDamage.CompareTo(a.Value.TotalDamage));
+        rows.Sort((a, b) => MetricValueOf(b.Value, metric).CompareTo(MetricValueOf(a.Value, metric)));
 
         EntityId self = _services.CombatSnapshot.LocalEntityId;
         for (int i = 0; i < rows.Count && _sessionRows.Count < MaxSourceSlots; i++)
         {
             var id = rows[i].Key; var s = rows[i].Value;
-            var pct = totalDmg > 0 ? (float)s.TotalDamage / totalDmg : 0f;
+            long value = MetricValueOf(s, metric);
+            var pct = metricTotal > 0 ? (float)value / metricTotal : 0f;
             _sessionRows.Add(new SourceRow
             {
                 Id = id,
                 Rank = $"#{i + 1}",
                 Name = EntityLabel.Resolve(id, self, _services.PlayerState, _services.CombatLookup, _services.PartyRoster.Members),
                 Class = GetClassLine(id),
-                Dmg = FormatAmount(s.TotalDamage),
-                Dps = FormatAmount(ComputeArchivedDps(s.TotalDamage, h.CombatDurationMs)),
+                Dmg = FormatAmount(value),                                              // primary = metric value
+                Dps = FormatAmount(ComputeArchivedDps(value, h.CombatDurationMs)),       // rate = metric / sec
                 Hps = FormatAmount(ComputeArchivedDps(s.TotalHealing, h.CombatDurationMs)),
                 Count = s.Hits.ToString(),
                 Heal = FormatAmount(s.TotalHealing),
@@ -230,10 +294,10 @@ public sealed partial class Plugin
         return m > 0 ? $"{m}m {s}s" : $"{s}s";
     }
 
-    private static long ComputeSessionTotalDamage(EncounterHistoryEntry h)
+    private static long ComputeSessionMetricTotal(EncounterHistoryEntry h, Metric m)
     {
         long sum = 0;
-        foreach (var s in h.Stats.Values) sum += s.TotalDamage;
+        foreach (var s in h.Stats.Values) sum += MetricValueOf(s, m);
         return sum;
     }
 

@@ -142,18 +142,7 @@ public sealed partial class Plugin : IStellarPlugin
               Resizable = true, MinWidth = 240f, MinHeight = 160f, MaxWidth = 760f, MaxHeight = 1000f },
             BuildMainRoot()));
 
-        _historyWindow = _services.Windows.Register(new WindowRegistration(
-            new WindowSpec(
-                Id:          "combatmeter.history",
-                Title:       "Combat History",
-                DefaultRect: new WindowRect(900f, 380f, 780f, 0f),
-                Category:    WindowCategory.HUD,
-                Style:       WindowPanelStyle.Party)
-            // A popup dialog (opened from the ≡ menu): free-drag + ✕ close. EditModeDragOnly defaults false, so
-            // it drags freely (not editor-managed) even though it wears the Party chrome.
-            { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
-            BuildHistoryRoot(),
-            OnClose: CloseHistory));
+        _historyWindow = RegisterHistoryWindow();
 
         _skillBreakdownWindow = _services.Windows.Register(new WindowRegistration(
             new WindowSpec(

@@ -56,6 +56,11 @@ public sealed partial class Plugin
         if (_historyMetric == m) return;
         _historyMetric = m;
         RebuildSessionRows();   // re-sort/re-label the contribution table
-        // TODO(Task3): trigger detail rebuild so the chart's baked Y axis rescales for the new metric.
+        // The LineChartElement bakes its Y-tick label values (and X tick labels) at element-BUILD time, so a
+        // plain MarkDirty (which only re-polls values) leaves the axis scaled to the previous metric's
+        // magnitude. Tear the window down + re-register a fresh tree so BuildYTicks re-derives from the new
+        // metric's peak — the framework-sanctioned Remove()+Register() rebuild (mirrors StatInspector's
+        // column-count change; see WindowService.Register).
+        RebuildHistoryWindow();
     }
 }
