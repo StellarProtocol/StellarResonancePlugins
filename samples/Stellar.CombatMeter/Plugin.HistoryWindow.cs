@@ -172,7 +172,9 @@ public sealed partial class Plugin
     {
         _historyIndex = historyIndex;
         _selectedSession = historyIndex >= 0 && historyIndex < _history.Count ? _history[historyIndex] : null;
-        // The visible (zoom) window covers the full encounter span when a session is selected.
+        // A new session => no carried-over chart lines, and the visible (zoom) window resets to the full span.
+        _chartedSources.Clear();
+        _chartSourcesVersion++;   // mark the cached chart series stale
         var durationSeconds = _selectedSession is { } h ? h.CombatDurationMs / 1000f : 0f;
         _chartVisibleRange = (0f, durationSeconds);
         RebuildSessionRows();
@@ -235,7 +237,7 @@ public sealed partial class Plugin
         }
         // Keep the selected session in sync (it may have been evicted).
         if (_historyIndex >= 0 && _historyIndex < _history.Count) _selectedSession = _history[_historyIndex];
-        else { _selectedSession = null; _historyIndex = -1; }
+        else { _selectedSession = null; _historyIndex = -1; _chartedSources.Clear(); _chartSourcesVersion++; }
         RebuildSessionRows();
     }
 
