@@ -34,6 +34,7 @@ public sealed partial class Plugin : IStellarPlugin
     private IWindowControl _mainWindow = null!;
     private IWindowControl _historyWindow = null!;
     private IWindowControl _skillBreakdownWindow = null!;
+    private IWindowControl _snapshotWindow = null!;
     private IWindowControl _settingsWindow = null!;
     private IHotkeyAction _toggleAction = null!;
     private IHotkeyAction _historyAction = null!;
@@ -116,6 +117,7 @@ public sealed partial class Plugin : IStellarPlugin
         _lastSceneName = _services.ClientState.CurrentSceneName;
 
         OnSkillBreakdownRequested += HandleSkillBreakdownRequested;
+        OnInspectRequested += HandleInspectRequested;
     }
 
     private void RegisterColours()
@@ -149,6 +151,7 @@ public sealed partial class Plugin : IStellarPlugin
 
         _historyWindow = RegisterHistoryWindow();
         _skillBreakdownWindow = RegisterSkillBreakdownWindow();
+        _snapshotWindow = RegisterSnapshotWindow();
 
         _settingsWindow = BuildAndRegisterSettings();
         _rowMenuWindow = RegisterRowMenuWindow();
@@ -175,6 +178,7 @@ public sealed partial class Plugin : IStellarPlugin
         _services.Framework.Update                 -= OnUpdate;
         _services.ClientState.SceneChanged         -= OnSceneChanged;
         OnSkillBreakdownRequested -= HandleSkillBreakdownRequested;
+        OnInspectRequested -= HandleInspectRequested;
 
         _roleDpsSlot.Dispose();
         _roleTankSlot.Dispose();
@@ -185,6 +189,7 @@ public sealed partial class Plugin : IStellarPlugin
         _toggleAction.Dispose();
         _rowMenuWindow.Remove();
         _settingsWindow.Remove();
+        _snapshotWindow.Remove();
         _skillBreakdownWindow.Remove();
         _historyWindow.Remove();
         _mainWindow.Remove();
@@ -223,6 +228,7 @@ public sealed partial class Plugin : IStellarPlugin
         }
         if (_historyWindow.IsShown) RebuildHistorySnapshots();
         if (_skillBreakdownWindow.IsShown) RebuildSkillRows();
+        if (_snapshotWindow.IsShown) RebuildSnapshotRows();
     }
 
     private void Clear()

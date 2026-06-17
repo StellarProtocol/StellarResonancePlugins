@@ -14,6 +14,7 @@ namespace Stellar.CombatMeter;
 public sealed partial class Plugin
 {
     internal event Action<EntityId, EncounterHistoryEntry>? OnSkillBreakdownRequested;
+    internal event Action<EntityId, EncounterHistoryEntry>? OnInspectRequested;
 
     private const int MaxSessionSlots = HistoryCapacity;   // session list bound
     private const int MaxSourceSlots  = 24;                 // detail rows bound
@@ -21,7 +22,7 @@ public sealed partial class Plugin
     private const float HistDetailHeight = 260f;
     // Detail table columns (right-aligned numerics) — 3 metric-aware numerics + drill ►:
     // DPS: DMG·DPS·% ; HPS: HEAL·HPS·% ; Taken: TAKEN·DTPS·%.
-    private const float ColPrimary = 64f, ColRate = 56f, ColPct = 44f, ColDrill = 26f;
+    private const float ColPrimary = 64f, ColRate = 56f, ColPct = 44f, ColDrill = 26f, ColInspect = 28f;
 
     private int _historyIndex = -1;   // -1 = no session selected (original history-list index)
     private EncounterHistoryEntry? _selectedSession;
@@ -144,6 +145,7 @@ public sealed partial class Plugin
         NumCell(() => MetricColumnLabel(_historyMetric), ColPrimary, muted: true),
         NumCell(() => MetricRateLabel(_historyMetric), ColRate, muted: true),
         NumCell(() => "%", ColPct, muted: true),
+        new CellElement(new TextElement(() => ""), Width: ColInspect),
         new CellElement(new TextElement(() => ""), Width: ColDrill),
     }, Gap: 6f);
 
@@ -163,6 +165,12 @@ public sealed partial class Plugin
             NumCell(() => F(r => r.Dmg), ColPrimary),
             NumCell(() => F(r => r.Dps), ColRate),
             NumCell(() => F(r => r.Pct), ColPct),
+            // Inspect (frozen entity snapshot) — own hit area, shown only when this row is a player WITH a
+            // captured snapshot. The button label/visibility track InspectAvailable so non-player or
+            // no-snapshot rows show nothing (no clobbering the body click-to-chart or the ► drill).
+            new CellElement(new ConditionalElement(() => InspectAvailable(idx),
+                new ButtonElement(() => InspectOpen(idx) ? "◉" : "○", () => InspectRow(idx),
+                    Active: () => InspectOpen(idx))), Width: ColInspect),
             new CellElement(new ButtonElement(() => DrillLabel(idx), () => DrillIn(idx),
                 Active: () => DrillOpen(idx)), Width: ColDrill),
         }, Gap: 6f);
@@ -286,6 +294,23 @@ public sealed partial class Plugin
     {
         if (idx >= _sessionRows.Count || _selectedSession is not { } h) return;
         OnSkillBreakdownRequested?.Invoke(_sessionRows[idx].Id, h);
+    }
+
+    // ----- inspect (frozen entity snapshot, issue #5) -----
+
+    // Shown only for a player row whose session captured a snapshot (id.IsPlayer && Entities has the key).
+    private bool InspectAvailable(int idx)
+        => idx < _sessionRows.Count && _selectedSession is { } h
+           && _sessionRows[idx].Id.IsPlayer && h.Entities.ContainsKey(_sessionRows[idx].Id);
+
+    private bool InspectOpen(int idx)
+        => idx < _sessionRows.Count && _selectedSession is { } h && _snapshot is { } s
+           && s.Source == _sessionRows[idx].Id && ReferenceEquals(s.Session, h);
+
+    private void InspectRow(int idx)
+    {
+        if (idx >= _sessionRows.Count || _selectedSession is not { } h) return;
+        OnInspectRequested?.Invoke(_sessionRows[idx].Id, h);
     }
 
     // ----- snapshots -----
