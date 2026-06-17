@@ -19,8 +19,9 @@ public sealed partial class Plugin
     private const int MaxSourceSlots  = 24;                 // detail rows bound
     private const float HistListHeight   = 300f;
     private const float HistDetailHeight = 260f;
-    // Detail table columns (right-aligned numerics) — TOTAL DMG · DPS · HPS · COUNT · HEAL · %DMG + drill ►.
-    private const float ColDmg = 72f, ColDps = 56f, ColHps = 56f, ColCount = 46f, ColHeal = 56f, ColPct = 48f, ColDrill = 26f;
+    // Detail table columns (right-aligned numerics) — 3 metric-aware numerics + drill ►:
+    // DPS: DMG·DPS·% ; HPS: HEAL·HPS·% ; Taken: TAKEN·DTPS·%.
+    private const float ColPrimary = 64f, ColRate = 56f, ColPct = 44f, ColDrill = 26f;
 
     private int _historyIndex = -1;   // -1 = no session selected (original history-list index)
     private EncounterHistoryEntry? _selectedSession;
@@ -30,16 +31,17 @@ public sealed partial class Plugin
 
     private readonly struct SessionEntry
     {
-        public SessionEntry(int idx, string time, string dur, string players, string scene)
-        { Index = idx; Time = time; Dur = dur; Players = players; Scene = scene; }
-        public readonly int Index; public readonly string Time, Dur, Players, Scene;
+        public SessionEntry(int idx, string clock, string meta)
+        { Index = idx; Clock = clock; Meta = meta; }
+        // Clock = compact "⏱ 2:14p" emphasis line; Meta = pre-joined "{dur} · {n}p · {scene}" muted line.
+        public readonly int Index; public readonly string Clock, Meta;
     }
 
     // Field struct (no constructor) — keeps clear of the analyzer's ctor-dependency cap.
     private struct SourceRow
     {
         public EntityId Id;
-        public string Rank, Name, Class, Dmg, Dps, Hps, Count, Heal, Pct;
+        public string Rank, Name, Class, Dmg, Dps, Pct;
         public float Share;
         public ColorRgba Role;
     }
@@ -60,10 +62,8 @@ public sealed partial class Plugin
             slots[i] = new SelectableElement(
                 new ColumnElement(new HudElement[]
                 {
-                    new TextElement(() => idx < _historyView.Count ? "⏱ " + _historyView[idx].Time : "", Emphasis: true),
-                    new TextElement(() => idx < _historyView.Count ? _historyView[idx].Dur : "", MutedCol),
-                    new TextElement(() => idx < _historyView.Count ? _historyView[idx].Players : "", MutedCol),
-                    new TextElement(() => idx < _historyView.Count ? _historyView[idx].Scene : "", MutedCol),
+                    new TextElement(() => idx < _historyView.Count ? "⏱ " + _historyView[idx].Clock : "", Emphasis: true),
+                    new TextElement(() => idx < _historyView.Count ? _historyView[idx].Meta : "", MutedCol),
                 }, Gap: 1f),
                 OnClick: () => { if (idx < _historyView.Count) SelectSession(_historyView[idx].Index); },
                 Selected: () => idx < _historyView.Count && _historyView[idx].Index == _historyIndex);
@@ -115,10 +115,9 @@ public sealed partial class Plugin
     private HudElement BuildDetailHeaderRow() => new RowElement(new HudElement[]
     {
         new CellElement(new TextElement(() => "Source", MutedCol), Weight: 1f),
-        NumCell(() => MetricColumnLabel(_historyMetric), ColDmg, muted: true),
-        NumCell(() => MetricRateLabel(_historyMetric), ColDps, muted: true),
-        NumCell(() => "HPS", ColHps, muted: true), NumCell(() => "COUNT", ColCount, muted: true),
-        NumCell(() => "HEAL", ColHeal, muted: true), NumCell(() => "%", ColPct, muted: true),
+        NumCell(() => MetricColumnLabel(_historyMetric), ColPrimary, muted: true),
+        NumCell(() => MetricRateLabel(_historyMetric), ColRate, muted: true),
+        NumCell(() => "%", ColPct, muted: true),
         new CellElement(new TextElement(() => ""), Width: ColDrill),
     }, Gap: 6f);
 
@@ -135,11 +134,8 @@ public sealed partial class Plugin
                 new TextElement(() => idx < _sessionRows.Count ? $"{_sessionRows[idx].Rank} {_sessionRows[idx].Name}" : "", Emphasis: true),
                 new TextElement(() => F(r => r.Class), MutedCol),
             }, Gap: 0f), Weight: 1f),
-            NumCell(() => F(r => r.Dmg), ColDmg),
-            NumCell(() => F(r => r.Dps), ColDps),
-            NumCell(() => F(r => r.Hps), ColHps),
-            NumCell(() => F(r => r.Count), ColCount),
-            NumCell(() => F(r => r.Heal), ColHeal),
+            NumCell(() => F(r => r.Dmg), ColPrimary),
+            NumCell(() => F(r => r.Dps), ColRate),
             NumCell(() => F(r => r.Pct), ColPct),
             new CellElement(new ButtonElement(() => DrillLabel(idx), () => DrillIn(idx),
                 Active: () => DrillOpen(idx)), Width: ColDrill),
@@ -231,12 +227,12 @@ public sealed partial class Plugin
         for (int i = _history.Count - 1; i >= 0; i--)   // newest first
         {
             var h = _history[i];
+            var dur = FormatSessionDurationShort(h.CombatDurationMs);
+            var scene = h.SceneName ?? "";
             _historyView.Add(new SessionEntry(
                 i,
-                FormatSessionTimestamp(h.ArchivedAtMs),
-                FormatSessionDurationShort(h.CombatDurationMs),
-                $"{h.MemberCount} players",
-                h.SceneName ?? ""));
+                FormatSessionClock(h.ArchivedAtMs),
+                $"{dur} · {h.MemberCount}p · {scene}"));
         }
         // Keep the selected session in sync (it may have been evicted).
         if (_historyIndex >= 0 && _historyIndex < _history.Count) _selectedSession = _history[_historyIndex];
@@ -269,9 +265,6 @@ public sealed partial class Plugin
                 Class = GetClassLine(id),
                 Dmg = FormatAmount(value),                                              // primary = metric value
                 Dps = FormatAmount(ComputeArchivedDps(value, h.CombatDurationMs)),       // rate = metric / sec
-                Hps = FormatAmount(ComputeArchivedDps(s.TotalHealing, h.CombatDurationMs)),
-                Count = s.Hits.ToString(),
-                Heal = FormatAmount(s.TotalHealing),
                 Pct = FormatPercent(pct),
                 Share = pct,
                 Role = RoleColorFor(id),
@@ -286,8 +279,15 @@ public sealed partial class Plugin
         long secs = durationMs / 1000; if (secs < 1) secs = 1; return totalDamage / secs;
     }
 
-    private static string FormatSessionTimestamp(long ms)
-        => ms <= 0 ? "—" : DateTimeOffset.FromUnixTimeMilliseconds(ms).LocalDateTime.ToString("M/d, h:mm tt");
+    // Compact session-list clock: "h:mm" + a single lowercase a/p meridiem (e.g. 2:14p, 11:05a).
+    private static string FormatSessionClock(long ms)
+    {
+        if (ms <= 0) return "—";
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(ms).LocalDateTime;
+        int hour12 = dt.Hour % 12; if (hour12 == 0) hour12 = 12;
+        char ap = dt.Hour < 12 ? 'a' : 'p';
+        return $"{hour12}:{dt.Minute:00}{ap}";
+    }
 
     private static string FormatSessionTimestampLong(long ms)
         => ms <= 0 ? "—" : DateTimeOffset.FromUnixTimeMilliseconds(ms).LocalDateTime.ToString("M/d/yyyy, h:mm:ss tt");

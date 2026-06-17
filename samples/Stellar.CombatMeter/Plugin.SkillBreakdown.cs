@@ -15,7 +15,7 @@ public sealed partial class Plugin
 {
     private const int MaxSkillSlots = 40;
     private const float SkillScrollHeight = 280f;
-    private const float SkillColTotal = 90f, SkillColDps = 70f, SkillColCount = 56f, SkillColBar = 90f;
+    private const float SkillColTotal = 90f, SkillColDps = 70f, SkillColCount = 64f, SkillColBar = 90f;
 
     private SkillBreakdownState? _skillBreakdown;
     private readonly List<SkillRow> _skillRows = new(MaxSkillSlots);
@@ -69,7 +69,7 @@ public sealed partial class Plugin
                 new CellElement(new TextElement(() => "SHARE", MutedCol), Width: SkillColBar),
                 NumCell(() => _skillBreakdown is { } sb ? MetricColumnLabel(sb.Metric) : "TOTAL", SkillColTotal, muted: true),
                 NumCell(() => _skillBreakdown is { } sb ? MetricRateLabel(sb.Metric) : "DPS", SkillColDps, muted: true),
-                NumCell(() => "COUNT", SkillColCount, muted: true),
+                NumCell(() => "HITS", SkillColCount, muted: true),
             }, Gap: 6f),
             new ConditionalElement(() => _skillRows.Count == 0,
                 new TextElement(SkillEmptyCaption, MutedCol)),
