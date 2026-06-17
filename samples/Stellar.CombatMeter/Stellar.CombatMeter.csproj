@@ -26,5 +26,7 @@
     <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(GameInterop)/UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameInterop)/UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(GameInterop)/UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <!-- ImageConversion.EncodeToPNG — bake the procedural inspect (magnifier) icon to PNG bytes for ButtonElement.Icon. -->
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameInterop)/UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
 </Project>

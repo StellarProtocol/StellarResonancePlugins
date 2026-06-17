@@ -95,6 +95,8 @@ public sealed partial class Plugin : IStellarPlugin
         _services = services;
         _services.Log.Info("[CombatMeter] plugin constructed");
 
+        _inspectIconPng = BuildInspectMagnifierPng();   // procedural magnifier for the history Inspect button (main thread)
+
         _prefs = _services.Config.GetSection("combatmeter");
         _metric   = (Metric)     _prefs.Get("metric", (int)Metric.Dps);
         _filter   = (FilterMode) _prefs.Get("scope",  (int)FilterMode.Party);

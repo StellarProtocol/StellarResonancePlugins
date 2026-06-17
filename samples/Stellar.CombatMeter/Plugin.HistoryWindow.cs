@@ -22,7 +22,10 @@ public sealed partial class Plugin
     private const float HistDetailHeight = 260f;
     // Detail table columns (right-aligned numerics) — 3 metric-aware numerics + drill ►:
     // DPS: DMG·DPS·% ; HPS: HEAL·HPS·% ; Taken: TAKEN·DTPS·%.
-    private const float ColPrimary = 64f, ColRate = 56f, ColPct = 44f, ColDrill = 26f, ColInspect = 28f;
+    // Inspect + drill are equal-sized action buttons (same button Width + same cell width) so the row's two
+    // affordances read as a matched pair. ActionBtnW pins the button; the cell is a hair wider for centering slack.
+    private const float ColPrimary = 64f, ColRate = 56f, ColPct = 44f;
+    private const float ActionBtnW = 30f, ColDrill = 34f, ColInspect = 34f;
 
     private int _historyIndex = -1;   // -1 = no session selected (original history-list index)
     private EncounterHistoryEntry? _selectedSession;
@@ -179,11 +182,13 @@ public sealed partial class Plugin
             // Inspect (frozen entity snapshot) — own hit area, shown only when this row is a player WITH a
             // captured snapshot. The button label/visibility track InspectAvailable so non-player or
             // no-snapshot rows show nothing (no clobbering the body click-to-chart or the ► drill).
+            // Magnifier icon (procedural, baked once) instead of the old ○/◉ glyph — clearer "inspect" affordance,
+            // matching the Entity Inspector's profile-card action. Active() highlights it while the snapshot is open.
             new CellElement(new ConditionalElement(() => InspectAvailable(idx),
-                new ButtonElement(() => InspectOpen(idx) ? "◉" : "○", () => InspectRow(idx),
-                    Active: () => InspectOpen(idx))), Width: ColInspect),
+                new ButtonElement(() => "", () => InspectRow(idx),
+                    Active: () => InspectOpen(idx), Width: ActionBtnW, Icon: () => _inspectIconPng)), Width: ColInspect),
             new CellElement(new ButtonElement(() => DrillLabel(idx), () => DrillIn(idx),
-                Active: () => DrillOpen(idx)), Width: ColDrill),
+                Active: () => DrillOpen(idx), Width: ActionBtnW), Width: ColDrill),
         }, Gap: 6f);
         var accent = new AccentRowElement(row,
             () => idx < _sessionRows.Count ? _sessionRows[idx].Role : default,
@@ -216,11 +221,15 @@ public sealed partial class Plugin
 
     // Summary line + a right-aligned "Delete this session" affordance for the currently selected session. The
     // detail-pane button avoids per-row hit-area conflicts with the SelectableElement rows in the session list.
+    private const float DeleteSessionBtnW = 132f;
+
     private HudElement BuildSessionSummaryRow() => new RowElement(new HudElement[]
     {
         new CellElement(new TextElement(SessionSummary, Emphasis: true), Weight: 1f),
+        // Fixed width so the row RESERVES the button's space — otherwise the weight-1 summary cell takes the full
+        // width and the button overdraws the wrapped meta text when the window is narrowed (#delete-overlap).
         new ButtonElement(() => "Delete session", DeleteSelectedSession,
-            Enabled: () => _selectedSession is not null),
+            Enabled: () => _selectedSession is not null, Width: DeleteSessionBtnW),
     }, Gap: 6f);
 
     private void DeleteSelectedSession()

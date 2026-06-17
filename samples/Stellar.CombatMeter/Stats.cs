@@ -15,6 +15,7 @@ internal sealed class SourceStats
     public long TopHit;
     public int  Hits;
     public int  Crits;
+    public int  Luckys;              // NEW: lucky-hit count (DamageDealt.IsLucky) — for Luck% alongside Crit%
     public int  Kills;
     public long FirstHitMs;
     public long LastHitMs;
@@ -29,6 +30,7 @@ internal sealed class SkillStats
     public long HealTotal;           // NEW: healing total for this skill
     public int  Hits;
     public int  Crits;
+    public int  Luckys;              // NEW: lucky-hit count for this skill
     public long TopHit;
 }
 

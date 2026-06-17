@@ -100,6 +100,7 @@ public sealed partial class Plugin
                 TopHit       = src.TopHit,
                 Hits         = src.Hits,
                 Crits        = src.Crits,
+                Luckys       = src.Luckys,
                 Kills        = src.Kills,
                 FirstHitMs   = src.FirstHitMs,
                 LastHitMs    = src.LastHitMs,
@@ -114,6 +115,7 @@ public sealed partial class Plugin
                     HealTotal = sk.HealTotal,
                     Hits      = sk.Hits,
                     Crits     = sk.Crits,
+                    Luckys    = sk.Luckys,
                     TopHit    = sk.TopHit,
                 };
             }

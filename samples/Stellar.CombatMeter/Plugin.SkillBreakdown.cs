@@ -44,18 +44,25 @@ public sealed partial class Plugin
             // old AccentRowElement wash — both encoded the same Share, so the wash was dropped to avoid
             // double-encoding. Fill is baked at build time from the source captured at open (stable).
             ColorRgba barColor = _skillBreakdown is { } sbColor ? RoleColorFor(sbColor.Source) : default;
-            slots[i] = new RowElement(new HudElement[]
+            // Each skill is a Column of: (1) a top row — name (single-line, elastic) + numeric columns, so the
+            // numbers sit on the skill-name baseline instead of vertically centring against a 2-line cell;
+            // (2) the % DMG/Count/Crit/Luck sub-line; (3) a full-width role-coloured share bar (a per-skill bar
+            // chart — moved off the top row so it never competes with the name for width at narrow window sizes);
+            // (4) a 1-px separator so each skill reads as one bounded row. Replaces the old name+sub-stacked-in-
+            // one-cell layout whose centred numbers were ambiguous about which skill they belonged to.
+            slots[i] = new ColumnElement(new HudElement[]
             {
-                new CellElement(new ColumnElement(new HudElement[]
+                new RowElement(new HudElement[]
                 {
-                    new TextElement(() => idx < _skillRows.Count ? $"{_skillRows[idx].Rank} {_skillRows[idx].Name}" : "", Emphasis: true),
-                    new TextElement(() => F(r => r.Sub), MutedCol),
-                }, Gap: 0f), Weight: 1f),
-                new CellElement(new BarElement(() => idx < _skillRows.Count ? _skillRows[idx].Share : 0f, barColor), Width: SkillColBar),
-                NumCell(() => F(r => r.Total), SkillColTotal),
-                NumCell(() => F(r => r.Dps), SkillColDps),
-                NumCell(() => F(r => r.Count), SkillColCount),
-            }, Gap: 6f);
+                    new CellElement(new TextElement(() => idx < _skillRows.Count ? $"{_skillRows[idx].Rank} {_skillRows[idx].Name}" : "", Emphasis: true, NoWrap: true), Weight: 1f),
+                    NumCell(() => F(r => r.Total), SkillColTotal),
+                    NumCell(() => F(r => r.Dps), SkillColDps),
+                    NumCell(() => F(r => r.Count), SkillColCount),
+                }, Gap: 6f),
+                new TextElement(() => F(r => r.Sub), MutedCol),
+                new BarElement(() => idx < _skillRows.Count ? _skillRows[idx].Share : 0f, barColor),
+                new SeparatorElement(),
+            }, Gap: 2f);
         }
         return new ColumnElement(new HudElement[]
         {
@@ -66,7 +73,6 @@ public sealed partial class Plugin
             new RowElement(new HudElement[]
             {
                 new CellElement(new TextElement(() => "Skill", MutedCol), Weight: 1f),
-                new CellElement(new TextElement(() => "SHARE", MutedCol), Width: SkillColBar),
                 NumCell(() => _skillBreakdown is { } sb ? MetricColumnLabel(sb.Metric) : "TOTAL", SkillColTotal, muted: true),
                 NumCell(() => _skillBreakdown is { } sb ? MetricRateLabel(sb.Metric) : "DPS", SkillColDps, muted: true),
                 NumCell(() => "HITS", SkillColCount, muted: true),
@@ -136,11 +142,12 @@ public sealed partial class Plugin
             long value = SkillMetricTotal(sk, metric);
             float pct = sum > 0 ? 100f * value / sum : 0f;
             float critPct = sk.Hits > 0 ? 100f * sk.Crits / sk.Hits : 0f;
+            float luckPct = sk.Hits > 0 ? 100f * sk.Luckys / sk.Hits : 0f;
             _skillRows.Add(new SkillRow
             {
                 Rank = $"#{i + 1}",
                 Name = ResolveSkillName(rows[i].Key),
-                Sub = $"% {MetricColumnLabel(metric)} {pct:F1}%   Count {sk.Hits}   Crit {critPct:F1}%",
+                Sub = $"% {MetricColumnLabel(metric)} {pct:F1}%   Count {sk.Hits}   Crit {critPct:F1}%   Luck {luckPct:F1}%",
                 Total = FormatAmount(value),
                 Dps = FormatAmount(ComputeArchivedDps(value, durationMs)),
                 Count = sk.Hits.ToString(),
@@ -172,18 +179,30 @@ public sealed partial class Plugin
         }
     }
 
-    // Resolve a damage-attributed "skill" id to a display name. Skills win first (GetSkill also resolves leveled
-    // skill_level_ids via the framework base map). DoT/buff ticks are attributed to the buff id, not a real skill,
-    // so a miss falls back to the Buff table — a clean buff name (e.g. "2031104" → its buff name). Raw "#id" only
-    // when both tables miss.
+    // Curated display-name overrides for damage-attributed ids whose game-table name is unhelpful — e.g. DoT/proc
+    // buffs whose English Name column is empty in this client (only a source-language NameDesign exists). Mirrors
+    // ZDPS's SkillOverrides; wins over the buff-table name so the lance lucky-counter proc reads "Lucky Strike
+    // (Lance)" instead of "骑枪-幸运" or a raw id. Extend as ids surface — the [name] diagnostic (gated on
+    // STELLAR_DIAGNOSTICS) logs each unresolved id once so they can be added here.
+    private static readonly Dictionary<int, string> SkillNameOverrides = new()
+    {
+        [2031104] = "Lucky Strike (Lance)",   // BuffTable "Lance - Luck" / NameDesign 骑枪-幸运 — Wind Knight lance proc
+    };
+
+    // Resolve a damage-attributed "skill" id to a display name. Order: real skill (GetSkill also resolves leveled
+    // skill_level_ids via the framework base map) → curated override → buff name (GetBuff().Name is the English
+    // buff name when present, else the framework's NameDesign fallback). Raw "#id" only when all miss.
     private string ResolveSkillName(int skillId)
     {
         var skill = _services.GameData.Combat.GetSkill(skillId);
         if (skill is { Name: { Length: > 0 } skillName }) return skillName;
 
+        if (SkillNameOverrides.TryGetValue(skillId, out var overrideName)) return overrideName;
+
         var buff = _services.GameData.Combat.GetBuff(skillId);
         if (buff is { Name: { Length: > 0 } buffName }) return buffName;
 
+        LogUnresolvedSkillName(skillId);
         return $"#{skillId}";
     }
 

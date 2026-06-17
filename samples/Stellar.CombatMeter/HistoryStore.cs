@@ -56,6 +56,7 @@ internal static partial class HistoryStore
             w.Name("top").Value(s.TopHit);
             w.Name("h").Value(s.Hits);
             w.Name("c").Value(s.Crits);
+            w.Name("lk").Value(s.Luckys);
             w.Name("k").Value(s.Kills);
             w.Name("fh").Value(s.FirstHitMs);
             w.Name("lh").Value(s.LastHitMs);
@@ -77,6 +78,7 @@ internal static partial class HistoryStore
             w.Name("ht").Value(sk.HealTotal);
             w.Name("h").Value(sk.Hits);
             w.Name("c").Value(sk.Crits);
+            w.Name("lk").Value(sk.Luckys);
             w.Name("top").Value(sk.TopHit);
             w.EndObject();
         }

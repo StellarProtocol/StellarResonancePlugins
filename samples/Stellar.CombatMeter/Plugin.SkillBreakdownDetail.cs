@@ -20,6 +20,7 @@ public sealed partial class Plugin
             DetailStat(() => "TOTAL", () => SkillDetail(0)),
             DetailStat(() => DetailRateKey(), () => SkillDetail(1)),
             DetailStat(() => DetailKey2(), () => SkillDetail(2)),
+            DetailStat(() => DetailKeyLuck(), () => SkillDetail(8)),
             DetailStat(() => "MAX", () => SkillDetail(3)),
         }, Gap: 10f),
         new RowElement(new HudElement[]
@@ -28,6 +29,8 @@ public sealed partial class Plugin
             DetailStat(() => DetailKey5(), () => SkillDetail(5)),
             DetailStat(() => DetailKey6(), () => SkillDetail(6)),
             DetailStat(() => DetailOtherKey(), () => SkillDetail(7)),
+            // Empty 5th cell keeps row 2 column-aligned with row 1 (which gained LUCK %).
+            new CellElement(new TextElement(() => ""), Weight: 1f),
         }, Gap: 10f),
     }, Gap: 4f);
 
@@ -42,8 +45,9 @@ public sealed partial class Plugin
 
     private string DetailRateKey() => _skillBreakdown is { } sb ? MetricRateLabel(sb.Metric) : "DPS";
 
-    // Taken mode replaces the outgoing-only CRIT%/KILLS/UPTIME slots with taken-appropriate labels.
+    // Taken mode replaces the outgoing-only CRIT%/LUCK%/KILLS/UPTIME slots with taken-appropriate labels.
     private string DetailKey2() => IsTakenDetail ? "" : "CRIT %";
+    private string DetailKeyLuck() => IsTakenDetail ? "" : "LUCK %";
     private string DetailKey5() => IsTakenDetail ? "SKILLS" : "KILLS";
     private string DetailKey6() => IsTakenDetail ? "" : "UPTIME";
 
@@ -58,6 +62,7 @@ public sealed partial class Plugin
         long dur = sb.Session.CombatDurationMs;
         long total = MetricValueOf(s, sb.Metric);
         float crit = s.Hits > 0 ? 100f * s.Crits / s.Hits : 0f;
+        float luck = s.Hits > 0 ? 100f * s.Luckys / s.Hits : 0f;
         return slot switch
         {
             0 => FormatAmount(total),
@@ -68,6 +73,7 @@ public sealed partial class Plugin
             5 => s.Kills.ToString(),
             6 => $"{ComputeUptime(s.FirstHitMs, s.LastHitMs, dur) * 100f:F0}%",
             7 => sb.Metric == Metric.Hps ? FormatAmount(s.TotalDamage) : FormatAmount(s.TotalHealing),
+            8 => $"{luck:F0}%",
             _ => "—",
         };
     }

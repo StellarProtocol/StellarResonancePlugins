@@ -90,6 +90,7 @@ public sealed partial class Plugin
         TimelineFor(d.SourceId).Add(TimelineChannel.Dealt, d.TimestampMs, _combatStartMs, d.Amount);
         s.Hits        += 1;
         if (d.IsCrit) s.Crits += 1;
+        if (d.IsLucky) s.Luckys += 1;
         if (d.IsDead) s.Kills += 1;
         if (d.Amount > s.TopHit) s.TopHit = d.Amount;
         if (s.FirstHitMs == 0) s.FirstHitMs = d.TimestampMs;
@@ -103,6 +104,7 @@ public sealed partial class Plugin
         sk.Total += d.Amount;
         sk.Hits  += 1;
         if (d.IsCrit) sk.Crits += 1;
+        if (d.IsLucky) sk.Luckys += 1;
         if (d.Amount > sk.TopHit) sk.TopHit = d.Amount;
     }
 

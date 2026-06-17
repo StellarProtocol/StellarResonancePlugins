@@ -69,6 +69,7 @@ internal static partial class HistoryStore
                     case "top": return ReadLong(r, out s.TopHit);
                     case "h":   return ReadInt(r, out s.Hits);
                     case "c":   return ReadInt(r, out s.Crits);
+                    case "lk":  return ReadInt(r, out s.Luckys);
                     case "k":   return ReadInt(r, out s.Kills);
                     case "fh":  return ReadLong(r, out s.FirstHitMs);
                     case "lh":  return ReadLong(r, out s.LastHitMs);
@@ -92,6 +93,7 @@ internal static partial class HistoryStore
                 "ht"  => ReadLong(r, out sk.HealTotal),
                 "h"   => ReadInt(r, out sk.Hits),
                 "c"   => ReadInt(r, out sk.Crits),
+                "lk"  => ReadInt(r, out sk.Luckys),
                 "top" => ReadLong(r, out sk.TopHit),
                 _     => false,
             })) return false;
