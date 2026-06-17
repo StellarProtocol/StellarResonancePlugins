@@ -123,7 +123,13 @@ public sealed partial class Plugin
         {
             new ConditionalElement(() => _selectedSession is null,
                 new TextElement(() => "Pick a session on the left.", MutedCol)),
-            new ConditionalElement(() => _selectedSession is not null, table),
+            // Fill:true so the detail column grows to the (resizable) window height and the table's ScrollElement
+            // (the only flexible-height child in `table`) absorbs the slack — the chart + navigator keep their
+            // fixed heights and stay stacked above it. When the window is dragged SHORT the table area shrinks
+            // (and scrolls its rows) instead of the chart squishing and the top-anchored navigator overlapping
+            // the table. The chart root pins minHeight==preferredHeight (WindowBuilder.LineChart) so it can never
+            // be squished below the navigator's offset; this Fill routes the deficit to the scroll.
+            new ConditionalElement(() => _selectedSession is not null, table, Fill: true),
         });
     }
 
@@ -267,8 +273,13 @@ public sealed partial class Plugin
             DefaultRect: new WindowRect(900f, 380f, 780f, 640f),
             Category:    WindowCategory.Tools,
             Style:       WindowPanelStyle.GlassMenu)
+        // MinHeight 480 is a secondary guard so the window can't be dragged absurdly short: the detail column's
+        // fixed content (metric + summary rows + the ~256-px chart+legend+navigator block + the table header)
+        // plus a couple of table rows fit at 480, so even at the floor the chart → navigator → table stay
+        // stacked with the table scrolling. The real fix is the Fill:true table scroll + the chart-root minHeight
+        // floor (WindowBuilder.LineChart) — this just stops a degenerate drag-to-nothing.
         { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true,
-          Resizable = true, MinWidth = 600f, MinHeight = 360f, MaxWidth = 1200f, MaxHeight = 1000f },
+          Resizable = true, MinWidth = 600f, MinHeight = 480f, MaxWidth = 1200f, MaxHeight = 1000f },
         BuildHistoryRoot(),
         OnClose: CloseHistory));
 
