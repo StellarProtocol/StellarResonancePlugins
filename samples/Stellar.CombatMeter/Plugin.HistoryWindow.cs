@@ -26,6 +26,10 @@ public sealed partial class Plugin
     private int _historyIndex = -1;   // -1 = no session selected (original history-list index)
     private EncounterHistoryEntry? _selectedSession;
 
+    // Clear-all is a 2-click confirm to guard against a misclick wiping up to 50 sessions: first click arms it
+    // (label flips to "Confirm?"), second click within the same visit clears. Any other interaction re-disarms.
+    private bool _clearAllArmed;
+
     private readonly List<SessionEntry> _historyView = new(MaxSessionSlots);
     private readonly List<SourceRow> _sessionRows = new(MaxSourceSlots);
 
@@ -74,7 +78,27 @@ public sealed partial class Plugin
                 new TextElement(() => "No archived encounters yet.", MutedCol)),
             new ConditionalElement(() => _history.Count > 0,
                 new ScrollElement(new ListElement(() => _historyView.Count, slots), HistListHeight)),
-        });
+            BuildClearAllRow(),
+        }, Gap: 4f);
+    }
+
+    // Footer of the session pane: the 2-click "Clear all" confirm. Hidden when there's nothing to clear. The
+    // armed label warns explicitly so a second click is a deliberate confirmation, not a repeat misclick.
+    private HudElement BuildClearAllRow() => new ConditionalElement(() => _history.Count > 0,
+        new RowElement(new HudElement[]
+        {
+            new SpacerElement(),   // push the button to the right edge
+            new ButtonElement(
+                () => _clearAllArmed ? "Confirm clear all?" : "Clear all",
+                ClearAllClicked,
+                Active: () => _clearAllArmed),
+        }, Gap: 6f));
+
+    private void ClearAllClicked()
+    {
+        if (!_clearAllArmed) { _clearAllArmed = true; return; }   // first click arms
+        _clearAllArmed = false;
+        ClearAllHistory();
     }
 
     private HudElement BuildSessionDetail()
@@ -84,7 +108,7 @@ public sealed partial class Plugin
         var table = new ColumnElement(new HudElement[]
         {
             BuildHistoryMetricRow(),
-            new TextElement(SessionSummary, Emphasis: true),
+            BuildSessionSummaryRow(),
             BuildHistoryChart(),
             BuildDetailHeaderRow(),
             new ScrollElement(new ListElement(() => _sessionRows.Count, slots), HistDetailHeight),
@@ -170,6 +194,20 @@ public sealed partial class Plugin
         return FormatSeconds(v);
     }
 
+    // Summary line + a right-aligned "Delete this session" affordance for the currently selected session. The
+    // detail-pane button avoids per-row hit-area conflicts with the SelectableElement rows in the session list.
+    private HudElement BuildSessionSummaryRow() => new RowElement(new HudElement[]
+    {
+        new CellElement(new TextElement(SessionSummary, Emphasis: true), Weight: 1f),
+        new ButtonElement(() => "Delete session", DeleteSelectedSession,
+            Enabled: () => _selectedSession is not null),
+    }, Gap: 6f);
+
+    private void DeleteSelectedSession()
+    {
+        if (_historyIndex >= 0) DeleteSession(_historyIndex);
+    }
+
     private string SessionSummary()
     {
         if (_selectedSession is not { } h) return "";
@@ -178,6 +216,7 @@ public sealed partial class Plugin
 
     private void SelectSession(int historyIndex)
     {
+        _clearAllArmed = false;   // any other interaction disarms the clear-all confirm
         _historyIndex = historyIndex;
         _selectedSession = historyIndex >= 0 && historyIndex < _history.Count ? _history[historyIndex] : null;
         // A new session => no carried-over chart lines, and the visible (zoom) window resets to the full span.
