@@ -12,19 +12,6 @@ namespace Stellar.CombatMeter;
 /// </summary>
 public sealed partial class Plugin
 {
-    /// <summary>
-    /// Logs a player skill id whose spec could not be resolved by <c>SpecResolver</c>.
-    /// Each unique skill id is logged at most once per session so the output stays
-    /// actionable (one line per unknown id, not a per-hit flood).
-    /// </summary>
-    private void LogUnmappedSpec(int skillId, EntityId sourceId)
-    {
-        if (!StellarDiagnostics.IsEnabled) return;
-        if (!_loggedSpecSkills.Add(skillId)) return;
-        _services.Log.Info(
-            $"[CombatMeter][spec] unmapped player skill={skillId} src={sourceId.Value} (>>16={sourceId.Value >> 16})");
-    }
-
     // TEMP cast-time-redesign capture: wire cd row vs what we render for a SELF imagine, on change + every
     // ~0.5s. Pins the multi-charge recharge model (does `begin` reset per cast? parallel vs sequential?) and
     // shows where our seconds/charges diverge from the game's own [Z]/[X]. Remove before the next commit.

@@ -150,14 +150,12 @@ public sealed partial class Plugin
         return season > 0 ? $"{score} (+{season})" : score;
     }
 
-    // Resolve the target's talent-school id (from the spec inferred from their AOI loadout) for the v2
-    // school-lib gear-attr lookup. 0 when the spec is unknown (far/social-only players with no loadout) —
-    // the gear-detail Advanced section then shows an honest "spec unknown" line instead of empty rows.
+    // Resolve the target's talent-school id (from their cast-resolved spec, ICombatSpec) for the v2 school-lib
+    // gear-attr lookup. 0 when the spec is unknown (target not yet seen casting a spec-defining skill) — the
+    // gear-detail Advanced section then shows an honest "spec unknown" line instead of empty rows. (Was the AOI
+    // loadout, which carries both specs' skills and mislabelled players; the framework now resolves from casts.)
     private int ResolveTalentSchool()
-    {
-        var sub = ProfessionSpecs.FromLoadout(_services.CombatLookup.GetSkillLevels(_target)) ?? 0;
-        return ProfessionSpecs.TalentSchool(sub);
-    }
+        => ProfessionSpecs.TalentSchool(_services.CombatSpec.GetSubProfession(_target));
 
     private string ProfessionLine()
     {
@@ -166,9 +164,10 @@ public sealed partial class Plugin
         if (profId <= 0) return "—";
         var prof = _services.GameData.Combat.GetProfession((int)profId);
         var name = prof is { Name: { Length: > 0 } n } ? n : $"Class {profId}";
-        // Spec (e.g. "Icicle") from the AOI loadout's signature skills — pre-combat, ZDPS-parity.
-        if (ProfessionSpecs.FromLoadout(_services.CombatLookup.GetSkillLevels(_target)) is { } sub
-            && ProfessionSpecs.Name(sub) is { Length: > 0 } spec)
+        // Spec (e.g. "Icicle") from the framework's shared cast-resolved cache (ICombatSpec) — correct once the
+        // target has been seen casting; omitted otherwise (the AOI loadout can't disambiguate the two specs).
+        var sub = _services.CombatSpec.GetSubProfession(_target);
+        if (sub != 0 && ProfessionSpecs.Name(sub) is { Length: > 0 } spec)
             return name + " · " + spec;
         return name;
     }

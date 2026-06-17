@@ -38,6 +38,11 @@ public sealed partial class Plugin : IStellarPlugin
     private IWindowControl _settingsWindow = null!;
     private IHotkeyAction _toggleAction = null!;
     private IHotkeyAction _historyAction = null!;
+    private IHotkeyAction _resetAction = null!;
+    private IHotkeyAction _archiveAction = null!;
+    private IHotkeyAction _pauseAction = null!;
+    private IHotkeyAction _modeAction = null!;
+    private IHotkeyAction _partyFocusAction = null!;
 
     // Role colours (DPS/Tank/Healer) + the HP-spine colour, themeable. The spine is a plain HP bar:
     // its length tracks HP, its colour stays a steady green (matching the game's own HP bar) — it does
@@ -46,7 +51,7 @@ public sealed partial class Plugin : IStellarPlugin
     private IColorSlot _roleTankSlot = null!;
     private IColorSlot _roleHealerSlot = null!;
     private IColorSlot _hpSlot = null!;
-    private readonly Dictionary<EntityId, int> _specByEntity = new();
+    private IColorSlot _selfAccentSlot = null!;
 
     // Inferred Battle-Imagine cooldown/charge cache for other players (self uses LocalCooldowns).
     private readonly ResonanceTracker _resTracker = new();
@@ -106,6 +111,7 @@ public sealed partial class Plugin : IStellarPlugin
         _roleTankSlot   = registry.Register("CombatMeter.Role.Tank",   "Role: Tank",   RoleClassifier.DefaultColor(Role.Tank));
         _roleHealerSlot = registry.Register("CombatMeter.Role.Healer", "Role: Healer", RoleClassifier.DefaultColor(Role.Healer));
         _hpSlot = registry.Register("CombatMeter.Hp", "HP bar", new ColorRgba(0.25f, 0.70f, 0.30f));
+        _selfAccentSlot = registry.Register("CombatMeter.SelfAccent", "Self-row highlight", new ColorRgba(0.12f, 0.30f, 0.33f, 0.70f));
     }
 
     private void BuildWindows()
@@ -168,6 +174,19 @@ public sealed partial class Plugin : IStellarPlugin
             new HotkeyAction("combatmeter.history-toggle", "Toggle CombatMeter history",
                 new KeyBinding(StellarKeyCode.F9, ModifierKeys.Shift)),
             callback: ToggleHistory);
+
+        // Action hotkeys for the meter's header controls. Unbound by default (SuggestedDefault: null) so they
+        // never collide with game keys out of the box — they appear in Settings → Hotkeys for the user to bind.
+        _resetAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.reset", "Reset CombatMeter", null), callback: Clear);
+        _archiveAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.archive", "Archive CombatMeter encounter", null), callback: ManualArchive);
+        _pauseAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.pause", "Pause / resume CombatMeter", null), callback: TogglePause);
+        _modeAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.mode", "Cycle CombatMeter metric (DPS/HPS/Taken)", null), callback: CycleMetric);
+        _partyFocusAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.party-focus", "Toggle CombatMeter Party-focus view", null), callback: ToggleViewMode);
     }
 
     public void Dispose()
@@ -182,7 +201,13 @@ public sealed partial class Plugin : IStellarPlugin
         _roleTankSlot.Dispose();
         _roleHealerSlot.Dispose();
         _hpSlot.Dispose();
+        _selfAccentSlot.Dispose();
 
+        _partyFocusAction.Dispose();
+        _modeAction.Dispose();
+        _pauseAction.Dispose();
+        _archiveAction.Dispose();
+        _resetAction.Dispose();
         _historyAction.Dispose();
         _toggleAction.Dispose();
         _rowMenuWindow.Remove();
@@ -234,7 +259,10 @@ public sealed partial class Plugin : IStellarPlugin
         if (evt is not CombatEvent.DamageDealt d) return;
 
         _agg.AddDamage(d.SourceId, d.Amount, d.IsHeal);
-        if (!d.IsHeal && d.TargetId.IsPlayer) _agg.AddTaken(d.TargetId, d.ActualAmount);
+        // Damage TAKEN must use the same gross amount the DPS path uses (d.Amount = Value/HpLessen/Lucky
+        // precedence). It previously used d.ActualAmount, but ActualValue is usually 0 on the wire (not the
+        // primary damage field), so Taken always read 0 even in a long fight.
+        if (!d.IsHeal && d.TargetId.IsPlayer) _agg.AddTaken(d.TargetId, d.Amount);
 
         if (!_stats.TryGetValue(d.SourceId, out var s))
         {
@@ -242,7 +270,6 @@ public sealed partial class Plugin : IStellarPlugin
             _stats[d.SourceId] = s;
         }
 
-        CaptureSpec(d);
         ObserveResonanceCast(d);
         if (d.IsHeal) { s.TotalHealing += d.Amount; return; }
         AccumulateDamage(s, d);
@@ -276,29 +303,12 @@ public sealed partial class Plugin : IStellarPlugin
         if (d.Amount > sk.TopHit) sk.TopHit = d.Amount;
     }
 
-    private readonly HashSet<int> _loggedSpecSkills = new();
-
-    private void CaptureSpec(CombatEvent.DamageDealt d)
-    {
-        if (!d.SourceId.IsPlayer || _specByEntity.ContainsKey(d.SourceId)) return;
-        var sub = ProfessionSpecs.SubProfessionFromSkill(d.SkillId);
-        if (sub.HasValue) _specByEntity[d.SourceId] = sub.Value;
-        else LogUnmappedSpec(d.SkillId, d.SourceId);
-    }
-
-    // Pre-combat spec: the AOI loadout broadcast carries the spec's signature skills, so most players
-    // resolve the moment they appear (ZDPS-parity); combat casts (CaptureSpec) remain the fallback for
-    // entities whose loadout hasn't arrived. Misses are NOT cached — the loadout can land later.
-    private int ResolveSpec(EntityId id)
-    {
-        if (_specByEntity.TryGetValue(id, out var sub)) return sub;
-        if (ProfessionSpecs.FromLoadout(_services.CombatLookup.GetSkillLevels(id)) is { } fromLoadout)
-        {
-            _specByEntity[id] = fromLoadout;
-            return fromLoadout;
-        }
-        return 0;
-    }
+    // Spec comes from the framework's shared cast-resolved cache (ICombatSpec): the framework recognises
+    // spec-defining skill ids as damage/heal events flow through (ZDPS-parity, last-seen-wins), so EVERY
+    // consumer (this meter + EntityInspector) agrees. Returns 0 until the player casts a spec-defining skill.
+    // The meter no longer infers spec from the AOI loadout — that carries the whole learned-skill set (both
+    // specs' signature skills), so it mislabelled players (Falconry shown as Wildpack, in-world 2026-06-17).
+    private int ResolveSpec(EntityId id) => _services.CombatSpec.GetSubProfession(id);
 
     // Feed the inferred-others cooldown tracker when a Battle-Imagine cast is seen (all players incl.
     // self — harmless, self display uses LocalCooldowns). GetImagineForSkill is null for non-imagine
@@ -322,10 +332,8 @@ public sealed partial class Plugin : IStellarPlugin
         // unbounded across a session (one entry per entity ever ranked). Clear() is the encounter-reset hook
         // (Reset button + Archive + scene change via ManualArchive), so this also caps cross-scene growth.
         _barAnim.Clear();
-        // Same unbounded-growth reasoning as _barAnim (perf review 2026-06-13: the AOI-loadout path fills
-        // this for every rendered player, not just casters). Cheap to refill — ResolveSpec re-derives from
-        // the loadout on the next row tick.
-        _specByEntity.Clear();
+        // Spec cache now lives in the framework (ICombatSpec, cleared on its scene Reset) — nothing meter-local
+        // to clear here anymore.
         _resTracker.Clear();
         _combatActive  = false;
         _combatStartMs = 0;
