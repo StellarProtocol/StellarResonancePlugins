@@ -113,6 +113,7 @@ public sealed partial class Plugin
             AbilityScore     = vis.AbilityScore && _services.CombatLookup.GetFightPoint(id) is var fp && fp > 0 ? fp.ToString("N0", System.Globalization.CultureInfo.InvariantCulture) : "",
             RoleColor        = RoleColorFor(id),
             HpColor          = HpColor(),
+            SelfAccent       = _selfAccentSlot.Value,
             HpFraction       = frac,
             CrestTexture     = crest,
             CrestUv          = crestUv,
@@ -204,9 +205,10 @@ public sealed partial class Plugin
         return 0f;
     }
 
-    // Prefer the SELECTED spec name (e.g. "Icicle") over the class name ("Frost Mage"). Resolution order
-    // (ResolveSpec): cast-inferred cache → AOI loadout signature skills (pre-combat, ZDPS-parity) → class
-    // fallback. The wire talent_id turned out to be a tier id (=1), not the spec, so it can't help.
+    // Prefer the SELECTED spec name (e.g. "Icicle") over the class name ("Frost Mage"). Spec is cast-inferred
+    // only (see CaptureSpec) — blank until a spec-defining skill is observed, falling back to the class name.
+    // The wire talent_id turned out to be a tier id (=1), not the spec; the AOI loadout carries both specs'
+    // skills so it can't disambiguate either — leaving combat casts as the only authoritative source.
     private string SpecLine(EntityId id)
     {
         var sub = ResolveSpec(id);
