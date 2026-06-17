@@ -209,10 +209,26 @@ public sealed partial class Plugin
         if (_historyIndex >= 0) DeleteSession(_historyIndex);
     }
 
+    // Detail summary as "label: value" fields. Map resolves the raw scene id to a friendly map/dungeon name
+    // (live game table — falls back to "Scene {id}" / the raw token off-line); Scene shows the raw id alongside.
     private string SessionSummary()
     {
         if (_selectedSession is not { } h) return "";
-        return $"Combat Session  ·  {FormatSessionTimestampLong(h.ArchivedAtMs)}  ·  {FormatSessionDurationShort(h.CombatDurationMs)}  ·  {h.MemberCount}p";
+        return $"Map: {ResolveSceneName(h.SceneName)}   ·   "
+             + $"Time: {FormatSessionTimestampLong(h.ArchivedAtMs)}   ·   "
+             + $"Duration: {FormatSessionDurationShort(h.CombatDurationMs)}   ·   "
+             + $"Players: {h.MemberCount}   ·   "
+             + $"Scene: {h.SceneName ?? "—"}";
+    }
+
+    // Resolve a stored scene token (a raw id string like "7") to a friendly map/dungeon name via the live game
+    // World table. Falls back to "Scene {id}" for an unknown numeric id, or the raw token when non-numeric/empty.
+    private string ResolveSceneName(string? sceneToken)
+    {
+        if (string.IsNullOrEmpty(sceneToken)) return "Unknown";
+        if (!int.TryParse(sceneToken, out var id)) return sceneToken;
+        var name = _services.GameData.World.GetScene(id)?.Name;
+        return string.IsNullOrEmpty(name) ? $"Scene {id}" : name;
     }
 
     private void SelectSession(int historyIndex)
@@ -281,11 +297,11 @@ public sealed partial class Plugin
         {
             var h = _history[i];
             var dur = FormatSessionDurationShort(h.CombatDurationMs);
-            var scene = h.SceneName ?? "";
+            var map = ResolveSceneName(h.SceneName);
             _historyView.Add(new SessionEntry(
                 i,
                 FormatSessionClock(h.ArchivedAtMs),
-                $"{dur} · {h.MemberCount}p · {scene}"));
+                $"{map} · {dur} · {h.MemberCount}p"));
         }
         // Keep the selected session in sync (it may have been evicted).
         if (_historyIndex >= 0 && _historyIndex < _history.Count) _selectedSession = _history[_historyIndex];
