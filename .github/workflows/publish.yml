@@ -3,7 +3,10 @@ name: publish-registry
 # (no game install needed), stamps the registry (applying each manifest's
 # minModSystemVersion + capPriorVersionsAt — see tools/set-version.py), and
 # publishes plugins.json + DLLs to the public `stellar` MinIO bucket.
-# Runs on every push to main (and manual dispatch). PRs build + validate only.
+#
+# build  : runs on every trigger (PRs too) — compile + validate, no approval.
+# publish: gated on the Production environment (required reviewers = the
+#          real-interop / in-game smoke), non-PR only. See docs/release-process.md.
 on:
   push:
     branches: [main]
@@ -11,13 +14,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  registry:
+  build:
     runs-on: ubuntu-latest
-    # Gate publishing on the Production environment. Configure REQUIRED REVIEWERS
-    # on this environment so a human confirms the real-interop / in-game smoke
-    # before a stub-built release ships — stubs validate the API surface, not
-    # runtime. See docs/release-process.md § Real-interop gate.
-    environment: Production
     steps:
       - name: Checkout plugins
         uses: actions/checkout@v4
@@ -32,7 +30,6 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -61,11 +58,37 @@ jobs:
             cp "samples/$proj/bin/Release/$proj.dll" "plugins/$id/$proj.dll"
           done
 
-      - name: Validate + build registry
-        run: python tools/build-registry.py        # validation only (no creds)
+      - name: Validate registry (no publish)
+        run: python tools/build-registry.py
 
+      - name: Pass staged DLLs to publish job
+        shell: bash
+        run: tar czf staged-dlls.tgz plugins/*/Stellar.*.dll
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staged-dlls
+          path: staged-dlls.tgz
+          retention-days: 1
+
+  publish:
+    needs: build
+    if: ${{ github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    # Required reviewers on this environment = the real-interop / in-game gate.
+    environment: Production
+    steps:
+      - name: Checkout plugins
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: staged-dlls
+      - name: Restore staged DLLs
+        shell: bash
+        run: tar xzf staged-dlls.tgz       # -> plugins/<id>/Stellar.*.dll
       - name: Publish to MinIO
-        if: ${{ github.event_name != 'pull_request' }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
