@@ -132,9 +132,10 @@ public sealed partial class Plugin
         TitleX:          () => "Encounter time (m:ss)",
         VisibleRange:    () => _chartVisibleRange,
         SetVisibleRange: r => _chartVisibleRange = r,
-        Width:           500f,
+        Width:           360f,    // minimum/initial width; FillWidth lets the plot grow with the window
         Height:          180f,
-        ShowNavigator:   true);   // Highcharts-style overview + brush (replaces the −/+/Reset bar + scrollbar)
+        ShowNavigator:   true,    // Highcharts-style overview + brush (replaces the −/+/Reset bar + scrollbar)
+        FillWidth:       true);   // plot + navigator stretch to fill the detail pane; reflows on resize
 
     // Metric-aware column header — the primary value column + rate column relabel with _historyMetric.
     private HudElement BuildDetailHeaderRow() => new RowElement(new HudElement[]
@@ -234,10 +235,11 @@ public sealed partial class Plugin
         new WindowSpec(
             Id:          "combatmeter.history",
             Title:       "Combat History",
-            DefaultRect: new WindowRect(900f, 380f, 780f, 0f),
+            DefaultRect: new WindowRect(900f, 380f, 780f, 640f),
             Category:    WindowCategory.Tools,
             Style:       WindowPanelStyle.GlassMenu)
-        { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
+        { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true,
+          Resizable = true, MinWidth = 600f, MinHeight = 360f, MaxWidth = 1200f, MaxHeight = 1000f },
         BuildHistoryRoot(),
         OnClose: CloseHistory));
 

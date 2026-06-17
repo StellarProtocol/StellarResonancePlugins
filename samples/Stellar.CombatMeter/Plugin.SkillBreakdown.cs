@@ -200,10 +200,11 @@ public sealed partial class Plugin
         new WindowSpec(
             Id:          "combatmeter.skill-breakdown",
             Title:       "Skill Breakdown",
-            DefaultRect: new WindowRect(1000f, 80f, 460f, 0f),
+            DefaultRect: new WindowRect(1000f, 80f, 460f, 520f),
             Category:    WindowCategory.Tools,
             Style:       WindowPanelStyle.GlassMenu)   // dark-slate frosted dialog: free-drag + ✕ close (see history above)
-        { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
+        { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true,
+          Resizable = true, MinWidth = 360f, MinHeight = 280f, MaxWidth = 900f, MaxHeight = 1000f },
         BuildSkillBreakdownRoot(),
         OnClose: CloseSkillBreakdown));
 
