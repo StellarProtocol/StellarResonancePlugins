@@ -13,19 +13,6 @@ namespace Stellar.CombatMeter;
 /// </summary>
 public sealed partial class Plugin
 {
-    /// <summary>
-    /// Logs a player skill id whose spec could not be resolved by <c>SpecResolver</c>.
-    /// Each unique skill id is logged at most once per session so the output stays
-    /// actionable (one line per unknown id, not a per-hit flood).
-    /// </summary>
-    private void LogUnmappedSpec(int skillId, EntityId sourceId)
-    {
-        if (!StellarDiagnostics.IsEnabled) return;
-        if (!_loggedSpecSkills.Add(skillId)) return;
-        _services.Log.Info(
-            $"[CombatMeter][spec] unmapped player skill={skillId} src={sourceId.Value} (>>16={sourceId.Value >> 16})");
-    }
-
     // Logs (once per id, diagnostics-gated) a damage-attributed id that resolved to neither a real skill, a curated
     // override, nor a buff name — i.e. it renders as a raw "#id". Use the output to add an entry to
     // Plugin.SkillBreakdown's SkillNameOverrides map.
@@ -37,7 +24,6 @@ public sealed partial class Plugin
         _services.Log.Info(
             $"[CombatMeter][name] unresolved id={skillId} (no skill, override, or buff name) — add to SkillNameOverrides if needed");
     }
-
     // TEMP cast-time-redesign capture: wire cd row vs what we render for a SELF imagine, on change + every
     // ~0.5s. Pins the multi-charge recharge model (does `begin` reset per cast? parallel vs sequential?) and
     // shows where our seconds/charges diverge from the game's own [Z]/[X]. Remove before the next commit.

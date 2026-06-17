@@ -37,7 +37,6 @@ public sealed partial class Plugin
 
         var s = StatsFor(d.SourceId);
 
-        CaptureSpec(d);
         ObserveResonanceCast(d);
         if (d.IsHeal) { CaptureHeal(s, d); return; }
         AccumulateDamage(s, d);
@@ -74,12 +73,14 @@ public sealed partial class Plugin
     // Incoming damage to the target: total taken + per-attacker-skill breakdown + taken timeline.
     private void CaptureTaken(CombatEvent.DamageDealt d)
     {
-        _agg.AddTaken(d.TargetId, d.ActualAmount);
+        // Taken uses d.Amount (the gross Value/HpLessen/Lucky-precedence field the DPS path uses), NOT
+        // d.ActualAmount — ActualValue is usually 0 on the wire, so Taken always read 0 in a long fight.
+        _agg.AddTaken(d.TargetId, d.Amount);
         var ts = StatsFor(d.TargetId);
-        ts.TotalTaken += d.ActualAmount;
+        ts.TotalTaken += d.Amount;
         if (!ts.IncomingBySkill.TryGetValue(d.SkillId, out var inc)) { inc = new IncomingSkillStats(); ts.IncomingBySkill[d.SkillId] = inc; }
-        inc.Total += d.ActualAmount; inc.Hits += 1; if (d.ActualAmount > inc.TopHit) inc.TopHit = d.ActualAmount;
-        if (_combatActive) TimelineFor(d.TargetId).Add(TimelineChannel.Taken, d.TimestampMs, _combatStartMs, d.ActualAmount);
+        inc.Total += d.Amount; inc.Hits += 1; if (d.Amount > inc.TopHit) inc.TopHit = d.Amount;
+        if (_combatActive) TimelineFor(d.TargetId).Add(TimelineChannel.Taken, d.TimestampMs, _combatStartMs, d.Amount);
     }
 
     private void AccumulateDamage(SourceStats s, CombatEvent.DamageDealt d)
@@ -108,29 +109,11 @@ public sealed partial class Plugin
         if (d.Amount > sk.TopHit) sk.TopHit = d.Amount;
     }
 
-    private readonly HashSet<int> _loggedSpecSkills = new();
-
-    private void CaptureSpec(CombatEvent.DamageDealt d)
-    {
-        if (!d.SourceId.IsPlayer || _specByEntity.ContainsKey(d.SourceId)) return;
-        var sub = ProfessionSpecs.SubProfessionFromSkill(d.SkillId);
-        if (sub.HasValue) _specByEntity[d.SourceId] = sub.Value;
-        else LogUnmappedSpec(d.SkillId, d.SourceId);
-    }
-
-    // Pre-combat spec: the AOI loadout broadcast carries the spec's signature skills, so most players
-    // resolve the moment they appear (ZDPS-parity); combat casts (CaptureSpec) remain the fallback for
-    // entities whose loadout hasn't arrived. Misses are NOT cached — the loadout can land later.
-    private int ResolveSpec(EntityId id)
-    {
-        if (_specByEntity.TryGetValue(id, out var sub)) return sub;
-        if (ProfessionSpecs.FromLoadout(_services.CombatLookup.GetSkillLevels(id)) is { } fromLoadout)
-        {
-            _specByEntity[id] = fromLoadout;
-            return fromLoadout;
-        }
-        return 0;
-    }
+    // Spec comes from the framework's shared cast-resolved cache (ICombatSpec): the framework recognises
+    // spec-defining skill ids as events flow, so every consumer (this meter + EntityInspector) agrees. The
+    // meter no longer infers spec from the AOI loadout (that carries both specs' signature skills →
+    // mislabelled players, e.g. Falconry shown as Wildpack). Returns 0 until a spec-defining skill is cast.
+    private int ResolveSpec(EntityId id) => _services.CombatSpec.GetSubProfession(id);
 
     // Feed the inferred-others cooldown tracker when a Battle-Imagine cast is seen (all players incl.
     // self — harmless, self display uses LocalCooldowns). GetImagineForSkill is null for non-imagine

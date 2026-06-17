@@ -102,6 +102,9 @@ public sealed partial class Plugin
     // Selecting an item does NOT collapse the panel — only the caret/metric button toggles it (clicking inside
     // an open dropdown shouldn't snap it shut).
     private void SelectMetric(Metric m) { _metric = m; PersistPrefs(); }
+
+    // Advance to the next metric (DPS → HPS → Taken → DPS). Wired to the combatmeter.mode hotkey.
+    private void CycleMetric() => SelectMetric((Metric)(((int)_metric + 1) % MetricDrop.Length));
     private void SelectScope(FilterMode f) { _filter = f; PersistPrefs(); }
 
     // Invoke the game's OWN ChangeTeamMemberType through IPartyControl (Lua bridge) — never a hand-built

@@ -38,6 +38,11 @@ public sealed partial class Plugin : IStellarPlugin
     private IWindowControl _settingsWindow = null!;
     private IHotkeyAction _toggleAction = null!;
     private IHotkeyAction _historyAction = null!;
+    private IHotkeyAction _resetAction = null!;
+    private IHotkeyAction _archiveAction = null!;
+    private IHotkeyAction _pauseAction = null!;
+    private IHotkeyAction _modeAction = null!;
+    private IHotkeyAction _partyFocusAction = null!;
 
     // Role colours (DPS/Tank/Healer) + the HP-spine colour, themeable. The spine is a plain HP bar:
     // its length tracks HP, its colour stays a steady green (matching the game's own HP bar) — it does
@@ -46,7 +51,7 @@ public sealed partial class Plugin : IStellarPlugin
     private IColorSlot _roleTankSlot = null!;
     private IColorSlot _roleHealerSlot = null!;
     private IColorSlot _hpSlot = null!;
-    private readonly Dictionary<EntityId, int> _specByEntity = new();
+    private IColorSlot _selfAccentSlot = null!;
 
     // Inferred Battle-Imagine cooldown/charge cache for other players (self uses LocalCooldowns).
     private readonly ResonanceTracker _resTracker = new();
@@ -129,6 +134,7 @@ public sealed partial class Plugin : IStellarPlugin
         _roleTankSlot   = registry.Register("CombatMeter.Role.Tank",   "Role: Tank",   RoleClassifier.DefaultColor(Role.Tank));
         _roleHealerSlot = registry.Register("CombatMeter.Role.Healer", "Role: Healer", RoleClassifier.DefaultColor(Role.Healer));
         _hpSlot = registry.Register("CombatMeter.Hp", "HP bar", new ColorRgba(0.25f, 0.70f, 0.30f));
+        _selfAccentSlot = registry.Register("CombatMeter.SelfAccent", "Self-row highlight", new ColorRgba(0.12f, 0.30f, 0.33f, 0.70f));
     }
 
     private void BuildWindows()
@@ -171,6 +177,19 @@ public sealed partial class Plugin : IStellarPlugin
             new HotkeyAction("combatmeter.history-toggle", "Toggle CombatMeter history",
                 new KeyBinding(StellarKeyCode.F9, ModifierKeys.Shift)),
             callback: ToggleHistory);
+
+        // Action hotkeys for the meter's header controls. Unbound by default (SuggestedDefault: null) so they
+        // never collide with game keys out of the box — they appear in Settings → Hotkeys for the user to bind.
+        _resetAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.reset", "Reset CombatMeter", null), callback: Clear);
+        _archiveAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.archive", "Archive CombatMeter encounter", null), callback: ManualArchive);
+        _pauseAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.pause", "Pause / resume CombatMeter", null), callback: TogglePause);
+        _modeAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.mode", "Cycle CombatMeter metric (DPS/HPS/Taken)", null), callback: CycleMetric);
+        _partyFocusAction = _services.Hotkeys.DeclareAction(
+            new HotkeyAction("combatmeter.party-focus", "Toggle CombatMeter Party-focus view", null), callback: ToggleViewMode);
     }
 
     public void Dispose()
@@ -186,7 +205,13 @@ public sealed partial class Plugin : IStellarPlugin
         _roleTankSlot.Dispose();
         _roleHealerSlot.Dispose();
         _hpSlot.Dispose();
+        _selfAccentSlot.Dispose();
 
+        _partyFocusAction.Dispose();
+        _modeAction.Dispose();
+        _pauseAction.Dispose();
+        _archiveAction.Dispose();
+        _resetAction.Dispose();
         _historyAction.Dispose();
         _toggleAction.Dispose();
         _rowMenuWindow.Remove();
@@ -242,10 +267,8 @@ public sealed partial class Plugin : IStellarPlugin
         // unbounded across a session (one entry per entity ever ranked). Clear() is the encounter-reset hook
         // (Reset button + Archive + scene change via ManualArchive), so this also caps cross-scene growth.
         _barAnim.Clear();
-        // Same unbounded-growth reasoning as _barAnim (perf review 2026-06-13: the AOI-loadout path fills
-        // this for every rendered player, not just casters). Cheap to refill — ResolveSpec re-derives from
-        // the loadout on the next row tick.
-        _specByEntity.Clear();
+        // Spec cache now lives in the framework (ICombatSpec, cleared on its scene Reset) — nothing meter-local
+        // to clear here anymore.
         _resTracker.Clear();
         _combatActive  = false;
         _combatStartMs = 0;
