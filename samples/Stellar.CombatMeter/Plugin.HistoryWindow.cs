@@ -188,8 +188,8 @@ public sealed partial class Plugin
             Id:          "combatmeter.history",
             Title:       "Combat History",
             DefaultRect: new WindowRect(900f, 380f, 780f, 0f),
-            Category:    WindowCategory.HUD,
-            Style:       WindowPanelStyle.Party)
+            Category:    WindowCategory.Tools,
+            Style:       WindowPanelStyle.GlassMenu)
         { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
         BuildHistoryRoot(),
         OnClose: CloseHistory));
