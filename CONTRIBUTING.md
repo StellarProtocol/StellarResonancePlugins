@@ -24,10 +24,16 @@ your built DLL; you do **not** need your source in this repo.
 
 1. Build your plugin into `<Plugin>.dll` (see "Developing a plugin" below, or use your own project).
 2. Create `plugins/<your-id>/` and add your `<Plugin>.dll`.
-3. Add `plugins/<your-id>/manifest.json` (see the README for the schema + field rules).
-4. Validate: `python tools/build-registry.py` (must succeed — it checks required fields, a
-   filesystem-safe `id`/`dll`, and that the DLL exists).
-5. Open a PR. CI re-validates; on merge to `main` it publishes to MinIO and the launcher picks it up.
+3. Add `plugins/<your-id>/manifest.json` (see the README for the schema + field rules). Set the
+   framework compatibility with `python tools/set-version.py <your-id> --version <v> --min <framework>
+   [--cap-prior <last-good-framework>]` — `--cap-prior` retro-caps your already-published builds at
+   `maxModSystemVersion` so the launcher stops offering them on a framework release that breaks them.
+4. Validate: `python tools/build-registry.py` (checks required fields, a filesystem-safe `id`/`dll`,
+   and that the DLL exists).
+5. Open a PR. **CI builds the sample plugins against the framework's interop reference stubs and
+   validates the registry** (no game install needed). On merge to `main`, `publish.yml` re-builds,
+   applies the version caps, and — after the **`Production` approval** (the in-game smoke gate) —
+   publishes `plugins.json` + DLLs to MinIO. The launcher picks them up.
 
 ### 2. Develop a reference plugin in `samples/`
 
@@ -35,19 +41,18 @@ The `samples/` directory holds buildable reference plugins. To add or modify one
 
 1. Add `samples/Stellar.<Name>/` with a `.csproj` and your source. Mirror an existing sample —
    reference **only** `$(StellarFrameworkSrc)/Stellar.Abstractions/Stellar.Abstractions.csproj`.
-2. Build it (requires a local framework checkout + the game's IL2CPP interop):
+2. Build it. **CI builds samples against the framework's committed interop stubs** (`framework/refs/`)
+   — a local game install is needed only for *in-game testing*, not to compile. Locally:
 
    ```bash
    dotnet build samples/Stellar.<Name>/Stellar.<Name>.csproj -c Release \
      -p:StellarFrameworkSrc=/path/to/StellarResonanceModSystem/src \
-     -p:BepInExCore=/path/to/<game_mini>/BepInEx/core \
-     -p:GameInterop=/path/to/<game_mini>/BepInEx/interop
+     -p:GameInterop=/path/to/StellarResonanceModSystem/refs \
+     -p:BepInExCore=/path/to/StellarResonanceModSystem/refs
+   # (or point GameInterop/BepInExCore at a real <game_mini>/BepInEx install for in-game testing)
    ```
 
 3. To also publish it, follow path #1 with the built DLL.
-
-The registry CI does **not** build `samples/` — it validates and publishes prebuilt DLLs. Sample
-source is reference material and built locally.
 
 ## Writing the plugin code
 
