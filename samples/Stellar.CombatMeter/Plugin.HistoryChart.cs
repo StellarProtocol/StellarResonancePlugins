@@ -22,8 +22,10 @@ public sealed partial class Plugin
     private readonly HashSet<EntityId> _chartedSources = new();   // rows toggled onto the chart
     private (float Min, float Max) _chartVisibleRange;
 
-    // Muted near-white for the always-present team-total line (sits above the role-coloured source lines).
-    private static readonly ColorRgba TeamTotalColor = new(0.88f, 0.90f, 0.92f, 1f);
+    // The always-present team-total line (sits above the role-coloured source lines) uses the active theme's
+    // neutral menu-text colour, read at build so it follows the active/custom theme (the chart rebuilds on
+    // metric change and re-skins on a full theme switch). Source lines keep their registry RoleColorFor.
+    private ColorRgba TeamTotalColor => _services.Theme.Colors.MenuText;
 
     // Stable chart-series buffer + its dirty signature.
     private readonly List<ChartSeries> _chartSeries = new();
