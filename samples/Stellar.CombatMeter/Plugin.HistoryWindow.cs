@@ -109,7 +109,8 @@ public sealed partial class Plugin
         VisibleRange:    () => _chartVisibleRange,
         SetVisibleRange: r => _chartVisibleRange = r,
         Width:           500f,
-        Height:          180f);
+        Height:          180f,
+        ShowNavigator:   true);   // Highcharts-style overview + brush (replaces the −/+/Reset bar + scrollbar)
 
     // Metric-aware column header — the primary value column + rate column relabel with _historyMetric.
     private HudElement BuildDetailHeaderRow() => new RowElement(new HudElement[]
