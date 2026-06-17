@@ -172,10 +172,19 @@ public sealed partial class Plugin
         }
     }
 
+    // Resolve a damage-attributed "skill" id to a display name. Skills win first (GetSkill also resolves leveled
+    // skill_level_ids via the framework base map). DoT/buff ticks are attributed to the buff id, not a real skill,
+    // so a miss falls back to the Buff table — a clean buff name (e.g. "2031104" → its buff name). Raw "#id" only
+    // when both tables miss.
     private string ResolveSkillName(int skillId)
     {
-        var info = _services.GameData.Combat.GetSkill(skillId);
-        return info is { Name: { Length: > 0 } name } ? name : $"#{skillId}";
+        var skill = _services.GameData.Combat.GetSkill(skillId);
+        if (skill is { Name: { Length: > 0 } skillName }) return skillName;
+
+        var buff = _services.GameData.Combat.GetBuff(skillId);
+        if (buff is { Name: { Length: > 0 } buffName }) return buffName;
+
+        return $"#{skillId}";
     }
 
     // Metric-aware per-skill value: HPS reads the heal total, everything else (DPS/Taken) the damage total.

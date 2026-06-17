@@ -60,9 +60,14 @@ public sealed partial class Plugin
     private EntitySnapshot CaptureEntity(EntityId id)
     {
         var vitals = _services.CombatLookup.GetVitals(id);
+        // Capture the display name via the SAME resolution chain the history rows use (PlayerState → roster →
+        // combat cache → synthesized), so a frozen snapshot header matches what the table shows ("Ribery") instead
+        // of "Unknown" — GetEntityName alone returns "Unknown" for the local player / weak cases. Captured at
+        // archive time while the entity is still live, which is correct.
+        EntityId self = _services.CombatSnapshot.LocalEntityId;
         var snap = new EntitySnapshot
         {
-            Name       = _services.CombatLookup.GetEntityName(id),
+            Name       = EntityLabel.Resolve(id, self, _services.PlayerState, _services.CombatLookup, _services.PartyRoster.Members),
             FightPoint = _services.CombatLookup.GetFightPoint(id),
             Hp         = vitals.IsKnown ? vitals.Hp : 0,
             MaxHp      = vitals.IsKnown ? vitals.MaxHp : 0,
