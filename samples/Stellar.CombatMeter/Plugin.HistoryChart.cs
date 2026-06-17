@@ -9,12 +9,12 @@ namespace Stellar.CombatMeter;
 /// for the history timeline chart: always a muted team-total line (summed per bucket at build) plus one
 /// role-coloured line per source toggled onto the chart via <see cref="ToggleChartSource"/>.
 ///
-/// <para><b>Stable-ref caching:</b> <see cref="LineChartElement"/> bakes its Y-max / tick values from the
-/// <c>Series</c> list it is handed, so the chart must receive the <em>same</em> <see cref="List{T}"/> instance
-/// across frames where nothing changed (otherwise it churns/rebuilds every frame). <see cref="BuildChartSeries"/>
-/// therefore returns a cached list and only repopulates it when a small dirty signature changes — the selected
-/// session reference, the history metric, or a version int bumped by <see cref="ToggleChartSource"/>. The list
-/// <em>instance</em> is reused; only its contents are rewritten, so element-side identity is preserved.</para>
+/// <para><b>Ref-diff caching:</b> the chart's binding re-meshes only when its <c>Series()</c> reference
+/// changes (<c>ReferenceEquals</c>). So <see cref="BuildChartSeries"/> returns a cached list across frames
+/// where nothing changed (skipping the per-frame remesh), and builds a <em>new</em> <see cref="List{T}"/>
+/// instance whenever its small dirty signature changes — the selected session reference, the history metric,
+/// or a version int bumped by <see cref="ToggleChartSource"/>. A fresh instance (rather than mutating the
+/// cached one in place) is what lets the ref-diff observe a toggle-after-mount and re-mesh the chart.</para>
 /// </summary>
 public sealed partial class Plugin
 {
@@ -27,8 +27,10 @@ public sealed partial class Plugin
     // metric change and re-skins on a full theme switch). Source lines keep their registry RoleColorFor.
     private ColorRgba TeamTotalColor => _services.Theme.Colors.MenuText;
 
-    // Stable chart-series buffer + its dirty signature.
-    private readonly List<ChartSeries> _chartSeries = new();
+    // Stable chart-series buffer + its dirty signature. The cached list INSTANCE is replaced (not mutated in
+    // place) on each rebuild so the chart's ChartBinding ref-diff (ReferenceEquals on Series()) detects the
+    // change and re-meshes; an unchanged frame returns the SAME instance to skip the per-frame remesh.
+    private List<ChartSeries> _chartSeries = new();
     private EncounterHistoryEntry? _chartSeriesSession;
     private Metric _chartSeriesMetric = (Metric)(-1);
     private int _chartSeriesBuiltVersion = -1;
@@ -59,20 +61,21 @@ public sealed partial class Plugin
     }
 
     // Build the ChartSeries set: team total (emphasis) + one per toggled source present in the session.
-    // Returns a STABLE list instance — repopulated only when the dirty signature changes (see class summary).
+    // Returns the SAME cached instance on a clean frame; a NEW list instance whenever the dirty signature
+    // changed, so the chart's ReferenceEquals ref-diff observes the change and re-meshes (see class summary).
     private IReadOnlyList<ChartSeries> BuildChartSeries()
     {
         if (!ChartSeriesDirty()) return _chartSeries;
 
-        _chartSeries.Clear();
+        var series = new List<ChartSeries>();   // fresh instance so the chart's ref-diff re-meshes
         _chartSeriesSession      = _selectedSession;
         _chartSeriesMetric       = _historyMetric;
         _chartSeriesBuiltVersion = _chartSourcesVersion;
 
-        if (_selectedSession is not { } h) return _chartSeries;
+        if (_selectedSession is not { } h) { _chartSeries = series; return _chartSeries; }
 
         long teamTotalValue = ComputeSessionMetricTotal(h, _historyMetric);
-        _chartSeries.Add(new ChartSeries(
+        series.Add(new ChartSeries(
             "Team total", TeamTotalColor,
             ToFloat(SeriesOrBucketZero(TeamTotalSeries(h, _historyMetric), teamTotalValue)),
             Emphasis: true));
@@ -82,12 +85,13 @@ public sealed partial class Plugin
             if (h.Series.TryGetValue(id, out var s))
             {
                 long sourceTotal = h.Stats.TryGetValue(id, out var st) ? MetricValueOf(st, _historyMetric) : 0L;
-                _chartSeries.Add(new ChartSeries(
+                series.Add(new ChartSeries(
                     EntityLabel.Resolve(id, self, _services.PlayerState, _services.CombatLookup, _services.PartyRoster.Members),
                     RoleColorFor(id),
                     ToFloat(SeriesOrBucketZero(ChannelOf(s, _historyMetric), sourceTotal))));
             }
 
+        _chartSeries = series;
         return _chartSeries;
     }
 

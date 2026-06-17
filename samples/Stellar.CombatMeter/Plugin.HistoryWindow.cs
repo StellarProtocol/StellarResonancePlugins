@@ -51,9 +51,14 @@ public sealed partial class Plugin
         public ColorRgba Role;
     }
 
+    // The session list pane is a FIXED width (not proportional): wide enough for a typical map name + the meta
+    // line on one row each, so a name like "Asteria Plains" reads cleanly instead of wrapping to ~5 lines in a
+    // narrow proportional column. The detail pane keeps the remaining width via its Weight.
+    private const float HistListWidth = 180f;
+
     private HudElement BuildHistoryRoot() => new RowElement(new HudElement[]
     {
-        new CellElement(BuildSessionList(), Weight: 1f),
+        new CellElement(BuildSessionList(), Width: HistListWidth),
         new SeparatorElement(Vertical: true),
         new CellElement(BuildSessionDetail(), Weight: 2f),
     }, Gap: 8f);
@@ -67,8 +72,8 @@ public sealed partial class Plugin
             slots[i] = new SelectableElement(
                 new ColumnElement(new HudElement[]
                 {
-                    new TextElement(() => idx < _historyView.Count ? "⏱ " + _historyView[idx].Clock : "", Emphasis: true),
-                    new TextElement(() => idx < _historyView.Count ? _historyView[idx].Meta : "", MutedCol),
+                    new TextElement(() => idx < _historyView.Count ? "⏱ " + _historyView[idx].Clock : "", Emphasis: true, NoWrap: true),
+                    new TextElement(() => idx < _historyView.Count ? _historyView[idx].Meta : "", MutedCol, NoWrap: true),
                 }, Gap: 1f),
                 OnClick: () => { if (idx < _historyView.Count) SelectSession(_historyView[idx].Index); },
                 Selected: () => idx < _historyView.Count && _historyView[idx].Index == _historyIndex);
