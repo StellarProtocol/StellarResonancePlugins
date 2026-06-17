@@ -103,7 +103,7 @@ public sealed partial class Plugin
         Series:          BuildChartSeries,
         BucketSeconds:   () => _selectedSession is { } h ? SeriesBucketSeconds(h) : 1f,
         FormatY:         v => FormatAmount((long)v),
-        FormatX:         FormatSeconds,
+        FormatX:         FormatChartX,
         TitleY:          () => MetricAxisTitle(_historyMetric),
         TitleX:          () => "Encounter time (m:ss)",
         VisibleRange:    () => _chartVisibleRange,
@@ -156,6 +156,17 @@ public sealed partial class Plugin
     {
         var total = (int)(s < 0f ? 0f : s);
         return $"{total / 60}:{total % 60:00}";
+    }
+
+    // Span-aware X tick label: short encounters get sub-second / integer-second precision so the few visible
+    // ticks stay distinct (a short span otherwise collapses every tick to "0:00"); longer ranges fall back to
+    // the m:ss clock. Span is read from the live zoom window so it adapts as the navigator/zoom changes it.
+    private string FormatChartX(float v)
+    {
+        var span = _chartVisibleRange.Max - _chartVisibleRange.Min;
+        if (span < 3f) return $"{v:0.0}s";
+        if (span < 60f) return $"{(int)(v < 0f ? 0f : v)}s";
+        return FormatSeconds(v);
     }
 
     private string SessionSummary()

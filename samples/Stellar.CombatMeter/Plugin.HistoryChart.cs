@@ -69,16 +69,22 @@ public sealed partial class Plugin
 
         if (_selectedSession is not { } h) return _chartSeries;
 
+        long teamTotalValue = ComputeSessionMetricTotal(h, _historyMetric);
         _chartSeries.Add(new ChartSeries(
-            "Team total", TeamTotalColor, ToFloat(TeamTotalSeries(h, _historyMetric)), Emphasis: true));
+            "Team total", TeamTotalColor,
+            ToFloat(SeriesOrBucketZero(TeamTotalSeries(h, _historyMetric), teamTotalValue)),
+            Emphasis: true));
 
         EntityId self = _services.CombatSnapshot.LocalEntityId;
         foreach (var id in _chartedSources)
             if (h.Series.TryGetValue(id, out var s))
+            {
+                long sourceTotal = h.Stats.TryGetValue(id, out var st) ? MetricValueOf(st, _historyMetric) : 0L;
                 _chartSeries.Add(new ChartSeries(
                     EntityLabel.Resolve(id, self, _services.PlayerState, _services.CombatLookup, _services.PartyRoster.Members),
                     RoleColorFor(id),
-                    ToFloat(ChannelOf(s, _historyMetric))));
+                    ToFloat(SeriesOrBucketZero(ChannelOf(s, _historyMetric), sourceTotal))));
+            }
 
         return _chartSeries;
     }
@@ -87,6 +93,13 @@ public sealed partial class Plugin
         => !ReferenceEquals(_chartSeriesSession, _selectedSession)
            || _chartSeriesMetric != _historyMetric
            || _chartSeriesBuiltVersion != _chartSourcesVersion;
+
+    // Sub-bucket encounters never accumulate a bucketed timeline (the encounter ended before the first bucket
+    // closed), so the per-bucket channel is empty and the chart would scan an all-zero/empty window → peak 0 →
+    // the degenerate 1/0/0/0 Y axis. Fall back to a single bucket-0 point carrying the source's metric total so
+    // the peak (and therefore the axis) reflects real data. Non-empty channels pass through unchanged.
+    internal static long[] SeriesOrBucketZero(long[] channel, long fallbackTotal)
+        => channel.Length > 0 ? channel : new[] { fallbackTotal };
 
     private float SeriesBucketSeconds(EncounterHistoryEntry h)
     {
