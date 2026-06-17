@@ -26,6 +26,7 @@ public sealed partial class Plugin
         public long     CombatDurationMs;
         public Dictionary<EntityId, SourceStats> Stats = new();
         public Dictionary<EntityId, SourceSeries> Series = new();   // NEW
+        public Dictionary<EntityId, EntitySnapshot> Entities = new();   // per-player frozen entity snapshot (issue #5)
         public PartyType PartyType;
         public int       MemberCount;
     }
@@ -62,6 +63,7 @@ public sealed partial class Plugin
             CombatDurationMs = ComputeDurationMs(),
             Stats            = DeepCopyStats(),
             Series           = FreezeTimelines(),
+            Entities         = SnapshotEntities(),
             PartyType        = _services.PartySnapshot.PartyType,
             // Combatant count — every entity that participated, not just party.
             // Guarded by _stats.Count == 0 early-return above, so >= 1 here.
