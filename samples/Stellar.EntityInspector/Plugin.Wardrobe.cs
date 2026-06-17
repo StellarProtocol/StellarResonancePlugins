@@ -94,7 +94,7 @@ public sealed partial class Plugin
     {
         // Same dirty-check as the skill rebuild: the fashion list reference only changes on a new
         // attr-201 broadcast, so steady-state ticks skip the string building entirely (perf review).
-        var snapshot = _services.EntityDetail.GetFashion(_target);
+        var snapshot = TargetFashion();
         // Far players have no broadcast — fall back to the social reply's fashion_data (populated when
         // their ID card was fetched with the full mask; same FashionEntry shape via AttrFashionDataReader).
         if (snapshot.Count == 0 && _socialSnap is { Fashion.Count: > 0 } s) snapshot = s.Fashion;

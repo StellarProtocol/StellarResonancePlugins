@@ -2,8 +2,22 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.0.0"
+  "minModSystemVersion": "1.1.0",
+  "date": "2026-06-18",
+  "capPriorVersionsAt": "1.0.1",
+  "changelog": {
+    "added": [
+      "Encounter history line charts (LineChartElement).",
+      "Luck% column.",
+      "Inspect magnifier on rows.",
+      "Phase 2 frozen-entity snapshot provider for EntityInspector."
+    ],
+    "fixed": [
+      "Taken metric now uses raw Amount.",
+      "Delete-session button width."
+    ]
+  }
 }

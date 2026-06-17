@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Stellar.Abstractions.Diagnostics;
 using Stellar.Abstractions.Domain;
 
@@ -12,6 +13,17 @@ namespace Stellar.CombatMeter;
 /// </summary>
 public sealed partial class Plugin
 {
+    // Logs (once per id, diagnostics-gated) a damage-attributed id that resolved to neither a real skill, a curated
+    // override, nor a buff name — i.e. it renders as a raw "#id". Use the output to add an entry to
+    // Plugin.SkillBreakdown's SkillNameOverrides map.
+    private readonly HashSet<int> _loggedUnresolvedSkillNames = new();
+    private void LogUnresolvedSkillName(int skillId)
+    {
+        if (!StellarDiagnostics.IsEnabled) return;
+        if (!_loggedUnresolvedSkillNames.Add(skillId)) return;
+        _services.Log.Info(
+            $"[CombatMeter][name] unresolved id={skillId} (no skill, override, or buff name) — add to SkillNameOverrides if needed");
+    }
     // TEMP cast-time-redesign capture: wire cd row vs what we render for a SELF imagine, on change + every
     // ~0.5s. Pins the multi-charge recharge model (does `begin` reset per cast? parallel vs sequential?) and
     // shows where our seconds/charges diverge from the game's own [Z]/[X]. Remove before the next commit.

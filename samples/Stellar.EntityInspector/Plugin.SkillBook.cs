@@ -85,7 +85,7 @@ public sealed partial class Plugin
     {
         // The tracker returns the same stored list until a fresh AttrSkillLevelIdList broadcast
         // replaces it — skip the per-tick string rebuild when nothing changed (perf review).
-        var snapshot = _services.CombatLookup.GetSkillLevels(_target);
+        var snapshot = TargetSkills();
         if (ReferenceEquals(snapshot, _lastSkillSnapshot)) return;
         _lastSkillSnapshot = snapshot;
 

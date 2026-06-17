@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.Abstractions/Stellar.Abstractions.csproj" />
+    <!-- Shared inter-plugin contracts (IFrozenEntityViewer) — brokered via IPluginServices.Exchange. -->
+    <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.PluginContracts/Stellar.PluginContracts.csproj" />
   </ItemGroup>
 
   <!-- Expose internal helpers (EntityLabel) so the test project can unit-test
@@ -26,5 +28,7 @@
     <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(GameInterop)/UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameInterop)/UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(GameInterop)/UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <!-- ImageConversion.EncodeToPNG — bake the procedural inspect (magnifier) icon to PNG bytes for ButtonElement.Icon. -->
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameInterop)/UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
 </Project>

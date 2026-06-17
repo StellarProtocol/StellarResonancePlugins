@@ -125,7 +125,7 @@ public sealed partial class Plugin
     private void AddMaxHpRow()
     {
         if (_ovLabels.Count >= MaxOverviewRows) return;
-        var v = _services.CombatLookup.GetVitals(_target);
+        var v = TargetVitals();
         if (v.IsKnown && v.MaxHp > 0)
         {
             _ovLabels.Add(_services.GameData.Combat.GetAttribute(11320)?.Name ?? "Max HP");
@@ -143,7 +143,8 @@ public sealed partial class Plugin
     private bool TryAttr(int id, out long value)
     {
         if (_targetAttrs.TryGetValue(id, out value)) return true;
-        if (IsSelf && _services.PlayerStats.TryGetAttribute(id) is { } self) { value = self; return true; }
+        // Live self-stat fallback only when NOT viewing a frozen session — frozen attrs are the source of truth.
+        if (!IsFrozen && IsSelf && _services.PlayerStats.TryGetAttribute(id) is { } self) { value = self; return true; }
         value = 0; return false;
     }
 

@@ -32,6 +32,11 @@ public sealed partial class Plugin
         new SpacerElement(Width: 10f),
         new ColumnElement(new HudElement[]
         {
+            // Frozen-session banner: shown only when rendering a snapshot routed in via IFrozenEntityViewer
+            // (the live portrait/stats are disabled in that mode). Closing the window returns to live.
+            new ConditionalElement(() => IsFrozen,
+                new TextElement(() => $"◷ Viewing session — {FrozenLabel}   ·   close to return to live",
+                    () => new ColorRgba(0.96f, 0.80f, 0.36f, 1f))),
             BuildIdentity(),
             new SeparatorElement(),
             BuildTabBar(),
@@ -86,7 +91,7 @@ public sealed partial class Plugin
 
     private float HpFraction()
     {
-        var v = _services.CombatLookup.GetVitals(_target);
+        var v = TargetVitals();
         if (v.IsKnown && v.MaxHp > 0) return (float)v.Hp / v.MaxHp;
         if (IsSelf && _services.PlayerState.MaxHealth > 0)
             return (float)_services.PlayerState.Health / _services.PlayerState.MaxHealth;
@@ -122,7 +127,7 @@ public sealed partial class Plugin
 
     private string NameLine()
     {
-        var n = _services.CombatLookup.GetEntityName(_target);
+        var n = TargetName();
         if (!string.IsNullOrEmpty(n)) return n!;
         if (IsSelf && !string.IsNullOrEmpty(_services.PlayerState.Name)) return _services.PlayerState.Name!;
         if (_socialSnap is { Name.Length: > 0 } s) return s.Name;   // far player: cached social identity
@@ -143,7 +148,7 @@ public sealed partial class Plugin
     {
         // Broadcast fight point first; far players fall back to the social reply's user_attr_data
         // (populated when their ID card was fetched with the full mask — never overrides a live value).
-        var fp = _services.CombatLookup.GetFightPoint(_target);
+        var fp = TargetFightPoint();
         if (fp == 0) fp = _socialSnap?.FightPoint ?? 0;
         var score = fp.ToString("N0", CultureInfo.InvariantCulture);
         var season = AttrOr(AttrSeasonStrength, 0);
@@ -174,7 +179,7 @@ public sealed partial class Plugin
 
     private string HpLine()
     {
-        var v = _services.CombatLookup.GetVitals(_target);
+        var v = TargetVitals();
         if (v.IsKnown && v.MaxHp > 0)
             return $"{v.Hp:N0} / {v.MaxHp:N0} ({100f * v.Hp / v.MaxHp:F0}%)";
         if (IsSelf && _services.PlayerState.MaxHealth > 0)

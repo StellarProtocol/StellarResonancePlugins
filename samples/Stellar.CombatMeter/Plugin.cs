@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Stellar.Abstractions.Domain;
-using Stellar.Abstractions.Domain.GameData;
 using Stellar.Abstractions.Plugins;
 using Stellar.Abstractions.Services;
 
@@ -35,6 +34,7 @@ public sealed partial class Plugin : IStellarPlugin
     private IWindowControl _mainWindow = null!;
     private IWindowControl _historyWindow = null!;
     private IWindowControl _skillBreakdownWindow = null!;
+    private IWindowControl _snapshotWindow = null!;
     private IWindowControl _settingsWindow = null!;
     private IHotkeyAction _toggleAction = null!;
     private IHotkeyAction _historyAction = null!;
@@ -59,6 +59,21 @@ public sealed partial class Plugin : IStellarPlugin
     // EntityId -> stats. Drives History / Archive / skill-breakdown. Live meter rows are driven by _agg.
     private readonly Dictionary<EntityId, SourceStats> _stats = new();
     private readonly MeterAggregator _agg = new();
+
+    // EntityId -> per-second time-series (dealt/healing/taken). Frozen into history at archive.
+    internal const int TimelineBucketMs = 1000;
+    internal const int TimelineMaxBuckets = 600;
+    private readonly Dictionary<EntityId, SourceTimeline> _timelines = new();
+
+    private SourceTimeline TimelineFor(EntityId id)
+    {
+        if (!_timelines.TryGetValue(id, out var t))
+        {
+            t = new SourceTimeline(TimelineBucketMs, TimelineMaxBuckets);
+            _timelines[id] = t;
+        }
+        return t;
+    }
 
     private readonly IConfigSection _prefs;
 
@@ -85,10 +100,17 @@ public sealed partial class Plugin : IStellarPlugin
         _services = services;
         _services.Log.Info("[CombatMeter] plugin constructed");
 
+        _inspectIconPng = BuildInspectMagnifierPng();   // procedural magnifier for the history Inspect button (main thread)
+
         _prefs = _services.Config.GetSection("combatmeter");
         _metric   = (Metric)     _prefs.Get("metric", (int)Metric.Dps);
         _filter   = (FilterMode) _prefs.Get("scope",  (int)FilterMode.Party);
         _viewMode = (ViewMode)   _prefs.Get("mode",   (int)ViewMode.List);
+
+        // Encounter history is persisted in its own config section (string[] of per-entry JSON). Load it before
+        // the windows are built so the History window has its sessions on first show.
+        _historyPrefs = _services.Config.GetSection("history");
+        LoadHistory();
 
         RegisterColours();
         BuildWindows();
@@ -102,6 +124,7 @@ public sealed partial class Plugin : IStellarPlugin
         _lastSceneName = _services.ClientState.CurrentSceneName;
 
         OnSkillBreakdownRequested += HandleSkillBreakdownRequested;
+        OnInspectRequested += HandleInspectRequested;
     }
 
     private void RegisterColours()
@@ -134,29 +157,9 @@ public sealed partial class Plugin : IStellarPlugin
               Resizable = true, MinWidth = 240f, MinHeight = 160f, MaxWidth = 760f, MaxHeight = 1000f },
             BuildMainRoot()));
 
-        _historyWindow = _services.Windows.Register(new WindowRegistration(
-            new WindowSpec(
-                Id:          "combatmeter.history",
-                Title:       "Combat History",
-                DefaultRect: new WindowRect(900f, 380f, 780f, 0f),
-                Category:    WindowCategory.HUD,
-                Style:       WindowPanelStyle.Party)
-            // A popup dialog (opened from the ≡ menu): free-drag + ✕ close. EditModeDragOnly defaults false, so
-            // it drags freely (not editor-managed) even though it wears the Party chrome.
-            { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
-            BuildHistoryRoot(),
-            OnClose: CloseHistory));
-
-        _skillBreakdownWindow = _services.Windows.Register(new WindowRegistration(
-            new WindowSpec(
-                Id:          "combatmeter.skill-breakdown",
-                Title:       "Skill Breakdown",
-                DefaultRect: new WindowRect(1000f, 80f, 460f, 0f),
-                Category:    WindowCategory.HUD,
-                Style:       WindowPanelStyle.Party)   // popup dialog: free-drag + ✕ close (see history above)
-            { StartVisible = false, HideUntilInWorld = true, Closable = true, Draggable = true },
-            BuildSkillBreakdownRoot(),
-            OnClose: CloseSkillBreakdown));
+        _historyWindow = RegisterHistoryWindow();
+        _skillBreakdownWindow = RegisterSkillBreakdownWindow();
+        _snapshotWindow = RegisterSnapshotWindow();
 
         _settingsWindow = BuildAndRegisterSettings();
         _rowMenuWindow = RegisterRowMenuWindow();
@@ -196,6 +199,7 @@ public sealed partial class Plugin : IStellarPlugin
         _services.Framework.Update                 -= OnUpdate;
         _services.ClientState.SceneChanged         -= OnSceneChanged;
         OnSkillBreakdownRequested -= HandleSkillBreakdownRequested;
+        OnInspectRequested -= HandleInspectRequested;
 
         _roleDpsSlot.Dispose();
         _roleTankSlot.Dispose();
@@ -212,6 +216,7 @@ public sealed partial class Plugin : IStellarPlugin
         _toggleAction.Dispose();
         _rowMenuWindow.Remove();
         _settingsWindow.Remove();
+        _snapshotWindow.Remove();
         _skillBreakdownWindow.Remove();
         _historyWindow.Remove();
         _mainWindow.Remove();
@@ -250,83 +255,13 @@ public sealed partial class Plugin : IStellarPlugin
         }
         if (_historyWindow.IsShown) RebuildHistorySnapshots();
         if (_skillBreakdownWindow.IsShown) RebuildSkillRows();
-    }
-
-    private void OnCombatEvent(CombatEvent evt)
-    {
-        if (_paused) return;
-        if (evt is CombatEvent.SkillUsed su) { LogSkillUsed(su); return; }   // TEMP capture (cast-time redesign)
-        if (evt is not CombatEvent.DamageDealt d) return;
-
-        _agg.AddDamage(d.SourceId, d.Amount, d.IsHeal);
-        // Damage TAKEN must use the same gross amount the DPS path uses (d.Amount = Value/HpLessen/Lucky
-        // precedence). It previously used d.ActualAmount, but ActualValue is usually 0 on the wire (not the
-        // primary damage field), so Taken always read 0 even in a long fight.
-        if (!d.IsHeal && d.TargetId.IsPlayer) _agg.AddTaken(d.TargetId, d.Amount);
-
-        if (!_stats.TryGetValue(d.SourceId, out var s))
-        {
-            s = new SourceStats();
-            _stats[d.SourceId] = s;
-        }
-
-        ObserveResonanceCast(d);
-        if (d.IsHeal) { s.TotalHealing += d.Amount; return; }
-        AccumulateDamage(s, d);
-    }
-
-    private void AccumulateDamage(SourceStats s, CombatEvent.DamageDealt d)
-    {
-        if (!_combatActive)
-        {
-            _combatActive  = true;
-            _combatStartMs = d.TimestampMs;
-        }
-        _lastDamageMs = d.TimestampMs;
-
-        s.TotalDamage += d.Amount;
-        s.Hits        += 1;
-        if (d.IsCrit) s.Crits += 1;
-        if (d.IsDead) s.Kills += 1;
-        if (d.Amount > s.TopHit) s.TopHit = d.Amount;
-        if (s.FirstHitMs == 0) s.FirstHitMs = d.TimestampMs;
-        s.LastHitMs = d.TimestampMs;
-
-        if (!s.BySkill.TryGetValue(d.SkillId, out var sk))
-        {
-            sk = new SkillStats();
-            s.BySkill[d.SkillId] = sk;
-        }
-        sk.Total += d.Amount;
-        sk.Hits  += 1;
-        if (d.IsCrit) sk.Crits += 1;
-        if (d.Amount > sk.TopHit) sk.TopHit = d.Amount;
-    }
-
-    // Spec comes from the framework's shared cast-resolved cache (ICombatSpec): the framework recognises
-    // spec-defining skill ids as damage/heal events flow through (ZDPS-parity, last-seen-wins), so EVERY
-    // consumer (this meter + EntityInspector) agrees. Returns 0 until the player casts a spec-defining skill.
-    // The meter no longer infers spec from the AOI loadout — that carries the whole learned-skill set (both
-    // specs' signature skills), so it mislabelled players (Falconry shown as Wildpack, in-world 2026-06-17).
-    private int ResolveSpec(EntityId id) => _services.CombatSpec.GetSubProfession(id);
-
-    // Feed the inferred-others cooldown tracker when a Battle-Imagine cast is seen (all players incl.
-    // self — harmless, self display uses LocalCooldowns). GetImagineForSkill is null for non-imagine
-    // skills. Multi-charge skills recharge on EnergyChargeTime; single-charge on the per-cast cooldown.
-    private void ObserveResonanceCast(CombatEvent.DamageDealt d)
-    {
-        if (!d.SourceId.IsPlayer) return;
-        if (_services.ResonanceData.GetImagineForSkill(d.SkillId) is not { } info) return;
-        LogImagineCast(d.SourceId, d.SkillId, info.SkillId);   // TEMP capture: is the cast seen? how many hits?
-        int ms = info.ChargeCount > 1 ? info.RechargeMs : info.CooldownMs;
-        // Key by the BASE imagine skill id (info.SkillId), not the leveled cast id (d.SkillId), so OtherSlot —
-        // which looks the tracker up by the equipped loadout's base id — finds it.
-        _resTracker.OnCast(d.SourceId, info.SkillId, info.ChargeCount, ms, _services.CombatSnapshot.ServerNowMs);
+        if (_snapshotWindow.IsShown) RebuildSnapshotRows();
     }
 
     private void Clear()
     {
         _stats.Clear();
+        _timelines.Clear();
         _agg.Reset();
         // Reset the per-entity bar-animation cache too — it's keyed by EntityId and would otherwise grow
         // unbounded across a session (one entry per entity ever ranked). Clear() is the encounter-reset hook
