@@ -1,7 +1,9 @@
 name: publish-registry
-# Validates plugin manifests and publishes plugins.json + DLLs to the public
-# `stellar` MinIO bucket. Runs on every push to main (and manual dispatch).
-# PRs run validation only (no publish) so community submissions are checked.
+# Fully CI/CD: builds the sample plugins against committed interop REFERENCE STUBS
+# (no game install needed), stamps the registry (applying each manifest's
+# minModSystemVersion + capPriorVersionsAt — see tools/set-version.py), and
+# publishes plugins.json + DLLs to the public `stellar` MinIO bucket.
+# Runs on every push to main (and manual dispatch). PRs build + validate only.
 on:
   push:
     branches: [main]
@@ -11,16 +13,56 @@ on:
 jobs:
   registry:
     runs-on: ubuntu-latest
+    # Gate publishing on the Production environment. Configure REQUIRED REVIEWERS
+    # on this environment so a human confirms the real-interop / in-game smoke
+    # before a stub-built release ships — stubs validate the API surface, not
+    # runtime. See docs/release-process.md § Real-interop gate.
     environment: Production
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout plugins
+        uses: actions/checkout@v4
+
+      - name: Checkout framework (Abstractions/PluginContracts source + interop stubs)
+        uses: actions/checkout@v4
+        with:
+          repository: StellarProtocol/StellarResonanceModSystem
+          ref: ${{ vars.FRAMEWORK_REF || 'main' }}
+          path: framework
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+      - name: Build plugins against interop stubs
+        shell: bash
+        run: |
+          FW="$GITHUB_WORKSPACE/framework"
+          REFS="$FW/refs"
+          [ -d "$REFS" ] || { echo "::error::framework/refs stubs missing — run framework tools/gen-refs.sh and commit"; exit 1; }
+          for proj in Stellar.ChatTools Stellar.CombatMeter Stellar.CooldownBar \
+                      Stellar.EntityInspector Stellar.ModuleOptimizer Stellar.PlayerHUD \
+                      Stellar.StatInspector; do
+            dotnet build "samples/$proj/$proj.csproj" -c Release --nologo \
+              -p:StellarFrameworkSrc="$FW/src" \
+              -p:GameInterop="$REFS" -p:BepInExCore="$REFS"
+          done
+
+      - name: Stage built DLLs into registry dirs
+        shell: bash
+        run: |
+          for proj in Stellar.ChatTools Stellar.CombatMeter Stellar.CooldownBar \
+                      Stellar.EntityInspector Stellar.ModuleOptimizer Stellar.PlayerHUD \
+                      Stellar.StatInspector; do
+            id="$(echo "${proj#Stellar.}" | tr '[:upper:]' '[:lower:]')"
+            cp "samples/$proj/bin/Release/$proj.dll" "plugins/$id/$proj.dll"
+          done
+
       - name: Validate + build registry
-        run: python tools/build-registry.py        # validation only (no creds needed)
+        run: python tools/build-registry.py        # validation only (no creds)
 
       - name: Publish to MinIO
         if: ${{ github.event_name != 'pull_request' }}

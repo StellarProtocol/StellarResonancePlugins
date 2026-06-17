@@ -2,8 +2,15 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.0.0"
+  "minModSystemVersion": "1.1.0",
+  "date": "2026-06-18",
+  "capPriorVersionsAt": "1.0.1",
+  "changelog": {
+    "changed": [
+      "Rebuilt for StellarResonance 1.1.0."
+    ]
+  }
 }

@@ -2,8 +2,15 @@
   "id": "statinspector",
   "name": "StatInspector",
   "description": "Live attribute readout (mini-HUD) with a grouped settings picker for the stats you want on screen.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dll": "Stellar.StatInspector.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.0.0"
+  "minModSystemVersion": "1.1.0",
+  "date": "2026-06-18",
+  "capPriorVersionsAt": "1.0.1",
+  "changelog": {
+    "changed": [
+      "Rebuilt for StellarResonance 1.1.0."
+    ]
+  }
 }

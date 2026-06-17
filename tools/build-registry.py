@@ -95,6 +95,12 @@ def collect() -> list[dict]:
 
         plugins.append({
             "_dll": dll, "_key": key,
+            # capPriorVersionsAt: when this build requires a newer framework, retro-cap older
+            # published versions (whose maxModSystemVersion is still null) at this framework
+            # version, so the launcher stops offering them on the newer framework. The published
+            # history is otherwise carried forward verbatim, so this is the only sanctioned way
+            # to bound a prior build. See docs/manifest-standard.md § Compatibility rule.
+            "cap_prior": m.get("capPriorVersionsAt"),
             "meta": {"id": m["id"], "name": m["name"], "description": m["description"], "author": m["author"]},
             "version": version_entry,
         })
@@ -110,7 +116,13 @@ def build_registry(plugins: list[dict], published: dict) -> dict:
     entries = []
     for p in plugins:
         cur = p["version"]
-        versions = [cur] + [v for v in prior.get(p["meta"]["id"], []) if v.get("version") != cur["version"]]
+        olds = [v for v in prior.get(p["meta"]["id"], []) if v.get("version") != cur["version"]]
+        cap = p.get("cap_prior")
+        if cap:
+            for v in olds:
+                if not v.get("maxModSystemVersion"):
+                    v["maxModSystemVersion"] = cap
+        versions = [cur] + olds
         versions.sort(key=lambda v: ver_key(v["version"]), reverse=True)
         entries.append({**p["meta"], "versions": versions})
     return {"plugins": entries}
