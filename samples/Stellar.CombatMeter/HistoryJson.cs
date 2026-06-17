@@ -46,6 +46,30 @@ internal sealed class HistoryJsonWriter
         return EndArray();
     }
 
+    public HistoryJsonWriter Value(int[]? arr)
+    {
+        BeginArray();
+        if (arr != null) foreach (var n in arr) Value(n);
+        return EndArray();
+    }
+
+    /// <summary>Write a float array as a JSON array of round-trip ("R") formatted numbers (dye RGBA channels).</summary>
+    public HistoryJsonWriter Value(float[]? arr)
+    {
+        BeginArray();
+        if (arr != null) foreach (var f in arr) Value(f);
+        return EndArray();
+    }
+
+    /// <summary>Write a single float value using the round-trip ("R") format so dye channels survive a re-read.</summary>
+    public HistoryJsonWriter Value(float v)
+    {
+        Pre();
+        _sb.Append(v.ToString("R", CultureInfo.InvariantCulture));
+        _needComma = true;
+        return this;
+    }
+
     public override string ToString() => _sb.ToString();
 
     private void Pre()
@@ -96,6 +120,7 @@ internal sealed class HistoryJsonReader
     public JsonTokenKind Kind { get; private set; }
     public string StringValue { get; private set; } = "";
     public long NumberValue { get; private set; }
+    public double DoubleValue { get; private set; }
 
     /// <summary>Advance to the next token. Returns its kind (also exposed via <see cref="Kind"/>).</summary>
     public JsonTokenKind Next()
@@ -158,10 +183,26 @@ internal sealed class HistoryJsonReader
         var start = _i;
         if (_s[_i] == '-') _i++;
         while (_i < _s.Length && _s[_i] >= '0' && _s[_i] <= '9') _i++;
+        // Optional fractional + exponent parts (dye RGBA channels are floats; integer payloads never hit these).
+        var isFloat = false;
+        if (_i < _s.Length && _s[_i] == '.')
+        {
+            isFloat = true; _i++;
+            while (_i < _s.Length && _s[_i] >= '0' && _s[_i] <= '9') _i++;
+        }
+        if (_i < _s.Length && (_s[_i] == 'e' || _s[_i] == 'E'))
+        {
+            isFloat = true; _i++;
+            if (_i < _s.Length && (_s[_i] == '+' || _s[_i] == '-')) _i++;
+            while (_i < _s.Length && _s[_i] >= '0' && _s[_i] <= '9') _i++;
+        }
         var span = _s.Substring(start, _i - start);
-        if (!long.TryParse(span, NumberStyles.Integer, CultureInfo.InvariantCulture, out var v))
+        if (!double.TryParse(span, NumberStyles.Float, CultureInfo.InvariantCulture, out var d))
             return Set(JsonTokenKind.Error);
-        NumberValue = v;
+        DoubleValue = d;
+        // Keep NumberValue meaningful for integer tokens (the long readers). Floats truncate, which the
+        // integer readers never request.
+        NumberValue = isFloat ? (long)d : (long.TryParse(span, NumberStyles.Integer, CultureInfo.InvariantCulture, out var v) ? v : (long)d);
         return Set(JsonTokenKind.Number);
     }
 

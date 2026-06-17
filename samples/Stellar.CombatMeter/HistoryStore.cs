@@ -18,7 +18,10 @@ namespace Stellar.CombatMeter;
 /// </summary>
 internal static partial class HistoryStore
 {
-    internal const int FormatVersion = 1;
+    // v1 = stats + series. v2 = + "entities" (per-player frozen snapshot, issue #5). The reader accepts v1 || v2
+    // (v1 entries load with an empty Entities map → backward compatible), so writing v2 never strands old files.
+    internal const int FormatVersion = 2;
+    internal const int MinSupportedVersion = 1;
 
     // ----- serialize -----
 
@@ -35,6 +38,7 @@ internal static partial class HistoryStore
         w.Name("members").Value(e.MemberCount);
         w.Name("stats"); WriteStats(w, e.Stats);
         w.Name("series"); WriteSeries(w, e.Series);
+        w.Name("entities"); WriteEntities(w, e.Entities);
         w.EndObject();
         return w.ToString();
     }
@@ -105,6 +109,36 @@ internal static partial class HistoryStore
             w.Name("d").Value(sr.Dealt);
             w.Name("hl").Value(sr.Healing);
             w.Name("tk").Value(sr.Taken);
+            w.EndObject();
+        }
+        w.EndArray();
+    }
+
+    // v2: per-player frozen entity snapshots — scalars + parallel primitive arrays (issue #5). Keys are terse to
+    // keep the JSON compact at HistoryCapacity=50; the reader matches them by name.
+    private static void WriteEntities(HistoryJsonWriter w, Dictionary<EntityId, EntitySnapshot> entities)
+    {
+        w.BeginArray();
+        foreach (var (id, s) in entities)
+        {
+            w.BeginObject();
+            w.Name("id").Value(id.Value);
+            w.Name("nm").Value(s.Name);
+            w.Name("fp").Value(s.FightPoint);
+            w.Name("hp").Value(s.Hp);
+            w.Name("mhp").Value(s.MaxHp);
+            w.Name("tm").Value(s.TeamId);
+            w.Name("ai").Value(s.AttrIds);
+            w.Name("av").Value(s.AttrValues);
+            w.Name("gs").Value(s.GearSlots);
+            w.Name("gi").Value(s.GearItemIds);
+            w.Name("si").Value(s.SkillIds);
+            w.Name("sl").Value(s.SkillLevels);
+            w.Name("st").Value(s.SkillTiers);
+            w.Name("fs").Value(s.FashionSlots);
+            w.Name("fi").Value(s.FashionIds);
+            w.Name("fc").Value(s.FashionDyeCounts);
+            w.Name("fd").Value(s.FashionDyes);
             w.EndObject();
         }
         w.EndArray();

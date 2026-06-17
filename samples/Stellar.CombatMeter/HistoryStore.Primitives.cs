@@ -48,6 +48,40 @@ internal static partial class HistoryStore
         return true;
     }
 
+    private static bool ReadIntArray(HistoryJsonReader r, out int[] arr)
+    {
+        arr = System.Array.Empty<int>();
+        var list = new List<int>();
+        if (r.Next() != JsonTokenKind.ArrayStart) return false;
+        while (true)
+        {
+            var k = r.Next();
+            if (k == JsonTokenKind.ArrayEnd) break;
+            if (k == JsonTokenKind.Comma) continue;
+            if (k != JsonTokenKind.Number) return false;
+            list.Add((int)r.NumberValue);
+        }
+        arr = list.ToArray();
+        return true;
+    }
+
+    private static bool ReadFloatArray(HistoryJsonReader r, out float[] arr)
+    {
+        arr = System.Array.Empty<float>();
+        var list = new List<float>();
+        if (r.Next() != JsonTokenKind.ArrayStart) return false;
+        while (true)
+        {
+            var k = r.Next();
+            if (k == JsonTokenKind.ArrayEnd) break;
+            if (k == JsonTokenKind.Comma) continue;
+            if (k != JsonTokenKind.Number) return false;
+            list.Add((float)r.DoubleValue);
+        }
+        arr = list.ToArray();
+        return true;
+    }
+
     // Iterate a JSON array, invoking <paramref name="readElement"/> with the reader positioned BEFORE each
     // element's first token. The callback must fully consume exactly one element.
     private static bool ReadArray(HistoryJsonReader r, Func<bool> readElement)
