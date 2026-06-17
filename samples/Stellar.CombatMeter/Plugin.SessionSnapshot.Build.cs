@@ -180,6 +180,16 @@ public sealed partial class Plugin
             return;
         }
         if (!session.Entities.TryGetValue(id, out var snap)) return;   // no snapshot for this row (defensive)
+
+        // Prefer the real Entity Inspector when a plugin provides IFrozenEntityViewer via the exchange; it renders
+        // the frozen snapshot in its richer UI. Falls back to our own Session Snapshot when no viewer is installed.
+        var viewer = _services.Exchange.Consume<Stellar.PluginContracts.IFrozenEntityViewer>();
+        if (viewer is not null
+            && viewer.ShowFrozen(BuildFrozenEntity(id, FormatSessionTimestampLong(session.ArchivedAtMs), snap)))
+        {
+            return;
+        }
+
         _snapshot = new SnapshotState { Source = id, Session = session, Snap = snap };
         RebuildSnapshotRows();
         _snapshotWindow.SetVisible(true);

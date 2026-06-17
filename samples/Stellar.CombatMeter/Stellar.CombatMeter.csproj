@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.Abstractions/Stellar.Abstractions.csproj" />
+    <!-- Shared inter-plugin contracts (IFrozenEntityViewer) — brokered via IPluginServices.Exchange. -->
+    <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.PluginContracts/Stellar.PluginContracts.csproj" />
   </ItemGroup>
 
   <!-- Expose internal helpers (EntityLabel) so the test project can unit-test

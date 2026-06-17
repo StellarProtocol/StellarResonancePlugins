@@ -15,7 +15,7 @@ namespace Stellar.EntityInspector;
 /// works for any player (social-data model via <see cref="IEntityPortrait"/>). State is snapshotted on a
 /// throttled tick so the element Funcs never scan/allocate per poll.
 /// </summary>
-public sealed partial class Plugin : IStellarPlugin
+public sealed partial class Plugin : IStellarPlugin, Stellar.PluginContracts.IFrozenEntityViewer
 {
     public string Name => "EntityInspector";
 
@@ -65,6 +65,10 @@ public sealed partial class Plugin : IStellarPlugin
         _inspectAction = _services.ProfileCardActions.Register(
             new ProfileCardActionSpec("inspect", "Inspect", BuildMagnifierPng(), Open));
 
+        // Offer the frozen-entity viewer capability over the inter-plugin exchange — CombatMeter's history Inspect
+        // button consumes it to render a past session's snapshot here, falling back to its own view when absent.
+        _services.Exchange.Provide<Stellar.PluginContracts.IFrozenEntityViewer>(this);
+
         _services.Framework.Update += OnUpdate;
     }
 
@@ -72,6 +76,7 @@ public sealed partial class Plugin : IStellarPlugin
     public void Open(EntityId entity)
     {
         if (!entity.IsPlayer) return;
+        _frozen = null;                                // a live Open() leaves any frozen-session view
         _gearDetailWindow.SetVisible(false);           // retargeting must not leave a stale item popup
         _target = entity;
         RebuildSnapshots();                            // before subscribe: the broadcast snapshot decides which ids need polling
@@ -85,6 +90,7 @@ public sealed partial class Plugin : IStellarPlugin
 
     private void CloseInspector()
     {
+        _frozen = null;                        // closing a frozen-session view returns to live on next open
         _window.SetVisible(false);
         _gearDetailWindow.SetVisible(false);   // a floating detail popup must not outlive its inspector
         _services.EntityPortrait.Hide();       // release the portrait model when hidden
@@ -182,9 +188,9 @@ public sealed partial class Plugin : IStellarPlugin
             System.Array.Clear(_gearCards, 0, _gearCards.Length);
             return;
         }
-        _targetAttrs = _services.EntityDetail.GetAttributes(_target);
-        _socialSnap = _services.EntityDetail.GetSocialSnapshot(_target);
-        _isRemote = _targetAttrs.Count == 0;   // no broadcast data → far/never-seen; identity is social-only
+        _targetAttrs = _frozen?.Attributes ?? _services.EntityDetail.GetAttributes(_target);
+        _socialSnap = _frozen is null ? _services.EntityDetail.GetSocialSnapshot(_target) : null;   // no social for frozen
+        _isRemote = !IsFrozen && _targetAttrs.Count == 0;   // no broadcast data → far/never-seen; frozen always has data
         _targetTalentSchool = ResolveTalentSchool();
         RebuildImagines();   // header chips are tab-independent
         switch (_tab)
@@ -208,7 +214,7 @@ public sealed partial class Plugin : IStellarPlugin
     private void RebuildImagines()
     {
         _imagines.Clear();
-        foreach (var sl in _services.CombatLookup.GetSkillLevels(_target))
+        foreach (var sl in TargetSkills())
         {
             if (_services.ResonanceData.GetImagineForSkill(sl.SkillId) is not { } info) continue;
             var stars = StarStrings[sl.Tier < 0 ? 0 : sl.Tier > 5 ? 5 : sl.Tier];

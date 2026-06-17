@@ -153,7 +153,7 @@ public sealed partial class Plugin
                 _gearScratch.Add((PartOf(g.ConfigId, g.Slot), g.ConfigId, g.ItemUuid, g.RefineLevel));
             if (_gearScratch.Count > 0) return;
         }
-        foreach (var e in _services.EntityDetail.GetEquipment(_target))
+        foreach (var e in TargetGear())
             _gearScratch.Add((PartOf(e.ItemId, int.MaxValue), e.ItemId, 0L, 0));
         if (_gearScratch.Count == 0 && _socialSnap is { Gear.Count: > 0 } s)
             foreach (var g in s.Gear)

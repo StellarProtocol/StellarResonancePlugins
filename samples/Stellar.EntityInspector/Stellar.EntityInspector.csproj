@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.Abstractions/Stellar.Abstractions.csproj" />
+    <!-- Shared inter-plugin contracts: provides IFrozenEntityViewer via IPluginServices.Exchange. -->
+    <ProjectReference Include="$(StellarFrameworkSrc)/Stellar.PluginContracts/Stellar.PluginContracts.csproj" />
   </ItemGroup>
 
   <!-- UnityEngine for cursor-anchored popups (Input.mousePosition / Screen) — CombatMeter precedent;
