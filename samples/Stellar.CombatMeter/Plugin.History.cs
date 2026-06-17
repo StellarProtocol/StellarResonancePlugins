@@ -14,7 +14,7 @@ internal struct SourceSeries
 
 public sealed partial class Plugin
 {
-    private const int HistoryCapacity = 10;
+    private const int HistoryCapacity = 50;
     private readonly List<EncounterHistoryEntry> _history = new();
     private string? _lastSceneName;
 
@@ -68,7 +68,8 @@ public sealed partial class Plugin
             MemberCount      = _stats.Count,
         };
         _history.Add(entry);
-        if (_history.Count > HistoryCapacity) _history.RemoveAt(0);
+        TrimToCapacity(_history);
+        SaveHistory();   // persist on every archive + eviction (a user/scene event, not a hot-path frame)
 
         Clear();
     }

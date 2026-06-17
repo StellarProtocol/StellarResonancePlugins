@@ -99,6 +99,11 @@ public sealed partial class Plugin : IStellarPlugin
         _filter   = (FilterMode) _prefs.Get("scope",  (int)FilterMode.Party);
         _viewMode = (ViewMode)   _prefs.Get("mode",   (int)ViewMode.List);
 
+        // Encounter history is persisted in its own config section (string[] of per-entry JSON). Load it before
+        // the windows are built so the History window has its sessions on first show.
+        _historyPrefs = _services.Config.GetSection("history");
+        LoadHistory();
+
         RegisterColours();
         BuildWindows();
 

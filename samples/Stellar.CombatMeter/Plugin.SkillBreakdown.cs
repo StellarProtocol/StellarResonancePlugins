@@ -106,7 +106,7 @@ public sealed partial class Plugin
         _skillRows.Clear();
         if (_skillBreakdown is not { } state) return;
 
-        // Stale-session guard: history capacity is 10; close if the drilled entry was evicted.
+        // Stale-session guard: close if the drilled entry was evicted (cap) or deleted (clear-all/clear-one).
         if (!_history.Contains(state.Session)) { CloseSkillBreakdown(); return; }
         if (!state.Session.Stats.TryGetValue(state.Source, out var src)) return;
 
