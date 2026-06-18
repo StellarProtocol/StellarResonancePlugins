@@ -21,7 +21,8 @@ customised for StellarResonance (our own SDK on NuGet.org, sandboxed container b
 
 ## Write a plugin (quickstart)
 
-You need **no framework checkout and no game install** — just the SDK from NuGet.org.
+You need **no framework checkout and no game install** — just the SDK from
+[NuGet.org](https://www.nuget.org/profiles/dorasu).
 
 1. **Create your plugin in its own public repo**, named **`Stellar<Name>Plugin`**
    (e.g. `StellarMyOverlayPlugin`; the assembly/DLL is `Stellar.MyOverlay.dll`).
@@ -55,11 +56,24 @@ You need **no framework checkout and no game install** — just the SDK from NuG
 
 ### The SDK packages (on NuGet.org)
 
+All three are published to **[NuGet.org](https://www.nuget.org/profiles/dorasu)** (no feed config needed):
+
 | Package | What it's for |
 |---|---|
-| **`Stellar.Abstractions`** | the plugin API — services, the declarative uGUI element tree, domain types |
-| **`Stellar.PluginContracts`** | shared contracts for the inter-plugin exchange (`IPluginExchange`) — only if you use it |
-| **`Stellar.Plugin.InteropRefs`** | compile-time Unity/Il2Cpp/BepInEx **reference stubs** so you build without the game (the game provides the real ones at runtime) |
+| **[`Stellar.Abstractions`](https://www.nuget.org/packages/Stellar.Abstractions)** | the plugin API — services, the declarative uGUI element tree, domain types |
+| **[`Stellar.Plugin.InteropRefs`](https://www.nuget.org/packages/Stellar.Plugin.InteropRefs)** | compile-time Unity/Il2Cpp/BepInEx **reference stubs** so you build without the game (the game provides the real ones at runtime) |
+| **[`Stellar.PluginContracts`](https://www.nuget.org/packages/Stellar.PluginContracts)** | shared contracts for the inter-plugin exchange (`IPluginExchange`) — only if you use it |
+
+Install with the CLI (or use the `<PackageReference>` block above):
+
+```sh
+dotnet add package Stellar.Abstractions
+dotnet add package Stellar.Plugin.InteropRefs
+dotnet add package Stellar.PluginContracts   # only if you use the inter-plugin exchange
+```
+
+> Pin a **fixed** version that matches your target framework release (e.g. `--version 1.1.1`) so a
+> given commit always builds the same binary — the registry rebuilds your plugin from its pinned commit.
 
 Versions track the framework release. Full API: the framework's
 [**API reference**](https://github.com/StellarProtocol/StellarResonanceModSystem/tree/main/docs/api) +
@@ -80,6 +94,7 @@ container**, and publishes it (after review + a maintainer approval).
   "dll": "Stellar.MyOverlay.dll",
   "repository": "https://github.com/you/StellarMyOverlayPlugin.git",
   "commit": "<full 40-char sha>",       // immutable — CI builds + attests THIS exact commit
+  "tag": "v1.0.0",                       // optional, display-only; CI verifies tag → commit
   "projectPath": ".",
   "version": "1.0.0",
   "minModSystemVersion": "1.1.0",        // lowest framework version this build runs on
@@ -87,7 +102,9 @@ container**, and publishes it (after review + a maintainer approval).
   "changelog": { "added": ["…"] }
 }
 ```
-`tools/set-version.py <id> --version … --min … [--cap-prior …]` helps with the version/compat fields.
+`commit` is **authoritative** (CI builds that exact SHA); `tag` is optional, display-only provenance.
+`tools/set-version.py <id> --version … --min … [--commit … --tag … --cap-prior …]` helps with the
+version/compat fields.
 Then **open a PR** — CI sandbox-builds your pinned commit + validates the registry (the PR diff + your
 pinned source are the review surface). On merge to `main`, the build is rebuilt and published to MinIO
 with provenance (`sourceRepository`/`sourceCommit`), after a maintainer's `Production` approval.
@@ -95,10 +112,13 @@ with provenance (`sourceRepository`/`sourceCommit`), after a maintainer's `Produ
 To **update**: bump `commit` (and `version`) via a new PR.
 
 ### Channels
-- `"channel": "stable"` (default) → in **both** `plugins.json` and `plugins-testing.json`.
-- `"channel": "testing"` → in **only** `plugins-testing.json` (the launcher's *testing* channel).
-
-New/risky builds land on `testing`; promote to stable by setting `stable` (or dropping the field).
+The build emits `plugins.json` (stable only) and `plugins-testing.json` (a **superset** — every
+version). A plugin can be live on **both** at once via a two-file source model:
+- `manifest.json` — the canonical record; its `"channel"` (default `"stable"`) is the channel of *that*
+  version. New/risky builds set `"testing"`; promote with `set-version.py <id> --promote`.
+- `manifest.testing.json` — *optional* sibling adding a **second, testing build** that inherits the
+  shared fields and overrides only the version-specific ones (`version`/`commit`/`tag`/`min`/…), so a
+  beta runs alongside the stable release. Create it with `set-version.py <id> --testing …`.
 
 ### Security model — important
 A plugin DLL is **arbitrary code in the game process** (BepInEx IL2CPP); it is **not sandboxed at
