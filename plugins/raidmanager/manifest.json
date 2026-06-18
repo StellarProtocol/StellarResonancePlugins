@@ -1,0 +1,19 @@
+{
+  "id": "raidmanager",
+  "name": "RaidManager",
+  "description": "ZDPS Compatible raid coordination tools displayed as a HUD overlay.",
+  "version": "1.0.0",
+  "dll": "Stellar.RaidManager.dll",
+  "author": "Stellar",
+  "minModSystemVersion": "1.1.0",
+  "date": "2026-06-18",
+  "capPriorVersionsAt": "1.1.0",
+  "changelog": {
+    "changed": [
+      "Initial Release"
+    ]
+  },
+  "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
+  "commit": "eaa6a16fae8a9fb79ffa602c789ae95a9093e739",
+  "projectPath": "."
+}
