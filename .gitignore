@@ -2,3 +2,6 @@ dist/
 __pycache__/
 samples/**/bin/
 samples/**/obj/
+
+# Registry is manifests-only — plugin binaries are built from each pinned repo by CI (publish.yml).
+plugins/*/*.dll
