@@ -1,0 +1,21 @@
+[submodule "repos/StellarCombatMeterPlugin"]
+	path = repos/StellarCombatMeterPlugin
+	url = git@github.com:StellarProtocol/StellarCombatMeterPlugin.git
+[submodule "repos/StellarChatToolsPlugin"]
+	path = repos/StellarChatToolsPlugin
+	url = git@github.com:StellarProtocol/StellarChatToolsPlugin.git
+[submodule "repos/StellarCooldownBarPlugin"]
+	path = repos/StellarCooldownBarPlugin
+	url = git@github.com:StellarProtocol/StellarCooldownBarPlugin.git
+[submodule "repos/StellarEntityInspectorPlugin"]
+	path = repos/StellarEntityInspectorPlugin
+	url = git@github.com:StellarProtocol/StellarEntityInspectorPlugin.git
+[submodule "repos/StellarModuleOptimizerPlugin"]
+	path = repos/StellarModuleOptimizerPlugin
+	url = git@github.com:StellarProtocol/StellarModuleOptimizerPlugin.git
+[submodule "repos/StellarPlayerHUDPlugin"]
+	path = repos/StellarPlayerHUDPlugin
+	url = git@github.com:StellarProtocol/StellarPlayerHUDPlugin.git
+[submodule "repos/StellarStatInspectorPlugin"]
+	path = repos/StellarStatInspectorPlugin
+	url = git@github.com:StellarProtocol/StellarStatInspectorPlugin.git
