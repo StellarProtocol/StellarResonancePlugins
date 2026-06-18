@@ -12,5 +12,8 @@
     "changed": [
       "Rebuilt for StellarResonance 1.1.0."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
+  "commit": "27af39e6b2752bac545bda7c24449791bbdaa9d2",
+  "projectPath": "."
 }

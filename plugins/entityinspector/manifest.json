@@ -13,5 +13,8 @@
       "Live frozen-entity view via the Phase 2 inter-plugin exchange.",
       "Magnifier button on the profile card."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
+  "commit": "4d138b69708fae0a7799d1ab6d952bcfa8e1fb19",
+  "projectPath": "."
 }

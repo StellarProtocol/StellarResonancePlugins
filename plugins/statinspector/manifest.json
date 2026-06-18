@@ -12,5 +12,8 @@
     "changed": [
       "Rebuilt for StellarResonance 1.1.0."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarStatInspectorPlugin.git",
+  "commit": "f385127b0171bb5410a8d63c7b868977b2160e4f",
+  "projectPath": "."
 }

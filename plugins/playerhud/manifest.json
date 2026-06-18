@@ -12,5 +12,8 @@
     "changed": [
       "Rebuilt for StellarResonance 1.1.0."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarPlayerHUDPlugin.git",
+  "commit": "4d78d8fd8bca30d0afc2cf056dbd5f5113aadb50",
+  "projectPath": "."
 }
