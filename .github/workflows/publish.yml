@@ -42,6 +42,9 @@ jobs:
           python tools/build-registry.py --targets > /tmp/targets.tsv
           while IFS=$'\t' read -r id channel repo commit tag path dll version staged; do
             tgt="$id[$channel] $version"
+            [ "$repo" = "-" ] && repo=""        # "-" is the registry's empty-field sentinel
+            [ "$commit" = "-" ] && commit=""
+            [ "$tag" = "-" ] && tag=""
             if [ -z "$repo" ]; then
               echo "::error::$tgt has no pinned repository — the curated registry requires a public source repo (DIP17). See CONTRIBUTING.md."
               fail=1; continue

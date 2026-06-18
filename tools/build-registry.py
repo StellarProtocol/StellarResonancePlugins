@@ -233,12 +233,18 @@ def _emit(obj: str, plugins: list[dict], publish: bool) -> None:
 
 def print_targets() -> None:
     """Emit the per-(plugin,channel) build plan as TSV for CI's sandboxed clone-and-build.
-    Columns: id  channel  repository  commit  tag  projectPath  dll  version  stagedName"""
+    Columns: id  channel  repository  commit  tag  projectPath  dll  version  stagedName
+
+    Possibly-empty fields (repository/commit/tag) are emitted as "-" so no field is ever the empty
+    string: bash `read` with IFS=$'\\t' treats tab as IFS-whitespace and COLLAPSES adjacent tabs,
+    which would swallow an empty field and shift every later column. CI maps "-" back to empty."""
+    def s(v: str) -> str:
+        return v if v else "-"
     for plugin_dir in plugin_dirs():
         for channel, m in load_records(plugin_dir):
             print("\t".join([
-                m["id"], channel, m.get("repository", ""), m.get("commit", ""),
-                m.get("tag", ""), m.get("projectPath", "."), m["dll"], m["version"],
+                m["id"], channel, s(m.get("repository", "")), s(m.get("commit", "")),
+                s(m.get("tag", "")), m.get("projectPath", "."), m["dll"], m["version"],
                 staged_name(m["dll"], m["version"]),
             ]))
 
