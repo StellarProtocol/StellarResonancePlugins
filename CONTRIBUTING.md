@@ -140,6 +140,49 @@ abandoned, just delete `manifest.testing.json`.
 > "testing"` on `manifest.json` itself makes the plugin testing-**only** — it leaves stable entirely.
 > Use the latter for a brand-new plugin that has never had a stable release.
 
+## Manifest data structure
+
+### `plugins/<id>/manifest.json` — the canonical record
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `id` | string | ✓ | unique plugin id; URL-safe (no `/` or `..`) |
+| `name` | string | ✓ | display name in the launcher |
+| `description` | string | ✓ | one-line summary in the launcher |
+| `author` | string | ✓ | author handle |
+| `dll` | string | ✓ | assembly filename, e.g. `Stellar.MyPlugin.dll` (the on-disk install name) |
+| `repository` | string (git URL) | ✓¹ | public repo CI clones and builds |
+| `commit` | string (40-hex) | ✓² | **authoritative** pinned commit CI builds + attests |
+| `tag` | string | — | display-only provenance; CI verifies `tag` → `commit`, never builds from it |
+| `projectPath` | string | — | path within the repo to `dotnet build` (default `"."`) |
+| `version` | string (semver) | ✓ | this build's version |
+| `minModSystemVersion` | string (semver) | ✓ | lowest framework version this build runs on |
+| `maxModSystemVersion` | string \| null | — | upper bound; `null`/omitted = none |
+| `capPriorVersionsAt` | string (semver) | — | retro-cap already-published versions' `maxModSystemVersion` at this framework version |
+| `channel` | `"stable"` \| `"testing"` | — | channel of **this** version (default `"stable"`; `"testing"` = the plugin is testing-**only**) |
+| `date` | string `YYYY-MM-DD` | — | release date (UTC) |
+| `changelog` | object | — | `{ "added": [], "changed": [], "fixed": [], "removed": [] }` — any subset; arrays of strings |
+
+¹ Required by the **curated** registry (CI refuses a manifest without a pinned public repo).
+² Required whenever `repository` is set.
+
+### `plugins/<id>/manifest.testing.json` — the optional testing override
+
+A second, **testing-channel** build that runs alongside the stable `manifest.json`. It **inherits** the
+shared fields and may set **only** the version-specific ones below — any other key is **rejected**.
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `version` | string (semver) | ✓ | the testing build's version, e.g. `1.2.0-beta` |
+| `commit` | string (40-hex) | ✓ | the testing build's pinned commit (authoritative) |
+| `minModSystemVersion` | string (semver) | ✓ | framework floor for this build |
+| `tag` | string | — | display-only; CI verifies `tag` → `commit` |
+| `date` | string `YYYY-MM-DD` | — | release date |
+| `maxModSystemVersion` | string \| null | — | upper bound |
+| `capPriorVersionsAt` | string (semver) | — | retro-cap prior published versions |
+| `changelog` | object | — | as above |
+| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath` come from `manifest.json` |
+
 ## Third-party / unverified plugins
 
 Don't want to open-source into the curated registry? Distribute from **your own repo** and have users
