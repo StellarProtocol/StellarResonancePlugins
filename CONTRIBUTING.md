@@ -46,11 +46,15 @@ Plugins must be **quality-of-life only**, matching the framework's policy:
      "id": "yourplugin", "name": "Your Plugin", "description": "…", "author": "you",
      "dll": "Stellar.YourPlugin.dll",
      "repository": "https://github.com/you/StellarYourPlugin.git",
-     "commit": "<full 40-char sha>", "projectPath": ".",
+     "commit": "<full 40-char sha>", "tag": "v1.0.0", "projectPath": ".",
      "version": "1.0.0", "minModSystemVersion": "1.1.0", "channel": "testing"
    }
    ```
-   `tools/set-version.py <id> --version … --min … [--cap-prior …]` helps with version/compat fields.
+   `commit` is **authoritative** — CI builds that exact SHA. `tag` is **optional, display-only**
+   provenance: CI verifies the tag resolves to the pinned commit but never builds from a tag alone
+   (tags are mutable; a pinned commit is not).
+   `tools/set-version.py <id> --version … --min … [--commit … --tag … --cap-prior …]` helps with
+   version/compat fields.
 3. **Open a PR.** CI **clones your repo at the pinned commit and builds it in an isolated container**,
    then validates the registry. Your pinned source + the manifest diff are the review surface.
 4. On merge to `main`, `publish.yml` rebuilds from the pinned commit and — after the `Production`
@@ -61,11 +65,31 @@ To **update**, bump `commit` (and `version`) in the manifest via a new PR.
 
 ## Channels
 
-- **`"stable"`** (default) → in **both** `plugins.json` and `plugins-testing.json`.
-- **`"testing"`** → in **only** `plugins-testing.json` (the launcher's *testing* channel).
+The build emits two registry files; the launcher fetches the one for the user's selected channel:
 
-**New plugins and risky updates start on `testing`**; promote to stable by setting `channel` to
-`stable` (or removing it) once proven. The launcher fetches the file for the user's selected channel.
+- **`plugins.json`** — **stable** versions only.
+- **`plugins-testing.json`** — a **superset**: every version of every plugin (the *testing* channel).
+
+A plugin's channels come from a **two-file source model**, so one plugin can be live on stable **and**
+testing **at the same time** (a beta running alongside the proven release):
+
+- **`plugins/<id>/manifest.json`** — the canonical record (all shared fields + one version). Its
+  optional **`"channel"`** (default `"stable"`) is the channel of *that* version. Set `"testing"` for a
+  **brand-new, not-yet-stable** plugin (it then appears only in `plugins-testing.json`).
+- **`plugins/<id>/manifest.testing.json`** — *optional* sibling adding a **second, testing-channel
+  build**. It **inherits the shared fields** (`id`/`name`/`dll`/`repository`/`projectPath`/…) from
+  `manifest.json` and carries **only the version-specific overrides**:
+  ```json
+  { "version": "1.2.0-beta", "commit": "<beta sha>", "tag": "v1.2.0-beta", "minModSystemVersion": "1.1.0" }
+  ```
+  Result: `plugins.json` keeps the stable version; `plugins-testing.json` lists the beta **and** the
+  stable version. (Shared fields live in exactly one place — they can't drift between the two files.)
+
+Lifecycle, scripted (no hand-edited JSON):
+
+- Start a beta:  `tools/set-version.py <id> --testing --version 1.2.0-beta --min 1.1.0 --commit <sha> [--tag …]`
+- Promote it:    `tools/set-version.py <id> --promote`  (folds the testing build into `manifest.json`
+  and removes the override — the beta becomes the new stable).
 
 ## Third-party / unverified plugins
 
