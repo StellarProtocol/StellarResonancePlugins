@@ -12,5 +12,8 @@
     "changed": [
       "Rebuilt for StellarResonance 1.1.0."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarModuleOptimizerPlugin.git",
+  "commit": "b7d38855bc8386ec64a6ffcb520916388ef2bffc",
+  "projectPath": "."
 }

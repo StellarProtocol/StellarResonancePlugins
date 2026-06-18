@@ -12,5 +12,8 @@
     "changed": [
       "Rebuilt for StellarResonance 1.1.0."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
+  "commit": "99b71d33216a9a935a552c2493a5600b91e18151",
+  "projectPath": "."
 }
