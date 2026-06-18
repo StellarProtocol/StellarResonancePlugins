@@ -16,6 +16,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read          # untrusted plugin source is built here — least privilege, no secrets
     steps:
       - name: Checkout plugins
         uses: actions/checkout@v4
@@ -53,11 +55,20 @@ jobs:
             if [ -n "$repo" ]; then
               commit="$(python3 -c "import json;print(json.load(open('$m'))['commit'])")"
               path="$(python3 -c "import json;print(json.load(open('$m')).get('projectPath','.'))")"
-              rm -rf "/tmp/src-$id"
+              rm -rf "/tmp/src-$id" "/tmp/out-$id"; mkdir -p "/tmp/out-$id"
               git clone --quiet "$repo" "/tmp/src-$id"
               git -C "/tmp/src-$id" checkout --quiet "$commit"
-              dotnet build "/tmp/src-$id/$path" -c Release --nologo   # SDK restored from NuGet.org
-              built="$(find "/tmp/src-$id" -path "*/bin/Release/$dll" -type f 2>/dev/null | head -1)"
+              # SANDBOX: build untrusted external source in an isolated container — read-only source,
+              # output-only mount, NO secrets and no access to the runner FS / other plugins /
+              # GITHUB_TOKEN. dotnet build runs the repo's OWN build logic, so it must be confined.
+              # (Network stays on for NuGet restore; there are no secrets to exfiltrate. Egress
+              # filtering is a possible future hardening — see docs/.../dip17-migration.md.)
+              docker run --rm \
+                -v "/tmp/src-$id":/src:ro -v "/tmp/out-$id":/out -w /w \
+                mcr.microsoft.com/dotnet/sdk:8.0 \
+                bash -c "cp -a /src/. /w/ && dotnet build '$path' -c Release --nologo -o /out" \
+                || { echo "::error file=$m::sandboxed build failed for '$id'"; fail=1; continue; }
+              built="/tmp/out-$id/$dll"; [ -f "$built" ] || built=""
             else
               proj="${dll%.dll}"
               dotnet build "samples/$proj/$proj.csproj" -c Release --nologo \
