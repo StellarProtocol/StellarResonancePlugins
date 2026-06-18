@@ -91,6 +91,55 @@ Lifecycle, scripted (no hand-edited JSON):
 - Promote it:    `tools/set-version.py <id> --promote`  (folds the testing build into `manifest.json`
   and removes the override — the beta becomes the new stable).
 
+### Worked example — a beta alongside the stable release
+
+`plugins/combatmeter/manifest.json` — the proven release, **unchanged**, stays on stable:
+
+```json
+{
+  "id": "combatmeter", "name": "CombatMeter",
+  "description": "Real-time party DPS/HPS meter.", "author": "Stellar",
+  "dll": "Stellar.CombatMeter.dll",
+  "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
+  "commit": "a517395f68d995b319504b77c52a4519f95f4aa4", "projectPath": ".",
+  "version": "1.1.0", "minModSystemVersion": "1.1.0"
+}
+```
+
+`plugins/combatmeter/manifest.testing.json` — the beta. It carries **only** the version-specific
+fields; `id`/`name`/`dll`/`repository`/`projectPath`/`author`/`description` are **inherited** from
+`manifest.json`, so they can't drift:
+
+```json
+{
+  "version": "1.2.0-beta",
+  "commit": "9f3c1d20e7b4a6f8c2d1e0b9a8f7c6d5e4b3a2f1",
+  "tag": "v1.2.0-beta",
+  "minModSystemVersion": "1.1.0",
+  "changelog": { "added": ["New encounter-timeline view (beta)."] }
+}
+```
+
+Published result — the launcher reads one file per the user's selected channel:
+
+| Channel file | combatmeter `versions[]` (newest first) |
+|---|---|
+| `plugins.json` (stable) | `1.1.0`, …history — **no beta** |
+| `plugins-testing.json` (testing) | `1.2.0-beta`, `1.1.0`, …history |
+
+CI builds **both** commits and uploads each under its own version-specific DLL key, so a tester can
+install `1.2.0-beta` while everyone on stable keeps `1.1.0`.
+
+**Use case:** ship a risky/early build to opt-in *testing*-channel users for feedback **without**
+disturbing the stable release everyone else runs. When the beta proves out,
+`set-version.py combatmeter --promote` makes it the new stable (and deletes the override); if it's
+abandoned, just delete `manifest.testing.json`.
+
+> **`manifest.testing.json` vs `"channel": "testing"`** — two different things. The override file adds a
+> testing build *alongside* a stable one (the plugin is on **both** channels). Setting `"channel":
+> "testing"` on `manifest.json` itself makes the plugin testing-**only** — it leaves stable entirely.
+> Use the latter for a brand-new plugin that has never had a stable release.
+
 ## Third-party / unverified plugins
 
 Don't want to open-source into the curated registry? Distribute from **your own repo** and have users
