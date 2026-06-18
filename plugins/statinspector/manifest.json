@@ -2,18 +2,17 @@
   "id": "statinspector",
   "name": "StatInspector",
   "description": "Live attribute readout (mini-HUD) with a grouped settings picker for the stats you want on screen.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "dll": "Stellar.StatInspector.dll",
   "author": "Stellar",
   "minModSystemVersion": "1.1.0",
   "date": "2026-06-18",
-  "capPriorVersionsAt": "1.0.1",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 1.1.0."
+    "fixed": [
+      "Embed the stat-icon atlas and settings-gear that were missing from the 1.1.0 build (stat rows showed blank white squares; the mini-HUD gear was absent)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarStatInspectorPlugin.git",
-  "commit": "f385127b0171bb5410a8d63c7b868977b2160e4f",
+  "commit": "cee3008e077f290a15ef5ab25cbc2c59ec3cec58",
   "projectPath": "."
 }

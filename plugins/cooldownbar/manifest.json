@@ -2,18 +2,17 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "minModSystemVersion": "1.1.0",
   "date": "2026-06-18",
-  "capPriorVersionsAt": "1.0.1",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 1.1.0."
+    "fixed": [
+      "Embed the settings-gear icon that was missing from the 1.1.0 build (the mini-HUD gear showed a blank placeholder)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "99b71d33216a9a935a552c2493a5600b91e18151",
+  "commit": "85dc8bdfeacea382edb9fc2bd86b7f091c102fa8",
   "projectPath": "."
 }
