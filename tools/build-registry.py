@@ -54,10 +54,10 @@ def aws_cp(src: str, key: str) -> None:
                     "--endpoint-url", ENDPOINT], check=True, env=env)
 
 
-def fetch_published() -> dict:
-    """Current published plugins.json (read-only, public). Best-effort — {} if absent."""
+def fetch_published(obj: str = "plugins.json") -> dict:
+    """Current published registry <obj> (read-only, public). Best-effort — {} if absent."""
     try:
-        with urllib.request.urlopen(f"{ENDPOINT}/{BUCKET}/plugins.json", timeout=10) as r:
+        with urllib.request.urlopen(f"{ENDPOINT}/{BUCKET}/{obj}", timeout=10) as r:
             return json.loads(r.read().decode("utf-8"))
     except Exception:
         return {}
@@ -106,6 +106,9 @@ def collect() -> list[dict]:
             # history is otherwise carried forward verbatim, so this is the only sanctioned way
             # to bound a prior build. See docs/manifest-standard.md § Compatibility rule.
             "cap_prior": m.get("capPriorVersionsAt"),
+            # channel: "testing" → only in plugins-testing.json (launcher's testing channel);
+            # "stable" (default) → in both. New plugins should start on testing. See DIP17 model.
+            "channel": m.get("channel", "stable"),
             "meta": {"id": m["id"], "name": m["name"], "description": m["description"], "author": m["author"]},
             "version": version_entry,
         })
@@ -133,23 +136,34 @@ def build_registry(plugins: list[dict], published: dict) -> dict:
     return {"plugins": entries}
 
 
+def _emit(obj: str, plugins: list[dict], publish: bool) -> None:
+    """Build dist/<obj> from these plugins (merged with the published <obj> history); upload if asked."""
+    registry = build_registry(plugins, fetch_published(obj))
+    out = ROOT / "dist" / obj
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(registry, indent=2) + "\n", encoding="utf-8")
+    print(f"built dist/{obj} with {len(plugins)} plugins")
+    if publish:
+        aws_cp(str(out), obj)
+
+
 def main() -> None:
     publish = "--publish" in sys.argv[1:]
     plugins = collect()
     if not plugins:
         sys.exit("no plugins found under plugins/*/manifest.json")
 
-    registry = build_registry(plugins, fetch_published())
-    out = ROOT / "dist" / "plugins.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(registry, indent=2) + "\n", encoding="utf-8")
-    print(f"built dist/plugins.json with {len(plugins)} plugins")
-
+    # Two channels: plugins-testing.json carries ALL plugins; plugins.json carries only the
+    # stable ones. The launcher reads the file for the user's selected channel (testing is a
+    # superset). DLLs are shared (version-specific keys), uploaded once.
+    stable = [p for p in plugins if p.get("channel", "stable") != "testing"]
     if publish:
         for p in plugins:
-            aws_cp(str(p["_dll"]), p["_key"])   # version-specific key
-        aws_cp(str(out), "plugins.json")
-        print("published DLLs + plugins.json to MinIO")
+            aws_cp(str(p["_dll"]), p["_key"])   # version-specific key, shared across channels
+    _emit("plugins.json", stable, publish)
+    _emit("plugins-testing.json", plugins, publish)
+    if publish:
+        print("published DLLs + plugins.json + plugins-testing.json to MinIO")
 
 
 if __name__ == "__main__":
