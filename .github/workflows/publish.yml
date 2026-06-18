@@ -34,29 +34,43 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Build plugins against interop stubs
+      # Build every registry plugin FROM SOURCE and stage its DLL — manifest-driven, no
+      # hardcoded list. Two source modes (the curated registry never ships an opaque binary):
+      #   • pinned repo  — manifest has `repository`/`commit`/`projectPath`: clone that public
+      #     repo at the commit and build it against the SDK from NuGet.org (no stubs needed).
+      #   • in-repo sample — otherwise: build samples/<dll-without-ext> against the interop stubs.
+      # A manifest whose declared `dll` no build produces is refused.
+      - name: Build + stage each plugin from source
         shell: bash
         run: |
-          FW="$GITHUB_WORKSPACE/framework"
-          REFS="$FW/refs"
+          FW="$GITHUB_WORKSPACE/framework"; REFS="$FW/refs"
           [ -d "$REFS" ] || { echo "::error::framework/refs stubs missing — run framework tools/gen-refs.sh and commit"; exit 1; }
-          for proj in Stellar.ChatTools Stellar.CombatMeter Stellar.CooldownBar \
-                      Stellar.EntityInspector Stellar.ModuleOptimizer Stellar.PlayerHUD \
-                      Stellar.StatInspector; do
-            dotnet build "samples/$proj/$proj.csproj" -c Release --nologo \
-              -p:StellarFrameworkSrc="$FW/src" \
-              -p:GameInterop="$REFS" -p:BepInExCore="$REFS"
+          fail=0
+          for m in plugins/*/manifest.json; do
+            id="$(basename "$(dirname "$m")")"
+            dll="$(python3 -c "import json;print(json.load(open('$m'))['dll'])")"
+            repo="$(python3 -c "import json;print(json.load(open('$m')).get('repository',''))")"
+            if [ -n "$repo" ]; then
+              commit="$(python3 -c "import json;print(json.load(open('$m'))['commit'])")"
+              path="$(python3 -c "import json;print(json.load(open('$m')).get('projectPath','.'))")"
+              rm -rf "/tmp/src-$id"
+              git clone --quiet "$repo" "/tmp/src-$id"
+              git -C "/tmp/src-$id" checkout --quiet "$commit"
+              dotnet build "/tmp/src-$id/$path" -c Release --nologo   # SDK restored from NuGet.org
+              built="$(find "/tmp/src-$id" -path "*/bin/Release/$dll" -type f 2>/dev/null | head -1)"
+            else
+              proj="${dll%.dll}"
+              dotnet build "samples/$proj/$proj.csproj" -c Release --nologo \
+                -p:StellarFrameworkSrc="$FW/src" -p:GameInterop="$REFS" -p:BepInExCore="$REFS"
+              built="$(find "samples/$proj" -path "*/bin/Release/$dll" -type f 2>/dev/null | head -1)"
+            fi
+            if [ -z "$built" ]; then
+              echo "::error file=$m::plugin '$id' declares dll '$dll' but no source build produced it (curated registry requires reviewable source — pinned repo or samples/). See CONTRIBUTING.md."
+              fail=1; continue
+            fi
+            cp "$built" "plugins/$id/$dll"
           done
-
-      - name: Stage built DLLs into registry dirs
-        shell: bash
-        run: |
-          for proj in Stellar.ChatTools Stellar.CombatMeter Stellar.CooldownBar \
-                      Stellar.EntityInspector Stellar.ModuleOptimizer Stellar.PlayerHUD \
-                      Stellar.StatInspector; do
-            id="$(echo "${proj#Stellar.}" | tr '[:upper:]' '[:lower:]')"
-            cp "samples/$proj/bin/Release/$proj.dll" "plugins/$id/$proj.dll"
-          done
+          [ "$fail" = 0 ] || exit 1
 
       - name: Validate registry (no publish)
         run: python tools/build-registry.py

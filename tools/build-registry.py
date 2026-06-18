@@ -92,6 +92,11 @@ def collect() -> list[dict]:
         }
         if m.get("changelog"):
             version_entry["changelog"] = m["changelog"]
+        # Provenance: when a plugin builds from its own pinned public repo (DIP17 model),
+        # record where the binary came from so the registry is auditable.
+        if m.get("repository"):
+            version_entry["sourceRepository"] = m["repository"]
+            version_entry["sourceCommit"] = m["commit"]
 
         plugins.append({
             "_dll": dll, "_key": key,
