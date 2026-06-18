@@ -10,7 +10,7 @@ The **curated plugin registry** for the
 
 This repo holds **manifests only** — each plugin lives in **its own public repo**, and CI builds it from
 a pinned commit and publishes the index + DLLs to the public registry the launcher reads
-(`https://minio.revette.io/stellar/plugins.json`). The model is **inspired by Dalamud's
+(`https://cdn.revette.io/plugins.json`). The model is **inspired by Dalamud's
 [DIP17](https://github.com/goatcorp/DIPs/blob/main/text/17-automated-build-and-submit-pipeline.md)**,
 customised for StellarResonance (our own SDK on NuGet.org, sandboxed container builds, MinIO registry).
 
@@ -139,7 +139,7 @@ your repo @ commit  ──(PR pins it in plugins/<id>/manifest.json)──►  t
        ▼  publish.yml: clone @commit ─► build in isolated dotnet/sdk container (no secrets) ─► stage DLL
    tools/build-registry.py  (sha256 + provenance + merge history)
        │
-       ▼  Production-gated publish  ─►  minio.revette.io/stellar/{plugins.json, plugins-testing.json}
+       ▼  Production-gated publish  ─►  cdn.revette.io/{plugins.json, plugins-testing.json}
                                         + /stellar/plugins/<id>/<Name>-<version>.dll
        ▼
    the StellarResonance Launcher reads the channel's file and gates each plugin by framework version
