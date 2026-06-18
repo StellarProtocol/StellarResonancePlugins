@@ -4,143 +4,135 @@
 
 # StellarResonance Plugins
 
-The **plugin registry and reference plugin source** for the
-[StellarResonance Launcher](https://github.com/StellarProtocol/StellarResonance) and
-[`StellarResonanceModSystem`](https://github.com/StellarProtocol/StellarResonanceModSystem)
-framework — the curated plugin catalog, in the spirit of Dalamud's plugin repo.
+The **curated plugin registry** for the
+[StellarResonance Launcher](https://github.com/StellarProtocol/StellarResonance) and the
+[`StellarResonanceModSystem`](https://github.com/StellarProtocol/StellarResonanceModSystem) framework.
 
-This repo owns the registry; its CI publishes the index + DLLs to the public MinIO
-bucket the launcher reads (`https://minio.revette.io/stellar/plugins.json`). It is
-**decoupled from the framework's releases** — plugins ship on their own cadence.
+This repo holds **manifests only** — each plugin lives in **its own public repo**, and CI builds it from
+a pinned commit and publishes the index + DLLs to the public registry the launcher reads
+(`https://minio.revette.io/stellar/plugins.json`). The model is **inspired by Dalamud's
+[DIP17](https://github.com/goatcorp/DIPs/blob/main/text/17-automated-build-and-submit-pipeline.md)**,
+customised for StellarResonance (our own SDK on NuGet.org, sandboxed container builds, MinIO registry).
 
 > **Not affiliated with, endorsed by, or connected to** the game's publisher or developer.
-> Plugins are read-only, quality-of-life only; they ship no game code or assets.
+> Plugins are quality-of-life only; they ship no game code or assets.
 
-## Layout
+---
 
-```
-plugins/
-  <id>/
-    manifest.json     # id, name, description, version, dll, author, minModSystemVersion
-    <Plugin>.dll      # the built plugin assembly
-samples/
-  Stellar.<Name>/     # reference plugin SOURCE (build against the framework — see below)
-tools/build-registry.py        # validates manifests, computes sha256, builds + publishes plugins.json
-.github/workflows/publish.yml  # PR = validate; push to main = validate + publish to MinIO
-```
+## Write a plugin (quickstart)
 
-`plugins.json` (generated) is the launcher's curated registry. Each entry carries a **version
-history** so the launcher can offer a version picker, and each version declares the framework
-(modsystem) range it runs on:
+You need **no framework checkout and no game install** — just the SDK from NuGet.org.
 
-```jsonc
-{ "id", "name", "description", "author",
-  "versions": [
-    { "version", "date", "dll" /* canonical install filename */, "dllUrl", "sha256",
-      "minModSystemVersion", "maxModSystemVersion" /* null = no upper bound */, "changelog" }
-  ] }
-```
-
-Each release is appended to the published history (older versions keep working — DLLs are stored
-under version-specific keys `plugins/<id>/<Name>-<version>.dll`). The full contract is in the
-[manifest standard](https://github.com/StellarProtocol/StellarResonance-DevKit/blob/main/docs/manifest-standard.md).
-
-## Reference plugin source (`samples/`)
-
-The `samples/` directory holds the source for the bundled reference plugins (PlayerHUD,
-CombatMeter, ChatTools, …). They reference **only** `Stellar.Abstractions` from the framework.
-Building them requires a local checkout of
-[`StellarResonanceModSystem`](https://github.com/StellarProtocol/StellarResonanceModSystem)
-and the game's IL2CPP interop assemblies (generated from your own install):
-
-```bash
-dotnet build samples/Stellar.PlayerHUD/Stellar.PlayerHUD.csproj -c Release \
-  -p:StellarFrameworkSrc=/path/to/StellarResonanceModSystem/src \
-  -p:BepInExCore=/path/to/<game_mini>/BepInEx/core \
-  -p:GameInterop=/path/to/<game_mini>/BepInEx/interop
-```
-
-See [`samples/Directory.Build.props`](samples/Directory.Build.props) for the overridable paths.
-
-The full plugin-facing contract is documented in the framework's
-[**API reference**](https://github.com/StellarProtocol/StellarResonanceModSystem/tree/main/docs/api)
-(every public interface/type) and the
-[**developer guide**](https://github.com/StellarProtocol/StellarResonanceModSystem/blob/main/docs/plugin-development.md).
-
-## How it works
-
-```
-  plugins/<id>/manifest.json + <Plugin>.dll
-            │
-            ▼   tools/build-registry.py   (validate → sha256 → assemble)
-        dist/plugins.json
-            │
-            ▼   CI (push to main, Production env)   upload to MinIO
-   minio.revette.io/stellar/plugins.json  +  /stellar/plugins/<id>/<Plugin>-<version>.dll
-            │
-            ▼
-   the StellarResonance Launcher reads plugins.json and offers each plugin
-```
-
-- **PR** → CI runs `build-registry.py` (validation only — no credentials).
-- **Push/merge to `main`** → CI runs `build-registry.py --publish`, uploading every DLL +
-  `plugins.json` to the `stellar` bucket (uses the `S3_ACCESS_KEY`/`S3_SECRET_KEY` secrets in the
-  `Production` environment).
-
-## Adding a plugin
-
-You add a plugin by contributing a **manifest + its built DLL** under `plugins/<id>/`.
-
-1. **Build your plugin** into a DLL. Either develop it under [`samples/`](#reference-plugin-source-samples)
-   (against the framework), or build it in your own project — it only needs to reference
-   `Stellar.Abstractions` and implement `IStellarPlugin`.
-2. **Create `plugins/<your-id>/`** and drop in your built `<Plugin>.dll`.
-3. **Add `plugins/<your-id>/manifest.json`** with all required fields:
-
-   ```json
-   {
-     "id": "yourplugin",
-     "name": "Your Plugin",
-     "description": "One-line summary shown in the launcher.",
-     "version": "1.0.0",
-     "dll": "YourPlugin.dll",
-     "author": "your-handle",
-     "minModSystemVersion": "1.0.0",
-     "maxModSystemVersion": null,
-     "date": "2026-06-16",
-     "changelog": { "added": ["…"], "changed": [], "fixed": [], "removed": [] }
+1. **Create your plugin in its own public repo**, named **`Stellar<Name>Plugin`**
+   (e.g. `StellarMyOverlayPlugin`; the assembly/DLL is `Stellar.MyOverlay.dll`).
+2. **`Stellar.MyOverlay.csproj`** — reference the SDK packages:
+   ```xml
+   <Project Sdk="Microsoft.NET.Sdk">
+     <PropertyGroup>
+       <TargetFramework>net6.0</TargetFramework>
+       <AssemblyName>Stellar.MyOverlay</AssemblyName>
+       <Version>1.0.0</Version>          <!-- fixed version: same commit ⇒ same binary -->
+       <Nullable>enable</Nullable><ImplicitUsings>disable</ImplicitUsings><LangVersion>latest</LangVersion>
+     </PropertyGroup>
+     <ItemGroup>
+       <PackageReference Include="Stellar.Abstractions" Version="1.1.1" />
+       <PackageReference Include="Stellar.Plugin.InteropRefs" Version="1.1.1" />
+       <!-- + Stellar.PluginContracts if you use the inter-plugin exchange -->
+     </ItemGroup>
+   </Project>
+   ```
+3. **Implement `IStellarPlugin`** — a single class constructed with `IPluginServices`:
+   ```csharp
+   using Stellar.Abstractions.Services;
+   public sealed class MyOverlay : IStellarPlugin {
+       public string Name => "My Overlay";
+       public MyOverlay(IPluginServices services) { /* draw HUDs, read state, … */ }
+       public void Dispose() { }
    }
    ```
+4. **Build** — `dotnet build -c Release`. That's it; no game needed to compile.
+   (To test *in-game*, point `GameInterop`/`BepInExCore` at a real `<game_mini>/BepInEx` install.)
 
-   | Field | Notes |
-   |---|---|
-   | `id` | lowercase, filesystem-safe; must match the folder name |
-   | `name` / `description` | shown in the launcher |
-   | `version` | semver; bump it on every update |
-   | `dll` | exact filename of the DLL beside this manifest |
-   | `author` | your name/handle |
-   | `minModSystemVersion` | **required** — lowest framework version this build runs on |
-   | `maxModSystemVersion` | optional (omit/`null` = no upper bound); set when a newer framework breaks this build |
-   | `date` | optional `YYYY-MM-DD` |
-   | `changelog` | optional `{ added, changed, fixed, removed }` — shown when reviewing the version |
+### The SDK packages (on NuGet.org)
 
-   The manifest describes the **current** version; the builder appends it to the published history,
-   so previously released versions remain available in the launcher's picker.
+| Package | What it's for |
+|---|---|
+| **`Stellar.Abstractions`** | the plugin API — services, the declarative uGUI element tree, domain types |
+| **`Stellar.PluginContracts`** | shared contracts for the inter-plugin exchange (`IPluginExchange`) — only if you use it |
+| **`Stellar.Plugin.InteropRefs`** | compile-time Unity/Il2Cpp/BepInEx **reference stubs** so you build without the game (the game provides the real ones at runtime) |
 
-4. **Validate locally** before opening a PR:
+Versions track the framework release. Full API: the framework's
+[**API reference**](https://github.com/StellarProtocol/StellarResonanceModSystem/tree/main/docs/api) +
+[**developer guide**](https://github.com/StellarProtocol/StellarResonanceModSystem/blob/main/docs/plugin-development.md).
 
-   ```bash
-   python tools/build-registry.py        # validates all manifests + DLLs, writes dist/plugins.json
-   ```
+---
 
-5. **Open a PR.** CI re-validates. On merge to `main`, CI publishes your DLL + the updated
-   `plugins.json` to MinIO, and the launcher picks it up automatically.
+## Publish it to the registry
 
-> **Self-hosting:** the launcher can also add **third-party registry URLs** directly (any
-> `plugins.json`), so you can host your own registry instead of submitting here.
+Add **one manifest** here pinning your repo + commit — CI clones that commit, **builds it in an isolated
+container**, and publishes it (after review + a maintainer approval).
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full contributor guide.
+`plugins/<your-id>/manifest.json`:
+```jsonc
+{
+  "id": "myoverlay", "name": "My Overlay",
+  "description": "One-line summary shown in the launcher.", "author": "your-handle",
+  "dll": "Stellar.MyOverlay.dll",
+  "repository": "https://github.com/you/StellarMyOverlayPlugin.git",
+  "commit": "<full 40-char sha>",       // immutable — CI builds + attests THIS exact commit
+  "projectPath": ".",
+  "version": "1.0.0",
+  "minModSystemVersion": "1.1.0",        // lowest framework version this build runs on
+  "channel": "testing",                  // new plugins start on testing (see Channels)
+  "changelog": { "added": ["…"] }
+}
+```
+`tools/set-version.py <id> --version … --min … [--cap-prior …]` helps with the version/compat fields.
+Then **open a PR** — CI sandbox-builds your pinned commit + validates the registry (the PR diff + your
+pinned source are the review surface). On merge to `main`, the build is rebuilt and published to MinIO
+with provenance (`sourceRepository`/`sourceCommit`), after a maintainer's `Production` approval.
+
+To **update**: bump `commit` (and `version`) via a new PR.
+
+### Channels
+- `"channel": "stable"` (default) → in **both** `plugins.json` and `plugins-testing.json`.
+- `"channel": "testing"` → in **only** `plugins-testing.json` (the launcher's *testing* channel).
+
+New/risky builds land on `testing`; promote to stable by setting `stable` (or dropping the field).
+
+### Security model — important
+A plugin DLL is **arbitrary code in the game process** (BepInEx IL2CPP); it is **not sandboxed at
+runtime**. `Stellar.Abstractions` is a read-only API *shape*, not a security boundary. Trust comes from
+**reviewable source + a build we control** — that's why the curated registry only builds from a **pinned
+commit in a public repo**, never an uploaded binary. Cheat-shaped / hostile PRs are rejected. Don't want
+to open-source? Host your own `plugins.json` and have users add its URL (surfaced as **unverified**).
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full guide.
+
+---
+
+## How the registry works
+
+```
+your repo @ commit  ──(PR pins it in plugins/<id>/manifest.json)──►  this registry (manifests only)
+       │
+       ▼  publish.yml: clone @commit ─► build in isolated dotnet/sdk container (no secrets) ─► stage DLL
+   tools/build-registry.py  (sha256 + provenance + merge history)
+       │
+       ▼  Production-gated publish  ─►  minio.revette.io/stellar/{plugins.json, plugins-testing.json}
+                                        + /stellar/plugins/<id>/<Name>-<version>.dll
+       ▼
+   the StellarResonance Launcher reads the channel's file and gates each plugin by framework version
+```
+
+- **PR** → CI builds from the pinned commit + validates (no credentials).
+- **Merge to `main`** → CI rebuilds + publishes (gated on the `Production` environment).
+
+Layout: `plugins/<id>/manifest.json` (registry), `tools/` (`build-registry.py`, `set-version.py`),
+`samples/` (a few in-repo reference/dev plugins). Full contract:
+[manifest standard](https://github.com/StellarProtocol/StellarResonance-DevKit/blob/main/docs/manifest-standard.md).
 
 ## License
 
-[GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0).
+[GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0-or-later). Plugins reference the AGPL SDK, so
+curated plugins are open source too.
