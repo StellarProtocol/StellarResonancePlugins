@@ -19,5 +19,8 @@
       "Taken metric now uses raw Amount.",
       "Delete-session button width."
     ]
-  }
+  },
+  "repository": "https://github.com/StellarProtocol/Stellar.CombatMeterPlugin.git",
+  "commit": "0ebadbc4869b9ac64229993cd1425df154e7abff",
+  "projectPath": "."
 }
