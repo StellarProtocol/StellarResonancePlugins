@@ -46,8 +46,12 @@ import sys
 import urllib.request
 from pathlib import Path
 
-ENDPOINT = "https://minio.revette.io"
-BUCKET = "stellar"
+# Storage = Cloudflare R2. The S3 API endpoint (writes) and the public CDN base (reads) differ:
+# writes go to s3://<BUCKET>/<key> via S3_ENDPOINT; the public custom domain maps to the bucket
+# root, so public URLs are PUBLIC_BASE/<key> (no bucket segment in the path).
+S3_ENDPOINT = "https://757f61fd2bda67f9a3bc7c3b9b8d62e1.r2.cloudflarestorage.com"
+BUCKET = "cdn"
+PUBLIC_BASE = "https://cdn.revette.io"
 ROOT = Path(__file__).resolve().parents[1]
 PLUGINS_DIR = ROOT / "plugins"
 REQUIRED = ("id", "name", "description", "version", "dll", "author", "minModSystemVersion")
@@ -81,17 +85,17 @@ def staged_name(dll: str, version: str) -> str:
 
 def aws_cp(src: str, key: str) -> None:
     env = {**os.environ,
-           "AWS_DEFAULT_REGION": "sa-east-1",
+           "AWS_DEFAULT_REGION": "auto",   # Cloudflare R2
            "AWS_REQUEST_CHECKSUM_CALCULATION": "when_required",
            "AWS_RESPONSE_CHECKSUM_VALIDATION": "when_required"}
     subprocess.run(["aws", "s3", "cp", src, f"s3://{BUCKET}/{key}",
-                    "--endpoint-url", ENDPOINT], check=True, env=env)
+                    "--endpoint-url", S3_ENDPOINT], check=True, env=env)
 
 
 def fetch_published(obj: str = "plugins.json") -> dict:
-    """Current published registry <obj> (read-only, public). Best-effort — {} if absent."""
+    """Current published registry <obj> (read-only, public CDN). Best-effort — {} if absent."""
     try:
-        with urllib.request.urlopen(f"{ENDPOINT}/{BUCKET}/{obj}", timeout=10) as r:
+        with urllib.request.urlopen(f"{PUBLIC_BASE}/{obj}", timeout=10) as r:
             return json.loads(r.read().decode("utf-8"))
     except Exception:
         return {}
@@ -153,7 +157,7 @@ def collect() -> list[dict]:
                 "version": m["version"],
                 "date": m.get("date", ""),
                 "dll": m["dll"],                 # canonical on-disk filename (the assembly name, e.g. Stellar.X.dll)
-                "dllUrl": f"{ENDPOINT}/{BUCKET}/{key}",
+                "dllUrl": f"{PUBLIC_BASE}/{key}",
                 "sha256": sha256(staged),
                 "minModSystemVersion": m["minModSystemVersion"],
                 "maxModSystemVersion": m.get("maxModSystemVersion"),
