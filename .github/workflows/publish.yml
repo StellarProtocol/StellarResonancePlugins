@@ -26,37 +26,45 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Build every registry plugin from its PINNED public repo and stage its DLL. The registry
+      # Build every registry build-target from its PINNED public repo and stage its DLL. A target is
+      # one (plugin, channel) version — a plugin with a manifest.testing.json contributes TWO targets
+      # (its stable + its testing build, distinct commits), so both channels are built. The registry
       # is manifests-only (no in-repo binaries): each external source is cloned at its commit and
       # built in an ISOLATED container (read-only source, output-only mount, no secrets / runner-FS
       # / GITHUB_TOKEN) so untrusted build logic is confined. SDK is restored from NuGet.org — no
-      # framework checkout or interop stubs needed. A manifest without a pinned `repository` (or
-      # whose build yields no `dll`) is refused.
+      # framework checkout or interop stubs needed. A target without a pinned `repository` (or
+      # whose build yields no `dll`) is refused. commit is authoritative; an optional `tag` is
+      # verified to resolve to that commit (provenance) but is never built from on its own.
       - name: Build + stage each plugin from its pinned source (sandboxed)
         shell: bash
         run: |
           fail=0
-          for m in plugins/*/manifest.json; do
-            id="$(basename "$(dirname "$m")")"
-            dll="$(python3 -c "import json;print(json.load(open('$m'))['dll'])")"
-            repo="$(python3 -c "import json;print(json.load(open('$m')).get('repository',''))")"
+          python tools/build-registry.py --targets > /tmp/targets.tsv
+          while IFS=$'\t' read -r id channel repo commit tag path dll version staged; do
+            tgt="$id[$channel] $version"
+            [ "$repo" = "-" ] && repo=""        # "-" is the registry's empty-field sentinel
+            [ "$commit" = "-" ] && commit=""
+            [ "$tag" = "-" ] && tag=""
             if [ -z "$repo" ]; then
-              echo "::error file=$m::plugin '$id' has no pinned repository — the curated registry requires a public source repo (DIP17). See CONTRIBUTING.md."
+              echo "::error::$tgt has no pinned repository — the curated registry requires a public source repo (DIP17). See CONTRIBUTING.md."
               fail=1; continue
             fi
-            commit="$(python3 -c "import json;print(json.load(open('$m'))['commit'])")"
-            path="$(python3 -c "import json;print(json.load(open('$m')).get('projectPath','.'))")"
-            rm -rf "/tmp/src-$id" "/tmp/out-$id"; mkdir -p "/tmp/out-$id"
-            git clone --quiet "$repo" "/tmp/src-$id"
-            git -C "/tmp/src-$id" checkout --quiet "$commit"
+            work="/tmp/src-$id-$version"; out="/tmp/out-$id-$version"
+            rm -rf "$work" "$out"; mkdir -p "$out"
+            git clone --quiet "$repo" "$work"
+            git -C "$work" checkout --quiet "$commit"
+            if [ -n "$tag" ]; then
+              tagsha="$(git -C "$work" rev-list -n1 "$tag" 2>/dev/null || true)"
+              [ "$tagsha" = "$commit" ] || { echo "::error::$tgt tag '$tag' resolves to '$tagsha', not the pinned commit '$commit'"; fail=1; continue; }
+            fi
             docker run --rm \
-              -v "/tmp/src-$id":/src:ro -v "/tmp/out-$id":/out -w /w \
+              -v "$work":/src:ro -v "$out":/out -w /w \
               mcr.microsoft.com/dotnet/sdk:8.0 \
               bash -c "cp -a /src/. /w/ && dotnet build '$path' -c Release --nologo -o /out" \
-              || { echo "::error file=$m::sandboxed build failed for '$id'"; fail=1; continue; }
-            [ -f "/tmp/out-$id/$dll" ] || { echo "::error file=$m::'$id' build produced no '$dll'"; fail=1; continue; }
-            cp "/tmp/out-$id/$dll" "plugins/$id/$dll"
-          done
+              || { echo "::error::sandboxed build failed for $tgt @ $commit"; fail=1; continue; }
+            [ -f "$out/$dll" ] || { echo "::error::$tgt build produced no '$dll'"; fail=1; continue; }
+            cp "$out/$dll" "plugins/$id/$staged"   # version-suffixed so stable+testing don't collide
+          done < /tmp/targets.tsv
           [ "$fail" = 0 ] || exit 1
 
       - name: Validate registry (no publish)

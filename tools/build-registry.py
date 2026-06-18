@@ -6,15 +6,35 @@ plugins.json, and uploads every DLL + plugins.json to the public `stellar` MinIO
 This repo OWNS the registry — decoupled from the framework's releases. Community plugins
 are added by PR (a new plugins/<id>/).
 
-Each plugin carries a versions[] history and declares the framework (modsystem) range it
-runs on (minModSystemVersion / optional maxModSystemVersion), so the launcher can gate
-versions against the installed framework. DLLs are uploaded under version-specific keys
-(plugins/<id>/<name>-<version>.dll), and the new release is APPENDED to the published
-history — old versions stay downloadable so users can roll back. See docs/manifest-standard.md.
+Channels (two-file source model):
+  - plugins/<id>/manifest.json          canonical record: shared fields + ONE version.
+                                        Its optional `channel` (default "stable") is the
+                                        channel of THAT version — set "testing" for a
+                                        not-yet-stable plugin.
+  - plugins/<id>/manifest.testing.json  OPTIONAL sibling: a second, testing-channel version
+                                        that INHERITS the shared fields (id/name/dll/repo/…)
+                                        from manifest.json and overrides only version-specific
+                                        ones (version/commit/tag/min/…). This is how one plugin
+                                        is live on stable AND testing at once without
+                                        duplicating shared metadata.
+
+build-registry emits two registry files: plugins.json (stable versions only) and
+plugins-testing.json (a superset — every version of every plugin). The launcher reads the
+file for the user's selected channel. Each plugin carries a versions[] history (newest
+first) and declares the framework (modsystem) range each build runs on
+(minModSystemVersion / optional maxModSystemVersion). DLLs are uploaded under
+version-specific keys (plugins/<id>/<name>-<version>.dll), and the new release is APPENDED
+to the published history — old versions stay downloadable so users can roll back. See
+docs/manifest-standard.md.
+
+Source provenance: a build is pinned by `commit` (immutable, authoritative — CI builds this
+exact SHA). An optional `tag` is display-only provenance; CI may verify tag→commit but never
+builds from a tag alone.
 
 Usage:
-  build-registry.py            # validate + build dist/plugins.json (merges published history)
-  build-registry.py --publish  # also upload DLLs + plugins.json to MinIO (needs S3 creds)
+  build-registry.py            # validate + build dist/plugins{,-testing}.json (merges history)
+  build-registry.py --publish  # also upload DLLs + the two registry files (needs S3 creds)
+  build-registry.py --targets  # print the per-(plugin,channel) build plan as TSV (for CI)
 """
 from __future__ import annotations
 
@@ -32,6 +52,13 @@ ROOT = Path(__file__).resolve().parents[1]
 PLUGINS_DIR = ROOT / "plugins"
 REQUIRED = ("id", "name", "description", "version", "dll", "author", "minModSystemVersion")
 
+# Fields the canonical manifest.json owns and a testing override INHERITS (never repeats).
+SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "projectPath")
+# Fields a manifest.testing.json may carry — everything version-specific. A testing override
+# may ONLY set these; shared fields come from manifest.json so they can't drift between files.
+OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
+               "maxModSystemVersion", "capPriorVersionsAt", "changelog")
+
 
 def sha256(path: Path) -> str:
     h = hashlib.sha256()
@@ -43,6 +70,13 @@ def sha256(path: Path) -> str:
 
 def ver_key(v: str) -> tuple:
     return tuple(int(p) if p.isdigit() else 0 for p in str(v).lstrip("vV").split("."))
+
+
+def staged_name(dll: str, version: str) -> str:
+    """On-disk filename CI stages each build under — version-suffixed so a plugin's stable and
+    testing builds (same assembly name, different commits) don't collide in plugins/<id>/."""
+    stem, suffix = Path(dll).stem, Path(dll).suffix
+    return f"{stem}-{version}{suffix}"
 
 
 def aws_cp(src: str, key: str) -> None:
@@ -63,76 +97,126 @@ def fetch_published(obj: str = "plugins.json") -> dict:
         return {}
 
 
+def load_records(plugin_dir: Path) -> list[tuple[str, dict]]:
+    """Resolve a plugin dir into (channel, resolved-manifest) records.
+
+    manifest.json is the canonical record; its `channel` (default "stable") is the channel of
+    its own version. An optional manifest.testing.json adds a second, testing-channel record
+    whose shared fields are INHERITED from manifest.json and whose version-specific fields come
+    from the override — so the shared metadata lives in exactly one place (no drift)."""
+    base = json.loads((plugin_dir / "manifest.json").read_text(encoding="utf-8"))
+    base_channel = base.get("channel", "stable")
+    records: list[tuple[str, dict]] = [(base_channel, base)]
+
+    testing_path = plugin_dir / "manifest.testing.json"
+    if testing_path.is_file():
+        if base_channel == "testing":
+            sys.exit(f"{testing_path}: manifest.json is already channel=testing — a plugin can't have "
+                     "both a testing-only manifest.json and a manifest.testing.json. Drop the "
+                     "`channel` field from manifest.json (so it's the stable build) or delete this file.")
+        override = json.loads(testing_path.read_text(encoding="utf-8"))
+        stray = [k for k in override if k not in OVERRIDABLE]
+        if stray:
+            sys.exit(f"{testing_path}: may only override {OVERRIDABLE}; stray keys {stray} "
+                     "(shared fields are inherited from manifest.json — don't repeat them)")
+        merged = {k: base[k] for k in SHARED_FIELDS if k in base}
+        merged.update(override)
+        records.append(("testing", merged))
+    return records
+
+
+def plugin_dirs() -> list[Path]:
+    return sorted(d for d in PLUGINS_DIR.iterdir() if (d / "manifest.json").is_file())
+
+
 def collect() -> list[dict]:
-    """One record per plugin: the current version's entry + the DLL to upload."""
+    """One record per (plugin, channel-version): its registry version entry + the DLL to upload."""
     plugins = []
-    for manifest_path in sorted(PLUGINS_DIR.glob("*/manifest.json")):
-        m = json.loads(manifest_path.read_text(encoding="utf-8"))
-        missing = [k for k in REQUIRED if not m.get(k)]
-        if missing:
-            sys.exit(f"{manifest_path}: missing fields {missing}")
-        if "/" in m["id"] or ".." in m["id"] or "/" in m["dll"] or ".." in m["dll"]:
-            sys.exit(f"{manifest_path}: unsafe id/dll")
-        dll = manifest_path.parent / m["dll"]
-        if not dll.is_file():
-            sys.exit(f"{manifest_path}: dll not found: {dll}")
+    for plugin_dir in plugin_dirs():
+        for channel, m in load_records(plugin_dir):
+            where = f"{plugin_dir.name}[{channel}]"
+            missing = [k for k in REQUIRED if not m.get(k)]
+            if missing:
+                sys.exit(f"{where}: missing fields {missing}")
+            if "/" in m["id"] or ".." in m["id"] or "/" in m["dll"] or ".." in m["dll"]:
+                sys.exit(f"{where}: unsafe id/dll")
+            if m.get("repository") and not m.get("commit"):
+                sys.exit(f"{where}: repository pinned but no commit (commit is authoritative)")
 
-        # Version-specific object key so older builds stay downloadable.
-        stem, suffix = Path(m["dll"]).stem, Path(m["dll"]).suffix
-        key = f"plugins/{m['id']}/{stem}-{m['version']}{suffix}"
+            staged = plugin_dir / staged_name(m["dll"], m["version"])
+            if not staged.is_file():
+                sys.exit(f"{where}: built dll not found: {staged.name} "
+                         "(CI stages each build version-suffixed via publish.yml; build it first)")
 
-        version_entry = {
-            "version": m["version"],
-            "date": m.get("date", ""),
-            "dll": m["dll"],                 # canonical on-disk filename (the assembly name, e.g. Stellar.X.dll)
-            "dllUrl": f"{ENDPOINT}/{BUCKET}/{key}",
-            "sha256": sha256(dll),
-            "minModSystemVersion": m["minModSystemVersion"],
-            "maxModSystemVersion": m.get("maxModSystemVersion"),
-        }
-        if m.get("changelog"):
-            version_entry["changelog"] = m["changelog"]
-        # Provenance: when a plugin builds from its own pinned public repo (DIP17 model),
-        # record where the binary came from so the registry is auditable.
-        if m.get("repository"):
-            version_entry["sourceRepository"] = m["repository"]
-            version_entry["sourceCommit"] = m["commit"]
+            key = f"plugins/{m['id']}/{staged.name}"
+            version_entry = {
+                "version": m["version"],
+                "date": m.get("date", ""),
+                "dll": m["dll"],                 # canonical on-disk filename (the assembly name, e.g. Stellar.X.dll)
+                "dllUrl": f"{ENDPOINT}/{BUCKET}/{key}",
+                "sha256": sha256(staged),
+                "minModSystemVersion": m["minModSystemVersion"],
+                "maxModSystemVersion": m.get("maxModSystemVersion"),
+            }
+            if m.get("changelog"):
+                version_entry["changelog"] = m["changelog"]
+            # Provenance: when a plugin builds from its own pinned public repo (DIP17 model),
+            # record where the binary came from so the registry is auditable. commit is
+            # authoritative; tag (if any) is display-only.
+            if m.get("repository"):
+                version_entry["sourceRepository"] = m["repository"]
+                version_entry["sourceCommit"] = m["commit"]
+                if m.get("tag"):
+                    version_entry["sourceTag"] = m["tag"]
 
-        plugins.append({
-            "_dll": dll, "_key": key,
-            # capPriorVersionsAt: when this build requires a newer framework, retro-cap older
-            # published versions (whose maxModSystemVersion is still null) at this framework
-            # version, so the launcher stops offering them on the newer framework. The published
-            # history is otherwise carried forward verbatim, so this is the only sanctioned way
-            # to bound a prior build. See docs/manifest-standard.md § Compatibility rule.
-            "cap_prior": m.get("capPriorVersionsAt"),
-            # channel: "testing" → only in plugins-testing.json (launcher's testing channel);
-            # "stable" (default) → in both. New plugins should start on testing. See DIP17 model.
-            "channel": m.get("channel", "stable"),
-            "meta": {"id": m["id"], "name": m["name"], "description": m["description"], "author": m["author"]},
-            "version": version_entry,
-        })
+            plugins.append({
+                "_dll": staged, "_key": key,
+                # capPriorVersionsAt: when this build requires a newer framework, retro-cap older
+                # published versions (whose maxModSystemVersion is still null) at this framework
+                # version, so the launcher stops offering them on the newer framework. The published
+                # history is otherwise carried forward verbatim, so this is the only sanctioned way
+                # to bound a prior build. See docs/manifest-standard.md § Compatibility rule.
+                "cap_prior": m.get("capPriorVersionsAt"),
+                "channel": channel,
+                "meta": {"id": m["id"], "name": m["name"], "description": m["description"], "author": m["author"]},
+                "version": version_entry,
+            })
     return plugins
 
 
 def build_registry(plugins: list[dict], published: dict) -> dict:
-    """Merge each plugin's current version into its published history (newest first)."""
+    """Merge each plugin's current version(s) into its published history (newest first).
+
+    A plugin may contribute MORE THAN ONE current record here (its stable + its testing build),
+    so records are grouped by id and all current versions land in the same versions[] list."""
     prior: dict[str, list] = {}
     for p in published.get("plugins", []):
         prior[p["id"]] = list(p.get("versions", []))
 
-    entries = []
+    grouped: dict[str, dict] = {}
+    order: list[str] = []
     for p in plugins:
-        cur = p["version"]
-        olds = [v for v in prior.get(p["meta"]["id"], []) if v.get("version") != cur["version"]]
-        cap = p.get("cap_prior")
-        if cap:
+        pid = p["meta"]["id"]
+        g = grouped.get(pid)
+        if g is None:
+            g = grouped[pid] = {"meta": p["meta"], "curs": [], "cap": None}
+            order.append(pid)
+        g["curs"].append(p["version"])
+        if p.get("cap_prior"):
+            g["cap"] = p["cap_prior"]
+
+    entries = []
+    for pid in order:
+        g = grouped[pid]
+        cur_strs = {v["version"] for v in g["curs"]}
+        olds = [v for v in prior.get(pid, []) if v.get("version") not in cur_strs]
+        if g["cap"]:
             for v in olds:
                 if not v.get("maxModSystemVersion"):
-                    v["maxModSystemVersion"] = cap
-        versions = [cur] + olds
+                    v["maxModSystemVersion"] = g["cap"]
+        versions = list(g["curs"]) + olds
         versions.sort(key=lambda v: ver_key(v["version"]), reverse=True)
-        entries.append({**p["meta"], "versions": versions})
+        entries.append({**g["meta"], "versions": versions})
     return {"plugins": entries}
 
 
@@ -142,20 +226,43 @@ def _emit(obj: str, plugins: list[dict], publish: bool) -> None:
     out = ROOT / "dist" / obj
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(registry, indent=2) + "\n", encoding="utf-8")
-    print(f"built dist/{obj} with {len(plugins)} plugins")
+    print(f"built dist/{obj} with {len(registry['plugins'])} plugins")
     if publish:
         aws_cp(str(out), obj)
 
 
+def print_targets() -> None:
+    """Emit the per-(plugin,channel) build plan as TSV for CI's sandboxed clone-and-build.
+    Columns: id  channel  repository  commit  tag  projectPath  dll  version  stagedName
+
+    Possibly-empty fields (repository/commit/tag) are emitted as "-" so no field is ever the empty
+    string: bash `read` with IFS=$'\\t' treats tab as IFS-whitespace and COLLAPSES adjacent tabs,
+    which would swallow an empty field and shift every later column. CI maps "-" back to empty."""
+    def s(v: str) -> str:
+        return v if v else "-"
+    for plugin_dir in plugin_dirs():
+        for channel, m in load_records(plugin_dir):
+            print("\t".join([
+                m["id"], channel, s(m.get("repository", "")), s(m.get("commit", "")),
+                s(m.get("tag", "")), m.get("projectPath", "."), m["dll"], m["version"],
+                staged_name(m["dll"], m["version"]),
+            ]))
+
+
 def main() -> None:
-    publish = "--publish" in sys.argv[1:]
+    argv = sys.argv[1:]
+    if "--targets" in argv:
+        print_targets()
+        return
+
+    publish = "--publish" in argv
     plugins = collect()
     if not plugins:
         sys.exit("no plugins found under plugins/*/manifest.json")
 
-    # Two channels: plugins-testing.json carries ALL plugins; plugins.json carries only the
-    # stable ones. The launcher reads the file for the user's selected channel (testing is a
-    # superset). DLLs are shared (version-specific keys), uploaded once.
+    # Two channels: plugins-testing.json carries ALL versions of all plugins; plugins.json carries
+    # only the stable ones. The launcher reads the file for the user's selected channel (testing is
+    # a superset). DLLs are shared (version-specific keys), uploaded once.
     stable = [p for p in plugins if p.get("channel", "stable") != "testing"]
     if publish:
         for p in plugins:
