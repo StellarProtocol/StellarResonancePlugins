@@ -63,6 +63,10 @@ jobs:
               bash -c "cp -a /src/. /w/ && dotnet build '$path' -c Release --nologo -o /out" \
               || { echo "::error::sandboxed build failed for $tgt @ $commit"; fail=1; continue; }
             [ -f "$out/$dll" ] || { echo "::error::$tgt build produced no '$dll'"; fail=1; continue; }
+            # Guard: a GetManifestResourceStream("X") with no matching <EmbeddedResource> compiles + runs
+            # (returns null → silent placeholder icon). Fail the build instead of shipping an iconless DLL.
+            python tools/check-embedded-resources.py "$work" "$out/$dll" \
+              || { echo "::error::$tgt references an embedded resource it does not ship (see annotations)"; fail=1; continue; }
             cp "$out/$dll" "plugins/$id/$staged"   # version-suffixed so stable+testing don't collide
           done < /tmp/targets.tsv
           [ "$fail" = 0 ] || exit 1
