@@ -15,10 +15,6 @@ framework — it holds **manifests only**. Each plugin's source lives in its **o
 
 Plugins must be **quality-of-life only**, matching the framework's policy:
 
-- ✅ UI overlays, HUDs, chat tooling, log viewers, accessibility helpers, inspectors.
-- ❌ No packet construction/modification, no memory read/write, no automation that creates unfair
-  advantage, no anti-cheat evasion.
-
 > **Security model — read this.** A plugin DLL is **arbitrary code running in the game process**
 > (BepInEx IL2CPP); it is **not sandboxed at runtime**. `Stellar.Abstractions` is a *read-only API
 > shape*, **not** a security boundary — a plugin can ignore it and call Unity, game internals, the
