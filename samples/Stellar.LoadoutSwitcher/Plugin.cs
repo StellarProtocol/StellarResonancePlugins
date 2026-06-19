@@ -17,8 +17,12 @@ namespace Stellar.LoadoutSwitcher;
 /// (<see cref="ILoadout.ApplyAsync"/>), which runs every server-side validation
 /// (combat-lock etc.) — this plugin never bypasses it.
 ///
-/// <para>No overlay window yet (follow-up after the core switch is verified). Results
-/// surface to the log; a toast surface can come later.</para>
+/// <para>No overlay window yet (follow-up after the core switch is verified). The actual
+/// switch success/failure is toasted by the GAME itself (the switch goes through the
+/// game's own <c>AsyncSwitchRolePlan</c> wrapper, which shows the game's success/error
+/// toast), so this plugin only toasts its OWN guard messages via
+/// <see cref="INotifications"/> (API-not-ready, empty slot, switch-in-flight); switch
+/// outcomes additionally surface to the log for diagnostics.</para>
 /// </summary>
 public sealed partial class Plugin : IStellarPlugin
 {
@@ -66,6 +70,7 @@ public sealed partial class Plugin : IStellarPlugin
         if (!_services.Loadout.IsAvailable)
         {
             DiagSkipped(slotNumber, "loadout API unavailable");
+            _services.Notifications.Notify("Loadout API not ready", NotificationKind.Warning);
             return;
         }
 
@@ -73,6 +78,7 @@ public sealed partial class Plugin : IStellarPlugin
         if (slotNumber - 1 >= slots.Count)
         {
             _services.Log.Info($"[LoadoutSwitcher] No loadout in slot {slotNumber}");
+            _services.Notifications.Notify($"No loadout in slot {slotNumber}", NotificationKind.Warning);
             return;
         }
 
@@ -80,6 +86,7 @@ public sealed partial class Plugin : IStellarPlugin
         if (Interlocked.CompareExchange(ref _inFlight, 1, 0) != 0)
         {
             DiagSkipped(slotNumber, "a switch is already in flight");
+            _services.Notifications.Notify("Switch already in progress", NotificationKind.Info);
             return;
         }
 

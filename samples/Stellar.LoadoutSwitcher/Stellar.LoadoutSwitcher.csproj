@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>Stellar.LoadoutSwitcher</RootNamespace>
     <AssemblyName>Stellar.LoadoutSwitcher</AssemblyName>
-    <Description>Reference plugin. Hotkey-driven loadout (Role Plan) switcher — binds up to 8 keys to the saved loadouts exposed by ILoadout, switching via the game's own SwitchProject RPC. Depends ONLY on Stellar.Abstractions.</Description>
+    <Description>Reference plugin. Hotkey-driven loadout (Role Plan) switcher — binds up to 8 keys to the saved loadouts exposed by ILoadout, switching via the game's own AsyncSwitchRolePlan weapon-VM wrapper. Depends ONLY on Stellar.Abstractions.</Description>
   </PropertyGroup>
 
   <ItemGroup>
