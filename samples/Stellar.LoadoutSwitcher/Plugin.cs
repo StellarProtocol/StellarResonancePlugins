@@ -127,5 +127,11 @@ public sealed partial class Plugin : IStellarPlugin
             _                               => $"Switch to '{slot.Name}': {result}",
         };
         _services.Log.Info($"[LoadoutSwitcher] {message}");
+
+        // Our success toast NAMES the loadout — the game's own switch toast is generic ("Switched to
+        // the new loadout!"). Only the Success case is toasted here; the game already toasts the
+        // failure reasons (InCombat / Rejected / …), so we don't double up on those.
+        if (result == LoadoutResult.Success)
+            _services.Notifications.Notify($"Switched to {slot.Name}", NotificationKind.Success);
     }
 }
