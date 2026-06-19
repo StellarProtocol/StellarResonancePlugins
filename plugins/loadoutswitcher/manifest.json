@@ -1,0 +1,19 @@
+{
+  "id": "loadoutswitcher",
+  "name": "LoadoutSwitcher",
+  "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
+  "version": "1.0.0",
+  "dll": "Stellar.LoadoutSwitcher.dll",
+  "author": "Stellar",
+  "minModSystemVersion": "1.2.0",
+  "date": "2026-06-19",
+  "changelog": {
+    "added": [
+      "Bind a hotkey to each saved loadout; pressing it triggers the game's own loadout switch.",
+      "Success/guard feedback via the framework notification toasts."
+    ]
+  },
+  "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
+  "commit": "15ed2e3118f2e43f738ca5e90643355bf72c6bac",
+  "projectPath": "."
+}
