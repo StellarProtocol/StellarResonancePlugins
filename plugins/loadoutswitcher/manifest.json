@@ -7,7 +7,6 @@
   "author": "Stellar",
   "minModSystemVersion": "1.3.0",
   "date": "2026-06-21",
-  "capPriorVersionsAt": "1.3.0",
   "changelog": {
     "changed": [
       "Guard and success feedback now uses the game's native notice banners (INoticeTips) instead of framework toasts."
