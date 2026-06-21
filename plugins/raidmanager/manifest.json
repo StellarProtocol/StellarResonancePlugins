@@ -1,7 +1,7 @@
 {
   "id": "raidmanager",
   "name": "Raid Manager",
-  "description": "Raid coordination tools — countdown timer and raid warning banner with chat command integration.",
+  "description": "A ZDPS Compatible raid coordination tools displayed as a HUD overlay.",
   "version": "1.1.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
