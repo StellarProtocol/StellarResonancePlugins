@@ -9,9 +9,7 @@
   "date": "2026-06-21",
   "changelog": {
     "added": [
-      "Countdown timer via /ct <seconds> displayed as a HUD overlay.",
-      "Raid warning via /rw <text> with configurable display size, active channels, and warning mode.",
-      "Use In-game Warning toggle — shows the game's native notice banner with victory audio instead of the custom overlay (default on)."
+      "Use In-game Warning toggle — /rw now shows the game's native notice banner with victory audio instead of the custom overlay (default on)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
