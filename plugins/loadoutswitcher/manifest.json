@@ -2,18 +2,17 @@
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
   "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.2.0",
-  "date": "2026-06-19",
+  "minModSystemVersion": "1.3.0",
+  "date": "2026-06-21",
   "changelog": {
-    "added": [
-      "Bind a hotkey to each saved loadout; pressing it triggers the game's own loadout switch.",
-      "Success/guard feedback via the framework notification toasts."
+    "changed": [
+      "Guard and success feedback now uses the game's native notice banners (INoticeTips) instead of framework toasts."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "15ed2e3118f2e43f738ca5e90643355bf72c6bac",
+  "commit": "368cef4c2893647636f835183fd710514b9f8415",
   "projectPath": "."
 }
