@@ -1,19 +1,20 @@
 {
   "id": "raidmanager",
-  "name": "RaidManager",
-  "description": "ZDPS Compatible raid coordination tools displayed as a HUD overlay.",
-  "version": "1.0.0",
+  "name": "Raid Manager",
+  "description": "Raid coordination tools — countdown timer and raid warning banner with chat command integration.",
+  "version": "1.1.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.1.0",
-  "date": "2026-06-18",
-  "capPriorVersionsAt": "1.1.0",
+  "minModSystemVersion": "1.3.0",
+  "date": "2026-06-21",
   "changelog": {
-    "changed": [
-      "Initial Release"
+    "added": [
+      "Countdown timer via /ct <seconds> displayed as a HUD overlay.",
+      "Raid warning via /rw <text> — shows the game's native notice banner (default) or a custom HUD overlay.",
+      "Settings to configure display size, active channels, and warning mode."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "eaa6a16fae8a9fb79ffa602c789ae95a9093e739",
+  "commit": "45ef8abc093b2864aa02e96f2a232c3f56c3a9c9",
   "projectPath": "."
 }
