@@ -7,7 +7,7 @@
   "author": "Stellar",
   "minModSystemVersion": "1.5.0",
   "date": "2026-06-24",
-  "capPriorVersionsAt": "1.1.1",
+  "capPriorVersionsAt": "1.4.2",
   "changelog": {
     "added": [
       "Team voice mic icon per party-focus row (muted / active / speaking).",
