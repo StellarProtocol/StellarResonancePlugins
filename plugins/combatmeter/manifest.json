@@ -2,25 +2,26 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.4.0",
-  "date": "2026-06-18",
-  "capPriorVersionsAt": "1.3.0",
+  "minModSystemVersion": "1.5.0",
+  "date": "2026-06-24",
+  "capPriorVersionsAt": "1.4.2",
   "changelog": {
     "added": [
-      "Encounter history line charts (LineChartElement).",
-      "Luck% column.",
-      "Inspect magnifier on rows.",
-      "Phase 2 frozen-entity snapshot provider for EntityInspector."
+      "Team voice mic icon per party-focus row (muted / active / speaking).",
+      "Ready-check vote tint on member name; clears on phase end.",
+      "Leader team actions in row context menu (Punctuate, Convene, ReadyCheck).",
+      "Vertical HP/DPS spine on meter rows (Off / Hp / Dps mode, configurable width).",
+      "Location pin icon in party-focus row header."
     ],
     "fixed": [
-      "Taken metric now uses raw Amount.",
-      "Delete-session button width."
+      "Sticky entity name/spec cache survives AOI exits and scene changes.",
+      "Window minimum width (500 px) now enforced on programmatic resizes."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "dcd0135a4fe72b820e8c6839e3e2a142044c5929",
+  "commit": "618369a369172a89a81890af2eedd4a4c0487550",
   "projectPath": "."
 }
