@@ -1,6 +1,6 @@
 {
   "id": "customprofleimage",
-  "name": "CustomProfileImage",
+  "name": "Custom Profile Image",
   "description": "Upload a custom PNG as your in-game avatar or namecard, bypassing the in-game camera requirement.",
   "version": "1.0.0",
   "dll": "Stellar.CustomProfleImage.dll",
