@@ -2,19 +2,18 @@
   "id": "entityinspector",
   "name": "EntityInspector",
   "description": "Inspect any entity: identity, attributes, gear and skill book. Adds an 'Inspect' item to CombatMeter rows and a magnifier button to the profile card.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dll": "Stellar.EntityInspector.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.1.0",
-  "date": "2026-06-18",
-  "capPriorVersionsAt": "1.0.1",
+  "minModSystemVersion": "1.9.0",
+  "date": "2026-06-30",
   "changelog": {
     "added": [
-      "Live frozen-entity view via the Phase 2 inter-plugin exchange.",
-      "Magnifier button on the profile card."
+      "Portrait vertical rotation now unclamped (±89°) — drag up/down freely.",
+      "Window always opens on top of other windows."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
-  "commit": "4d138b69708fae0a7799d1ab6d952bcfa8e1fb19",
+  "commit": "3fb8074060dfd068fcf85a7effd614927e95cafa",
   "projectPath": "."
 }
