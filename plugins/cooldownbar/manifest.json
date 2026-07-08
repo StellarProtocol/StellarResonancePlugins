@@ -2,17 +2,20 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.1.0",
-  "date": "2026-06-18",
+  "minModSystemVersion": "1.10.0",
+  "date": "2026-07-08",
   "changelog": {
-    "fixed": [
-      "Embed the settings-gear icon that was missing from the 1.1.0 build (the mini-HUD gear showed a blank placeholder)."
+    "added": [
+      "Live buff and debuff tracking on the bar (stacks, level, remaining duration, and the source skill).",
+      "Skill cooldown and charge tracking (current/max charges) in real time.",
+      "Click any bar tile or settings icon to show a tooltip with its icon, name, and description.",
+      "New Skills settings tab with search to pick which skills to track by id, name, or description."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "85dc8bdfeacea382edb9fc2bd86b7f091c102fa8",
+  "commit": "4dcc5debf8dd6b067092102e4470b932d0cc452e",
   "projectPath": "."
 }
