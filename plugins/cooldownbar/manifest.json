@@ -13,6 +13,7 @@
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "cf4f352dfaae77d4e1a5c93b8f55e39b8da5d690",
+  "commit": "fcc1e8fd61de9004d55ade81c1a46273d8a928fa",
+  "tag": "v1.2.1",
   "projectPath": "."
 }
