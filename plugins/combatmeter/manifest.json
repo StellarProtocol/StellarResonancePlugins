@@ -2,26 +2,21 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.5.0",
-  "date": "2026-06-24",
-  "capPriorVersionsAt": "1.4.2",
+  "minModSystemVersion": "1.11.0",
+  "date": "2026-07-10",
   "changelog": {
     "added": [
-      "Team voice mic icon per party-focus row (muted / active / speaking).",
-      "Ready-check vote tint on member name; clears on phase end.",
-      "Leader team actions in row context menu (Punctuate, Convene, ReadyCheck).",
-      "Vertical HP/DPS spine on meter rows (Off / Hp / Dps mode, configurable width).",
-      "Location pin icon in party-focus row header."
+      "Chunked raw-event upload: full runs keep their combat events (ring raised 8k -> 128k, uploaded in ~4k-event chunks after the summary) — scoped per-skill breakdowns now work across the whole run, not just the tail.",
+      "Run links and uploads now use the new stellarresonance.app domain (logs.stellarresonance.app / api.stellarresonance.app)."
     ],
     "fixed": [
-      "Sticky entity name/spec cache survives AOI exits and scene changes.",
-      "Window minimum width (500 px) now enforced on programmatic resizes."
+      "Replay capture resets on every scene change (stale walk-in tracks from a previous scene no longer pollute the next run's replay)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "618369a369172a89a81890af2eedd4a4c0487550",
+  "commit": "9897e7b90604802c99faeca3310f48cd25b9fe4c",
   "projectPath": "."
 }
