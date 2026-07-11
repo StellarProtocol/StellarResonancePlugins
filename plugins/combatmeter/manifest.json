@@ -2,21 +2,21 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.11.0",
+  "minModSystemVersion": "1.12.0",
   "date": "2026-07-11",
   "changelog": {
     "added": [
-      "Party-friendly uploads: when a party member already uploaded your run, your client now sends only a tiny supplement (your own gear/skill detail) instead of the full multi-megabyte upload \u2014 the run page still shows everyone's full loadout.",
-      "Duplicate-upload courtesy: if your upload turns out to be a duplicate of a party member's, the redundant event-chunk and positions uploads are skipped automatically."
+      "Server-region tagging: uploads now record whether you're on the SEA or JP server (detected automatically from your game install), so the two servers' runs, characters, and leaderboards never mix on the web."
     ],
     "changed": [
-      "Auto-uploads spread out over a few seconds after a run ends (manual uploads are unchanged) so a full party doesn't hammer the server simultaneously."
+      "Requires framework 1.12.0 or newer (adds the game-environment service this build reads region from). If your region can't be detected, uploads are held rather than mis-filed \u2014 set environment.region in the framework config to override."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "b0c839867c4e44064cf0b903f548fad4f6e2d219",
-  "projectPath": "."
+  "commit": "2a50a67909d50c33f14636dbeb0761ac7cdb020d",
+  "projectPath": ".",
+  "capPriorVersionsAt": "1.11.0"
 }
