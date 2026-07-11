@@ -43,6 +43,7 @@ import json
 import os
 import subprocess
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -92,13 +93,36 @@ def aws_cp(src: str, key: str) -> None:
                     "--endpoint-url", S3_ENDPOINT], check=True, env=env)
 
 
-def fetch_published(obj: str = "plugins.json") -> dict:
-    """Current published registry <obj> (read-only, public CDN). Best-effort — {} if absent."""
+USER_AGENT = "stellar-registry-build/1 (+https://github.com/StellarProtocol/StellarResonancePlugins)"
+
+
+def fetch_published(obj: str = "plugins.json", required: bool = False) -> dict:
+    """Current published registry <obj> (read-only, public CDN). {} when legitimately absent (404).
+
+    Always sends an explicit User-Agent: the CDN (Cloudflare) answers the default
+    `Python-urllib/x.y` UA with 403, and the old bare `except: return {}` swallowed that on
+    every CI publish — each release then merged against an EMPTY history and silently wiped
+    every prior entry from versions[] (the launcher's version list collapsed to latest-only,
+    2026-06-18..2026-07-11). `required=True` (publish mode) makes any failure other than a
+    404 fatal: refusing to publish beats republishing with the history erased.
+    """
+    url = f"{PUBLIC_BASE}/{obj}"
     try:
-        with urllib.request.urlopen(f"{PUBLIC_BASE}/{obj}", timeout=10) as r:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=10) as r:
             return json.loads(r.read().decode("utf-8"))
-    except Exception:
-        return {}
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return {}
+        failure = f"HTTP {e.code}"
+    except Exception as e:  # DNS, timeout, bad JSON, ...
+        failure = str(e) or type(e).__name__
+    if required:
+        sys.exit(f"cannot fetch published {url} ({failure}) — refusing to publish: rebuilding "
+                 "without the existing registry would wipe every prior versions[] entry")
+    print(f"warning: fetch {url} failed ({failure}) — building without published history",
+          file=sys.stderr)
+    return {}
 
 
 def load_records(plugin_dir: Path) -> list[tuple[str, dict]]:
@@ -226,7 +250,7 @@ def build_registry(plugins: list[dict], published: dict) -> dict:
 
 def _emit(obj: str, plugins: list[dict], publish: bool) -> None:
     """Build dist/<obj> from these plugins (merged with the published <obj> history); upload if asked."""
-    registry = build_registry(plugins, fetch_published(obj))
+    registry = build_registry(plugins, fetch_published(obj, required=publish))
     out = ROOT / "dist" / obj
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(registry, indent=2) + "\n", encoding="utf-8")
