@@ -2,17 +2,22 @@
   "id": "moduleoptimizer",
   "name": "ModuleOptimizer",
   "description": "Module / gear loadout optimizer.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "dll": "Stellar.ModuleOptimizer.dll",
   "author": "Stellar",
   "minModSystemVersion": "1.1.0",
-  "date": "2026-06-18",
+  "date": "2026-07-17",
   "changelog": {
+    "added": [
+      "5 module slots (patch 3.7): optimizer enumerates, scores, and applies 5-module combinations.",
+      "Apply verify-and-retry: after the plan runs, the equipped set is re-checked and server-ignored equips are re-issued once; persistent failures name the stuck slots."
+    ],
     "fixed": [
-      "Embed the launcher tile icon that was missing from the 1.1.0 build (the tile showed the generic puzzle-piece placeholder)."
+      "Floor-aware candidate pool: attribute minimums (e.g. Life Wave >= 20) no longer report 'no combination' when an abundant co-target crowds the scarcer attribute out of the pool.",
+      "Apply steps are paced (~300 ms) so rapid equips are not dropped by the server."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarModuleOptimizerPlugin.git",
-  "commit": "2bcd70136a2da99cc9ed8389d14c0bc87535beb4",
+  "commit": "2537946a7a352f3e10b3ed56b7aee695bdcbb03d",
   "projectPath": "."
 }
