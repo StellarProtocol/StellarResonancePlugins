@@ -1,0 +1,21 @@
+{
+  "id": "minimalnameplate",
+  "name": "Minimal Nameplate",
+  "description": "Minimal class-badge & name nameplates that replace the game's overhead plate.",
+  "version": "1.0.0",
+  "dll": "Stellar.MinimalNameplate.dll",
+  "author": "Stellar",
+  "minModSystemVersion": "1.1.0",
+  "date": "2026-07-17",
+  "changelog": {
+    "added": [
+      "Initial release: role-colored class badge + optional player name over players' heads, drawn into the game's HUD render pass (crisp + depth-occluded).",
+      "Mirrors the game's nameplate visibility — global HUD switch (HideUI / cutscene / photo / menu), per-type head-info settings, and per-entity hides (tag / hide-and-seek).",
+      "In-window controls: enable, show class icon, show name, hide-self, badge size, name size."
+    ]
+  },
+  "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
+  "commit": "759619e480f18a5ea0518d2b6a3db963b2fa7276",
+  "tag": "v1.0.0",
+  "projectPath": "."
+}
