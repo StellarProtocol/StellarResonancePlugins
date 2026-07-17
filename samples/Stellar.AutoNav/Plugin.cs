@@ -87,6 +87,90 @@ internal static class ZButtonReversePatch
 }
 
 /// <summary>
+/// HarmonyX postfix pulse on <c>Panda.Core.Game.Update(float)</c>. The framework's
+/// InvokeRepeating tick is gated off until logged-in + in-world (the scene-transition
+/// gate in Wiring.GameLoop.cs), so plugin Update never fires on the Title/Char-Select
+/// screens — exactly where AutoNav must click. This pulse restores the pre-gate drive
+/// (the old framework used this same hook), for AutoNav only and only when
+/// <c>STELLAR_AUTONAV=1</c>.
+/// </summary>
+internal static class GameUpdatePulse
+{
+    private static bool _patched;
+    private static Harmony? _harmony;
+
+    /// <summary>Invoked from the Game.Update postfix with the game's own deltaTime.</summary>
+    internal static Action<float>? OnPulse;
+
+    /// <summary>Applies the postfix. Idempotent. Returns true on success.</summary>
+    public static bool TryApply(IPluginLog log)
+    {
+        if (_patched) return true;
+
+        var gameType = FindType("Panda.Core.Game");
+        if (gameType == null)
+        {
+            log.Warning("[AutoNav] pulse FAILED: Panda.Core.Game not loaded");
+            return false;
+        }
+
+        MethodInfo? update = null;
+        foreach (var m in gameType.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+        {
+            if (m.Name != "Update") continue;
+            var ps = m.GetParameters();
+            if (ps.Length == 1 && ps[0].ParameterType == typeof(float)) { update = m; break; }
+        }
+        if (update == null)
+        {
+            log.Warning("[AutoNav] pulse FAILED: Panda.Core.Game.Update(float) not found");
+            return false;
+        }
+
+        try
+        {
+            _harmony = new Harmony("stellar.autonav.pulse");
+            _harmony.Patch(update, postfix: new HarmonyMethod(typeof(GameUpdatePulse), nameof(Postfix)));
+            _patched = true;
+            log.Info("[AutoNav] pulse installed: Panda.Core.Game.Update postfix drives AutoNav scheduling (framework tick is login-gated)");
+            return true;
+        }
+        catch (Exception ex)
+        {
+            log.Warning($"[AutoNav] pulse FAILED: {ex.GetType().Name}: {ex.Message}");
+            return false;
+        }
+    }
+
+    // HarmonyX binds __0 to the original's first argument (deltaTime).
+    private static void Postfix(float __0)
+    {
+        try { OnPulse?.Invoke(__0); }
+        catch { /* never leak exceptions into the game loop */ }
+    }
+
+    /// <summary>Undo on Dispose so a soft-cycle re-enable doesn't double-patch.</summary>
+    public static void Unpatch()
+    {
+        if (!_patched || _harmony is null) return;
+        try { _harmony.UnpatchSelf(); } catch { }
+        _harmony = null;
+        _patched = false;
+        OnPulse = null;
+    }
+
+    private static Type? FindType(string fullName)
+    {
+        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            try { var t = asm.GetType(fullName, throwOnError: false); if (t != null) return t; }
+            catch { }
+        }
+        return null;
+    }
+}
+
+/// <summary>
 /// Button-discovery diagnostic and optional autonomous navigator. On every scene change and on F12, dumps all
 /// active <c>UnityEngine.UI.Button</c> instances with their sibling/parent components so the game's real
 /// click-handler types are visible in the BepInEx log.
@@ -94,20 +178,26 @@ internal static class ZButtonReversePatch
 /// When <c>STELLAR_AUTONAV=1</c>, also auto-clicks a hardcoded path sequence to drive
 /// Title → Character Select → World without manual input:
 ///
-///   Scene 1   +600 frames → btn_start_face        (Title → Login; long wait for Tencent session check via EdgeWebView)
-///   LoginEvent+180 frames → rolechoose_1/btn_item (pick character)
-///             +270 frames → btn_entergame         (load world)
-///   Scene 7   +180 frames → btn_close_new         (dismiss welcome popup)
+///   Scene 1   +10s   → btn_start_face        (Title → Login; long wait for Tencent session check via EdgeWebView)
+///   LoginEvent+3s    → rolechoose_1/btn_item (pick character)
+///             +4.5s  → btn_entergame         (load world)
+///   Scene 7   +3s    → btn_close_new         (dismiss welcome popup)
 ///
 /// Clicks go through <c>Panda.ZUi.ZButton.invokeClickEvent()</c> via a HarmonyX reverse patch (see
-/// <see cref="ZButtonReversePatch"/>). Demonstrates HarmonyX reverse patching and frame-delayed
+/// <see cref="ZButtonReversePatch"/>). Since the framework's own tick is gated off until
+/// logged-in + in-world, AutoNav drives its scheduling from a self-installed HarmonyX postfix
+/// on <c>Panda.Core.Game.Update(float)</c> (see <see cref="GameUpdatePulse"/>) instead of
+/// <c>Framework.Update</c> — falling back to the framework tick if that patch fails. Scheduling
+/// is time-based (seconds, using the game's own deltaTime) rather than frame-count-based, so the
+/// waits stay correct regardless of the client's frame rate (the test prefix runs uncapped).
+/// Demonstrates HarmonyX reverse patching, a self-installed per-frame postfix, and time-delayed
 /// click scheduling against hot-update UI components.
 /// </summary>
 public sealed partial class Plugin : IStellarPlugin
 {
     public string Name => "AutoNav";
 
-    private const int FramesToWaitAfterScene = 60;  // ~1s at 60fps; let the UI settle.
+    private const float SecondsToWaitAfterScene = 1f;  // let the UI settle.
 
     // Path constants for the autonomous Title → Char Select → World flow.
     // Captured via the diagnostic dump — re-run the diagnostic if game UI changes.
@@ -123,13 +213,13 @@ public sealed partial class Plugin : IStellarPlugin
 
     private readonly struct PendingClick
     {
-        public PendingClick(int framesRemaining, string path, string label)
+        public PendingClick(float secondsRemaining, string path, string label)
         {
-            FramesRemaining = framesRemaining;
+            SecondsRemaining = secondsRemaining;
             Path = path;
             Label = label;
         }
-        public int FramesRemaining { get; }
+        public float SecondsRemaining { get; }
         public string Path { get; }
         public string Label { get; }
     }
@@ -141,9 +231,10 @@ public sealed partial class Plugin : IStellarPlugin
     private IHotkeyAction _toggleAction = null!;
     private readonly IDisposable[] _subscriptions;
     private readonly bool _autoNavEnabled;
+    private bool _usesPulse;
 
     private bool _dumpPending;
-    private int _framesSinceSceneEvent;
+    private float _secondsSinceSceneEvent;
     private string _pendingSceneLabel = string.Empty;
 
     public Plugin(IPluginServices services)
@@ -156,7 +247,20 @@ public sealed partial class Plugin : IStellarPlugin
 
         BuildWindows();
         _subscriptions = SubscribeEvents();
-        _services.Framework.Update += OnUpdate;
+
+        // The framework tick is gated off until logged-in + in-world (scene-transition
+        // gate), so it cannot drive Title/Char-Select clicks. In AUTO mode, pulse from a
+        // Game.Update postfix instead; fall back to the framework tick when the patch
+        // fails or in diagnostic-only mode (where in-world dumps still work).
+        if (_autoNavEnabled && GameUpdatePulse.TryApply(_services.Log))
+        {
+            GameUpdatePulse.OnPulse += OnUpdate;
+            _usesPulse = true;
+        }
+        else
+        {
+            _services.Framework.Update += OnUpdate;
+        }
     }
 
     private void BuildWindows()
@@ -188,21 +292,21 @@ public sealed partial class Plugin : IStellarPlugin
         {
             var sceneId = message?.ToString();
             _pendingSceneLabel = $"OnEnterScene:{sceneId ?? "(null)"}";
-            _framesSinceSceneEvent = 0;
+            _secondsSinceSceneEvent = 0;
             _dumpPending = true;
-            _services.Log.Info($"[AutoNav] scene event '{sceneId}'; will dump buttons in ~{FramesToWaitAfterScene} frames");
+            _services.Log.Info($"[AutoNav] scene event '{sceneId}'; will dump buttons in ~{SecondsToWaitAfterScene:0.#}s");
 
             // Auto-click triggers (STELLAR_AUTONAV=1 only).
             // Scene 1 fires when the Title screen LOADS, but the Start button
             // is not actually clickable until the Tencent session check via
-            // an embedded EdgeWebView completes — typically 5–10s. Delay 600
-            // frames (~10s @60fps) to clear that window. A polling-based wait
-            // on Panda.ZUi.ZButton.IsDisabled would be more robust but needs
+            // an embedded EdgeWebView completes — typically 5–10s. Delay 10s
+            // to clear that window. A polling-based wait on
+            // Panda.ZUi.ZButton.IsDisabled would be more robust but needs
             // another reverse patch; revisit if 10s ever proves too short.
             var sceneIdStr = message?.ToString() ?? string.Empty;
             if (sceneIdStr == "1")
             {
-                EnqueueClick(600, PathStartButton, "start");
+                EnqueueClick(10f, PathStartButton, "start");
             }
             else if (sceneIdStr == "7" || sceneIdStr == "8")
             {
@@ -214,13 +318,13 @@ public sealed partial class Plugin : IStellarPlugin
                 // newbiebackflow_popup(Clone)/.../btn_close_new/anim/btn).
                 // Enqueue on both 7 and 8 so a future game patch that
                 // restores the scene-8 hand-off keeps working.
-                EnqueueClick(180, PathCloseNewbiePopup, "close-newbie");
+                EnqueueClick(3f, PathCloseNewbiePopup, "close-newbie");
             }
         }),
         _services.GameEvents.Subscribe("Panda.Core.LoginEvent", _ =>
         {
-            EnqueueClick(180, PathCharSlot1, "char-slot-1");
-            EnqueueClick(270, PathEnterGame, "enter-game");
+            EnqueueClick(3f, PathCharSlot1, "char-slot-1");
+            EnqueueClick(4.5f, PathEnterGame, "enter-game");
         }),
     };
 
@@ -230,7 +334,8 @@ public sealed partial class Plugin : IStellarPlugin
         {
             try { sub.Dispose(); } catch { }
         }
-        _services.Framework.Update -= OnUpdate;
+        if (_usesPulse) { GameUpdatePulse.OnPulse -= OnUpdate; GameUpdatePulse.Unpatch(); }
+        else { _services.Framework.Update -= OnUpdate; }
         _toggleAction.Dispose();
         _window.Remove();
         // Phase 9a soft-cycle: undo the HarmonyX reverse patch so a re-enable
@@ -249,12 +354,12 @@ public sealed partial class Plugin : IStellarPlugin
 
     private void OnUpdate(float deltaTime)
     {
-        TickPendingClicks();
+        TickPendingClicks(deltaTime);
 
         if (_dumpPending)
         {
-            _framesSinceSceneEvent++;
-            if (_framesSinceSceneEvent >= FramesToWaitAfterScene)
+            _secondsSinceSceneEvent += deltaTime;
+            if (_secondsSinceSceneEvent >= SecondsToWaitAfterScene)
             {
                 _dumpPending = false;
                 DumpButtons(_pendingSceneLabel);
@@ -283,21 +388,21 @@ public sealed partial class Plugin : IStellarPlugin
     // Click queue + scheduler
     // -------------------------------------------------------------------------
 
-    private void EnqueueClick(int delayFrames, string path, string label)
+    private void EnqueueClick(float delaySeconds, string path, string label)
     {
         if (!_autoNavEnabled) return;
-        _pendingClicks.Add(new PendingClick(delayFrames, path, label));
-        _services.Log.Info($"[AutoNav] queued click '{label}' in {delayFrames} frames");
+        _pendingClicks.Add(new PendingClick(delaySeconds, path, label));
+        _services.Log.Info($"[AutoNav] queued click '{label}' in {delaySeconds:0.#}s");
     }
 
-    private void TickPendingClicks()
+    private void TickPendingClicks(float dt)
     {
         for (var i = _pendingClicks.Count - 1; i >= 0; i--)
         {
             var pc = _pendingClicks[i];
-            if (pc.FramesRemaining > 1)
+            if (pc.SecondsRemaining > dt)
             {
-                _pendingClicks[i] = new PendingClick(pc.FramesRemaining - 1, pc.Path, pc.Label);
+                _pendingClicks[i] = new PendingClick(pc.SecondsRemaining - dt, pc.Path, pc.Label);
             }
             else
             {
