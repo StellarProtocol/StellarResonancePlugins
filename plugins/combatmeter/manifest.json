@@ -2,21 +2,24 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
-  "minModSystemVersion": "1.12.0",
-  "date": "2026-07-11",
+  "minModSystemVersion": "1.15.0",
+  "date": "2026-07-21",
   "changelog": {
     "added": [
-      "Server-region tagging: uploads now record whether you're on the SEA or JP server (detected automatically from your game install), so the two servers' runs, characters, and leaderboards never mix on the web."
+      "Auto-archive is now fully configurable from a dedicated Settings pane (gear icon): master on/off, per-trigger toggles (team wipe, boss phase, combat idle, dungeon stage change), min gap between archives, settle wait, wipe revive-grace and ignore-when-solo, and boss re-cut.",
+      "Boss phase 'keep before': choose how many seconds of run-up before your first hit ride into the boss segment (default off = cut exactly at the first hit).",
+      "Re-uploading an archived run now reproduces the exact original upload \u2014 summary, full combat detail, and the movement track \u2014 even after a game relaunch or if the server-side data was lost."
     ],
     "changed": [
-      "Requires framework 1.12.0 or newer (adds the game-environment service this build reads region from). If your region can't be detected, uploads are held rather than mis-filed \u2014 set environment.region in the framework config to override."
+      "Boss-phase archiving now cuts a clean segment at the first boss hit (no more mid-fight re-archiving), and re-attempts after a wipe are captured correctly with your chosen keep-before.",
+      "Requires framework 1.15.0 or newer (uses the new per-plugin data storage for the byte-for-byte re-upload)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "2a50a67909d50c33f14636dbeb0761ac7cdb020d",
+  "commit": "b6b4fb338e5ddccc485f7154b54b517e650aeefd",
   "projectPath": ".",
-  "capPriorVersionsAt": "1.11.0"
+  "tag": "v1.5.0"
 }
