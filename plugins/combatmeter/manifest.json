@@ -9,12 +9,17 @@
   "date": "2026-07-21",
   "changelog": {
     "added": [
+      "Leader team-countdown button \u2014 start the game's pull timer for the party straight from the meter header (party-focus, leader only).",
       "Auto-archive is now fully configurable from a dedicated Settings pane (gear icon): master on/off, per-trigger toggles (team wipe, boss phase, combat idle, dungeon stage change), min gap between archives, settle wait, wipe revive-grace and ignore-when-solo, and boss re-cut.",
       "Boss phase 'keep before': choose how many seconds of run-up before your first hit ride into the boss segment (default off = cut exactly at the first hit).",
-      "Re-uploading an archived run now reproduces the exact original upload \u2014 summary, full combat detail, and the movement track \u2014 even after a game relaunch or if the server-side data was lost."
+      "Whole-run replay: the position track now records continuously from the dungeon walk-in through the kill (boss HP reaches 0% on death), and mid-run archives no longer clip it.",
+      "Re-uploading an archived run reproduces the exact original upload \u2014 summary, full combat detail, and the movement track \u2014 even after a game relaunch or if the server-side data was lost.",
+      "Copy-link and the History list now use the server's short run URL when available."
     ],
     "changed": [
       "Boss-phase archiving now cuts a clean segment at the first boss hit (no more mid-fight re-archiving), and re-attempts after a wipe are captured correctly with your chosen keep-before.",
+      "Upload state and run URLs persist across relaunches \u2014 retrying an already-uploaded run resolves to its existing link instead of failing.",
+      "Role colour and class crest are inferred from your spec when the party roster has no profession data yet.",
       "Requires framework 1.15.0 or newer (uses the new per-plugin data storage for the byte-for-byte re-upload)."
     ]
   },
