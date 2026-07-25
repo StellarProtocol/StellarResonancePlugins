@@ -58,7 +58,10 @@ PLUGINS_DIR = ROOT / "plugins"
 REQUIRED = ("id", "name", "description", "version", "dll", "author", "minModSystemVersion")
 
 # Fields the canonical manifest.json owns and a testing override INHERITS (never repeats).
-SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "projectPath")
+# tags/homepage/media/guide are presentation metadata for the launcher's plugin detail page —
+# they describe the plugin, not one build, so they are shared across channels.
+SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "projectPath",
+                 "tags", "homepage", "media", "guide")
 # Fields a manifest.testing.json may carry — everything version-specific. A testing override
 # may ONLY set these; shared fields come from manifest.json so they can't drift between files.
 OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
@@ -94,6 +97,102 @@ def aws_cp(src: str, key: str) -> None:
 
 
 USER_AGENT = "stellar-registry-build/1 (+https://github.com/StellarProtocol/StellarResonancePlugins)"
+
+# Media/guide (plugin detail page). Media types the launcher renders: "image" (lightbox),
+# "youtube" (thumbnail tile, opens the watch page), "video" (hosted file, opens in browser).
+MEDIA_TYPES = ("image", "youtube", "video")
+MAX_MEDIA_BYTES = 25 << 20   # attached media file cap — keeps the repo and CDN lean
+MAX_GUIDE_BYTES = 1 << 20
+
+
+def is_http_url(u) -> bool:
+    return isinstance(u, str) and (u.startswith("https://") or u.startswith("http://"))
+
+
+def safe_rel_path(p) -> bool:
+    return isinstance(p, str) and bool(p) and not p.startswith("/") and ".." not in p and "\\" not in p
+
+
+def resolve_docs(plugin_dir: Path, m: dict, where: str) -> tuple[dict, list[tuple[Path, str]]]:
+    """Validate the optional presentation fields (tags / homepage / media / guide) and resolve
+    repo-local files into published CDN keys. Returns (extra registry metadata, doc uploads).
+
+    Unlike DLLs these live at stable, non-versioned keys (plugins/<id>/guide.md,
+    plugins/<id>/media/<name>) — they are documentation, deliberately mutable so a typo fix
+    doesn't require a release; the immutability rule covers release binaries only."""
+    extra: dict = {}
+    uploads: list[tuple[Path, str]] = []
+    pid = m["id"]
+
+    tags = m.get("tags")
+    if tags is not None:
+        if not isinstance(tags, list) or not tags or \
+                not all(isinstance(t, str) and t.strip() for t in tags):
+            sys.exit(f"{where}: tags must be a non-empty list of non-empty strings")
+        extra["tags"] = [t.strip() for t in tags]
+
+    homepage = m.get("homepage")
+    if homepage is not None:
+        if not is_http_url(homepage):
+            sys.exit(f"{where}: homepage must be an http(s) URL")
+        extra["homepage"] = homepage
+
+    media = m.get("media")
+    if media is not None:
+        if not isinstance(media, list) or not media:
+            sys.exit(f"{where}: media must be a non-empty list of objects")
+        resolved_media = []
+        for i, entry in enumerate(media):
+            spot = f"{where}: media[{i}]"
+            if not isinstance(entry, dict):
+                sys.exit(f"{spot}: must be an object")
+            mtype = entry.get("type")
+            if mtype not in MEDIA_TYPES:
+                sys.exit(f"{spot}: type must be one of {MEDIA_TYPES}")
+            url, file = entry.get("url"), entry.get("file")
+            if (url is None) == (file is None):
+                sys.exit(f"{spot}: exactly one of url / file")
+            if mtype == "youtube" and url is None:
+                sys.exit(f"{spot}: youtube entries take a url (watch/shorts/embed link)")
+            if url is not None and not is_http_url(url):
+                sys.exit(f"{spot}: url must be http(s)")
+            if file is not None:
+                if not safe_rel_path(file):
+                    sys.exit(f"{spot}: unsafe file path {file!r}")
+                path = plugin_dir / file
+                if not path.is_file():
+                    sys.exit(f"{spot}: file not found: {file}")
+                if path.stat().st_size > MAX_MEDIA_BYTES:
+                    sys.exit(f"{spot}: {file} exceeds {MAX_MEDIA_BYTES >> 20} MB — host it (or YouTube) and use url")
+                key = f"plugins/{pid}/media/{path.name}"
+                uploads.append((path, key))
+                url = f"{PUBLIC_BASE}/{key}"
+            item = {"type": mtype, "url": url}
+            caption = entry.get("caption")
+            if caption is not None:
+                if not isinstance(caption, str):
+                    sys.exit(f"{spot}: caption must be a string")
+                item["caption"] = caption
+            resolved_media.append(item)
+        keys = [key for _, key in uploads]
+        if len(keys) != len(set(keys)):
+            sys.exit(f"{where}: media file basenames must be unique (they share plugins/{pid}/media/)")
+        extra["media"] = resolved_media
+
+    guide = m.get("guide")
+    if guide is not None:
+        if not safe_rel_path(guide):
+            sys.exit(f"{where}: unsafe guide path {guide!r}")
+        path = plugin_dir / guide
+        if not path.is_file():
+            sys.exit(f"{where}: guide not found: {guide}")
+        if path.stat().st_size > MAX_GUIDE_BYTES:
+            sys.exit(f"{where}: guide exceeds {MAX_GUIDE_BYTES >> 20} MB")
+        key = f"plugins/{pid}/guide.md"
+        uploads.append((path, key))
+        extra["guideUrl"] = f"{PUBLIC_BASE}/{key}"
+
+    return extra, uploads
 
 
 def fetch_published(obj: str = "plugins.json", required: bool = False) -> dict:
@@ -197,8 +296,10 @@ def collect() -> list[dict]:
                 if m.get("tag"):
                     version_entry["sourceTag"] = m["tag"]
 
+            extra_meta, doc_uploads = resolve_docs(plugin_dir, m, where)
+
             plugins.append({
-                "_dll": staged, "_key": key,
+                "_dll": staged, "_key": key, "_docs": doc_uploads,
                 # capPriorVersionsAt: when this build requires a newer framework, retro-cap older
                 # published versions (whose maxModSystemVersion is still null) at this framework
                 # version, so the launcher stops offering them on the newer framework. The published
@@ -206,7 +307,8 @@ def collect() -> list[dict]:
                 # to bound a prior build. See docs/manifest-standard.md § Compatibility rule.
                 "cap_prior": m.get("capPriorVersionsAt"),
                 "channel": channel,
-                "meta": {"id": m["id"], "name": m["name"], "description": m["description"], "author": m["author"]},
+                "meta": {"id": m["id"], "name": m["name"], "description": m["description"],
+                         "author": m["author"], **extra_meta},
                 "version": version_entry,
             })
     return plugins
@@ -295,10 +397,17 @@ def main() -> None:
     if publish:
         for p in plugins:
             aws_cp(str(p["_dll"]), p["_key"])   # version-specific key, shared across channels
+        seen_docs: set[str] = set()             # stable+testing records share the same doc files
+        for p in plugins:
+            for path, doc_key in p["_docs"]:
+                if doc_key in seen_docs:
+                    continue
+                seen_docs.add(doc_key)
+                aws_cp(str(path), doc_key)
     _emit("plugins.json", stable, publish)
     _emit("plugins-testing.json", plugins, publish)
     if publish:
-        print("published DLLs + plugins.json + plugins-testing.json to MinIO")
+        print("published DLLs + guide/media docs + plugins.json + plugins-testing.json to MinIO")
 
 
 if __name__ == "__main__":

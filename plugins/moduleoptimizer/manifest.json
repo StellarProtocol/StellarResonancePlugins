@@ -5,6 +5,18 @@
   "version": "1.2.0",
   "dll": "Stellar.ModuleOptimizer.dll",
   "author": "Stellar",
+  "tags": [
+    "gear",
+    "optimizer"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/module-optimizer.png",
+      "caption": "Suggested module setups \u2014 you approve."
+    }
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.1.0",
   "date": "2026-07-17",
   "changelog": {
