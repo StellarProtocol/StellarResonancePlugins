@@ -9,6 +9,13 @@
     "nameplates",
     "hud"
   ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/minimalnameplate.png",
+      "caption": "Role-coloured class badges + names, drawn in the game's HUD pass."
+    }
+  ],
   "guide": "guide.md",
   "minModSystemVersion": "1.1.0",
   "date": "2026-07-17",

@@ -4,6 +4,8 @@ Replaces the game's overhead nameplates with a clean, role-coloured class badge 
 optional player name — drawn into the game's own HUD render pass, so it stays crisp and is
 correctly hidden behind world geometry.
 
+![Minimal nameplates](media/minimalnameplate.png)
+
 ## How to use
 
 1. Install the plugin and launch the game **Modded**.
