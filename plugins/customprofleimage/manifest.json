@@ -5,6 +5,11 @@
   "version": "1.0.0",
   "dll": "Stellar.CustomProfleImage.dll",
   "author": "Stellar",
+  "tags": [
+    "profile",
+    "customization"
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.2.0",
   "date": "2026-06-26",
   "changelog": {

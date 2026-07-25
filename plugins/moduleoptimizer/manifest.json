@@ -14,6 +14,11 @@
       "type": "image",
       "file": "media/module-optimizer.png",
       "caption": "Suggested module setups \u2014 you approve."
+    },
+    {
+      "type": "image",
+      "file": "media/moduleoptimizer-results.png",
+      "caption": "Results \u2014 scored combos with an aligned stat preview."
     }
   ],
   "guide": "guide.md",

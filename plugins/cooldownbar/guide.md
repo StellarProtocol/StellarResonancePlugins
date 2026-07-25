@@ -12,6 +12,8 @@ staring at the hotbar.
 3. Skill icons slide along the timeline as their cooldowns tick down; when an icon reaches
    the end, the skill is ready.
 
+![Track-what picker](media/cooldownbar-settings.png)
+
 ## Tips
 
 - Buffs that refresh their timer on a new stack stay visible with an accurate countdown for

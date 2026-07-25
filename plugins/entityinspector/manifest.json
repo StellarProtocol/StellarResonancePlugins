@@ -14,6 +14,11 @@
       "type": "image",
       "file": "media/entity-inspector.png",
       "caption": "Inspect gear, skills and attributes."
+    },
+    {
+      "type": "image",
+      "file": "media/entityinspector-gear.png",
+      "caption": "Gear tab \u2014 weapon card plus armor and accessory grids."
     }
   ],
   "guide": "guide.md",

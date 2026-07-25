@@ -14,6 +14,8 @@ window you can open on anyone.
 3. The window shows the entity's identity, attributes, gear with details, and skill book.
    Drag the 3D portrait to rotate it — vertical rotation is unclamped, so look from any angle.
 
+![Gear tab](media/entityinspector-gear.png)
+
 ## Tips
 
 - The inspector window always opens on top of other windows, so it never hides behind the

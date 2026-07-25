@@ -10,6 +10,8 @@ care about.
 1. Install the plugin and launch the game **Modded**.
 2. Open the StatInspector window from the Stellar overlay to pick your stats: the grouped
    settings picker lists every attribute — tick the ones you want on the mini-HUD.
+
+![Stat picker](media/statinspector-settings.png)
 3. Drag the mini-HUD anywhere. Its position and shown/hidden state are remembered across
    relaunches.
 

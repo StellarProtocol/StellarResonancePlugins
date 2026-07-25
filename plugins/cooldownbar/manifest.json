@@ -15,6 +15,11 @@
       "type": "image",
       "file": "media/cooldown-bar.png",
       "caption": "Skill cooldowns on a movable timeline."
+    },
+    {
+      "type": "image",
+      "file": "media/cooldownbar-settings.png",
+      "caption": "Track-what picker \u2014 choose which skills and buffs to follow."
     }
   ],
   "guide": "guide.md",

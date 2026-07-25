@@ -5,11 +5,16 @@
   "version": "1.1.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
+  "tags": [
+    "raid",
+    "coordination"
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.3.0",
   "date": "2026-06-21",
   "changelog": {
     "added": [
-      "Use In-game Warning toggle — /rw now shows the game's native notice banner with victory audio instead of the custom overlay (default on)."
+      "Use In-game Warning toggle \u2014 /rw now shows the game's native notice banner with victory audio instead of the custom overlay (default on)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",

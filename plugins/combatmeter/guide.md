@@ -31,6 +31,8 @@ crit rate and uptime for the current fight.
 
 An *archive* banks the current fight into History and resets the live view.
 
+![History](media/combatmeter-history.png)
+
 - **Manual archive** (the archive button) is **always saved**, no matter what — you always get
   visible feedback that it was banked.
 - **Auto-archive** can bank fights for you. Open the **Settings pane (gear icon)** to control

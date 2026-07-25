@@ -12,6 +12,8 @@ through the game's own equip flow.
    want and any minimums (e.g. *Life Wave ≥ 20*).
 3. Run the optimizer: it enumerates and scores module combinations from your inventory
    (5 module slots as of game patch 3.7) and shows the best candidates.
+
+![Results](media/moduleoptimizer-results.png)
 4. Review the suggested setup and **apply** it. You approve the plan — the plugin equips
    through the game's own equip flow, never bypassing its checks.
 
