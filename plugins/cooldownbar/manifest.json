@@ -19,7 +19,7 @@
     {
       "type": "image",
       "file": "media/cooldownbar-settings.png",
-      "caption": "Track-what picker \u2014 choose which skills and buffs to follow."
+      "caption": "Track window \u2014 toggle skills, debuffs and buffs, with filter and search."
     }
   ],
   "guide": "guide.md",
