@@ -162,6 +162,7 @@ abandoned, just delete `manifest.testing.json`.
 | `homepage` | string (URL) | — | http(s) link shown as "Homepage ↗" |
 | `media` | array | — | detail-page gallery — see below |
 | `guide` | string (path) | — | repo-relative markdown usage guide (conventionally `guide.md`, ≤ 1 MB); CI publishes it to `plugins/<id>/guide.md` |
+| `icon` | string (path or URL) | — | badge image shown on the launcher's plugin list and detail header; repo-relative file (published to `plugins/<id>/icon.<ext>`) or absolute http(s) URL. Without it the launcher uses the first `media` image, else a monogram tile. |
 
 ¹ Required by the **curated** registry (CI refuses a manifest without a pinned public repo).
 ² Required whenever `repository` is set.
@@ -203,7 +204,7 @@ shared fields and may set **only** the version-specific ones below — any other
 | `maxModSystemVersion` | string \| null | — | upper bound |
 | `capPriorVersionsAt` | string (semver) | — | retro-cap prior published versions |
 | `changelog` | object | — | as above |
-| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide` come from `manifest.json` |
+| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide`, `icon` come from `manifest.json` |
 
 ## Third-party / unverified plugins
 

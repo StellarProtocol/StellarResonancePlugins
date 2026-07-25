@@ -61,7 +61,7 @@ REQUIRED = ("id", "name", "description", "version", "dll", "author", "minModSyst
 # tags/homepage/media/guide are presentation metadata for the launcher's plugin detail page —
 # they describe the plugin, not one build, so they are shared across channels.
 SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "projectPath",
-                 "tags", "homepage", "media", "guide")
+                 "tags", "homepage", "media", "guide", "icon")
 # Fields a manifest.testing.json may carry — everything version-specific. A testing override
 # may ONLY set these; shared fields come from manifest.json so they can't drift between files.
 OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
@@ -178,6 +178,22 @@ def resolve_docs(plugin_dir: Path, m: dict, where: str) -> tuple[dict, list[tupl
         if len(keys) != len(set(keys)):
             sys.exit(f"{where}: media file basenames must be unique (they share plugins/{pid}/media/)")
         extra["media"] = resolved_media
+
+    icon = m.get("icon")
+    if icon is not None:
+        if is_http_url(icon):
+            extra["iconUrl"] = icon
+        else:
+            if not safe_rel_path(icon):
+                sys.exit(f"{where}: unsafe icon path {icon!r}")
+            path = plugin_dir / icon
+            if not path.is_file():
+                sys.exit(f"{where}: icon not found: {icon}")
+            if path.stat().st_size > MAX_MEDIA_BYTES:
+                sys.exit(f"{where}: icon exceeds {MAX_MEDIA_BYTES >> 20} MB")
+            key = f"plugins/{pid}/icon{path.suffix.lower()}"
+            uploads.append((path, key))
+            extra["iconUrl"] = f"{PUBLIC_BASE}/{key}"
 
     guide = m.get("guide")
     if guide is not None:
