@@ -9,6 +9,13 @@
     "profile",
     "customization"
   ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/customprofileimage.png",
+      "caption": "Pick a PNG, make it your avatar or namecard, check the preview."
+    }
+  ],
   "guide": "guide.md",
   "minModSystemVersion": "1.2.0",
   "date": "2026-06-26",
