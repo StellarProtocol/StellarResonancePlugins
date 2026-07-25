@@ -9,12 +9,13 @@ correctly hidden behind world geometry.
 ## How to use
 
 1. Install the plugin and launch the game **Modded**.
-2. Open the Minimal Nameplate window from the Stellar overlay and enable it.
+2. Open the **Nameplates** window from the Stellar overlay and turn on
+   **Enable Minimal Nameplate** (this disables the game's own nameplate).
 3. Tune it to taste:
-   - **Show class icon** — the role-coloured badge over each player.
-   - **Show name** — the player name under the badge.
-   - **Hide self** — keep your own head clear.
-   - **Badge size / name size** — scale both independently.
+   - **Show Class Icon (badge)** — the role-coloured badge over each player.
+   - **Show Player Name (under badge)** — the player name below the badge.
+   - **Hide My Own Badge + Name** — keep your own head clear.
+   - **Badge Size / Name Size** — scale both independently.
 
 ## Behaviour
 

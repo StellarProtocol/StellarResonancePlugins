@@ -13,7 +13,7 @@
     {
       "type": "image",
       "file": "media/minimalnameplate.png",
-      "caption": "Role-coloured class badges + names, drawn in the game's HUD pass."
+      "caption": "Badges + names in the world, with the Nameplates settings window."
     }
   ],
   "guide": "guide.md",
