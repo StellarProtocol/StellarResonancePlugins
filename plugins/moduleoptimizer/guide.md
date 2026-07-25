@@ -3,7 +3,7 @@
 Finds the best module combination for the targets you set — and can apply it for you,
 through the game's own equip flow.
 
-![Module optimizer](https://cdn.revette.io/plugins/moduleoptimizer/media/module-optimizer.png)
+![Module optimizer](media/module-optimizer.png)
 
 ## How to use
 

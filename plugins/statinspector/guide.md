@@ -3,7 +3,7 @@
 Your live character attributes on screen — a compact mini-HUD with exactly the stats you
 care about.
 
-![Stat inspector](https://cdn.revette.io/plugins/statinspector/media/stat-inspector.png)
+![Stat inspector](media/stat-inspector.png)
 
 ## How to use
 

@@ -182,8 +182,11 @@ does before installing. Each `media` entry is
 
 The `guide` markdown renders natively in the launcher (headings, lists, code fences, quotes,
 links, images, bold/italic — raw HTML stays literal text). Write it for **players**: what the
-plugin does, how to open/use it, and tips. Guides and media live at stable, non-versioned CDN
-keys — fixing a typo is just another PR, no release needed.
+plugin does, how to open/use it, and tips. **Reference your screenshots with relative paths**
+(`![Overview](media/overview.png)`) — the launcher resolves them against the published guide's
+own URL, so you never write your plugin id or any CDN base, and the same guide renders
+correctly on GitHub. Guides and media live at stable, non-versioned CDN keys — fixing a typo
+is just another PR, no release needed.
 
 ### `plugins/<id>/manifest.testing.json` — the optional testing override
 

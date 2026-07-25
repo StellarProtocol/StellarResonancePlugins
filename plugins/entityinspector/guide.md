@@ -3,7 +3,7 @@
 Inspect any entity in the world: identity, attributes, equipped gear and skill book — in a
 window you can open on anyone.
 
-![Entity inspector](https://cdn.revette.io/plugins/entityinspector/media/entity-inspector.png)
+![Entity inspector](media/entity-inspector.png)
 
 ## How to use
 

@@ -4,7 +4,7 @@ A real-time party combat meter for Star Resonance: live **DPS**, **HPS** and **d
 for everyone in your party, with role colours and class crests so you can read the group at a
 glance.
 
-![Live party meter](https://cdn.revette.io/plugins/combatmeter/media/combat-meter.png)
+![Live party meter](media/combat-meter.png)
 
 ## Getting started
 
@@ -25,7 +25,7 @@ glance.
 Click a party member's row to open their **skill breakdown** — per-skill damage share,
 crit rate and uptime for the current fight.
 
-![Skill breakdown](https://cdn.revette.io/plugins/combatmeter/media/skill-breakdown.png)
+![Skill breakdown](media/skill-breakdown.png)
 
 ## Archives — saving a fight
 

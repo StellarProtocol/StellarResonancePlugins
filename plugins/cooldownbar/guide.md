@@ -3,7 +3,7 @@
 Your skill cooldowns on a movable timeline, so you can see what's coming back without
 staring at the hotbar.
 
-![Cooldown bar](https://cdn.revette.io/plugins/cooldownbar/media/cooldown-bar.png)
+![Cooldown bar](media/cooldown-bar.png)
 
 ## How to use
 
