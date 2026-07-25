@@ -5,6 +5,31 @@
   "version": "1.5.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
+  "tags": [
+    "combat",
+    "dps-meter",
+    "overlay",
+    "replay"
+  ],
+  "homepage": "https://logs.stellarresonance.app",
+  "media": [
+    {
+      "type": "image",
+      "file": "media/combat-meter.png",
+      "caption": "Live party DPS/HPS with role colours."
+    },
+    {
+      "type": "image",
+      "file": "media/skill-breakdown.png",
+      "caption": "Per-skill damage, crit % and uptime."
+    },
+    {
+      "type": "image",
+      "file": "media/combatmeter-history.png",
+      "caption": "History \u2014 damage timeline with navigator and per-source table."
+    }
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.15.0",
   "date": "2026-07-21",
   "changelog": {

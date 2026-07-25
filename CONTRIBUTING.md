@@ -158,9 +158,36 @@ abandoned, just delete `manifest.testing.json`.
 | `channel` | `"stable"` \| `"testing"` | — | channel of **this** version (default `"stable"`; `"testing"` = the plugin is testing-**only**) |
 | `date` | string `YYYY-MM-DD` | — | release date (UTC) |
 | `changelog` | object | — | `{ "added": [], "changed": [], "fixed": [], "removed": [] }` — any subset; arrays of strings |
+| `tags` | string[] | — | keyword chips on the launcher's plugin detail page |
+| `homepage` | string (URL) | — | http(s) link shown as "Homepage ↗" |
+| `media` | array | — | detail-page gallery — see below |
+| `guide` | string (path) | — | repo-relative markdown usage guide (conventionally `guide.md`, ≤ 1 MB); CI publishes it to `plugins/<id>/guide.md` |
+| `icon` | string (path or URL) | — | badge image shown on the launcher's plugin list and detail header; repo-relative file (published to `plugins/<id>/icon.<ext>`) or absolute http(s) URL. Without it the launcher uses the first `media` image, else a monogram tile. |
 
 ¹ Required by the **curated** registry (CI refuses a manifest without a pinned public repo).
 ² Required whenever `repository` is set.
+
+#### Detail page media + guide (`tags` / `homepage` / `media` / `guide`)
+
+These optional fields feed the launcher's **plugin detail page** so users can see what a plugin
+does before installing. Each `media` entry is
+`{ "type": "image" | "youtube" | "video", "url" or "file", "caption"? }`:
+
+- `"image"` — a screenshot. Use `file` for a picture committed in `plugins/<id>/` (e.g.
+  `"media/overview.png"`, ≤ 25 MB; CI uploads it to `plugins/<id>/media/<name>` and publishes the
+  CDN URL) or `url` for an already-hosted http(s) image.
+- `"youtube"` — a watch/shorts/embed link (`url` required). The launcher shows the video
+  thumbnail and opens the watch page in the user's browser.
+- `"video"` — a hosted video file (`url` or attached `file`); the launcher shows a ▶ tile that
+  opens it in the browser.
+
+The `guide` markdown renders natively in the launcher (headings, lists, code fences, quotes,
+links, images, bold/italic — raw HTML stays literal text). Write it for **players**: what the
+plugin does, how to open/use it, and tips. **Reference your screenshots with relative paths**
+(`![Overview](media/overview.png)`) — the launcher resolves them against the published guide's
+own URL, so you never write your plugin id or any CDN base, and the same guide renders
+correctly on GitHub. Guides and media live at stable, non-versioned CDN keys — fixing a typo
+is just another PR, no release needed.
 
 ### `plugins/<id>/manifest.testing.json` — the optional testing override
 
@@ -177,7 +204,7 @@ shared fields and may set **only** the version-specific ones below — any other
 | `maxModSystemVersion` | string \| null | — | upper bound |
 | `capPriorVersionsAt` | string (semver) | — | retro-cap prior published versions |
 | `changelog` | object | — | as above |
-| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath` come from `manifest.json` |
+| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide`, `icon` come from `manifest.json` |
 
 ## Third-party / unverified plugins
 

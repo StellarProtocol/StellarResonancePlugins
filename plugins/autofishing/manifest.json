@@ -1,10 +1,15 @@
 {
   "id": "autofishing",
   "name": "Auto Fishing",
-  "description": "Fully automates the fishing minigame — from casting to catch — with configurable tension control and auto rod change, so you can leave it running unattended.",
+  "description": "Fully automates the fishing minigame \u2014 from casting to catch \u2014 with configurable tension control and auto rod change, so you can leave it running unattended.",
   "version": "1.0.0",
   "dll": "Stellar.AutoFishing.dll",
   "author": "Stellar",
+  "tags": [
+    "automation",
+    "fishing"
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.1.0",
   "date": "2026-06-20",
   "capPriorVersionsAt": "1.1.0",

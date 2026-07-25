@@ -5,6 +5,18 @@
   "version": "1.1.0",
   "dll": "Stellar.PlayerHUD.dll",
   "author": "Stellar",
+  "tags": [
+    "hud",
+    "vitals"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/playerhud.png",
+      "caption": "Compact HP / stamina HUD with level and position."
+    }
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.1.0",
   "date": "2026-06-18",
   "capPriorVersionsAt": "1.0.1",

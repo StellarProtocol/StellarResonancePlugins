@@ -5,11 +5,28 @@
   "version": "1.2.0",
   "dll": "Stellar.EntityInspector.dll",
   "author": "Stellar",
+  "tags": [
+    "inspection",
+    "gear"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/entity-inspector.png",
+      "caption": "Inspect gear, skills and attributes."
+    },
+    {
+      "type": "image",
+      "file": "media/entityinspector-gear.png",
+      "caption": "Gear tab \u2014 weapon card plus armor and accessory grids."
+    }
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.9.0",
   "date": "2026-06-30",
   "changelog": {
     "added": [
-      "Portrait vertical rotation now unclamped (±89°) — drag up/down freely.",
+      "Portrait vertical rotation now unclamped (\u00b189\u00b0) \u2014 drag up/down freely.",
       "Window always opens on top of other windows."
     ]
   },

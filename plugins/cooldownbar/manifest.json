@@ -5,6 +5,24 @@
   "version": "1.2.1",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
+  "tags": [
+    "combat",
+    "cooldowns",
+    "overlay"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/cooldown-bar.png",
+      "caption": "Skill cooldowns on a movable timeline."
+    },
+    {
+      "type": "image",
+      "file": "media/cooldownbar-settings.png",
+      "caption": "Track window \u2014 toggle skills, debuffs and buffs, with filter and search."
+    }
+  ],
+  "guide": "guide.md",
   "minModSystemVersion": "1.10.0",
   "date": "2026-07-08",
   "changelog": {
