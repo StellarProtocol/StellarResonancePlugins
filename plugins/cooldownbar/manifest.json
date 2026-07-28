@@ -27,8 +27,8 @@
   "date": "2026-07-28",
   "changelog": {
     "changed": [
-      "Less stutter in combat. The bar used to re-read your buff and cooldown state on every single frame — and kept doing it even while hidden — which showed up as micro-stutter in busy fights. It now refreshes on a fixed schedule, and only while it is actually on screen. The bar looks and behaves exactly the same: timers and sweeps still animate every frame.",
-      "Hiding the bar now costs nothing. Its tracking goes fully idle instead of working away in the background."
+      "Smoother combat — the bar no longer causes micro-stutter during busy fights.",
+      "Hiding the bar now costs nothing at all."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
