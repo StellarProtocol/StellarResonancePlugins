@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,30 +26,25 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History \u2014 damage timeline with navigator and per-source table."
+      "caption": "History — damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.15.0",
-  "date": "2026-07-21",
+  "minModSystemVersion": "1.17.0",
+  "date": "2026-08-05",
   "changelog": {
     "added": [
-      "Leader team-countdown button \u2014 start the game's pull timer for the party straight from the meter header (party-focus, leader only).",
-      "Auto-archive is now fully configurable from a dedicated Settings pane (gear icon): master on/off, per-trigger toggles (team wipe, boss phase, combat idle, dungeon stage change), min gap between archives, settle wait, wipe revive-grace and ignore-when-solo, and boss re-cut.",
-      "Boss phase 'keep before': choose how many seconds of run-up before your first hit ride into the boss segment (default off = cut exactly at the first hit).",
-      "Whole-run replay: the position track now records continuously from the dungeon walk-in through the kill (boss HP reaches 0% on death), and mid-run archives no longer clip it.",
-      "Re-uploading an archived run reproduces the exact original upload \u2014 summary, full combat detail, and the movement track \u2014 even after a game relaunch or if the server-side data was lost.",
-      "Copy-link and the History list now use the server's short run URL when available."
+      "The meter now follows every class you swap to during a fight and scores each one on its own.",
+      "Your gear, modules, talents, Ability Score, and stats are now saved for each class you play, so they show up on the logs website.",
+      "Everyone in your party is now included in a run's records — even players who didn't deal any damage."
     ],
-    "changed": [
-      "Boss-phase archiving now cuts a clean segment at the first boss hit (no more mid-fight re-archiving), and re-attempts after a wipe are captured correctly with your chosen keep-before.",
-      "Upload state and run URLs persist across relaunches \u2014 retrying an already-uploaded run resolves to its existing link instead of failing.",
-      "Role colour and class crest are inferred from your spec when the party roster has no profession data yet.",
-      "Requires framework 1.15.0 or newer (uses the new per-plugin data storage for the byte-for-byte re-upload)."
+    "fixed": [
+      "A quick dungeon clear now correctly shows as a clear instead of \"Partial\".",
+      "Runs you played together with other people now group correctly instead of getting mixed up."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "b6b4fb338e5ddccc485f7154b54b517e650aeefd",
+  "commit": "6df4b23413e0a7f057efc9d1b2496f45d70e76e6",
   "projectPath": ".",
-  "tag": "v1.5.0"
+  "tag": "v1.6.0"
 }
