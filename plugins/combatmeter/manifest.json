@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,25 +26,24 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History — damage timeline with navigator and per-source table."
+      "caption": "History \u2014 damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.17.0",
-  "date": "2026-08-05",
+  "minModSystemVersion": "1.18.0",
+  "date": "2026-08-06",
   "changelog": {
-    "added": [
-      "The meter now follows every class you swap to during a fight and scores each one on its own.",
-      "Your gear, modules, talents, Ability Score, and stats are now saved for each class you play, so they show up on the logs website.",
-      "Everyone in your party is now included in a run's records — even players who didn't deal any damage."
-    ],
     "fixed": [
-      "A quick dungeon clear now correctly shows as a clear instead of \"Partial\".",
-      "Runs you played together with other people now group correctly instead of getting mixed up."
+      "Each dungeon floor you clear now saves as its own run with its own link, instead of separate floors getting combined into one.",
+      "Clearing a floor is now correctly recorded as a clear."
+    ],
+    "changed": [
+      "New installs now save your run automatically when the results screen appears, so a cleared floor is captured out of the box. Your existing settings are kept."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "dbd39a3e26ddb21b3f58c92f5b955ccb8d567514",
+  "commit": "05db7e46833e03e61a229938572db4a088cde398",
   "projectPath": ".",
-  "tag": "v1.6.0"
+  "tag": "v1.6.1",
+  "capPriorVersionsAt": "1.17.0"
 }
