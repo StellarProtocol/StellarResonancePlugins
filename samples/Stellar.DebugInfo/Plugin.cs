@@ -23,7 +23,7 @@ public sealed class Plugin : IStellarPlugin
     public string Name => "DebugInfo";
 
     private readonly IPluginServices _services;
-    private readonly IHudHandle _hud;
+    private readonly IWindowControl _hud;
     private readonly IHotkeyAction _toggleAction;
     private readonly IDisposable[] _subscriptions;
 
@@ -57,11 +57,21 @@ public sealed class Plugin : IStellarPlugin
             eventSlots[i] = new TextElement(() => idx < _snapshot.Length ? "  " + _snapshot[idx] : "");
         }
 
-        _hud = _services.Hud.Register(new HudSpec(
-            Id: "debuginfo.main",
-            Anchor: HudAnchor.FreeOverlay,
-            DefaultRect: new WindowRect(1976f, 25f, 237f, 231f),
-            Root: new ColumnElement(new HudElement[]
+        _hud = _services.Windows.Register(new WindowRegistration(
+            new WindowSpec(
+                "debuginfo.main",
+                "Debug Info",
+                new WindowRect(1976f, 25f, 237f, 231f),
+                WindowCategory.Debug,
+                WindowPanelStyle.Borderless)
+            {
+                Surface          = SurfaceStyle.HudOverlay,
+                Anchor           = WindowAnchor.TopLeft,
+                Draggable        = true,
+                EditModeDragOnly = true,
+                ShouldRender     = () => true,
+            },
+            new ColumnElement(new HudElement[]
             {
                 new TextElement(() => $"Framework frame: {_services.Framework.FrameCount}"),
                 new TextElement(() => _fpsLabel),
