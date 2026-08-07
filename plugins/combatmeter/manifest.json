@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.6.1",
+  "version": "1.7.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -31,19 +31,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "1.18.0",
-  "date": "2026-08-06",
+  "date": "2026-08-08",
   "changelog": {
     "fixed": [
-      "Each dungeon floor you clear now saves as its own run with its own link, instead of separate floors getting combined into one.",
-      "Clearing a floor is now correctly recorded as a clear."
-    ],
-    "changed": [
-      "New installs now save your run automatically when the results screen appears, so a cleared floor is captured out of the box. Your existing settings are kept."
+      "Run uploads and character linking failing on Linux and Steam Deck (a signing error under Proton)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "05db7e46833e03e61a229938572db4a088cde398",
+  "commit": "235ad101b44b71fd7c6479cf16da85959ad8f28d",
   "projectPath": ".",
-  "tag": "v1.6.1",
-  "capPriorVersionsAt": "1.17.0"
+  "tag": "v1.7.1"
 }
