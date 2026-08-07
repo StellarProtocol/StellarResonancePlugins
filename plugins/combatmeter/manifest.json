@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,7 +26,7 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History — damage timeline with navigator and per-source table."
+      "caption": "History \u2014 damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
@@ -38,7 +38,7 @@
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "999f5277aa3b69358ec10cbec592009e3c7099c8",
+  "commit": "235ad101b44b71fd7c6479cf16da85959ad8f28d",
   "projectPath": ".",
-  "tag": "v1.7.0"
+  "tag": "v1.7.1"
 }
