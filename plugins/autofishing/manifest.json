@@ -2,7 +2,7 @@
   "id": "autofishing",
   "name": "Auto Fishing",
   "description": "Fully automates the fishing minigame \u2014 from casting to catch \u2014 with configurable tension control and auto rod change, so you can leave it running unattended.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "dll": "Stellar.AutoFishing.dll",
   "author": "Stellar",
   "tags": [
@@ -10,15 +10,16 @@
     "fishing"
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.1.0",
-  "date": "2026-06-20",
-  "capPriorVersionsAt": "1.1.0",
+  "minModSystemVersion": "2.0.0",
+  "date": "2026-08-10",
+  "capPriorVersionsAt": "1.18.1",
   "changelog": {
     "changed": [
-      "Initial Release"
+      "Rebuilt for StellarResonance 2.0.0."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoFishingPlugin.git",
-  "commit": "eda4e826369ee3a8b3142d1fdbb827a11538b331",
-  "projectPath": "."
+  "commit": "82caa8dd96ad47b82c9eb5b2514a96a5eef2fd66",
+  "projectPath": ".",
+  "tag": "v2.0.0"
 }

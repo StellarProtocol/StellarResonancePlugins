@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -23,16 +23,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.10.0",
-  "date": "2026-07-28",
+  "minModSystemVersion": "2.0.0",
+  "date": "2026-08-10",
   "changelog": {
     "changed": [
-      "Smoother combat — the bar no longer causes micro-stutter during busy fights.",
-      "Hiding the bar now costs nothing at all."
+      "Rebuilt for StellarResonance 2.0.0."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "24a5aa02353d0cf4bfbb3d483c9d500312257247",
-  "tag": "v1.2.2",
-  "projectPath": "."
+  "commit": "df46f579e1cd9dbdb497f226008429d81e77e5c3",
+  "tag": "v2.0.0",
+  "projectPath": ".",
+  "capPriorVersionsAt": "1.18.1"
 }

@@ -2,7 +2,7 @@
   "id": "entityinspector",
   "name": "EntityInspector",
   "description": "Inspect any entity: identity, attributes, gear and skill book. Adds an 'Inspect' item to CombatMeter rows and a magnifier button to the profile card.",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "dll": "Stellar.EntityInspector.dll",
   "author": "Stellar",
   "tags": [
@@ -22,15 +22,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.9.0",
-  "date": "2026-06-30",
+  "minModSystemVersion": "2.0.0",
+  "date": "2026-08-10",
   "changelog": {
-    "added": [
-      "Portrait vertical rotation now unclamped (\u00b189\u00b0) \u2014 drag up/down freely.",
-      "Window always opens on top of other windows."
+    "changed": [
+      "Rebuilt for StellarResonance 2.0.0."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
-  "commit": "3fb8074060dfd068fcf85a7effd614927e95cafa",
-  "projectPath": "."
+  "commit": "e5f62b32dd58db528610238c1c8c5c348bff83b3",
+  "projectPath": ".",
+  "tag": "v2.0.0",
+  "capPriorVersionsAt": "1.18.1"
 }
