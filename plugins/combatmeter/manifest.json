@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,19 +26,22 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History \u2014 damage timeline with navigator and per-source table."
+      "caption": "History — damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
   "minModSystemVersion": "1.18.0",
-  "date": "2026-08-08",
+  "date": "2026-08-09",
   "changelog": {
+    "added": [
+      "Your character's site profile — picture, name, guild, level, class, and stats — now uploads automatically for you and your whole party, with no need to open anyone's profile card."
+    ],
     "fixed": [
-      "Run uploads and character linking failing on Linux and Steam Deck (a signing error under Proton)."
+      "Character portraits, including the larger half-body picture, now update correctly instead of getting stuck on an old image."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "235ad101b44b71fd7c6479cf16da85959ad8f28d",
+  "commit": "8c6aa414fb588676b18bcde0debb778b82d7b357",
   "projectPath": ".",
-  "tag": "v1.7.1"
+  "tag": "v1.8.0"
 }
