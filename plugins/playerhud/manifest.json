@@ -2,7 +2,7 @@
   "id": "playerhud",
   "name": "PlayerHUD",
   "description": "Compact player HP / MP / buff HUD.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "dll": "Stellar.PlayerHUD.dll",
   "author": "Stellar",
   "tags": [
@@ -17,16 +17,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.1.0",
-  "date": "2026-06-18",
-  "capPriorVersionsAt": "1.0.1",
+  "minModSystemVersion": "2.0.0",
+  "date": "2026-08-10",
+  "capPriorVersionsAt": "1.18.1",
   "changelog": {
     "changed": [
-      "Rebuilt for StellarResonance 1.1.0."
+      "Rebuilt for StellarResonance 2.0.0."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarPlayerHUDPlugin.git",
-  "commit": "4d78d8fd8bca30d0afc2cf056dbd5f5113aadb50",
+  "commit": "4cbaa6deb599c434a3f8292820271bfae3566cc0",
   "projectPath": ".",
-  "channel": "testing"
+  "tag": "v2.0.0"
 }

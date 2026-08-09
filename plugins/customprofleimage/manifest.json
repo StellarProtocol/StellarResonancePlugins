@@ -2,7 +2,7 @@
   "id": "customprofleimage",
   "name": "Custom Profile Image",
   "description": "Upload a custom PNG as your in-game avatar or namecard, bypassing the in-game camera requirement.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "dll": "Stellar.CustomProfleImage.dll",
   "author": "Stellar",
   "tags": [
@@ -17,17 +17,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "1.2.0",
-  "date": "2026-06-26",
+  "minModSystemVersion": "2.0.0",
+  "date": "2026-08-10",
   "changelog": {
-    "added": [
-      "Custom avatar upload (recommended 300x300 px square PNG).",
-      "Custom namecard upload (recommended 468x774 px portrait PNG).",
-      "In-window image preview.",
-      "Native Windows file picker filtered to PNG."
+    "changed": [
+      "Rebuilt for StellarResonance 2.0.0."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellaCustomProfileImagePlugin.git",
-  "commit": "6128dfb15d30485564daa6769e5cdb45ebbb128b",
-  "projectPath": "."
+  "commit": "a60eca6b515686acd74596d5b9e46b150698505c",
+  "projectPath": ".",
+  "tag": "v2.0.0",
+  "capPriorVersionsAt": "1.18.1"
 }
