@@ -30,7 +30,7 @@
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarModuleOptimizerPlugin.git",
-  "commit": "a615bca073837bf26b4a488394d1e034581945a0",
+  "commit": "432010e3905c46fbdbdb6b4eec8785e637da5232",
   "projectPath": ".",
   "tag": "v2.0.0",
   "capPriorVersionsAt": "1.18.1"
