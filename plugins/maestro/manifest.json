@@ -1,0 +1,56 @@
+{
+  "id": "maestro",
+  "name": "Maestro",
+  "description": "MIDI auto-player for the band instrument — playlists, group sync and a local sound preview.",
+  "version": "2.0.0",
+  "dll": "Stellar.Maestro.dll",
+  "author": "Stellar",
+  "tags": [
+    "music",
+    "midi",
+    "band",
+    "instrument"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/maestro-in-world.png",
+      "caption": "Performing a song in-world with the Library, Auto-Player and Preview windows open."
+    },
+    {
+      "type": "image",
+      "file": "media/auto-player.png",
+      "caption": "Auto-Player — playlist, queue and playback controls."
+    },
+    {
+      "type": "image",
+      "file": "media/library.png",
+      "caption": "Library — browse your MIDI folder and add songs to the queue."
+    },
+    {
+      "type": "image",
+      "file": "media/preview.png",
+      "caption": "Local Preview — audition through the real in-game instrument sounds."
+    },
+    {
+      "type": "image",
+      "file": "media/settings.png",
+      "caption": "Settings — per-song controls, Network Sync and Ensemble options."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.0.0",
+  "date": "2026-08-11",
+  "changelog": {
+    "added": [
+      "Play any MIDI file on your band instrument — piano, guitar, bass or drums — solo or with a group.",
+      "Build playlists and a now-playing queue with auto-advance, loop and shuffle.",
+      "Audition a song through the real in-game instrument sounds before you perform it, with no summon needed.",
+      "Group play: lock to your ensemble's beat so the performance stays steady for everyone listening."
+    ]
+  },
+  "repository": "https://github.com/StellarProtocol/StellarMaestroPlugin.git",
+  "commit": "c2f7ae2292660f2508a02c3af46ed6aec3580bf2",
+  "projectPath": ".",
+  "tag": "v2.0.0"
+}
