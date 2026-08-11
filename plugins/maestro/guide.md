@@ -30,14 +30,7 @@ The main window is your player: a playlist, the now-playing queue, and transport
 ![Library — browse your MIDI folder and add songs to the queue](media/library.png)
 
 - Browse your whole MIDI folder, **search** by name, and click a song to add it to the queue.
-- Give a song's parts the same base name, ending in the instrument in parentheses, so Maestro
-  loads them together:
-
-  ```
-  Song (Piano).mid   Song (Guitar).mid   Song (Bass).mid   Song (Bass 2).mid   Song (Drum).mid
-  ```
-
-  Duplicates like `(Bass 2)` become their own track on the same instrument sound.
+- Playback performs a single instrument at a time, so just queue the stem you want to play.
 
 ## Preview before you play
 
@@ -50,6 +43,15 @@ preview plays just for you, so no one around you hears it.
   song will come out.
 - **Instrument Sync** waits for the live band player and follows along, muting the parts you'll
   play yourself — handy for jamming with someone else.
+
+Preview is where the multi-stem naming matters: give a song's parts the same base name, ending in
+the instrument in parentheses, and Preview loads the **whole set** when you select any one of them.
+
+```
+Song (Piano).mid   Song (Guitar).mid   Song (Bass).mid   Song (Bass 2).mid   Song (Drum).mid
+```
+
+Duplicates like `(Bass 2)` become their own track on the same instrument sound.
 
 ## Per-song controls & group play
 
@@ -65,10 +67,79 @@ Open **Settings** for the fine-tuning and group options.
   match the ensemble tempo, and auto-accept invites so everyone starts together. Join or start an
   ensemble in-game first.
 
+## Preparing your MIDI files
+
+Maestro plays your MIDI as written, so a little prep makes songs sound right on the game
+instruments.
+
+### Effects (tone & technique)
+
+Turn on **Apply tone / technique from MIDI instrument** in Settings, and Maestro picks the
+guitar/bass effect from the **instrument (program) assigned to the stem's track**. Set that track's
+General MIDI instrument in your DAW:
+
+**Guitar stems**
+
+| Assign this GM instrument | Program # | Plays as |
+|---|:--:|---|
+| Nylon / Steel / Jazz / Clean Electric Guitar | 25–28 | Clean |
+| Muted Guitar | 29 | Muffled (palm-mute) |
+| Overdriven Guitar | 30 | Overdrive |
+| Distortion Guitar | 31 | Distortion |
+| Guitar Harmonics | 32 | Harmonics |
+
+**Bass stems**
+
+| Assign this GM instrument | Program # | Plays as |
+|---|:--:|---|
+| Acoustic / Finger / Pick / Fretless Bass | 33–36 | Clean |
+| Slap Bass 1 / 2 | 37 / 38 | Slap |
+| Synth Bass 1 / 2 | 39 / 40 | Overdrive |
+
+- Program numbers are the **1–128** values your DAW shows; match by **instrument name** if unsure.
+- Only the stem's **main instrument** is read, so keep one instrument per stem. A program change
+  partway through the track switches the effect from that point on.
+- Effects apply to **guitar and bass only** — piano and drums ignore them.
+- The effect is matched to the instrument you actually summon. **Bass has no distortion** — it
+  plays as Overdrive — and any technique the summoned instrument can't do falls back to normal.
+- **Overdrive / Distortion is local-only in Network Sync** (see *Known limitation* below). Muffled,
+  Harmonics and Slap are heard by everyone.
+
+### Drums
+
+The game drum kit is a fixed **9-piece kit** on the keys below, and Maestro plays your notes exactly
+as written — it does **not** auto-convert General MIDI drums — so a drum stem must use these keys:
+
+| MIDI note | Piece |
+|:--:|---|
+| 62 (D4) | Closed Hi-Hat |
+| 65 (F4) | Kick |
+| 69 (A4) | Floor Tom |
+| 72 (C5) | Snare |
+| 74 (D5) | Mid Tom |
+| 76 (E5) | High Tom |
+| 77 (F5) | Ride |
+| 79 (G5) | Open Hi-Hat |
+| 81 (A5) | Crash |
+
+Any note off these keys is silent. Starting from a standard General MIDI drum track? Remap the
+usual GM notes onto these keys — kick (GM 35/36) → **F4**, snare (38/40) → **C5**, closed hat (42)
+→ **D4**, open hat (46) → **G5**, ride (51) → **F5**, crash (49) → **A5**, toms → **A4 / D5 / E5**.
+
+### A few more tips
+
+- **One note per pitch:** each instrument sounds one voice per pitch, so two identical overlapping
+  notes count as one — avoid stacked unisons.
+- **Mind the range:** notes outside an instrument's playable range are silent. Use **Transpose**
+  (Settings) to bring a part into range.
+- **Volume isn't reproduced:** every note plays at a fixed loudness, so velocity and dynamics won't
+  carry over.
+- MIDI **type 0 or 1** files are supported.
+
 ## Known limitation
 
 **Overdrive / Distortion is local-only.** Guitar and bass distortion tone renders only through the
 game's live play path, so it plays Clean whenever **Network Sync is on**. And even with Network Sync
 **off**, only *you* hear the distortion — other players never hear your overdrive/distortion in
-either mode. *Techniques* (Muffled, Harmonic, Slap) work everywhere and are heard by everyone. For
+either mode. *Techniques* (Muffled, Harmonics, Slap) work everywhere and are heard by everyone. For
 distortion-critical songs, play with Network Sync **off** so at least it sounds right to you.
