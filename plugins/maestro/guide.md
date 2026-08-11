@@ -138,8 +138,10 @@ usual GM notes onto these keys — kick (GM 35/36) → **F4**, snare (38/40) →
 
 ## Known limitation
 
-**Overdrive / Distortion is local-only.** Guitar and bass distortion tone renders only through the
-game's live play path, so it plays Clean whenever **Network Sync is on**. And even with Network Sync
-**off**, only *you* hear the distortion — other players never hear your overdrive/distortion in
-either mode. *Techniques* (Muffled, Harmonics, Slap) work everywhere and are heard by everyone. For
+**Overdrive / Distortion doesn't reach other players — this is a game bug, not something Maestro can
+fix.** The game only ever renders the guitar/bass overdrive/distortion *tone* on your own client and
+never sends it to the people around you. So it plays Clean for everyone else whenever **Network Sync
+is on**, and even with Network Sync **off**, only *you* hear the distortion — other players never
+hear your overdrive/distortion in either mode. No Maestro setting changes this; it's up to the game
+to fix. *Techniques* (Muffled, Harmonics, Slap) are unaffected and are heard by everyone. For
 distortion-critical songs, play with Network Sync **off** so at least it sounds right to you.
