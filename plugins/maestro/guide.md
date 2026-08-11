@@ -41,7 +41,8 @@ The main window is your player: a playlist, the now-playing queue, and transport
 
 ## Preview before you play
 
-Audition a song through the **real in-game instrument sounds** — no summon and no network required.
+Audition a song through the **real in-game instrument sounds** without summoning an instrument — the
+preview plays just for you, so no one around you hears it.
 
 ![Local Preview — audition through the real in-game instrument sounds](media/preview.png)
 
@@ -66,7 +67,8 @@ Open **Settings** for the fine-tuning and group options.
 
 ## Known limitation
 
-**Overdrive / Distortion do not render in Network Sync mode.** This is a game/server limitation:
-guitar and bass *tone* only renders through the game's live play path, not the buffered network
-path, so it plays Clean in net mode. *Techniques* (Muffled, Harmonic, Slap) work everywhere. For
-distortion-critical songs, play with Network Sync **off**.
+**Overdrive / Distortion is local-only.** Guitar and bass distortion tone renders only through the
+game's live play path, so it plays Clean whenever **Network Sync is on**. And even with Network Sync
+**off**, only *you* hear the distortion — other players never hear your overdrive/distortion in
+either mode. *Techniques* (Muffled, Harmonic, Slap) work everywhere and are heard by everyone. For
+distortion-critical songs, play with Network Sync **off** so at least it sounds right to you.
