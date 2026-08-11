@@ -67,6 +67,24 @@ Open **Settings** for the fine-tuning and group options.
   match the ensemble tempo, and auto-accept invites so everyone starts together. Join or start an
   ensemble in-game first.
 
+## Playing in an ensemble
+
+Ensemble mode locks a whole party's performance to the same beat, so several players can play
+different parts of the same song together, in sync. Everyone must be **in the same party**.
+
+1. **Turn on ensemble sync.** In **Settings**, enable **Sync to ensemble** — on every player. Turning
+   on **Auto-accept ensemble invites** too is optional, so you don't have to accept each invite by
+   hand.
+2. **Each player picks their part and presses ▶.** Choose the stem you'll play and hit play — instead
+   of starting, Maestro holds and shows **"waiting for ensemble…"**.
+3. **The party leader starts the ensemble in-game.** This is the game's own ensemble start.
+4. **Everyone plays in sync.** All the waiting players begin together on the downbeat, locked to the
+   ensemble's beat.
+
+For a full band, have each player queue a **different** part (Guitar, Bass, Drum, Piano) of the same
+song, and optionally turn on **Match ensemble tempo** so playback follows the ensemble's BPM. Use
+**Preview** beforehand to hear how the whole set fits together.
+
 ## Preparing your MIDI files
 
 Maestro plays your MIDI as written, so a little prep makes songs sound right on the game
