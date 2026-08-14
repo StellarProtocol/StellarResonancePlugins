@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,19 +26,24 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History \u2014 damage timeline with navigator and per-source table."
+      "caption": "History — damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.0.1",
-  "date": "2026-08-14",
+  "date": "2026-08-15",
   "changelog": {
+    "added": [
+      "Illusion-Breaking Strength now shows next to Ability Score on each meter row — turn it on in Appearance → Other.",
+      "Search your combat history, and choose how many past runs to keep (Auto-archive settings)."
+    ],
     "fixed": [
-      "A dungeon run could appear twice on the logs website. The short wrap-up segment at the end of a run now stays part of the same run instead of showing up as a second, empty run."
+      "Raids now detect boss kills correctly, so a cleared raid no longer shows as partial.",
+      "Re-entering the same dungeon no longer merges two separate runs into one history row."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "68963edf7cee65713afe37973eaf0b7364c3a5c3",
+  "commit": "b89510e58d1c7dc69efd694c3b3a472f33a1482f",
   "projectPath": ".",
-  "tag": "v2.1.1"
+  "tag": "v2.2.0"
 }
