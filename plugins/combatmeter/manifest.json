@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -30,7 +30,7 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.1",
+  "minModSystemVersion": "2.0.2",
   "date": "2026-08-15",
   "changelog": {
     "added": [
@@ -43,7 +43,7 @@
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "b89510e58d1c7dc69efd694c3b3a472f33a1482f",
+  "commit": "94c5fb07740325dcf944393ef7b2c872768ea399",
   "projectPath": ".",
-  "tag": "v2.2.0"
+  "tag": "v2.2.1"
 }
