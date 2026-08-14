@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -33,21 +33,12 @@
   "minModSystemVersion": "2.0.1",
   "date": "2026-08-14",
   "changelog": {
-    "added": [
-      "Battles with more than one boss are now tracked per boss: each boss gets its own HP, movement replay, and damage/healing breakdown on the logs website.",
-      "Raids are now recognised as clears automatically, even when the bosses are finished off by a scripted event instead of dropping to zero HP.",
-      "Elite enemies are now recorded alongside bosses, with their own stats and replay."
-    ],
-    "changed": [
-      "Your run is recorded from the moment you enter the dungeon through to the end, more reliably across every boss stage."
-    ],
     "fixed": [
-      "Damage from your summoned companions is now captured more completely (requires framework 2.0.1)."
+      "A dungeon run could appear twice on the logs website. The short wrap-up segment at the end of a run now stays part of the same run instead of showing up as a second, empty run."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "e5254d474f7e58384fa52babff806c051d83f128",
+  "commit": "68963edf7cee65713afe37973eaf0b7364c3a5c3",
   "projectPath": ".",
-  "tag": "v2.1.0",
-  "capPriorVersionsAt": "2.0.0"
+  "tag": "v2.1.1"
 }
