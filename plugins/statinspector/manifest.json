@@ -2,7 +2,7 @@
   "id": "statinspector",
   "name": "StatInspector",
   "description": "Live attribute readout (mini-HUD) with a grouped settings picker for the stats you want on screen.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "dll": "Stellar.StatInspector.dll",
   "author": "Stellar",
   "tags": [
@@ -25,12 +25,14 @@
   "minModSystemVersion": "2.1.0",
   "date": "2026-08-19",
   "changelog": {
-    "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+    "fixed": [
+      "Attribute icons now show correctly on Japanese and other non-English clients (they were falling back to a blank placeholder icon).",
+      "Attribute names now display in your client's language instead of English.",
+      "Percentage stats and the Base/Total (B/T) labels now read correctly and match the in-game attribute panel."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarStatInspectorPlugin.git",
-  "commit": "c5bd927463dc75a629ec8470b69e55bc7a36d982",
+  "commit": "b0610265291e07fb9d842f50918b809ab7be4064",
   "projectPath": ".",
   "capPriorVersionsAt": "2.0.3"
 }
