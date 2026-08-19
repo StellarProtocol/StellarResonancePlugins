@@ -2,7 +2,7 @@
   "id": "statinspector",
   "name": "StatInspector",
   "description": "Live attribute readout (mini-HUD) with a grouped settings picker for the stats you want on screen.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dll": "Stellar.StatInspector.dll",
   "author": "Stellar",
   "tags": [
@@ -18,20 +18,19 @@
     {
       "type": "image",
       "file": "media/statinspector-settings.png",
-      "caption": "Grouped stat picker \u2014 tick what you want on the mini-HUD."
+      "caption": "Grouped stat picker — tick what you want on the mini-HUD."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.0",
-  "date": "2026-08-10",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 2.0.0."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarStatInspectorPlugin.git",
-  "commit": "8edefaba7c764c7e5dbe691013b2fe16ee837976",
+  "commit": "c5bd927463dc75a629ec8470b69e55bc7a36d982",
   "projectPath": ".",
-  "capPriorVersionsAt": "1.18.1",
-  "tag": "v2.0.0"
+  "capPriorVersionsAt": "2.0.3"
 }

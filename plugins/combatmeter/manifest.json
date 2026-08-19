@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,19 +26,19 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History \u2014 damage timeline with navigator and per-source table."
+      "caption": "History — damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.3",
-  "date": "2026-08-16",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "fixed": [
-      "A disconnect or game restart in the middle of a dungeon no longer splits your run into two separate pages on the logs site \u2014 it stays one run, even across several reconnects."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "39cdc8371348ad69c01c9cbc0a3b9169b88b5467",
+  "commit": "aec59af0a5fd221b6eb800ba05ccf44c4bb26777",
   "projectPath": ".",
-  "tag": "v2.3.0"
+  "capPriorVersionsAt": "2.0.3"
 }

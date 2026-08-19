@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "A ZDPS Compatible raid coordination tools displayed as a HUD overlay.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -10,16 +10,15 @@
     "coordination"
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.0",
-  "date": "2026-08-10",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 2.0.0."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "2da0aa502bf08a9176439d729a8d20875281e7e2",
+  "commit": "fb199947f992ff3d80b510411d40d4e12d8bbdaf",
   "projectPath": ".",
-  "tag": "v2.0.0",
-  "capPriorVersionsAt": "1.18.1"
+  "capPriorVersionsAt": "2.0.3"
 }

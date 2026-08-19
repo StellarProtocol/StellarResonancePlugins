@@ -2,7 +2,7 @@
   "id": "moduleoptimizer",
   "name": "ModuleOptimizer",
   "description": "Module / gear loadout optimizer.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dll": "Stellar.ModuleOptimizer.dll",
   "author": "Stellar",
   "tags": [
@@ -13,25 +13,24 @@
     {
       "type": "image",
       "file": "media/module-optimizer.png",
-      "caption": "Suggested module setups \u2014 you approve."
+      "caption": "Suggested module setups — you approve."
     },
     {
       "type": "image",
       "file": "media/moduleoptimizer-results.png",
-      "caption": "Results \u2014 scored combos with an aligned stat preview."
+      "caption": "Results — scored combos with an aligned stat preview."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.0",
-  "date": "2026-08-10",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 2.0.0."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarModuleOptimizerPlugin.git",
-  "commit": "432010e3905c46fbdbdb6b4eec8785e637da5232",
+  "commit": "1dcaf54974c0067ff6031a420e96f19138dbf882",
   "projectPath": ".",
-  "tag": "v2.0.0",
-  "capPriorVersionsAt": "1.18.1"
+  "capPriorVersionsAt": "2.0.3"
 }

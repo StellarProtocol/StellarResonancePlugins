@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -19,20 +19,19 @@
     {
       "type": "image",
       "file": "media/cooldownbar-settings.png",
-      "caption": "Track window \u2014 toggle skills, debuffs and buffs, with filter and search."
+      "caption": "Track window — toggle skills, debuffs and buffs, with filter and search."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.0",
-  "date": "2026-08-10",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 2.0.0."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "df46f579e1cd9dbdb497f226008429d81e77e5c3",
-  "tag": "v2.0.0",
+  "commit": "69842cb3ccad9a2941ea14a101c020117850f5ba",
   "projectPath": ".",
-  "capPriorVersionsAt": "1.18.1"
+  "capPriorVersionsAt": "2.0.3"
 }
