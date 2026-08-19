@@ -2,7 +2,7 @@
   "id": "entityinspector",
   "name": "EntityInspector",
   "description": "Inspect any entity: identity, attributes, gear and skill book. Adds an 'Inspect' item to CombatMeter rows and a magnifier button to the profile card.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dll": "Stellar.EntityInspector.dll",
   "author": "Stellar",
   "tags": [
@@ -18,20 +18,19 @@
     {
       "type": "image",
       "file": "media/entityinspector-gear.png",
-      "caption": "Gear tab \u2014 weapon card plus armor and accessory grids."
+      "caption": "Gear tab — weapon card plus armor and accessory grids."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.0",
-  "date": "2026-08-10",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 2.0.0."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
-  "commit": "e5f62b32dd58db528610238c1c8c5c348bff83b3",
+  "commit": "7a978a7107f8887d790386329c5b63c08652b4db",
   "projectPath": ".",
-  "tag": "v2.0.0",
-  "capPriorVersionsAt": "1.18.1"
+  "capPriorVersionsAt": "2.0.3"
 }

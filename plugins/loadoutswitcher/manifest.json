@@ -2,7 +2,7 @@
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
   "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
   "tags": [
@@ -13,20 +13,19 @@
     {
       "type": "image",
       "file": "media/loadoutswitcher-hotkeys.png",
-      "caption": "Stellar Settings \u2014 Hotkeys: the loadout group with apply.1\u2013apply.8 bindings."
+      "caption": "Stellar Settings — Hotkeys: the loadout group with apply.1–apply.8 bindings."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.0.0",
-  "date": "2026-08-10",
+  "minModSystemVersion": "2.1.0",
+  "date": "2026-08-19",
   "changelog": {
-    "changed": [
-      "Rebuilt for StellarResonance 2.0.0."
+    "added": [
+      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "ae900de80895cc706312c48faec81b65f054a98d",
+  "commit": "b2d04fb7b41d0c2969e8d74bf024573974c91794",
   "projectPath": ".",
-  "tag": "v2.0.0",
-  "capPriorVersionsAt": "1.18.1"
+  "capPriorVersionsAt": "2.0.3"
 }
