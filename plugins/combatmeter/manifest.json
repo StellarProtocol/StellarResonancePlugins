@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,19 +26,31 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History — damage timeline with navigator and per-source table."
+      "caption": "History \u2014 damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
+  "minModSystemVersion": "2.2.0",
+  "date": "2026-08-24",
   "changelog": {
     "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+      "Every build you actually fight with in a run is now saved, not just the one you started with. Swap a piece of gear, change modules, respec talents, switch a Battle Imagine or edit your Psychoscope mid-run and each setup you then fought with is kept and shown as its own tab on the logs site.",
+      "Your equipped Battle Imagines are now part of the saved build, so changing one records a new setup.",
+      "Your Psychoscope (Deep Slumber) is saved with each build \u2014 season level, lines, socketed cards and node levels \u2014 so you can see exactly which psychoscope a fight was done with.",
+      "Uploaded runs now carry a timeline of when each setup became active, so the logs site can line a build up against what happened in the fight."
+    ],
+    "fixed": [
+      "The saved build is now what you are actually wearing. It used to fall back to a saved loadout plan you were not using.",
+      "Changing a piece of gear with the Replace button is captured again \u2014 it used to go completely unnoticed.",
+      "Switching class mid-run no longer records a mixed-up build made half of one class and half of the other.",
+      "A talent change made just before a fight is now captured properly instead of sometimes recording the old tree.",
+      "Pausing the meter no longer stops it noticing an equipment change. Pausing stops the numbers, not the tracking.",
+      "An empty Battle Imagine pair that had not synced yet no longer creates a phantom extra setup."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
   "commit": "aec59af0a5fd221b6eb800ba05ccf44c4bb26777",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3"
+  "capPriorVersionsAt": "2.1.0",
+  "tag": "v2.5.0"
 }
