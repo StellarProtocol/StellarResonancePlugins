@@ -2,7 +2,7 @@
   "id": "customprofleimage",
   "name": "Custom Profile Image",
   "description": "Upload a custom PNG as your in-game avatar or namecard, bypassing the in-game camera requirement.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "dll": "Stellar.CustomProfleImage.dll",
   "author": "Stellar",
   "tags": [
@@ -17,15 +17,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
+  "minModSystemVersion": "2.3.0",
+  "date": "2026-08-25",
   "changelog": {
-    "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+    "fixed": [
+      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellaCustomProfileImagePlugin.git",
-  "commit": "a42409f2008288664454ae5b3715f253bf80a62a",
+  "commit": "345ae2a3e40df343abe8703abd4bd072939a05fc",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3"
+  "capPriorVersionsAt": "2.2.0",
+  "tag": "v2.1.1"
 }

@@ -2,7 +2,7 @@
   "id": "autofishing",
   "name": "Auto Fishing",
   "description": "Fully automates the fishing minigame — from casting to catch — with configurable tension control and auto rod change, so you can leave it running unattended.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "dll": "Stellar.AutoFishing.dll",
   "author": "Stellar",
   "tags": [
@@ -10,15 +10,16 @@
     "fishing"
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
-  "capPriorVersionsAt": "2.0.3",
+  "minModSystemVersion": "2.3.0",
+  "date": "2026-08-25",
+  "capPriorVersionsAt": "2.2.0",
   "changelog": {
-    "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+    "fixed": [
+      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoFishingPlugin.git",
-  "commit": "681bd6a2d4ff09ec14b2aea8d027a395be8f300b",
-  "projectPath": "."
+  "commit": "2f61f156a4bbd98672075fb32ff6c8cd98bca1e1",
+  "projectPath": ".",
+  "tag": "v2.1.1"
 }

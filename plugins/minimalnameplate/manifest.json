@@ -2,7 +2,7 @@
   "id": "minimalnameplate",
   "name": "Minimal Nameplate",
   "description": "Minimal class-badge & name nameplates that replace the game's overhead plate.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "dll": "Stellar.MinimalNameplate.dll",
   "author": "Stellar",
   "tags": [
@@ -17,15 +17,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
+  "minModSystemVersion": "2.3.0",
+  "date": "2026-08-25",
   "changelog": {
-    "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+    "fixed": [
+      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
-  "commit": "11d1fa28edd52079753a1fb19dbb3ddaa1f04488",
+  "commit": "64f90d565872448d42379c1b3ea435673a277e5f",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3"
+  "capPriorVersionsAt": "2.2.0",
+  "tag": "v2.1.1"
 }
