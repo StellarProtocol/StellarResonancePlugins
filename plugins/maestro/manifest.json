@@ -2,7 +2,7 @@
   "id": "maestro",
   "name": "Maestro",
   "description": "MIDI auto-player for the band instrument — playlists, group sync and a local sound preview.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "dll": "Stellar.Maestro.dll",
   "author": "Stellar",
   "tags": [
@@ -39,15 +39,16 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
+  "minModSystemVersion": "2.3.0",
+  "date": "2026-08-25",
   "changelog": {
-    "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+    "fixed": [
+      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarMaestroPlugin.git",
-  "commit": "b8d5a931c9f9305455fb3833efa95e76ad14abf3",
+  "commit": "722c16d004f5c4127286b9cb2b870ff3cad34119",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3"
+  "capPriorVersionsAt": "2.2.0",
+  "tag": "v2.1.1"
 }
