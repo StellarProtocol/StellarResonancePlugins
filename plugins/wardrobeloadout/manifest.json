@@ -1,0 +1,42 @@
+{
+  "id": "wardrobeloadout",
+  "name": "Wardrobe",
+  "description": "Save your worn outfits and switch between them instantly by hotkey or menu, with a live 3D preview.",
+  "version": "1.0.0",
+  "dll": "Stellar.WardrobeLoadout.dll",
+  "author": "Stellar",
+  "tags": [
+    "outfits",
+    "cosmetics",
+    "fashion",
+    "hotkeys"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/wardrobe-inworld.png",
+      "caption": "Switch outfits in the world — the game confirms the change with its own banner."
+    },
+    {
+      "type": "image",
+      "file": "media/wardrobe-window.png",
+      "caption": "The Wardrobe window — saved outfits with a live 3D preview of the hovered one."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.4.0",
+  "date": "2026-08-25",
+  "changelog": {
+    "added": [
+      "Save the outfit you're wearing into a named slot, then switch back to it instantly by hotkey (first 8 slots) or from the Wardrobe window.",
+      "Live 3D preview — hover a saved outfit to see it on your character; drag to rotate, scroll to zoom, shift-drag to pan.",
+      "Rename, reorder, apply, update (re-capture your current outfit into a slot) and delete outfits. Update and delete ask to confirm.",
+      "Outfits are saved per character, and available in English, 日本語, ไทย, Bahasa Indonesia and Filipino."
+    ]
+  },
+  "repository": "https://github.com/StellarProtocol/StellarWardrobeLoadout.git",
+  "commit": "20d233b9bf48e3e28ae5e7ff9f1e978e4e5b685c",
+  "projectPath": ".",
+  "capPriorVersionsAt": "1.0.0",
+  "tag": "v1.0.0"
+}
