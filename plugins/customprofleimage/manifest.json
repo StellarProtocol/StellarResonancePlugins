@@ -2,7 +2,7 @@
   "id": "customprofleimage",
   "name": "Custom Profile Image",
   "description": "Upload a custom PNG as your in-game avatar or namecard, bypassing the in-game camera requirement.",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "dll": "Stellar.CustomProfleImage.dll",
   "author": "Stellar",
   "tags": [
@@ -13,20 +13,25 @@
     {
       "type": "image",
       "file": "media/customprofileimage.png",
-      "caption": "Pick a PNG, make it your avatar or namecard, check the preview."
+      "caption": "The Custom Profile Image window — pick a PNG, follow the on-screen steps, and apply it as your avatar or namecard."
     }
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.3.0",
-  "date": "2026-08-25",
+  "date": "2026-08-28",
   "changelog": {
     "fixed": [
-      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
+      "Custom images now upload reliably even when your Windows account folder, your picture, or the game itself is in a folder with non-English characters (for example Japanese or Chinese). Before, the upload could silently do nothing."
+    ],
+    "changed": [
+      "Avatar and Namecard now share a single \"Make Avatar/Namecard\" button and one selected image — it is applied automatically to whichever one you change in-game."
+    ],
+    "added": [
+      "The window now shows step-by-step instructions and the recommended image sizes, and upload status messages are clearer and translated into your language."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellaCustomProfileImagePlugin.git",
-  "commit": "345ae2a3e40df343abe8703abd4bd072939a05fc",
+  "commit": "7f9f2eb4cee094beb1cfddb52e7b0bd9b246f94a",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.2.0",
-  "tag": "v2.1.1"
+  "tag": "v2.2.0"
 }
