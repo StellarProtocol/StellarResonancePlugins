@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -33,13 +33,14 @@
       "Very long timers now show in minutes (e.g. 16m) instead of a long seconds count."
     ],
     "fixed": [
+      "Buff and cooldown timers no longer reset to full time when you change zones — they keep counting down correctly.",
       "Effect tooltips now appear in the right place when the game UI is scaled.",
       "Buffs no longer occasionally show the wrong name or timer after you change zones."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "84931b0adf2e9a2e809a2b40e40a17a14f19ce6e",
+  "commit": "1b789b4a01f1cfa817fedd2b8e63804c6e7a2d0c",
   "projectPath": ".",
   "capPriorVersionsAt": "2.0.3",
-  "tag": "v2.2.0"
+  "tag": "v2.2.1"
 }
