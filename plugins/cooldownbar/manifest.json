@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -24,14 +24,22 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
+  "date": "2026-08-31",
   "changelog": {
     "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
+      "CooldownBar now has its own icon in the Stellar menu — click it to open the track window.",
+      "New (experimental) \"Show hidden effects\" option lists internal buffs that normally have no name or icon.",
+      "Buffs and debuffs with the same name are now grouped into one row in the track window.",
+      "Very long timers now show in minutes (e.g. 16m) instead of a long seconds count."
+    ],
+    "fixed": [
+      "Effect tooltips now appear in the right place when the game UI is scaled.",
+      "Buffs no longer occasionally show the wrong name or timer after you change zones."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "69842cb3ccad9a2941ea14a101c020117850f5ba",
+  "commit": "84931b0adf2e9a2e809a2b40e40a17a14f19ce6e",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3"
+  "capPriorVersionsAt": "2.0.3",
+  "tag": "v2.2.0"
 }
