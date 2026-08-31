@@ -26,16 +26,8 @@
   "minModSystemVersion": "2.1.0",
   "date": "2026-08-31",
   "changelog": {
-    "added": [
-      "CooldownBar now has its own icon in the Stellar menu — click it to open the track window.",
-      "New (experimental) \"Show hidden effects\" option lists internal buffs that normally have no name or icon.",
-      "Buffs and debuffs with the same name are now grouped into one row in the track window.",
-      "Very long timers now show in minutes (e.g. 16m) instead of a long seconds count."
-    ],
     "fixed": [
-      "Buff and cooldown timers no longer reset to full time when you change zones — they keep counting down correctly.",
-      "Effect tooltips now appear in the right place when the game UI is scaled.",
-      "Buffs no longer occasionally show the wrong name or timer after you change zones."
+      "Buff and cooldown timers no longer reset to full time when you change zones — they keep counting down correctly."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
