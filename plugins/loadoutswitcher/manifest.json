@@ -2,7 +2,7 @@
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
   "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
   "tags": [
@@ -17,16 +17,18 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.3.0",
-  "date": "2026-08-25",
+  "minModSystemVersion": "2.5.0",
+  "date": "2026-09-01",
   "changelog": {
-    "added": [
-      "Bind a Deep-Slumber setup to each loadout. Open the Loadout Switcher window, pick a loadout, and press \"Bind current\" to save the Deep-Slumber you're using — its cultivate line and phantom factors. With Auto-apply on, the plugin re-applies that setup automatically whenever you switch to the loadout."
-    ]
+    "added": [],
+    "changed": [
+      "Switching to a loadout now switches its whole Deep-Slumber, including the tree — not just the phantom factors. If the loadout's Deep-Slumber uses a different tree, it rebuilds the tree for you instead of stopping half-done, and it no longer stutters while it applies. Re-save (Bind) each loadout once on this version so its current Deep-Slumber tree is captured."
+    ],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "92a9af03d1577709f3a44fb25979bf306cba35f9",
+  "commit": "e22dd1542ca89eb84ff85330cbad0752d4100fe9",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.2.0",
-  "tag": "v2.2.0"
+  "tag": "v2.3.0"
 }
