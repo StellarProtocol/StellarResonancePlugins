@@ -2,7 +2,7 @@
   "id": "minimalnameplate",
   "name": "Minimal Nameplate",
   "description": "Minimal class-badge & name nameplates that replace the game's overhead plate.",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "dll": "Stellar.MinimalNameplate.dll",
   "author": "Stellar",
   "tags": [
@@ -18,15 +18,15 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.3.0",
-  "date": "2026-08-25",
+  "date": "2026-09-05",
   "changelog": {
     "fixed": [
-      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
+      "No more constant hidden errors and stutter from the class icons — a wrong-typed read was logging dozens of errors every second and re-scanning all loaded icons once per second."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
-  "commit": "64f90d565872448d42379c1b3ea435673a277e5f",
+  "commit": "8e3c73f49a29e357228d592b72a90186ee64e4d1",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.2.0",
-  "tag": "v2.1.1"
+  "tag": "v2.1.2",
+  "capPriorVersionsAt": "2.2.0"
 }
