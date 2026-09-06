@@ -60,9 +60,13 @@ jobs:
             docker run --rm \
               -v "$work":/src:ro -v "$out":/out -w /w \
               mcr.microsoft.com/dotnet/sdk:8.0 \
-              bash -c "cp -a /src/. /w/ && dotnet build '$path' -c Release --nologo -o /out" \
+              bash -c "cp -a /src/. /w/ && dotnet build '$path' -c Release --nologo -o /out -p:StellarChannel=$channel" \
               || { echo "::error::sandboxed build failed for $tgt @ $commit"; fail=1; continue; }
             [ -f "$out/$dll" ] || { echo "::error::$tgt build produced no '$dll'"; fail=1; continue; }
+            # `-p:StellarChannel=<stable|testing>` stamps the build's channel into the DLL (AssemblyMetadata
+            # "StellarChannel") so a plugin can compile testing-only surfaces — e.g. CombatMeter ≥ 2.7.1's
+            # "upload target: testing (dev)" setting exists ONLY in testing-channel builds (owner ruling
+            # 2026-09-06). Plugins that ignore the property are unaffected.
             # Guard: a GetManifestResourceStream("X") with no matching <EmbeddedResource> compiles + runs
             # (returns null → silent placeholder icon). Fail the build instead of shipping an iconless DLL.
             python tools/check-embedded-resources.py "$work" "$out/$dll" \
