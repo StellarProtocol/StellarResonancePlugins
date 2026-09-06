@@ -1,7 +1,7 @@
 {
-  "version": "2.7.1",
+  "version": "2.7.2",
   "date": "2026-09-06",
-  "commit": "800c46aa89334d1596ab257846e56689e642b27b",
+  "commit": "4b9585efb892511cc088ec9f518dc7495f73968a",
   "minModSystemVersion": "2.7.0",
   "changelog": {
     "added": [
@@ -11,7 +11,9 @@
     "changed": [
       "Buffs cast by a Battle Imagine (such as Tina) are credited to the player who summoned it."
     ],
-    "fixed": [],
+    "fixed": [
+      "The \"Upload target\" switch now lives in the CombatMeter Settings window (below the upload options), not in the Appearance window."
+    ],
     "removed": []
   }
 }
