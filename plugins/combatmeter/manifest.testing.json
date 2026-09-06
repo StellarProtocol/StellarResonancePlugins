@@ -1,7 +1,7 @@
 {
-  "version": "2.7.2",
+  "version": "2.7.3",
   "date": "2026-09-06",
-  "commit": "4b9585efb892511cc088ec9f518dc7495f73968a",
+  "commit": "3af52fa09f020d978bb135140b332722616e2c6b",
   "minModSystemVersion": "2.7.0",
   "changelog": {
     "added": [
@@ -9,10 +9,12 @@
       "The meter now records the buffs active on you and your teammates, plus your own stat changes during a fight, so the testing site can work out how much damage each buff added. Nothing changes on screen yet."
     ],
     "changed": [
-      "Buffs cast by a Battle Imagine (such as Tina) are credited to the player who summoned it."
+      "Buffs cast by a Battle Imagine (such as Tina) are credited to the player who summoned it.",
+      "Testing-channel builds now upload to the TESTING server by default the first time they run, so testers no longer have to find the switch. The \"Upload target\" switch in Settings still turns it off or on (relaunch to apply)."
     ],
     "fixed": [
-      "The \"Upload target\" switch now lives in the CombatMeter Settings window (below the upload options), not in the Appearance window."
+      "A very short archive right after a boundary could produce a negative duration and fail to upload (red \"Failed\" badge). It now uploads as a 0-second segment.",
+      "The \"Upload target\" switch lives in the CombatMeter Settings window (below the upload options), not in the Appearance window."
     ],
     "removed": []
   }
