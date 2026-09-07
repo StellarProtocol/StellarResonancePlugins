@@ -2,7 +2,7 @@
   "id": "wardrobeloadout",
   "name": "Wardrobe",
   "description": "Save your worn outfits and switch between them instantly by hotkey or menu, with a live 3D preview.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dll": "Stellar.WardrobeLoadout.dll",
   "author": "Stellar",
   "tags": [
@@ -25,24 +25,16 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.6.0",
-  "date": "2026-09-05",
+  "date": "2026-09-07",
   "changelog": {
     "added": [
-      "Each saved outfit now remembers the weapon skin your class was using and re-applies it when you switch.",
-      "The 3D preview shows the saved weapon skin when it belongs to your current class."
+      "Every saved outfit now shows a number in the list — H1–H8 for the first eight (their hotkey slots), then 9, 10, 11… for the rest — so a long wardrobe is easy to scan."
     ],
-    "fixed": [
-      "You can now scroll through every saved outfit — the list used to stop at the 48th.",
-      "Outfits with two head accessories preview both pieces at once (needs framework 2.6.0).",
-      "Saving an outfit no longer freezes the game for a moment (needs framework 2.6.0)."
-    ],
-    "changed": [
-      "Your outfits are now stored in the plugin's own data folder; existing outfits are carried over automatically on first launch."
-    ]
+    "fixed": [],
+    "changed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarWardrobeLoadout.git",
-  "commit": "d81f01da1a999533d704b116996224bd6a8fdaa9",
+  "commit": "e33f1a24d63fad4c2584fc15013c91f459d8fcae",
   "projectPath": ".",
-  "tag": "v1.1.0",
-  "capPriorVersionsAt": "1.0.0"
+  "tag": "v1.2.0"
 }
