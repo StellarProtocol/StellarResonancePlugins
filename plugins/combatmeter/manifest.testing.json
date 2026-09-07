@@ -1,21 +1,14 @@
 {
-  "version": "2.7.3",
-  "date": "2026-09-06",
-  "commit": "3af52fa09f020d978bb135140b332722616e2c6b",
+  "version": "2.8.0",
+  "date": "2026-09-07",
+  "commit": "a30193da21d2ae2a22f8ac6d78081aae7ff8a51d",
   "minModSystemVersion": "2.7.0",
   "changelog": {
     "added": [
-      "Testing-channel build only: a new \"Upload target\" switch at the bottom of the CombatMeter settings sends your runs to the TESTING logs server (logs.dev.stellarresonance.app) instead of the main site. Turn it on, relaunch the game, and your runs appear on the testing site. Turn it off and relaunch to go back to normal.",
-      "The meter now records the buffs active on you and your teammates, plus your own stat changes during a fight, so the testing site can work out how much damage each buff added. Nothing changes on screen yet."
+      "Your party's skill casts and a few more of your stats are now recorded, so cooldown buffs (like Tina's Lower CD) can be credited on the logs site. Buffs already active when a fight segment starts are recorded too. Testing channel only \u2014 uploads go to the testing server."
     ],
-    "changed": [
-      "Buffs cast by a Battle Imagine (such as Tina) are credited to the player who summoned it.",
-      "Testing-channel builds now upload to the TESTING server by default the first time they run, so testers no longer have to find the switch. The \"Upload target\" switch in Settings still turns it off or on (relaunch to apply)."
-    ],
-    "fixed": [
-      "A very short archive right after a boundary could produce a negative duration and fail to upload (red \"Failed\" badge). It now uploads as a 0-second segment.",
-      "The \"Upload target\" switch lives in the CombatMeter Settings window (below the upload options), not in the Appearance window."
-    ],
+    "changed": [],
+    "fixed": [],
     "removed": []
   }
 }
