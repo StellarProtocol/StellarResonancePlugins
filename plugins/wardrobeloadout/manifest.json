@@ -2,7 +2,7 @@
   "id": "wardrobeloadout",
   "name": "Wardrobe",
   "description": "Save your worn outfits and switch between them instantly by hotkey or menu, with a live 3D preview.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "dll": "Stellar.WardrobeLoadout.dll",
   "author": "Stellar",
   "tags": [
@@ -24,17 +24,15 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.6.0",
-  "date": "2026-09-07",
+  "minModSystemVersion": "2.6.4",
+  "date": "2026-09-09",
   "changelog": {
-    "added": [
-      "Every saved outfit now shows a number in the list — H1–H8 for the first eight (their hotkey slots), then 9, 10, 11… for the rest — so a long wardrobe is easy to scan."
-    ],
-    "fixed": [],
-    "changed": []
+    "fixed": [
+      "Your saved outfits are now kept separately for each character. Switching character — or account — no longer shows another character's wardrobe; each character keeps its own outfits. Your existing outfits stay with the character you are playing when you first update."
+    ]
   },
   "repository": "https://github.com/StellarProtocol/StellarWardrobeLoadout.git",
-  "commit": "e33f1a24d63fad4c2584fc15013c91f459d8fcae",
+  "commit": "c59f49498e5206f6c4984b3d336083ae2855dac4",
   "projectPath": ".",
-  "tag": "v1.2.0"
+  "tag": "v1.3.0"
 }
