@@ -2,7 +2,7 @@
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
   "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
   "tags": [
@@ -17,18 +17,15 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.5.0",
-  "date": "2026-09-05",
+  "minModSystemVersion": "2.6.4",
+  "date": "2026-09-09",
   "changelog": {
-    "changed": [
-      "Your Deep-Slumber bindings are now stored in the plugin's own data folder; existing bindings are carried over automatically on first launch."
-    ],
     "fixed": [
-      "Switching to the loadout you already wear no longer re-equips everything, and rapid presses respect the game's three-second switch cooldown (needs framework 2.6.0)."
+      "Your Deep-Slumber loadout bindings are now saved separately for each character. Switching to another character — or another account — no longer applies the wrong character's bindings; each character keeps its own. Your existing bindings are kept and attached to the character you are playing when you first update."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "c59847f56ee3069f15c85748a16e0baf5d77fe0d",
+  "commit": "a63727816edc5889cb956d2ab1b3ad50701f0534",
   "projectPath": ".",
-  "tag": "v2.4.0"
+  "tag": "v2.5.0"
 }
