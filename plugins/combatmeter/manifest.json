@@ -1,8 +1,8 @@
 {
   "id": "combatmeter",
   "name": "CombatMeter",
-  "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.9.1",
+  "description": "Real-time party DPS/HPS meter with role or class colours.",
+  "version": "2.10.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -30,25 +30,21 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.7.0",
+  "minModSystemVersion": "2.8.0",
   "date": "2026-09-09",
   "changelog": {
     "added": [
-      "The meter now records the buffs on you and your teammates, your stat changes, your party's skill casts and your own cooldown speed during a fight. The logs site uses them for its new experimental view \u2014 Own and Given DPS, an FFLogs-style rDPS line, and a Buffs and Debuffs tab \u2014 so you can see how much of a run's damage came from cooldown and damage buffs, and who gave them.",
-      "Buffs cast by a Battle Imagine such as Tina are credited to the player who summoned it.",
-      "The logs site marks Own DPS, Given DPS, rDPS and the Buffs and Debuffs tab as experimental while they settle in, so the numbers can still change; your parse and your rankings are unaffected and keep using raw DPS."
+      "Bar colour: in Appearance \u2192 Bars you can now paint each player's bar in their class colour \u2014 the same colours the game uses for the class crests \u2014 instead of the role colour. Off by default; set per layout (List, Party 5, Party 20).",
+      "Value text: choose how the numbers on the bar are drawn \u2014 plain, with a thin dark outline, or on a soft shadow \u2014 so they stay readable on bright class colours. Plain by default."
     ],
     "changed": [
-      "Nothing changes in the meter window itself; the new data rides along with your normal uploads."
+      "Requires Stellar framework 2.8.0 or newer (the launcher updates it for you)."
     ],
-    "fixed": [
-      "A very short archive right after a boundary could produce a negative duration and fail to upload (red \"Failed\" badge). It now uploads as a 0-second segment.",
-      "A leftover testing-server setting from the testing channel could make a stable build upload to the testing site; stable builds now always upload to the production logs site."
-    ],
+    "fixed": [],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "dc53838235b19bb67847531350b7296bcf68284d",
+  "commit": "753d4cd82617e4c2f68ec1473e998420ed2813e5",
   "projectPath": ".",
-  "tag": "v2.9.1"
+  "tag": "v2.10.0"
 }
