@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role colours.",
-  "version": "2.5.1",
+  "version": "2.9.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,24 +26,29 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History — damage timeline with navigator and per-source table."
+      "caption": "History \u2014 damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.5.0",
-  "date": "2026-09-01",
+  "minModSystemVersion": "2.7.0",
+  "date": "2026-09-09",
   "changelog": {
-    "added": [],
-    "changed": [],
+    "added": [
+      "The meter now records the buffs on you and your teammates, your stat changes, your party's skill casts and your own cooldown speed during a fight. The logs site uses them for its new experimental view \u2014 Own and Given DPS, an FFLogs-style rDPS line, and a Buffs and Debuffs tab \u2014 so you can see how much of a run's damage came from cooldown and damage buffs, and who gave them.",
+      "Buffs cast by a Battle Imagine such as Tina are credited to the player who summoned it.",
+      "The logs site marks Own DPS, Given DPS, rDPS and the Buffs and Debuffs tab as experimental while they settle in, so the numbers can still change; your parse and your rankings are unaffected and keep using raw DPS."
+    ],
+    "changed": [
+      "Nothing changes in the meter window itself; the new data rides along with your normal uploads."
+    ],
     "fixed": [
-      "Raid runs are recorded as one run again instead of being split into separate pieces partway through the fight.",
-      "Boss health shown in raid replays is now read straight from the game, so it stays accurate even for bosses the game never shows hitting zero.",
-      "Your own combat data now uploads reliably — every part of a run is sent even while the run's final result is still being worked out."
+      "A very short archive right after a boundary could produce a negative duration and fail to upload (red \"Failed\" badge). It now uploads as a 0-second segment.",
+      "A leftover testing-server setting from the testing channel could make a stable build upload to the testing site; stable builds now always upload to the production logs site."
     ],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "0dc1e4b84a39ec0442d801768c02a21c2f2c714d",
+  "commit": "dc53838235b19bb67847531350b7296bcf68284d",
   "projectPath": ".",
-  "tag": "v2.5.1"
+  "tag": "v2.9.1"
 }
