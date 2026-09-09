@@ -1,0 +1,49 @@
+{
+  "id": "targetlens",
+  "name": "Target Lens",
+  "description": "Customizable target HUD: buffs/debuffs, threat/aggro, boss skill timers and a live cast bar.",
+  "version": "1.0.0",
+  "dll": "Stellar.TargetLens.dll",
+  "author": "Stellar",
+  "tags": [
+    "target",
+    "buffs",
+    "debuffs",
+    "threat",
+    "boss",
+    "overlay",
+    "hud"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/target-overlays.png",
+      "caption": "Target overlays in a boss fight — HP + break gauge, the effect list (★ = your own), threat/aggro %, and the cast bar."
+    },
+    {
+      "type": "image",
+      "file": "media/settings.png",
+      "caption": "Grouped settings — display style, effect-source filters, threat, cast bar and boss timers."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.2.0",
+  "date": "2026-09-09",
+  "changelog": {
+    "added": [
+      "Target HUD — see your current target's HP, shield and break/stagger gauge, plus its name, rank and distance.",
+      "Buff & debuff tracker — every effect on the target with icons and timers. Show it as tiles on the HUD, a separate resizable list, or turn it off. Filter by who applied it (you, other players, or the monster itself), mark your own with a star, hide permanent effects, and pick exactly which effects appear — with a recommended list pinned to the top.",
+      "Threat / Aggro — see who has the boss's attention and each player's threat share, with your own row highlighted.",
+      "Boss Skill Timers — countdowns to a boss's dangerous skills so you can react in time.",
+      "Cast bar — watch your target channel a skill in real time.",
+      "Fully customizable — every overlay drags and resizes and remembers its place; settings grouped by section; available in English, Japanese, Thai, Indonesian and Filipino."
+    ],
+    "changed": [],
+    "fixed": [],
+    "removed": []
+  },
+  "repository": "https://github.com/StellarProtocol/StellarTargetLensPlugin.git",
+  "commit": "9ae92e1b01b25b73f2accc86d07ced2fed7dccab",
+  "projectPath": ".",
+  "tag": "v1.0.0"
+}
