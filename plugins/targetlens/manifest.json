@@ -31,7 +31,7 @@
   "date": "2026-09-09",
   "changelog": {
     "added": [
-      "Target HUD — see your current target's HP, shield and break/stagger gauge, plus its name, level, rank and distance.",
+      "Target HUD — see your current target's HP, shield and break/stagger gauge, plus its name, rank and distance.",
       "Buff & debuff tracker — every effect on the target with icons and timers. Show it as tiles on the HUD, a separate resizable list, or turn it off. Filter by who applied it (you, other players, or the monster itself), mark your own with a star, hide permanent effects, and pick exactly which effects appear — with a recommended list pinned to the top.",
       "Threat / Aggro — see who has the boss's attention and each player's threat share, with your own row highlighted.",
       "Boss Skill Timers — countdowns to a boss's dangerous skills so you can react in time.",

@@ -16,7 +16,7 @@ the boss's next deadly skill, and its cast bar — as clean, draggable overlays.
 ## The overlays
 
 - **Target HUD** — the target's **HP**, its **shield** ("armor"), and the boss **break / stagger
-  gauge**, plus name, level, rank and distance.
+  gauge**, plus name, rank and distance.
 - **Target Effects** — the buffs and debuffs on the target, each with its icon and remaining time.
   Your own effects are marked with a **★**.
 - **Threat / Aggro** — who the boss is focused on and each player's **threat %**; your own row is
