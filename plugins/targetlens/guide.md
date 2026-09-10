@@ -47,6 +47,11 @@ You can also **hide permanent** (no-timer) effects, **show hidden** internal eff
 
 ## Tips
 
+- **Lock onto a target** — assign a key to the "Lock HUD to current target" hotkey in the launcher's
+  hotkey settings. Press it in combat to pin the overlays to your current target so they keep showing
+  that enemy while you fight others; press again to release. It clears on its own when the target dies.
+- **Size each overlay** — the effect list, threat/aggro list, cast bar and boss skill timers each have
+  their own size slider in settings, and you can hide any overlay's title.
 - Everything is optional — toggle any overlay on or off in the grouped settings (Target HUD /
   Threat / Aggro / Cast Bar / Boss Skill Timers).
 - Use the launcher's **"reset all HUD"** to return every overlay to its default position.
