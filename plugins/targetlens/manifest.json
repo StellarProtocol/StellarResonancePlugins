@@ -2,7 +2,7 @@
   "id": "targetlens",
   "name": "Target Lens",
   "description": "Customizable target HUD: buffs/debuffs, threat/aggro, boss skill timers and a live cast bar.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "dll": "Stellar.TargetLens.dll",
   "author": "Stellar",
   "tags": [
@@ -28,22 +28,19 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.2.0",
-  "date": "2026-09-10",
+  "date": "2026-09-21",
   "changelog": {
-    "added": [
-      "Lock the HUD onto your target \u2014 a new hotkey pins the overlays to your current target so they keep showing that enemy even while you fight others. Press again to release; it also clears on its own when the target dies. Assign a key for it in the launcher's hotkey settings.",
-      "Resize each overlay on its own \u2014 the target effects list, threat/aggro list, cast bar and boss skill timers each get their own size slider.",
-      "Choose how threat/aggro is shown \u2014 everyone's threat share, or just whoever currently holds the boss's attention.",
-      "Stacking effects now show their stack count (for example 3\u00d7) next to the name."
+    "added": [],
+    "changed": [],
+    "fixed": [
+      "The in-game network ping reads correctly again instead of always showing 0ms.",
+      "Towns no longer stay stuck in permanent night \u2014 the day/night cycle works normally again.",
+      "Boss skill timers no longer briefly flash blank or unknown entries."
     ],
-    "changed": [
-      "Each overlay's title can now be hidden, and titles keep a fixed size when you scale an overlay up."
-    ],
-    "fixed": [],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarTargetLensPlugin.git",
-  "commit": "bc4f53b370fc670b9cff306a30aae99521f18c3f",
+  "commit": "14c0968b8a427013527857ab76a2b95e5570097b",
   "projectPath": ".",
-  "tag": "v1.1.0"
+  "tag": "v1.1.1"
 }
