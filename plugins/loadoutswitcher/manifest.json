@@ -2,7 +2,7 @@
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
   "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
   "tags": [
@@ -18,14 +18,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.6.4",
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "changelog": {
-    "fixed": [
-      "The Loadout Switcher no longer applies one of your saved builds by itself when you log in — it only applies a build when you actually switch to it."
+    "added": [
+      "You can now set hotkeys for loadouts 9 and 10 — previously only the first 8 could be bound. Set them in Settings → Hotkeys."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "b8e2d8bf0460ff941948cd1110b4c4c968fc69a8",
+  "commit": "1c6e041909a4c8160bbc937472f9f801d4d973bb",
   "projectPath": ".",
-  "tag": "v2.5.1"
+  "tag": "v2.6.0"
 }
