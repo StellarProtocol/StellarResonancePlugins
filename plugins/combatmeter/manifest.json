@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.10.0",
+  "version": "2.14.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -26,25 +26,29 @@
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History \u2014 damage timeline with navigator and per-source table."
+      "caption": "History — damage timeline with navigator and per-source table."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.8.0",
-  "date": "2026-09-09",
+  "minModSystemVersion": "2.9.0",
+  "date": "2026-09-25",
   "changelog": {
     "added": [
-      "Bar colour: in Appearance \u2192 Bars you can now paint each player's bar in their class colour \u2014 the same colours the game uses for the class crests \u2014 instead of the role colour. Off by default; set per layout (List, Party 5, Party 20).",
-      "Value text: choose how the numbers on the bar are drawn \u2014 plain, with a thin dark outline, or on a soft shadow \u2014 so they stay readable on bright class colours. Plain by default."
+      "Party mode now shows each player's buffs and debuffs as icons on their row — buffs framed green, debuffs red — each with a live countdown. Imagine-lockout and imagine-cast effects show the Battle-Imagine card.",
+      "Click any buff/debuff tile to open a tooltip listing all of that player's effects, each as a live cooldown tile with its description.",
+      "A Configure panel to pick exactly which buffs and debuffs to show — separate Buffs and Debuffs tabs, search, show-all-except / show-only modes, and same-named effects grouped together.",
+      "Player-tile size and how many effects to show per row (up to 12) are configurable per mode; buffs & debuffs can also show in the DPS list view.",
+      "CombatMeter now has its own tiles in the Stellar plugins window — Settings and Combat History."
     ],
     "changed": [
-      "Requires Stellar framework 2.8.0 or newer (the launcher updates it for you)."
+      "Uploads are far smaller and faster — combat data is now compressed, so a long raid finishes uploading in seconds instead of minutes."
     ],
-    "fixed": [],
-    "removed": []
+    "fixed": [
+      "Uploads are more reliable — a dropped connection or a slow write no longer loses part of a run."
+    ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "753d4cd82617e4c2f68ec1473e998420ed2813e5",
+  "commit": "28c7acf56434ec849fa05bfd1eb66b4017c760a1",
   "projectPath": ".",
-  "tag": "v2.10.0"
+  "tag": "v2.14.0"
 }

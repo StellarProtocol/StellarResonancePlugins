@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -24,15 +24,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.1.0",
-  "date": "2026-08-31",
+  "date": "2026-09-25",
   "changelog": {
     "fixed": [
-      "The experimental \"Show hidden effects\" option now applies to the cooldown bar itself: turn it on and the hidden buffs you track appear on the bar; turn it off and icon-less internal buffs no longer clutter it."
+      "Imagine-lockout debuffs (like Mechanical Failure and Element Stasis) now show the matching Battle-Imagine card instead of a generic icon."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "5736b8e224effbc9ff9aade018f11452c089e2e2",
+  "commit": "ab25e8f7fd33c68c7cb82e25ab9c95539137e0b2",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3",
-  "tag": "v2.2.2"
+  "tag": "v2.2.3"
 }
