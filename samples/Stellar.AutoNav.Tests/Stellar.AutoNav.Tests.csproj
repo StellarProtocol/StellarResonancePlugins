@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Unit tests for AutoNav's game-independent pieces (account-row selection, bounded retry scheduling).
+    The sources are LINKED, not project-referenced: the plugin project needs the game's interop
+    assemblies, these files need nothing but the BCL, so the tests run anywhere.
+      dotnet test samples/Stellar.AutoNav.Tests/Stellar.AutoNav.Tests.csproj
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Stellar.AutoNav.Tests</RootNamespace>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Stellar.AutoNav/AccountRowSelector.cs" Link="Linked/AccountRowSelector.cs" />
+    <Compile Include="../Stellar.AutoNav/RetryStep.cs" Link="Linked/RetryStep.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+</Project>

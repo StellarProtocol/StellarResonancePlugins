@@ -12,165 +12,6 @@ using UnityEngine.UI;
 namespace Stellar.AutoNav;
 
 /// <summary>
-/// HarmonyX reverse-patch holder. The body of <see cref="ClickStub"/> is replaced
-/// at runtime with a direct call to Panda.ZUi.ZButton.invokeClickEvent on the
-/// supplied instance — bypassing reflection's strict type check that rejected our
-/// previous attempt at MethodInfo.Invoke(zbutton, null).
-/// </summary>
-internal static class ZButtonReversePatch
-{
-    private static bool _patched;
-    private static Harmony? _harmony;
-
-    /// <summary>
-    /// Patched-at-runtime stub. Calling this invokes ZButton.invokeClickEvent()
-    /// on the supplied instance.
-    /// </summary>
-    public static void ClickStub(object instance)
-    {
-        // The body is replaced by HarmonyX at runtime; this throw protects against
-        // calling before the patch is applied.
-        throw new InvalidOperationException("ClickStub called before HarmonyX reverse patch was applied");
-    }
-
-    /// <summary>Applies the reverse patch. Idempotent. Returns true on success.</summary>
-    public static bool TryApply(Type zbuttonType, IPluginLog log)
-    {
-        if (_patched) return true;
-
-        var original = zbuttonType.GetMethod(
-            "invokeClickEvent",
-            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-        if (original == null)
-        {
-            log.Warning("[AutoNav] reverse patch FAILED: Panda.ZUi.ZButton.invokeClickEvent method not found");
-            return false;
-        }
-
-        var stub = typeof(ZButtonReversePatch).GetMethod(
-            nameof(ClickStub),
-            BindingFlags.Public | BindingFlags.Static);
-        if (stub == null)
-        {
-            log.Warning("[AutoNav] reverse patch FAILED: ClickStub method not found (internal error)");
-            return false;
-        }
-
-        try
-        {
-            _harmony = new Harmony("stellar.autonav");
-            _harmony.CreateReversePatcher(original, new HarmonyMethod(stub)).Patch();
-            _patched = true;
-            log.Info("[AutoNav] reverse patch applied: ZButton.invokeClickEvent ↔ ZButtonReversePatch.ClickStub");
-            return true;
-        }
-        catch (Exception ex)
-        {
-            log.Warning($"[AutoNav] reverse patch FAILED: {ex.GetType().Name}: {ex.Message}");
-            return false;
-        }
-    }
-
-    /// <summary>
-    /// Reverse the patch on plugin Dispose so a soft-cycle re-enable doesn't
-    /// double-patch (HarmonyX's CreateReversePatcher throws on duplicate
-    /// registration). Idempotent — second call is a no-op.
-    /// </summary>
-    public static void Unpatch()
-    {
-        if (!_patched || _harmony is null) return;
-        try { _harmony.UnpatchSelf(); }
-        catch { /* swallow; nothing useful to log here */ }
-        _harmony = null;
-        _patched = false;
-    }
-}
-
-/// <summary>
-/// HarmonyX postfix pulse on <c>Panda.Core.Game.Update(float)</c>. The framework's
-/// InvokeRepeating tick is gated off until logged-in + in-world (the scene-transition
-/// gate in Wiring.GameLoop.cs), so plugin Update never fires on the Title/Char-Select
-/// screens — exactly where AutoNav must click. This pulse restores the pre-gate drive
-/// (the old framework used this same hook), for AutoNav only and only when
-/// <c>STELLAR_AUTONAV=1</c>.
-/// </summary>
-internal static class GameUpdatePulse
-{
-    private static bool _patched;
-    private static Harmony? _harmony;
-
-    /// <summary>Invoked from the Game.Update postfix with the game's own deltaTime.</summary>
-    internal static Action<float>? OnPulse;
-
-    /// <summary>Applies the postfix. Idempotent. Returns true on success.</summary>
-    public static bool TryApply(IPluginLog log)
-    {
-        if (_patched) return true;
-
-        var gameType = FindType("Panda.Core.Game");
-        if (gameType == null)
-        {
-            log.Warning("[AutoNav] pulse FAILED: Panda.Core.Game not loaded");
-            return false;
-        }
-
-        MethodInfo? update = null;
-        foreach (var m in gameType.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-        {
-            if (m.Name != "Update") continue;
-            var ps = m.GetParameters();
-            if (ps.Length == 1 && ps[0].ParameterType == typeof(float)) { update = m; break; }
-        }
-        if (update == null)
-        {
-            log.Warning("[AutoNav] pulse FAILED: Panda.Core.Game.Update(float) not found");
-            return false;
-        }
-
-        try
-        {
-            _harmony = new Harmony("stellar.autonav.pulse");
-            _harmony.Patch(update, postfix: new HarmonyMethod(typeof(GameUpdatePulse), nameof(Postfix)));
-            _patched = true;
-            log.Info("[AutoNav] pulse installed: Panda.Core.Game.Update postfix drives AutoNav scheduling (framework tick is login-gated)");
-            return true;
-        }
-        catch (Exception ex)
-        {
-            log.Warning($"[AutoNav] pulse FAILED: {ex.GetType().Name}: {ex.Message}");
-            return false;
-        }
-    }
-
-    // HarmonyX binds __0 to the original's first argument (deltaTime).
-    private static void Postfix(float __0)
-    {
-        try { OnPulse?.Invoke(__0); }
-        catch { /* never leak exceptions into the game loop */ }
-    }
-
-    /// <summary>Undo on Dispose so a soft-cycle re-enable doesn't double-patch.</summary>
-    public static void Unpatch()
-    {
-        if (!_patched || _harmony is null) return;
-        try { _harmony.UnpatchSelf(); } catch { }
-        _harmony = null;
-        _patched = false;
-        OnPulse = null;
-    }
-
-    private static Type? FindType(string fullName)
-    {
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            try { var t = asm.GetType(fullName, throwOnError: false); if (t != null) return t; }
-            catch { }
-        }
-        return null;
-    }
-}
-
-/// <summary>
 /// Button-discovery diagnostic and optional autonomous navigator. On every scene change and on F12, dumps all
 /// active <c>UnityEngine.UI.Button</c> instances with their sibling/parent components so the game's real
 /// click-handler types are visible in the BepInEx log.
@@ -178,9 +19,10 @@ internal static class GameUpdatePulse
 /// When <c>STELLAR_AUTONAV=1</c>, also auto-clicks a hardcoded path sequence to drive
 /// Title → Character Select → World without manual input:
 ///
-///   Scene 1   +10s   → btn_start_face        (Title → Login; long wait for Tencent session check via EdgeWebView)
-///   LoginEvent+3s    → rolechoose_1/btn_item (pick character)
-///             +4.5s  → btn_entergame         (load world)
+///   Scene 1   +10s   → AccountSwitcher row "Login" button when that plugin is loaded (see Plugin.Login.cs,
+///                      row chosen by STELLAR_AUTONAV_ACCOUNT), else the native start button
+///   LoginEvent       → poll: node_rolechoose_N/btn_item, then btn_entergame (see Plugin.CharSelect.cs;
+///                      stands down if the game enters the world without character select)
 ///   Scene 7   +3s    → btn_close_new         (dismiss welcome popup)
 ///
 /// Clicks go through <c>Panda.ZUi.ZButton.invokeClickEvent()</c> via a HarmonyX reverse patch (see
@@ -207,8 +49,6 @@ public sealed partial class Plugin : IStellarPlugin
     // buttons). btn_start_face routes to Create-Character; node_play_friends
     // opens the Friends panel; this is the one wired to actual login.
     private const string PathStartButton      = "zuiroot/UILayerMain/login_main(Clone)/anim/node_enter_game/anim_enter_game/btn_rayimg";
-    private const string PathCharSlot1        = "zuiroot/UILayerFunc/face_rolechoose_window(Clone)/anim/node_right/node_rolechoose_1/btn_item";
-    private const string PathEnterGame        = "zuiroot/UILayerFunc/face_rolechoose_window(Clone)/anim/node_enter/btn_entergame";
     private const string PathCloseNewbiePopup = "zuiroot/UILayerFuncPopup/newbiebackflow_popup(Clone)/anim/node_info/btn_close_new/anim/btn";
 
     private readonly struct PendingClick
@@ -275,7 +115,9 @@ public sealed partial class Plugin : IStellarPlugin
             // PillStatus has no title bar → ShowTitleBar=false so Draggable wires whole-frame drag (drag the pill body).
             // EditModeDragOnly: it's a HUD overlay, so it moves only in Shift+` layout edit mode (drag-mode is now
             // explicit per window, no longer inferred from the overlay chrome style).
-            { Draggable = true, ShowTitleBar = false, EditModeDragOnly = true },
+            // ShouldRender (required since framework 2.x): always — the pill is the at-a-glance AUTO/OBS state on
+            // every screen, Title and Char Select included.
+            { Draggable = true, ShowTitleBar = false, EditModeDragOnly = true, ShouldRender = () => true },
             BuildRoot()));
 
         _toggleAction = _services.Hotkeys.DeclareAction(
@@ -306,7 +148,7 @@ public sealed partial class Plugin : IStellarPlugin
             var sceneIdStr = message?.ToString() ?? string.Empty;
             if (sceneIdStr == "1")
             {
-                EnqueueClick(10f, PathStartButton, "start");
+                BeginLogin();
             }
             else if (sceneIdStr == "7" || sceneIdStr == "8")
             {
@@ -318,14 +160,11 @@ public sealed partial class Plugin : IStellarPlugin
                 // newbiebackflow_popup(Clone)/.../btn_close_new/anim/btn).
                 // Enqueue on both 7 and 8 so a future game patch that
                 // restores the scene-8 hand-off keeps working.
+                OnWorldEntered();
                 EnqueueClick(3f, PathCloseNewbiePopup, "close-newbie");
             }
         }),
-        _services.GameEvents.Subscribe("Panda.Core.LoginEvent", _ =>
-        {
-            EnqueueClick(3f, PathCharSlot1, "char-slot-1");
-            EnqueueClick(4.5f, PathEnterGame, "enter-game");
-        }),
+        _services.GameEvents.Subscribe("Panda.Core.LoginEvent", _ => BeginCharacterSelect()),
     };
 
     public void Dispose()
@@ -355,6 +194,7 @@ public sealed partial class Plugin : IStellarPlugin
     private void OnUpdate(float deltaTime)
     {
         TickPendingClicks(deltaTime);
+        TickSteps(deltaTime);
 
         if (_dumpPending)
         {
@@ -379,8 +219,8 @@ public sealed partial class Plugin : IStellarPlugin
             new TextElement(() => "»»", () => _services.Theme.Colors.HudAccent, Emphasis: true),
             new TextElement(() => "AutoNav", Emphasis: true),
             new TextElement(() => mode, Emphasis: true),
-            new ConditionalElement(() => _pendingClicks.Count > 0,
-                new TextElement(() => $"· {_pendingClicks.Count}", () => _services.Theme.Colors.TextMuted)),
+            new ConditionalElement(() => _pendingClicks.Count + _steps.Count > 0,
+                new TextElement(() => $"· {_pendingClicks.Count + _steps.Count}", () => _services.Theme.Colors.TextMuted)),
         }, Gap: 6f);
     }
 
@@ -411,108 +251,4 @@ public sealed partial class Plugin : IStellarPlugin
             }
         }
     }
-
-    // -------------------------------------------------------------------------
-    // ZButton reflection helpers
-    // -------------------------------------------------------------------------
-
-    // Resolves Panda.ZUi.ZButton.invokeClickEvent() once, then caches.
-    private static Type? _zbuttonType;
-    private static MethodInfo? _invokeClickEventMethod;
-
-    private static bool TryResolveZButtonInvoker()
-    {
-        if (_invokeClickEventMethod != null) return true;
-
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            Type? t;
-            try
-            {
-                t = asm.GetType("Panda.ZUi.ZButton", throwOnError: false);
-            }
-            catch
-            {
-                continue;
-            }
-            if (t == null) continue;
-            _zbuttonType = t;
-            _invokeClickEventMethod = t.GetMethod(
-                "invokeClickEvent",
-                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (_invokeClickEventMethod != null) return true;
-        }
-        return false;
-    }
-
-    // Find the Panda.ZUi.ZButton component on the GameObject by reflecting its real
-    // type (Il2CppInterop wraps everything as Component, so we use ExtractRealType
-    // to identify it, then return that wrapper — reflection's Invoke can still call
-    // instance methods on it because under HybridCLR the receiving type is managed).
-    private Component? FindZButton(GameObject go)
-    {
-        if (go == null) return null;
-        var components = go.GetComponents<Component>();
-        for (var i = 0; i < components.Length; i++)
-        {
-            var c = components[i];
-            if (c == null) continue;
-            if (ExtractRealType(c) == "Panda.ZUi.ZButton")
-            {
-                return c;
-            }
-        }
-        return null;
-    }
-
-    private bool InvokeZButtonClick(string path, string label)
-    {
-        try
-        {
-            // Resolve the type + apply the reverse patch (cached/idempotent).
-            if (!TryResolveZButtonInvoker())
-            {
-                _services.Log.Warning($"[AutoNav] CLICK FAILED ({label}): Panda.ZUi.ZButton or invokeClickEvent() not found in any loaded assembly");
-                return false;
-            }
-            if (!ZButtonReversePatch.TryApply(_zbuttonType!, _services.Log))
-            {
-                _services.Log.Warning($"[AutoNav] CLICK FAILED ({label}): reverse patch could not be applied");
-                return false;
-            }
-
-            return TryInvokeReversePatchOnce(path, label);
-        }
-        catch (Exception ex)
-        {
-            _services.Log.Warning($"[AutoNav] CLICK FAILED ({label}): {ex.GetType().Name}: {ex.Message}");
-            return false;
-        }
-    }
-
-    // Must remain `private` in the same class as InvokeZButtonClick — HarmonyX
-    // reverse-patch trampolines are scoped to the calling site.
-    private bool TryInvokeReversePatchOnce(string path, string label)
-    {
-        var slash = path.IndexOf('/');
-        if (slash < 0) return WarnFail(label, "path needs root + child");
-        var root = GameObject.Find(path.Substring(0, slash));
-        if (root == null) return WarnFail(label, "root not found");
-        var target = root.transform.Find(path.Substring(slash + 1));
-        if (target == null) return WarnFail(label, $"path '{path}' not found");
-        var zbutton = FindZButton(target.gameObject);
-        if (zbutton == null) return WarnFail(label, $"no Panda.ZUi.ZButton on {path}");
-
-        // Reverse patch redirects this call to ZButton.invokeClickEvent(instance).
-        ZButtonReversePatch.ClickStub(zbutton);
-        _services.Log.Info($"[AutoNav] CLICK '{label}' via reverse patch ({path})");
-        return true;
-    }
-
-    private bool WarnFail(string label, string reason)
-    {
-        _services.Log.Warning($"[AutoNav] CLICK FAILED ({label}): {reason}");
-        return false;
-    }
-
 }
