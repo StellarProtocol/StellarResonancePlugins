@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.14.2",
+  "version": "2.15.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -30,27 +30,22 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.9.0",
-  "date": "2026-09-25",
+  "minModSystemVersion": "2.11.0",
+  "date": "2026-09-26",
   "changelog": {
     "added": [
-      "Party mode now shows each player's buffs and debuffs as icons on their row — buffs framed green, debuffs red — each with a live countdown. Imagine-lockout and imagine-cast effects show the Battle-Imagine card.",
-      "Click any buff/debuff tile to open a tooltip listing all of that player's effects, each as a live cooldown tile with its description.",
-      "A Configure panel to pick exactly which buffs and debuffs to show — separate Buffs and Debuffs tabs, search, show-all-except / show-only modes, and same-named effects grouped together.",
-      "Player-tile size and how many effects to show per row (up to 12) are configurable per mode; buffs & debuffs can also show in the DPS list view.",
-      "CombatMeter now has its own tiles in the Stellar plugins window — Settings and Combat History."
+      "The meter now shows each player's spec, like Icicle or Concerto, as soon as they are near you, even in town before any fight.",
+      "Your uploads now include each player's confirmed spec, so the logs site can show the right spec even for players who never used a signature skill."
     ],
     "changed": [
-      "Uploads are far smaller and faster — combat data is now compressed, so a long raid finishes uploading in seconds instead of minutes."
+      "Smoother tracking when lots of players are around you, such as busy towns and raids."
     ],
     "fixed": [
-      "While a Battle Imagine transforms you (Lucy, Natsu…), the meter keeps showing your real class — name, icon and role colour no longer switch to the transform. History rows, the snapshot and the Discord card show your real class too, and a run that ends while you're transformed now saves your real character's stats and gear.",
-      "When a Battle Imagine transforms you (Lucy, Natsu…), your runs are now logged under your real class instead of the transform — including when the fight ends while you're still transformed — and your gear and loadout are kept for that run.",
-      "Uploads are more reliable — a dropped connection or a slow write no longer loses part of a run."
+      "A player who switches class no longer briefly shows a spec from their previous class on the meter."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "c855a3f8b994981ad522a3e715c976ce1514c4c7",
+  "commit": "6c3538c569c7d3dff441613fb2c9113b72057bf1",
   "projectPath": ".",
-  "tag": "v2.14.2"
+  "tag": "v2.15.0"
 }
