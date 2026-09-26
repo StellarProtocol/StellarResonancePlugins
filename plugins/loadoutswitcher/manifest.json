@@ -1,8 +1,8 @@
 {
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
-  "description": "Hotkey switching of saved in-game loadouts (Role Plans), with toast feedback.",
-  "version": "2.7.0",
+  "description": "Hotkey switching of saved in-game loadouts (Role Plans), Deep-Slumber bindings per loadout, and one-click copy of the loadout you're wearing into another slot.",
+  "version": "2.8.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
   "tags": [
@@ -17,15 +17,15 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.6.4",
+  "minModSystemVersion": "2.10.0",
   "date": "2026-09-26",
   "changelog": {
     "added": [
-      "Pressing the hotkey of the loadout you already have equipped now re-applies its Deep-Slumber setup, so a psychoscope change that didn't take can be retried without switching to another loadout and back. If the setup is already in place, a green message confirms it."
+      "You can now copy the loadout you're wearing into any of your other loadout slots: open the Loadout Switcher window and click the button with your current loadout's name on the row you want to overwrite. It copies gear, modules, skills, talents, Battle Imagines and the Deep-Slumber binding, after a confirm that warns about unsaved changes or a class change."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "9eb51bb12040f6bae196d4876db38d9919ac57d0",
+  "commit": "f40e3bdc4b53f5f6a6b5b6bd97d1059f8f00cfc4",
   "projectPath": ".",
-  "tag": "v2.7.0"
+  "tag": "v2.8.0"
 }
