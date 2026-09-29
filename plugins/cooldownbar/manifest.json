@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -24,14 +24,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.1.0",
-  "date": "2026-09-25",
+  "date": "2026-09-29",
   "changelog": {
     "fixed": [
-      "Imagine-lockout debuffs (like Mechanical Failure and Element Stasis) now show the matching Battle-Imagine card instead of a generic icon."
+      "Imagine-lockout debuffs now really show the matching Battle Imagine card: Mechanical Failure shows Arcane! Superconductor Surge and Element Stasis shows Arcane! Fatal Spiral, instead of the grey generic icon."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "ab25e8f7fd33c68c7cb82e25ab9c95539137e0b2",
+  "commit": "104ee3fb8c5350eb4519bd5e0edf63e79e83efe6",
   "projectPath": ".",
-  "tag": "v2.2.3"
+  "tag": "v2.2.4"
 }
