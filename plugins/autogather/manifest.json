@@ -1,0 +1,40 @@
+{
+  "id": "autogather",
+  "name": "Auto Gather",
+  "description": "Automatically harvests nearby life-resource nodes — pick a resource type and it walks to and gathers every node of that type, with an optional Focus mode.",
+  "version": "1.0.0",
+  "dll": "Stellar.AutoGather.dll",
+  "author": "Stellar",
+  "tags": [
+    "automation",
+    "gathering",
+    "harvesting"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/auto-gather.png",
+      "caption": "Pick a resource type from the nearby list, then press Start."
+    },
+    {
+      "type": "image",
+      "file": "media/gathering.png",
+      "caption": "Auto-Gather farming an ore vein — it walks to and harvests every node of the locked type on its own."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.3.0",
+  "date": "2026-09-29",
+  "changelog": {
+    "added": [
+      "Automatically farms life-resource nodes: pick a resource type from the nearby list and press Start — it walks to and gathers every node of that type on its own.",
+      "Focus mode option spends Focus for rarer gathers, and stops on its own when you run out of Focus.",
+      "Auto-closes the daily reward popup so long unattended sessions aren't interrupted.",
+      "Available in English, 日本語, ไทย, Bahasa Indonesia, and Filipino."
+    ]
+  },
+  "repository": "https://github.com/StellarProtocol/StellarAutoGather.git",
+  "commit": "58c49a08deaa340e86dcfa256aa8b51e53af08f7",
+  "projectPath": ".",
+  "tag": "v1.0.0"
+}
