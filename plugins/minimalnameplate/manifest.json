@@ -21,7 +21,7 @@
   "date": "2026-09-30",
   "changelog": {
     "fixed": [
-      "No more stutter when a lot of players load in around you at once — crowded hubs and raid pulls stay smooth, including with player names turned on."
+      "No more stutter when a lot of players load in around you at once, including with player names turned on."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
