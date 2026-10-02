@@ -1,8 +1,8 @@
 {
   "id": "raidmanager",
   "name": "Raid Manager",
-  "description": "A ZDPS Compatible raid coordination tools displayed as a HUD overlay.",
-  "version": "2.1.1",
+  "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, and savable dungeon marker presets.",
+  "version": "2.2.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -11,15 +11,18 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.3.0",
-  "date": "2026-08-25",
+  "date": "2026-10-02",
   "changelog": {
+    "added": [
+      "Mark Presets — save the markers you place in a dungeon and reload the whole layout in one click. Build a preset as a sequence of steps (one layout per phase) and move through them with Previous / Reset / Next during the fight, with a separate preset for each raid."
+    ],
     "fixed": [
-      "The plugin's launcher tile now updates immediately when you switch language, instead of staying in the language it started in."
+      "The countdown and raid-warning text is readable again — it had been showing far too small."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "55ffced330150004ff2a8d95187680f9436113b2",
+  "commit": "cdb3bbc4b03e7a98ef992132aa85c2edf771d0e2",
   "projectPath": ".",
   "capPriorVersionsAt": "2.2.0",
-  "tag": "v2.1.1"
+  "tag": "v2.2.0"
 }
