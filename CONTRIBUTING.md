@@ -163,6 +163,7 @@ abandoned, just delete `manifest.testing.json`.
 | `media` | array | — | detail-page gallery — see below |
 | `guide` | string (path) | — | repo-relative markdown usage guide (conventionally `guide.md`, ≤ 1 MB); CI publishes it to `plugins/<id>/guide.md` |
 | `icon` | string (path or URL) | — | badge image shown on the launcher's plugin list and detail header; repo-relative file (published to `plugins/<id>/icon.<ext>`) or absolute http(s) URL. Without it the launcher uses the first `media` image, else a monogram tile. |
+| `dependencies` | array | — | things the launcher installs alongside this build (DLLs the plugin needs, a shared asset the game itself needs, …) — see below |
 
 ¹ Required by the **curated** registry (CI refuses a manifest without a pinned public repo).
 ² Required whenever `repository` is set.
@@ -189,6 +190,63 @@ own URL, so you never write your plugin id or any CDN base, and the same guide r
 correctly on GitHub. Guides and media live at stable, non-versioned CDN keys — fixing a typo
 is just another PR, no release needed.
 
+#### Plugin dependencies (`dependencies`)
+
+A plugin build can declare things the **launcher** must download, verify, and place before the
+game starts — a native DLL the plugin needs beside it, or a shared asset the **game itself** needs
+(e.g. a ReShade-style injector). The launcher is **generic**: it installs whatever passes
+registry validation without knowing what any particular dependency is for.
+
+`dependencies` is an array; each entry is an object:
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `id` | string | ✓ | unique **within this plugin's** dependency list |
+| `name` | string | ✓ | display name shown to the user during install |
+| `version` | string | ✓ | this dependency's own version (not the plugin's) |
+| `url` | string | ✓ | **https-only** download URL |
+| `sha256` | string | ✓ | 64 hex characters — verified after download, before install |
+| `size` | integer | ✓ | expected byte size, `1`..512 MiB |
+| `kind` | `"file"` \| `"zip"` | ✓ | `"file"` installs a single file; `"zip"` extracts entries out of a downloaded archive |
+| `files` | array | ✓ | destination(s) — see below; `kind: "file"` takes **exactly one** entry |
+| `target` | `"plugin"` \| `"game"` | ✓ | `"plugin"` installs relative to this plugin's own folder; `"game"` installs relative to the game install root |
+| `moddedOnly` | boolean | — | default `false`; **requires `target: "game"`** — only install while Stellar itself is installed (never touch a vanilla client) |
+| `optional` | boolean | — | default `false`; the user may decline it and the plugin still installs |
+| `requires` | string[] | — | other `id`s (from this same list) that must be installed **first**; each referenced id must exist and be **listed earlier** in the array |
+| `license` | string | ✓ | the dependency's license (e.g. `"BSD-3-Clause"`) — shown to the user before install |
+| `licenseUrl` | string | — | link to the full license text |
+| `sourceUrl` | string | — | link to the dependency's own source/homepage |
+| `notice` | string | — | short free-text notice shown alongside the license (e.g. attribution) |
+
+Each `files` entry is `{ "to": "<relative path>", "from"?: "<entry path or prefix>" }`:
+
+- **`to`** is always required — a **relative** path (no leading `/`, no drive letter, no `..`
+  segment, no `\`) under either the plugin's own folder or the game root (per `target`).
+  **`target: "game"` destinations may never land inside a path the loaders themselves scan** —
+  `BepInEx/`, `stellar/plugins`, or `stellar/deps` (case-insensitive) are refused, so a dependency
+  can never masquerade as (or collide with) a scanned plugin. Two plugins may also never both
+  claim the same `target: "game"` destination — whichever PR adds the clash fails CI.
+- **`from`** is required only for `kind: "zip"`: either one entry's path inside the archive, or a
+  prefix ending in `/` to extract a whole subtree. Unused (and ignored) for `kind: "file"`.
+
+Example — ReShade's `dxgi.dll`, installed into the game root only while Stellar is present, which
+the user may decline:
+
+```json
+"dependencies": [
+  {
+    "id": "reshade", "name": "ReShade", "version": "6.8.0",
+    "url": "https://cdn.revette.io/deps/reshade-6.8.0.dll",
+    "sha256": "9f6c2a1e4b7d305c8a1f9e2b6d4c7a0f3e5b8d1c2a4f6e8b0d2c4a6e8f0b2d4a",
+    "size": 4312576, "kind": "file", "target": "game",
+    "moddedOnly": true, "optional": true,
+    "files": [ { "to": "dxgi.dll" } ],
+    "license": "BSD-3-Clause", "licenseUrl": "https://reshade.me/license",
+    "sourceUrl": "https://reshade.me"
+  }
+]
+```
+
 ### `plugins/<id>/manifest.testing.json` — the optional testing override
 
 A second, **testing-channel** build that runs alongside the stable `manifest.json`. It **inherits** the
@@ -204,6 +262,7 @@ shared fields and may set **only** the version-specific ones below — any other
 | `maxModSystemVersion` | string \| null | — | upper bound |
 | `capPriorVersionsAt` | string (semver) | — | retro-cap prior published versions |
 | `changelog` | object | — | as above |
+| `dependencies` | array | — | this testing build's own dependencies (see above) — may differ from the stable manifest's |
 | **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide`, `icon` come from `manifest.json` |
 
 ## Third-party / unverified plugins

@@ -41,6 +41,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import urllib.error
@@ -65,7 +66,7 @@ SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "pr
 # Fields a manifest.testing.json may carry — everything version-specific. A testing override
 # may ONLY set these; shared fields come from manifest.json so they can't drift between files.
 OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
-               "maxModSystemVersion", "capPriorVersionsAt", "changelog")
+               "maxModSystemVersion", "capPriorVersionsAt", "changelog", "dependencies")
 
 
 def sha256(path: Path) -> str:
@@ -111,6 +112,80 @@ def is_http_url(u) -> bool:
 
 def safe_rel_path(p) -> bool:
     return isinstance(p, str) and bool(p) and not p.startswith("/") and ".." not in p and "\\" not in p
+
+
+_SHA256 = re.compile(r"^[0-9a-fA-F]{64}$")
+_FORBIDDEN_GAME_PREFIXES = ("bepinex/", "stellar/plugins", "stellar/deps")
+MAX_DEPENDENCY_BYTES = 512 << 20
+
+
+def _bad_rel_path(p: str) -> bool:
+    if not isinstance(p, str) or not p or "\\" in p or p.startswith("/") or re.match(r"^[A-Za-z]:", p):
+        return True
+    return any(part == ".." for part in p.split("/"))
+
+
+def validate_dependencies(deps, where):
+    """Errors for one plugin version's `dependencies` (empty list = valid). Generic: the launcher installs
+    whatever passes here before the game starts (devkit spec 2026-10-03-photo-studio-reshade-design.md § 3)."""
+    errs, ids = [], set()
+    if not isinstance(deps, list):
+        return [f"{where}: dependencies must be a list"]
+    for i, d in enumerate(deps):
+        at = f"{where}: dependencies[{i}]"
+        if not isinstance(d, dict):
+            errs.append(f"{at} must be an object"); continue
+        for k in ("id", "name", "version", "url", "sha256", "kind", "target", "license"):
+            if not isinstance(d.get(k), str) or not d.get(k):
+                errs.append(f"{at}.{k} is required")
+        if d.get("id") in ids:
+            errs.append(f"{at}.id '{d.get('id')}' is duplicated")
+        ids.add(d.get("id"))
+        if not str(d.get("url", "")).startswith("https://"):
+            errs.append(f"{at}.url must be https")
+        if not _SHA256.match(str(d.get("sha256", ""))):
+            errs.append(f"{at}.sha256 must be 64 hex characters")
+        size = d.get("size")
+        if not isinstance(size, int) or size <= 0 or size > MAX_DEPENDENCY_BYTES:
+            errs.append(f"{at}.size must be 1..{MAX_DEPENDENCY_BYTES} bytes")
+        kind, target, files = d.get("kind"), d.get("target"), d.get("files")
+        if kind not in ("file", "zip"):
+            errs.append(f"{at}.kind must be file or zip")
+        if target not in ("plugin", "game"):
+            errs.append(f"{at}.target must be plugin or game")
+        if d.get("moddedOnly") and target != "game":
+            errs.append(f"{at}.moddedOnly needs target game")
+        if not isinstance(files, list) or not files:
+            errs.append(f"{at}.files must be a non-empty list"); continue
+        if kind == "file" and len(files) != 1:
+            errs.append(f"{at}: kind file needs exactly one files entry")
+        for j, f in enumerate(files):
+            to = f.get("to") if isinstance(f, dict) else None
+            if _bad_rel_path(to):
+                errs.append(f"{at}.files[{j}].to must be a relative path without ..")
+            elif target == "game" and to.lower().startswith(_FORBIDDEN_GAME_PREFIXES):
+                errs.append(f"{at}.files[{j}].to '{to}' is inside a scan path (BepInEx/, stellar/plugins, stellar/deps)")
+            if kind == "zip" and _bad_rel_path(f.get("from") if isinstance(f, dict) else None):
+                errs.append(f"{at}.files[{j}].from is required for zip and must be relative")
+    seen = set()
+    for i, d in enumerate(deps):
+        for r in (d.get("requires") or []) if isinstance(d, dict) else []:
+            if r not in ids:
+                errs.append(f"{where}: dependencies[{i}].requires '{r}' is not a dependency of this plugin")
+            elif r not in seen:
+                errs.append(f"{where}: dependencies[{i}].requires '{r}' must be listed before it (the launcher installs in order)")
+        if isinstance(d, dict):
+            seen.add(d.get("id"))
+    return errs
+
+
+def game_claims(deps):
+    """Normalised game-target destinations, for the cross-plugin uniqueness check."""
+    out = []
+    for d in deps or []:
+        if isinstance(d, dict) and d.get("target") == "game":
+            out += [f["to"].lower() for f in d.get("files") or [] if isinstance(f, dict) and isinstance(f.get("to"), str)]
+    return out
 
 
 def resolve_docs(plugin_dir: Path, m: dict, where: str) -> tuple[dict, list[tuple[Path, str]]]:
@@ -275,6 +350,10 @@ def plugin_dirs() -> list[Path]:
 def collect() -> list[dict]:
     """One record per (plugin, channel-version): its registry version entry + the DLL to upload."""
     plugins = []
+    # game-target destination path (normalised, from game_claims) -> plugin id that claimed it,
+    # tracked across EVERY plugin in this run so two unrelated plugins can't silently clobber the
+    # same game-install path.
+    claimed: dict[str, str] = {}
     for plugin_dir in plugin_dirs():
         for channel, m in load_records(plugin_dir):
             where = f"{plugin_dir.name}[{channel}]"
@@ -285,6 +364,16 @@ def collect() -> list[dict]:
                 sys.exit(f"{where}: unsafe id/dll")
             if m.get("repository") and not m.get("commit"):
                 sys.exit(f"{where}: repository pinned but no commit (commit is authoritative)")
+
+            deps = m.get("dependencies")
+            if deps is not None:
+                dep_errs = validate_dependencies(deps, f"{m['id']} {m['version']}")
+                if dep_errs:
+                    sys.exit("\n".join(dep_errs))
+                for path in game_claims(deps):
+                    if path in claimed and claimed[path] != m["id"]:
+                        sys.exit(f"{where}: dependencies claim '{path}' already claimed by {claimed[path]}")
+                    claimed[path] = m["id"]
 
             staged = plugin_dir / staged_name(m["dll"], m["version"])
             if not staged.is_file():
@@ -303,6 +392,8 @@ def collect() -> list[dict]:
             }
             if m.get("changelog"):
                 version_entry["changelog"] = m["changelog"]
+            if deps is not None:
+                version_entry["dependencies"] = deps
             # Provenance: when a plugin builds from its own pinned public repo (DIP17 model),
             # record where the binary came from so the registry is auditable. commit is
             # authoritative; tag (if any) is display-only.
