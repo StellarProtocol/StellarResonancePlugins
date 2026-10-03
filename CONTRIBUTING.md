@@ -201,7 +201,7 @@ whatever passes registry validation without knowing what any particular dependen
 
 | Field | Type | Required | Notes |
 |---|---|---|---|
-| `id` | string | ✓ | unique **within this plugin's** dependency list |
+| `id` | string | ✓ | unique **within this plugin's** dependency list; must match `[A-Za-z0-9._-]+` (letters, digits, `.`, `_`, `-` only — no `/`, no whitespace, and not bare `.` or `..`), the same charset the launcher's `DependencyPaths.IsValidPluginId` enforces on a plugin's own id |
 | `name` | string | ✓ | display name shown to the user during install |
 | `version` | string | ✓ | this dependency's own version (not the plugin's) |
 | `url` | string | ✓ | **https-only** download URL |
@@ -210,7 +210,7 @@ whatever passes registry validation without knowing what any particular dependen
 | `kind` | `"file"` \| `"zip"` | ✓ | `"file"` installs a single file; `"zip"` extracts entries out of a downloaded archive |
 | `files` | array | ✓ | destination(s) — see below; `kind: "file"` takes **exactly one** entry |
 | `target` | `"plugin"` \| `"game"` | ✓ | `"game"` installs relative to the game install root; `"plugin"` installs under `game_mini/stellar/deps/<pluginId>/<to>` — **not** the plugin's own install folder |
-| `moddedOnly` | boolean | — | default `false`; **requires `target: "game"`** — installed while Stellar is present, then **parked** (moved aside) for a Vanilla launch and **restored** when the player launches Modded again (never left in place for a vanilla client) |
+| `moddedOnly` | boolean | — | default `false`; **requires `target: "game"`** — installed while Stellar is present, then **parked** (moved aside) for a Vanilla launch and while the plugin is disabled, and **restored** when the player launches Modded again with the plugin enabled (never left in place for a vanilla client) |
 | `optional` | boolean | — | default `false`; the user may decline it and the plugin still installs |
 | `requires` | string[] | — | other `id`s (from this same list) that must be installed **first**; each referenced id must exist and be **listed earlier** in the array |
 | `license` | string | ✓ | the dependency's license (e.g. `"BSD-3-Clause"`) — shown to the user before install |
@@ -220,12 +220,26 @@ whatever passes registry validation without knowing what any particular dependen
 
 Each `files` entry is `{ "to": "<relative path>", "from"?: "<entry path or prefix>" }`:
 
-- **`to`** is always required — a **relative** path (no leading `/`, no drive letter, no `..`
-  segment, no `\`) under either the plugin's own folder or the game root (per `target`).
-  **`target: "game"` destinations may never land inside a path the loaders themselves scan** —
-  `BepInEx/`, `stellar/plugins`, or `stellar/deps` (case-insensitive) are refused, so a dependency
-  can never masquerade as (or collide with) a scanned plugin. Two plugins may also never both
-  claim the same `target: "game"` destination — whichever PR adds the clash fails CI.
+- **`to`** is always required — a path under either `stellar/deps/<pluginId>/` or the game root
+  (per `target`), matching the launcher's own `DependencyPaths.Resolve` rules exactly:
+  - **relative only** — no leading `/` (not rooted), and no `\` anywhere;
+  - **no `:` anywhere** — not just a drive letter (`C:/x`); this also refuses an NTFS
+    alternate-data-stream suffix like `dxgi.dll:ads`;
+  - **no empty, `.`, or `..` path segment** — `a//b`, `./a`, `a/./b` and `a/../b` are all refused,
+    not just a literal `..`;
+  - **no trailing `/`**, with ONE exception: a `kind: "zip"` entry whose `from` is a directory
+    prefix (itself ending in `/`) may have a `to` that also ends in `/`, naming the destination
+    folder the whole subtree is extracted into (see the `from`/`to` pair below). For `kind: "file"`
+    — or a `kind: "zip"` entry whose `from` names one archive entry rather than a prefix — `to` is
+    the literal destination and a trailing `/` is refused.
+  - **`target: "game"` destinations may never land inside a path the loaders themselves scan** —
+    `BepInEx/`, `stellar/plugins`, or `stellar/deps` (case-insensitive) are refused, so a dependency
+    can never masquerade as (or collide with) a scanned plugin.
+
+  Two dependencies of the **same plugin** may also never claim the same `(target, to)` destination
+  (case-insensitive) — whichever comes second in the array fails validation. Two **different**
+  plugins may also never both claim the same `target: "game"` destination — whichever PR adds the
+  clash fails CI.
 - **`from`** is required only for `kind: "zip"`: either one entry's path inside the archive, or a
   prefix ending in `/` to extract a whole subtree. Unused (and ignored) for `kind: "file"`.
 

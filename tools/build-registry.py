@@ -45,6 +45,7 @@ import re
 import subprocess
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -120,6 +121,8 @@ MAX_DEPENDENCY_BYTES = 512 << 20
 # Launcher's DependencyPaths.IsValidPluginId (src/StellarLauncher.Core/Dependencies/DependencyPaths.cs:55-57):
 # non-empty, not "." or "..", every char in [A-Za-z0-9._-].
 _PLUGIN_ID_CHARS = re.compile(r"^[A-Za-z0-9._-]+$")
+# Pure display/identity strings (no other format check already rejects whitespace-only below).
+_STRIP_REQUIRED_DEP_FIELDS = ("id", "name", "version", "license", "licenseUrl", "sourceUrl")
 
 
 def _bad_rel_path(p: str, *, allow_trailing_slash: bool = False) -> bool:
@@ -153,16 +156,24 @@ def _normalize_rel_path(p: str) -> str:
     return "/".join(p.split("/"))
 
 
+def _valid_id_charset(s) -> bool:
+    """Non-empty, not "." or "..", every char in [A-Za-z0-9._-] — the launcher's
+    DependencyPaths.IsValidPluginId charset. Shared by a plugin's own `id` (`is_valid_plugin_id`,
+    below) and a dependency's own `id` (`validate_dependencies`): both become path segments
+    (`stellar/deps/<pluginId>/...` and the dependency ledger's own entries)."""
+    return isinstance(s, str) and bool(s) and s not in (".", "..") and bool(_PLUGIN_ID_CHARS.match(s))
+
+
 def is_valid_plugin_id(pid) -> bool:
     """The launcher's plugin-id charset (DependencyPaths.IsValidPluginId) — applied to a plugin's own
     `id` when IT declares `dependencies`, since that id becomes a path segment
     (`stellar/deps/<pluginId>/...`)."""
-    return isinstance(pid, str) and bool(pid) and pid not in (".", "..") and bool(_PLUGIN_ID_CHARS.match(pid))
+    return _valid_id_charset(pid)
 
 
 def validate_dependencies(deps, where):
-    """Errors for one plugin version's `dependencies` (empty list = valid). Generic: the launcher installs
-    whatever passes here before the game starts (devkit spec 2026-10-03-photo-studio-reshade-design.md § 3).
+    """Errors for one plugin version's `dependencies` (empty list = valid). Generic: the launcher
+    installs whatever passes here before the game starts, without knowing what any dependency is for.
 
     Field types are enforced strictly (C1) because the launcher parses the WHOLE registry with one
     `GetFromJsonAsync` — a single malformed field throws a `JsonException` and empties the entire
@@ -185,18 +196,34 @@ def validate_dependencies(deps, where):
             errs.append(f"{at} must be an object"); continue
         for k in ("id", "name", "version", "url", "sha256", "kind", "target", "license",
                   "licenseUrl", "sourceUrl"):
-            if not isinstance(d.get(k), str) or not d.get(k):
+            v = d.get(k)
+            if not isinstance(v, str) or not v:
+                errs.append(f"{at}.{k} is required")
+            # A handful of fields are pure display/identity strings with no other format check below
+            # (url/sha256/kind/target are already caught by their own dedicated checks even when
+            # whitespace-only) — those six must be non-empty after stripping, so "  " can't pass as
+            # a "value" the way plain truthiness would let it.
+            elif k in _STRIP_REQUIRED_DEP_FIELDS and not v.strip():
                 errs.append(f"{at}.{k} is required")
         # "in d" (not "d.get(...) is not None"): a JSON `null` is indistinguishable from "absent" via
         # .get(), but `"optional": null` / `"moddedOnly": "true"` must still be flagged — the key IS
         # present, just with the wrong type.
         if "notice" in d and not isinstance(d.get("notice"), str):
             errs.append(f"{at}.notice must be a string")
-        if d.get("id") in ids:
-            errs.append(f"{at}.id '{d.get('id')}' is duplicated")
-        ids.add(d.get("id"))
-        if not str(d.get("url", "")).startswith("https://"):
-            errs.append(f"{at}.url must be https")
+        dep_id = d.get("id")
+        if isinstance(dep_id, str) and dep_id and not _valid_id_charset(dep_id):
+            errs.append(f"{at}.id must match the launcher's id charset [A-Za-z0-9._-]+ "
+                        "(no '/', no '..', no whitespace)")
+        if dep_id in ids:
+            errs.append(f"{at}.id '{dep_id}' is duplicated")
+        ids.add(dep_id)
+        url = d.get("url")
+        if isinstance(url, str) and url:
+            if any(ch.isspace() for ch in url):
+                errs.append(f"{at}.url must not contain whitespace")
+            parsed = urllib.parse.urlparse(url)
+            if parsed.scheme != "https" or not parsed.netloc:
+                errs.append(f"{at}.url must be https")
         if not _SHA256.match(str(d.get("sha256", ""))):
             errs.append(f"{at}.sha256 must be 64 hex characters")
         size = d.get("size")

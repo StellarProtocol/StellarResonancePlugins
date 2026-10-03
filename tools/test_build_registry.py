@@ -131,5 +131,20 @@ class ValidateDependencies(unittest.TestCase):
         self.assertTrue(br.validate_dependencies([dep(size=br.MAX_DEPENDENCY_BYTES + 1)], "p"))
         self.assertTrue(br.validate_dependencies([dep(size=0)], "p"))
 
+    # --- Follow-up mismatches vs. the launcher, second pass --------------------------------------
+
+    def test_dependency_id_charset_matches_launcher(self):
+        for bad in ["my fx", "a/b", ".."]:
+            self.assertTrue(br.validate_dependencies([dep(id=bad)], "p"), bad)
+
+    def test_url_parsed_strictly_https_with_host(self):
+        self.assertTrue(br.validate_dependencies([dep(url="https://")], "p"))
+
+    def test_url_rejects_embedded_whitespace(self):
+        self.assertTrue(br.validate_dependencies([dep(url="https://a b/c")], "p"))
+
+    def test_required_strings_non_empty_after_strip(self):
+        self.assertTrue(br.validate_dependencies([dep(license="  ")], "p"))
+
 if __name__ == "__main__":
     unittest.main()
