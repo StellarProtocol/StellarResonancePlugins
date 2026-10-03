@@ -26,6 +26,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      # I7: unit-test the dependency validator itself (field types, launcher-matching path rules,
+      # duplicate-destination checks, ...) before building anything — a fast, no-network gate run as
+      # its own step so its exit code fails the job directly (never piped through grep/filters).
+      - name: Test build-registry.py
+        run: python tools/test_build_registry.py
+
       # Build every registry build-target from its PINNED public repo and stage its DLL. A target is
       # one (plugin, channel) version — a plugin with a manifest.testing.json contributes TWO targets
       # (its stable + its testing build, distinct commits), so both channels are built. The registry

@@ -194,8 +194,8 @@ is just another PR, no release needed.
 
 A plugin build can declare things the **launcher** must download, verify, and place before the
 game starts — a native DLL the plugin needs beside it, or a shared asset the **game itself** needs
-(e.g. a ReShade-style injector). The launcher is **generic**: it installs whatever passes
-registry validation without knowing what any particular dependency is for.
+(e.g. an external runtime the game loads directly). The launcher is **generic**: it installs
+whatever passes registry validation without knowing what any particular dependency is for.
 
 `dependencies` is an array; each entry is an object:
 
@@ -209,13 +209,13 @@ registry validation without knowing what any particular dependency is for.
 | `size` | integer | ✓ | expected byte size, `1`..512 MiB |
 | `kind` | `"file"` \| `"zip"` | ✓ | `"file"` installs a single file; `"zip"` extracts entries out of a downloaded archive |
 | `files` | array | ✓ | destination(s) — see below; `kind: "file"` takes **exactly one** entry |
-| `target` | `"plugin"` \| `"game"` | ✓ | `"plugin"` installs relative to this plugin's own folder; `"game"` installs relative to the game install root |
-| `moddedOnly` | boolean | — | default `false`; **requires `target: "game"`** — only install while Stellar itself is installed (never touch a vanilla client) |
+| `target` | `"plugin"` \| `"game"` | ✓ | `"game"` installs relative to the game install root; `"plugin"` installs under `game_mini/stellar/deps/<pluginId>/<to>` — **not** the plugin's own install folder |
+| `moddedOnly` | boolean | — | default `false`; **requires `target: "game"`** — installed while Stellar is present, then **parked** (moved aside) for a Vanilla launch and **restored** when the player launches Modded again (never left in place for a vanilla client) |
 | `optional` | boolean | — | default `false`; the user may decline it and the plugin still installs |
 | `requires` | string[] | — | other `id`s (from this same list) that must be installed **first**; each referenced id must exist and be **listed earlier** in the array |
 | `license` | string | ✓ | the dependency's license (e.g. `"BSD-3-Clause"`) — shown to the user before install |
-| `licenseUrl` | string | — | link to the full license text |
-| `sourceUrl` | string | — | link to the dependency's own source/homepage |
+| `licenseUrl` | string | ✓ | link to the full license text |
+| `sourceUrl` | string | ✓ | link to the dependency's own source/homepage |
 | `notice` | string | — | short free-text notice shown alongside the license (e.g. attribution) |
 
 Each `files` entry is `{ "to": "<relative path>", "from"?: "<entry path or prefix>" }`:
@@ -229,20 +229,20 @@ Each `files` entry is `{ "to": "<relative path>", "from"?: "<entry path or prefi
 - **`from`** is required only for `kind: "zip"`: either one entry's path inside the archive, or a
   prefix ending in `/` to extract a whole subtree. Unused (and ignored) for `kind: "file"`.
 
-Example — ReShade's `dxgi.dll`, installed into the game root only while Stellar is present, which
+Example — an example runtime DLL, installed into the game root only while Stellar is present, which
 the user may decline:
 
 ```json
 "dependencies": [
   {
-    "id": "reshade", "name": "ReShade", "version": "6.8.0",
-    "url": "https://cdn.revette.io/deps/reshade-6.8.0.dll",
-    "sha256": "9f6c2a1e4b7d305c8a1f9e2b6d4c7a0f3e5b8d1c2a4f6e8b0d2c4a6e8f0b2d4a",
+    "id": "examplert", "name": "Example Runtime", "version": "1.2.3",
+    "url": "https://example.com/deps/examplert-1.2.3.dll",
+    "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
     "size": 4312576, "kind": "file", "target": "game",
     "moddedOnly": true, "optional": true,
-    "files": [ { "to": "dxgi.dll" } ],
-    "license": "BSD-3-Clause", "licenseUrl": "https://reshade.me/license",
-    "sourceUrl": "https://reshade.me"
+    "files": [ { "to": "examplert.dll" } ],
+    "license": "BSD-3-Clause", "licenseUrl": "https://example.com/license",
+    "sourceUrl": "https://example.com"
   }
 ]
 ```
