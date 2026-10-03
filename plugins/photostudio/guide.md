@@ -23,6 +23,20 @@ All hotkeys can be changed in **Stellar Settings → Hotkeys**.
 - **Lights** — lamps, and a key light and rim for one person.
 - **Presets** — load, save, rename and share your looks.
 
+## Hiding yourself and effects
+
+In the **Capture** tab's **Hide** group:
+
+- **Me** hides your character, your pet and your Battle Imagine — on your screen only. You can still move and fight, and
+  other players still see you.
+- **Effects** hides skill, buff and hit effects by who caused them: **Mine** (yours, your pet's and your Battle Imagine's),
+  **Party**, **Other players** and **Monsters** (including boss warning areas). Scenery like waterfalls and lamps is never
+  hidden. A few effects the game doesn't link to anyone always stay visible.
+
+These apply while the panel is open and in every photo. In the **Camera** tab, **Hide me on entry** and **Hide effects on
+entry** do the same as soon as the free camera turns on (the effects follow your Capture-tab switches). Switching off — or
+closing the panel — brings everything back.
+
 ## Free camera
 
 Press **Alt+F10** (or the **Free camera** button) to take control of the camera.
