@@ -37,6 +37,22 @@ These apply while the panel is open and in every photo. In the **Camera** tab, *
 entry** do the same as soon as the free camera turns on (the effects follow your Capture-tab switches). Switching off — or
 closing the panel — brings everything back.
 
+## ReShade
+
+Photo Studio can use **ReShade** effects — on your screen and in your photos.
+
+1. In the Stellar launcher, open Photo Studio's page and keep **ReShade** ticked under **Dependencies** (on Linux /
+   Proton, also keep the **Microsoft shader compiler** ticked). The launcher downloads and checks them before the game
+   starts.
+2. Launch the game **Modded**. ReShade is only used in Modded launches; **Vanilla** launches stay ReShade-free.
+3. Open the **Look** tab → **ReShade** group: turn **Use ReShade** on, pick a **Preset** (or **None** for no effects) and
+   switch effects on or off.
+4. Under **Presets**, add ready-made looks with one click, and under **Shader packs** download the effect packs they use.
+   Downloaded presets appear in the Preset list right away.
+
+Fine-tune each effect in ReShade's own menu (**Home** by default). Portrait, square and wide photos leave out effects
+that need depth; Photo Studio tells you when that happens.
+
 ## Free camera
 
 Press **Alt+F10** (or the **Free camera** button) to take control of the camera.
