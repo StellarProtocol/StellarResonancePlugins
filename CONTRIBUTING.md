@@ -217,6 +217,7 @@ whatever passes registry validation without knowing what any particular dependen
 | `licenseUrl` | string | ✓ | link to the full license text |
 | `sourceUrl` | string | ✓ | link to the dependency's own source/homepage |
 | `notice` | string | — | short free-text notice shown alongside the license (e.g. attribution) |
+| `description` | string | — | one or two sentences saying what the dependency adds; the launcher shows it in its install step |
 
 Each `files` entry is `{ "to": "<relative path>", "from"?: "<entry path or prefix>" }`:
 

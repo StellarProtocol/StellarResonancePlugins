@@ -182,7 +182,7 @@ def validate_dependencies(deps, where):
     silently accepted as `size=1`. `moddedOnly`/`optional` must be real booleans, `requires` must be a
     list of strings (not silently iterated per-character when someone writes a bare string), and
     `licenseUrl`/`sourceUrl` are now REQUIRED strings (launcher manifest-standard.md §3: license,
-    licenseUrl and sourceUrl are all mandatory) with `notice` optional-but-typed."""
+    licenseUrl and sourceUrl are all mandatory) with `notice`/`description` optional-but-typed."""
     errs, ids = [], set()
     if not isinstance(deps, list):
         return [f"{where}: dependencies must be a list"]
@@ -210,6 +210,8 @@ def validate_dependencies(deps, where):
         # present, just with the wrong type.
         if "notice" in d and not isinstance(d.get("notice"), str):
             errs.append(f"{at}.notice must be a string")
+        if "description" in d and not isinstance(d.get("description"), str):
+            errs.append(f"{at}.description must be a string")
         dep_id = d.get("id")
         if isinstance(dep_id, str) and dep_id and not _valid_id_charset(dep_id):
             errs.append(f"{at}.id must match the launcher's id charset [A-Za-z0-9._-]+ "

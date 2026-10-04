@@ -68,6 +68,11 @@ class ValidateDependencies(unittest.TestCase):
     def test_c1_notice_must_be_string_when_present(self):
         self.assertTrue(br.validate_dependencies([dep(notice=123)], "p"))
 
+    def test_description_must_be_string_when_present(self):
+        self.assertTrue(br.validate_dependencies([dep(description=123)], "p"))
+        self.assertTrue(br.validate_dependencies([dep(description=None)], "p"))
+        self.assertEqual(br.validate_dependencies([dep(description="Adds effects.")], "p"), [])
+
     def test_c1_files_from_must_be_string_when_present(self):
         self.assertTrue(br.validate_dependencies([dep(files=[{"to": "a", "from": 123}])], "p"))
 
