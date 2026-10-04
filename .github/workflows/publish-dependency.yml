@@ -1,0 +1,117 @@
+name: publish-dependency
+# Publishes ONE third-party file a plugin manifest may declare under `dependencies` to the CDN at
+# deps/<name>/<version>/, so the launcher can download it pinned + checksummed. Manual only, behind the
+# Production environment (required reviewers). Published versions are immutable: an existing key is never
+# overwritten.
+#
+#   reshade               — the official "ReShade with full add-on support" installer from reshade.me; its
+#                           sha256 must equal the `sha256` input; ReShade64.dll is extracted and published
+#                           with ReShade's own licence.
+#   stellar-reshade-bridge — the add-on attached to the GitHub release v<version> of
+#                           StellarProtocol/StellarReShadeBridge (built by that repo's CI); its sha256 must
+#                           equal the `sha256` input; published with the repo's LICENSE.
+#
+# The job summary prints the sha256 + size of every published file — the values a manifest pins.
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Dependency to publish"
+        required: true
+        type: choice
+        options: [reshade, stellar-reshade-bridge]
+      version:
+        description: "Version, e.g. 6.8.0 (ReShade) or 1.0.0 (bridge)"
+        required: true
+      sha256:
+        description: "Expected sha256 of the downloaded input (installer / release asset)"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: Production
+    env:
+      # Cloudflare R2: writes go to s3://$BUCKET via $S3_ENDPOINT; public reads come from the custom domain.
+      S3_ENDPOINT: https://757f61fd2bda67f9a3bc7c3b9b8d62e1.r2.cloudflarestorage.com
+      BUCKET: cdn
+    steps:
+      - name: Validate inputs
+        env:
+          NAME: ${{ inputs.name }}
+          VERSION: ${{ inputs.version }}
+          SHA256: ${{ inputs.sha256 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::version '$VERSION' must look like X.Y.Z"; exit 1; }
+          [[ "$SHA256" =~ ^[0-9a-fA-F]{64}$ ]] || { echo "::error::sha256 must be 64 hex characters"; exit 1; }
+          case "$NAME" in reshade|stellar-reshade-bridge) ;; *) echo "::error::unknown dependency '$NAME'"; exit 1 ;; esac
+
+      - name: Fetch + verify
+        env:
+          NAME: ${{ inputs.name }}
+          VERSION: ${{ inputs.version }}
+          SHA256: ${{ inputs.sha256 }}
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          verify() {
+            local actual expected
+            actual=$(sha256sum "$1" | cut -d' ' -f1)
+            expected=$(printf '%s' "$SHA256" | tr '[:upper:]' '[:lower:]')
+            [ "$actual" = "$expected" ] || { echo "::error::sha256 mismatch for $1: expected $expected, got $actual"; exit 1; }
+            echo "verified $1: $actual"
+          }
+          if [ "$NAME" = reshade ]; then
+            curl -fsSL -o installer.exe "https://reshade.me/downloads/ReShade_Setup_${VERSION}_Addon.exe"
+            verify installer.exe
+            7z e -y installer.exe ReShade64.dll >/dev/null
+            test -f ReShade64.dll
+            mv ReShade64.dll out/ReShade64.dll
+            curl -fsSL -o out/LICENSE.txt "https://raw.githubusercontent.com/crosire/reshade/v${VERSION}/LICENSE.md"
+          else
+            gh release download "v${VERSION}" --repo StellarProtocol/StellarReShadeBridge \
+              --pattern 'Stellar.ReShadeBridge.addon64' --dir out
+            verify out/Stellar.ReShadeBridge.addon64
+            gh release download "v${VERSION}" --repo StellarProtocol/StellarReShadeBridge --pattern 'LICENSE' --dir out
+          fi
+          ls -la out
+
+      - name: Publish (immutable)
+        env:
+          NAME: ${{ inputs.name }}
+          VERSION: ${{ inputs.version }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+          AWS_DEFAULT_REGION: auto
+          # R2 rejects AWS CLI v2 default multipart checksums — opt out.
+          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+        shell: bash
+        run: |
+          set -euo pipefail
+          KEY="deps/$NAME/$VERSION"
+          for f in out/*; do
+            if aws s3api head-object --bucket "$BUCKET" --key "$KEY/$(basename "$f")" --endpoint-url "$S3_ENDPOINT" >/dev/null 2>&1; then
+              echo "::error::$KEY/$(basename "$f") already exists — published versions are immutable; bump the version instead"
+              exit 1
+            fi
+          done
+          for f in out/*; do
+            aws s3 cp "$f" "s3://$BUCKET/$KEY/$(basename "$f")" --endpoint-url "$S3_ENDPOINT"
+          done
+          {
+            echo "### deps/$NAME/$VERSION"
+            echo ""
+            echo "| file | sha256 | size (bytes) |"
+            echo "| --- | --- | --- |"
+            for f in out/*; do
+              echo "| $(basename "$f") | \`$(sha256sum "$f" | cut -d' ' -f1)\` | $(stat -c%s "$f") |"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
