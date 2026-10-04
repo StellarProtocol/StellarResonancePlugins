@@ -41,9 +41,11 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -65,7 +67,7 @@ SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "pr
 # Fields a manifest.testing.json may carry — everything version-specific. A testing override
 # may ONLY set these; shared fields come from manifest.json so they can't drift between files.
 OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
-               "maxModSystemVersion", "capPriorVersionsAt", "changelog")
+               "maxModSystemVersion", "capPriorVersionsAt", "changelog", "dependencies")
 
 
 def sha256(path: Path) -> str:
@@ -111,6 +113,193 @@ def is_http_url(u) -> bool:
 
 def safe_rel_path(p) -> bool:
     return isinstance(p, str) and bool(p) and not p.startswith("/") and ".." not in p and "\\" not in p
+
+
+_SHA256 = re.compile(r"^[0-9a-fA-F]{64}$")
+_FORBIDDEN_GAME_PREFIXES = ("bepinex/", "stellar/plugins", "stellar/deps")
+MAX_DEPENDENCY_BYTES = 512 << 20
+# Launcher's DependencyPaths.IsValidPluginId (src/StellarLauncher.Core/Dependencies/DependencyPaths.cs:55-57):
+# non-empty, not "." or "..", every char in [A-Za-z0-9._-].
+_PLUGIN_ID_CHARS = re.compile(r"^[A-Za-z0-9._-]+$")
+# Pure display/identity strings (no other format check already rejects whitespace-only below).
+_STRIP_REQUIRED_DEP_FIELDS = ("id", "name", "version", "license", "licenseUrl", "sourceUrl")
+
+
+def _bad_rel_path(p: str, *, allow_trailing_slash: bool = False) -> bool:
+    """Mirrors the launcher's DependencyPaths.Resolve exactly (DependencyPaths.cs:15-17):
+    reject None/empty, any backslash, a leading '/', ANY colon (not just a drive letter — this also
+    catches an NTFS alternate-data-stream suffix like "dxgi.dll:ads"), and any '.'/'..'/empty
+    PATH SEGMENT (not just '..') — so "./x", "a/./b" and "a//b" are rejected exactly like the launcher
+    rejects them, instead of only the ".." case the registry used to check.
+
+    `allow_trailing_slash` is a REGISTRY-only widening for a `kind: "zip"` directory-prefix
+    destination (`to` ending in '/', paired with a `from` prefix ending in '/', e.g.
+    `{"from": "Shaders/", "to": "fx/Shaders/"}`) — the launcher never calls Resolve with that raw
+    `to`; it first appends the zip entry's own name (DependencyService.Zip.cs:81) and validates
+    THAT concatenated result. For `kind: "file"` (or a `from` that is a single entry, not a prefix)
+    `to` IS the literal destination Resolve sees, so a trailing '/' there must stay rejected."""
+    if not isinstance(p, str) or not p or "\\" in p or p.startswith("/") or ":" in p:
+        return True
+    segments = p.split("/")
+    if allow_trailing_slash and segments and segments[-1] == "":
+        segments = segments[:-1]
+        if not segments:
+            return True
+    return any(part in ("", ".", "..") for part in segments)
+
+
+def _normalize_rel_path(p: str) -> str:
+    """Join Split('/') segments back together — mirrors DependencyPaths.cs:16,18. A no-op once
+    `_bad_rel_path` has rejected dot/empty segments, but it anchors every path-comparison site (the
+    scan-path ban below, and `game_claims`' cross-plugin uniqueness check) to the same normalised
+    form the launcher derives, rather than each site re-deriving it ad hoc (I1)."""
+    return "/".join(p.split("/"))
+
+
+def _valid_id_charset(s) -> bool:
+    """Non-empty, not "." or "..", every char in [A-Za-z0-9._-] — the launcher's
+    DependencyPaths.IsValidPluginId charset. Shared by a plugin's own `id` (`is_valid_plugin_id`,
+    below) and a dependency's own `id` (`validate_dependencies`): both become path segments
+    (`stellar/deps/<pluginId>/...` and the dependency ledger's own entries)."""
+    return isinstance(s, str) and bool(s) and s not in (".", "..") and bool(_PLUGIN_ID_CHARS.match(s))
+
+
+def is_valid_plugin_id(pid) -> bool:
+    """The launcher's plugin-id charset (DependencyPaths.IsValidPluginId) — applied to a plugin's own
+    `id` when IT declares `dependencies`, since that id becomes a path segment
+    (`stellar/deps/<pluginId>/...`)."""
+    return _valid_id_charset(pid)
+
+
+def validate_dependencies(deps, where):
+    """Errors for one plugin version's `dependencies` (empty list = valid). Generic: the launcher
+    installs whatever passes here before the game starts, without knowing what any dependency is for.
+
+    Field types are enforced strictly (C1) because the launcher parses the WHOLE registry with one
+    `GetFromJsonAsync` — a single malformed field throws a `JsonException` and empties the entire
+    curated catalog, not just the offending plugin. In particular `type(size) is int` (not
+    `isinstance`): `isinstance(True, int)` is `True` in Python, so `"size": true` would otherwise be
+    silently accepted as `size=1`. `moddedOnly`/`optional` must be real booleans, `requires` must be a
+    list of strings (not silently iterated per-character when someone writes a bare string), and
+    `licenseUrl`/`sourceUrl` are now REQUIRED strings (launcher manifest-standard.md §3: license,
+    licenseUrl and sourceUrl are all mandatory) with `notice`/`description` optional-but-typed."""
+    errs, ids = [], set()
+    if not isinstance(deps, list):
+        return [f"{where}: dependencies must be a list"]
+    # (target, normalised-to.lower()) -> owning dependency id — duplicate-destination check across
+    # EVERY dependency of this one plugin (M-c): two deps silently writing to the same place is a
+    # bug the launcher would otherwise resolve arbitrarily (last-installed wins).
+    dest_seen: dict[tuple[str, str], str] = {}
+    for i, d in enumerate(deps):
+        at = f"{where}: dependencies[{i}]"
+        if not isinstance(d, dict):
+            errs.append(f"{at} must be an object"); continue
+        for k in ("id", "name", "version", "url", "sha256", "kind", "target", "license",
+                  "licenseUrl", "sourceUrl"):
+            v = d.get(k)
+            if not isinstance(v, str) or not v:
+                errs.append(f"{at}.{k} is required")
+            # A handful of fields are pure display/identity strings with no other format check below
+            # (url/sha256/kind/target are already caught by their own dedicated checks even when
+            # whitespace-only) — those six must be non-empty after stripping, so "  " can't pass as
+            # a "value" the way plain truthiness would let it.
+            elif k in _STRIP_REQUIRED_DEP_FIELDS and not v.strip():
+                errs.append(f"{at}.{k} is required")
+        # "in d" (not "d.get(...) is not None"): a JSON `null` is indistinguishable from "absent" via
+        # .get(), but `"optional": null` / `"moddedOnly": "true"` must still be flagged — the key IS
+        # present, just with the wrong type.
+        if "notice" in d and not isinstance(d.get("notice"), str):
+            errs.append(f"{at}.notice must be a string")
+        if "description" in d and not isinstance(d.get("description"), str):
+            errs.append(f"{at}.description must be a string")
+        dep_id = d.get("id")
+        if isinstance(dep_id, str) and dep_id and not _valid_id_charset(dep_id):
+            errs.append(f"{at}.id must match the launcher's id charset [A-Za-z0-9._-]+ "
+                        "(no '/', no '..', no whitespace)")
+        if dep_id in ids:
+            errs.append(f"{at}.id '{dep_id}' is duplicated")
+        ids.add(dep_id)
+        url = d.get("url")
+        if isinstance(url, str) and url:
+            if any(ch.isspace() for ch in url):
+                errs.append(f"{at}.url must not contain whitespace")
+            parsed = urllib.parse.urlparse(url)
+            if parsed.scheme != "https" or not parsed.netloc:
+                errs.append(f"{at}.url must be https")
+        if not _SHA256.match(str(d.get("sha256", ""))):
+            errs.append(f"{at}.sha256 must be 64 hex characters")
+        size = d.get("size")
+        # type(size) is int, NOT isinstance(size, int): bool is a subclass of int in Python, so
+        # isinstance(True, int) is True and "size": true would sail through as size=1.
+        if type(size) is not int or size <= 0 or size > MAX_DEPENDENCY_BYTES:
+            errs.append(f"{at}.size must be an int, 1..{MAX_DEPENDENCY_BYTES} bytes")
+        kind, target, files = d.get("kind"), d.get("target"), d.get("files")
+        if kind not in ("file", "zip"):
+            errs.append(f"{at}.kind must be file or zip")
+        if target not in ("plugin", "game"):
+            errs.append(f"{at}.target must be plugin or game")
+        modded_only = d.get("moddedOnly")
+        if "moddedOnly" in d and not isinstance(modded_only, bool):
+            errs.append(f"{at}.moddedOnly must be a boolean")
+        if modded_only and target != "game":
+            errs.append(f"{at}.moddedOnly needs target game")
+        if "optional" in d and not isinstance(d.get("optional"), bool):
+            errs.append(f"{at}.optional must be a boolean")
+        requires = d.get("requires")
+        if "requires" in d and (not isinstance(requires, list) or not all(isinstance(r, str) for r in requires)):
+            errs.append(f"{at}.requires must be a list of strings")
+        if not isinstance(files, list) or not files:
+            errs.append(f"{at}.files must be a non-empty list"); continue
+        if kind == "file" and len(files) != 1:
+            errs.append(f"{at}: kind file needs exactly one files entry")
+        for j, f in enumerate(files):
+            to = f.get("to") if isinstance(f, dict) else None
+            from_val = f.get("from") if isinstance(f, dict) else None
+            if isinstance(f, dict) and "from" in f and not isinstance(from_val, str):
+                errs.append(f"{at}.files[{j}].from must be a string")
+                from_val = None
+            dir_prefix = kind == "zip" and isinstance(from_val, str) and from_val.endswith("/")
+            if _bad_rel_path(to, allow_trailing_slash=dir_prefix):
+                errs.append(f"{at}.files[{j}].to must be a relative path without ..")
+            else:
+                # I1: the scan-path ban runs on the NORMALISED path (mirrors DependencyPaths.cs:18),
+                # case-insensitively, same as the launcher's StringComparison.OrdinalIgnoreCase.
+                normalized = _normalize_rel_path(to)
+                if target == "game" and normalized.lower().startswith(_FORBIDDEN_GAME_PREFIXES):
+                    errs.append(f"{at}.files[{j}].to '{to}' is inside a scan path (BepInEx/, stellar/plugins, stellar/deps)")
+                dest_key = (target, normalized.lower())
+                if dest_key in dest_seen:
+                    errs.append(f"{at}.files[{j}].to '{to}' duplicates a target {target!r} destination "
+                                f"already used by dependency '{dest_seen[dest_key]}'")
+                else:
+                    dest_seen[dest_key] = d.get("id")
+            if kind == "zip" and _bad_rel_path(from_val, allow_trailing_slash=True):
+                errs.append(f"{at}.files[{j}].from is required for zip and must be relative")
+    seen = set()
+    for i, d in enumerate(deps):
+        if not isinstance(d, dict):
+            continue
+        requires = d.get("requires")
+        if isinstance(requires, list):
+            for r in requires:
+                if not isinstance(r, str):
+                    continue  # type error already recorded above
+                if r not in ids:
+                    errs.append(f"{where}: dependencies[{i}].requires '{r}' is not a dependency of this plugin")
+                elif r not in seen:
+                    errs.append(f"{where}: dependencies[{i}].requires '{r}' must be listed before it (the launcher installs in order)")
+        seen.add(d.get("id"))
+    return errs
+
+
+def game_claims(deps):
+    """Normalised (I1) game-target destinations, for the cross-plugin uniqueness check."""
+    out = []
+    for d in deps or []:
+        if isinstance(d, dict) and d.get("target") == "game":
+            out += [_normalize_rel_path(f["to"]).lower() for f in d.get("files") or []
+                    if isinstance(f, dict) and isinstance(f.get("to"), str)]
+    return out
 
 
 def resolve_docs(plugin_dir: Path, m: dict, where: str) -> tuple[dict, list[tuple[Path, str]]]:
@@ -275,6 +464,10 @@ def plugin_dirs() -> list[Path]:
 def collect() -> list[dict]:
     """One record per (plugin, channel-version): its registry version entry + the DLL to upload."""
     plugins = []
+    # game-target destination path (normalised, from game_claims) -> plugin id that claimed it,
+    # tracked across EVERY plugin in this run so two unrelated plugins can't silently clobber the
+    # same game-install path.
+    claimed: dict[str, str] = {}
     for plugin_dir in plugin_dirs():
         for channel, m in load_records(plugin_dir):
             where = f"{plugin_dir.name}[{channel}]"
@@ -285,6 +478,20 @@ def collect() -> list[dict]:
                 sys.exit(f"{where}: unsafe id/dll")
             if m.get("repository") and not m.get("commit"):
                 sys.exit(f"{where}: repository pinned but no commit (commit is authoritative)")
+
+            deps = m.get("dependencies")
+            if deps is not None:
+                if not is_valid_plugin_id(m["id"]):
+                    sys.exit(f"{where}: id {m['id']!r} must match the launcher's plugin-id charset "
+                             "[A-Za-z0-9._-] to declare dependencies (it becomes a path segment "
+                             "under stellar/deps/<id>/)")
+                dep_errs = validate_dependencies(deps, f"{m['id']} {m['version']}")
+                if dep_errs:
+                    sys.exit("\n".join(dep_errs))
+                for path in game_claims(deps):
+                    if path in claimed and claimed[path] != m["id"]:
+                        sys.exit(f"{where}: dependencies claim '{path}' already claimed by {claimed[path]}")
+                    claimed[path] = m["id"]
 
             staged = plugin_dir / staged_name(m["dll"], m["version"])
             if not staged.is_file():
@@ -303,6 +510,8 @@ def collect() -> list[dict]:
             }
             if m.get("changelog"):
                 version_entry["changelog"] = m["changelog"]
+            if deps is not None:
+                version_entry["dependencies"] = deps
             # Provenance: when a plugin builds from its own pinned public repo (DIP17 model),
             # record where the binary came from so the registry is auditable. commit is
             # authoritative; tag (if any) is display-only.

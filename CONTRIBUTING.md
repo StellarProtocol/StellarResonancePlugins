@@ -163,6 +163,7 @@ abandoned, just delete `manifest.testing.json`.
 | `media` | array | — | detail-page gallery — see below |
 | `guide` | string (path) | — | repo-relative markdown usage guide (conventionally `guide.md`, ≤ 1 MB); CI publishes it to `plugins/<id>/guide.md` |
 | `icon` | string (path or URL) | — | badge image shown on the launcher's plugin list and detail header; repo-relative file (published to `plugins/<id>/icon.<ext>`) or absolute http(s) URL. Without it the launcher uses the first `media` image, else a monogram tile. |
+| `dependencies` | array | — | things the launcher installs alongside this build (DLLs the plugin needs, a shared asset the game itself needs, …) — see below |
 
 ¹ Required by the **curated** registry (CI refuses a manifest without a pinned public repo).
 ² Required whenever `repository` is set.
@@ -189,6 +190,78 @@ own URL, so you never write your plugin id or any CDN base, and the same guide r
 correctly on GitHub. Guides and media live at stable, non-versioned CDN keys — fixing a typo
 is just another PR, no release needed.
 
+#### Plugin dependencies (`dependencies`)
+
+A plugin build can declare things the **launcher** must download, verify, and place before the
+game starts — a native DLL the plugin needs beside it, or a shared asset the **game itself** needs
+(e.g. an external runtime the game loads directly). The launcher is **generic**: it installs
+whatever passes registry validation without knowing what any particular dependency is for.
+
+`dependencies` is an array; each entry is an object:
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `id` | string | ✓ | unique **within this plugin's** dependency list; must match `[A-Za-z0-9._-]+` (letters, digits, `.`, `_`, `-` only — no `/`, no whitespace, and not bare `.` or `..`), the same charset the launcher's `DependencyPaths.IsValidPluginId` enforces on a plugin's own id |
+| `name` | string | ✓ | display name shown to the user during install |
+| `version` | string | ✓ | this dependency's own version (not the plugin's) |
+| `url` | string | ✓ | **https-only** download URL |
+| `sha256` | string | ✓ | 64 hex characters — verified after download, before install |
+| `size` | integer | ✓ | expected byte size, `1`..512 MiB |
+| `kind` | `"file"` \| `"zip"` | ✓ | `"file"` installs a single file; `"zip"` extracts entries out of a downloaded archive |
+| `files` | array | ✓ | destination(s) — see below; `kind: "file"` takes **exactly one** entry |
+| `target` | `"plugin"` \| `"game"` | ✓ | `"game"` installs relative to the game install root; `"plugin"` installs under `game_mini/stellar/deps/<pluginId>/<to>` — **not** the plugin's own install folder |
+| `moddedOnly` | boolean | — | default `false`; **requires `target: "game"`** — installed while Stellar is present, then **parked** (moved aside) for a Vanilla launch and while the plugin is disabled, and **restored** when the player launches Modded again with the plugin enabled (never left in place for a vanilla client) |
+| `optional` | boolean | — | default `false`; the user may decline it and the plugin still installs |
+| `requires` | string[] | — | other `id`s (from this same list) that must be installed **first**; each referenced id must exist and be **listed earlier** in the array |
+| `license` | string | ✓ | the dependency's license (e.g. `"BSD-3-Clause"`) — shown to the user before install |
+| `licenseUrl` | string | ✓ | link to the full license text |
+| `sourceUrl` | string | ✓ | link to the dependency's own source/homepage |
+| `notice` | string | — | short free-text notice shown alongside the license (e.g. attribution) |
+| `description` | string | — | one or two sentences saying what the dependency adds; the launcher shows it in its install step |
+
+Each `files` entry is `{ "to": "<relative path>", "from"?: "<entry path or prefix>" }`:
+
+- **`to`** is always required — a path under either `stellar/deps/<pluginId>/` or the game root
+  (per `target`), matching the launcher's own `DependencyPaths.Resolve` rules exactly:
+  - **relative only** — no leading `/` (not rooted), and no `\` anywhere;
+  - **no `:` anywhere** — not just a drive letter (`C:/x`); this also refuses an NTFS
+    alternate-data-stream suffix like `dxgi.dll:ads`;
+  - **no empty, `.`, or `..` path segment** — `a//b`, `./a`, `a/./b` and `a/../b` are all refused,
+    not just a literal `..`;
+  - **no trailing `/`**, with ONE exception: a `kind: "zip"` entry whose `from` is a directory
+    prefix (itself ending in `/`) may have a `to` that also ends in `/`, naming the destination
+    folder the whole subtree is extracted into (see the `from`/`to` pair below). For `kind: "file"`
+    — or a `kind: "zip"` entry whose `from` names one archive entry rather than a prefix — `to` is
+    the literal destination and a trailing `/` is refused.
+  - **`target: "game"` destinations may never land inside a path the loaders themselves scan** —
+    `BepInEx/`, `stellar/plugins`, or `stellar/deps` (case-insensitive) are refused, so a dependency
+    can never masquerade as (or collide with) a scanned plugin.
+
+  Two dependencies of the **same plugin** may also never claim the same `(target, to)` destination
+  (case-insensitive) — whichever comes second in the array fails validation. Two **different**
+  plugins may also never both claim the same `target: "game"` destination — whichever PR adds the
+  clash fails CI.
+- **`from`** is required only for `kind: "zip"`: either one entry's path inside the archive, or a
+  prefix ending in `/` to extract a whole subtree. Unused (and ignored) for `kind: "file"`.
+
+Example — an example runtime DLL, installed into the game root only while Stellar is present, which
+the user may decline:
+
+```json
+"dependencies": [
+  {
+    "id": "examplert", "name": "Example Runtime", "version": "1.2.3",
+    "url": "https://example.com/deps/examplert-1.2.3.dll",
+    "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "size": 4312576, "kind": "file", "target": "game",
+    "moddedOnly": true, "optional": true,
+    "files": [ { "to": "examplert.dll" } ],
+    "license": "BSD-3-Clause", "licenseUrl": "https://example.com/license",
+    "sourceUrl": "https://example.com"
+  }
+]
+```
+
 ### `plugins/<id>/manifest.testing.json` — the optional testing override
 
 A second, **testing-channel** build that runs alongside the stable `manifest.json`. It **inherits** the
@@ -204,6 +277,7 @@ shared fields and may set **only** the version-specific ones below — any other
 | `maxModSystemVersion` | string \| null | — | upper bound |
 | `capPriorVersionsAt` | string (semver) | — | retro-cap prior published versions |
 | `changelog` | object | — | as above |
+| `dependencies` | array | — | this testing build's own dependencies (see above) — may differ from the stable manifest's |
 | **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide`, `icon` come from `manifest.json` |
 
 ## Third-party / unverified plugins
