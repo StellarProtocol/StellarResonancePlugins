@@ -77,6 +77,8 @@ In the Camera tab's **Person** group, pick someone with **‹ ›** (or click th
 - **Pose** — choose an emote and drag **Moment** to the exact frame; ▶ / ❚❚ play or hold it.
 - **Expression** — a facial expression that stays until you change it.
 - **Head / Eyes** — look at the camera (Lens), freely (Free) or normally, and lock it.
+  In **Free**, drag the dot on the grid to aim, or nudge it with the arrows; **Step** (Fine · Normal · Coarse) sets how
+  far each arrow press moves.
 - **Rotate** — turn them to face where you want.
 
 Other players and NPCs are posed as a copy only you can see; the real person is hidden until you reset the scene.

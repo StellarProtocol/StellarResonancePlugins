@@ -2,7 +2,7 @@
   "id": "photostudio",
   "name": "Photo Studio",
   "description": "Take beautiful screenshots: a free camera, freeze the whole scene, pose anyone, portrait and square photos, looks and lights, hide yourself or any effects — and ReShade.",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "dll": "Stellar.PhotoStudio.dll",
   "author": "Stellar",
   "tags": [
@@ -29,29 +29,23 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.17.0",
-  "date": "2026-10-04",
+  "minModSystemVersion": "2.18.0",
+  "date": "2026-10-05",
   "changelog": {
     "added": [
-      "Use ReShade in Photo Studio: turn it on or off, pick a preset and switch effects in the Look tab. Your photos get the same effects you see on screen, at every photo size.",
-      "ReShade is installed from Photo Studio's page in the Stellar launcher, under Dependencies (needs launcher 2.1.1 or later). It is only used when you launch the game Modded.",
-      "Download shader packs (ReShade standard, SweetFX, prod80) right inside Photo Studio, straight from each pack's own page.",
-      "A Presets list in Look, ReShade: ready-made looks you add with one click. Photo Studio's own looks made for this game (Cinematic warm, Soft anime, Cool night, Clean sharpen) work in every photo shape and size.",
-      "Community presets (StarLuxe Galactic, Legacy and Luminescence, Genshin Stella Mod's default look in Medium and High, Okami City Ruins) download straight from their authors' own pages, with each author's license shown. Getting a preset also downloads any shader pack it needs.",
-      "The ReShade Preset list starts with None: no effects, while ReShade itself stays on.",
-      "Your looks remember which ReShade preset they use and whether ReShade is on."
+      "Head and Eyes Free aim: drag the dot on a grid to point exactly where you want, or nudge it with the arrows.",
+      "A Step switch (Fine, Normal, Coarse) sets how far each arrow press moves the aim, and it is remembered.",
+      "The current aim shows under the arrows, for example x +0.30, y -0.10."
     ],
     "changed": [
-      "Closing Photo Studio puts your ReShade preset back the way it was when you opened it, and your Photo Studio preset comes back when you open it again. The Use ReShade switch stays as you set it, so turning ReShade off in Photo Studio also turns it off while you play.",
-      "Portrait, square and wide photos leave out effects that need depth, so nothing lands in the wrong place. Photo Studio tells you when that happens.",
-      "If ReShade isn't ready in time for a photo, the photo is still saved and Photo Studio tells you it was taken without the effects.",
-      "A preset made for another game says how many of its effects work here. If a download fails, Photo Studio says why in plain words, and a preset you already have is never replaced."
+      "The free camera's hint bar now tells you that Z and C tilt the camera, and Roll is now called Tilt.",
+      "Dragging the aim grid or a colour picker no longer scrolls the Photo Studio window (needs framework 2.18.0)."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarPhotoStudioPlugin.git",
-  "commit": "918fd23f1772ea6f09ebebd2d98838117a94da62",
+  "commit": "af6e0273bae48da7e9f1895a2bd8075370732581",
   "projectPath": ".",
-  "tag": "v1.5.1",
+  "tag": "v1.6.0",
   "dependencies": [
     {
       "id": "reshade",
