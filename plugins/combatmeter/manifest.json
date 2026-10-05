@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.16.0",
+  "version": "2.16.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -31,17 +31,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.11.0",
-  "date": "2026-09-29",
+  "date": "2026-10-05",
   "changelog": {
-    "added": [
-      "Buffs & Debuffs now starts with a useful selection: the four Battle Imagine lockout debuffs (Mechanical Failure, Element Stasis, Time Stasis, Weakened: Wish Sealed) plus every Potion and Cuisine buff, set to show only checked. If you never customised Buffs & Debuffs, you will now see these too. Anything you already saved stays as you set it."
-    ],
     "fixed": [
-      "Open-world fights between two dungeon runs no longer upload as a fake dungeon clear and no longer borrow the next dungeon's run. They stay in your local history and are not uploaded."
+      "The Buffs & Debuffs tooltip now shows time left the same way as the Cooldowns bar, for example 25m instead of 1519s."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "3aae4afeaefaf08a97cdf8796d1024db2f89f6c8",
+  "commit": "f96b2caf30a5d663bb729eadef7d31cf153433b9",
   "projectPath": ".",
-  "tag": "v2.16.0"
+  "tag": "v2.16.1"
 }
