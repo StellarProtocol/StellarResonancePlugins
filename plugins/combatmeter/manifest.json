@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.16.1",
+  "version": "2.16.2",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -34,11 +34,11 @@
   "date": "2026-10-05",
   "changelog": {
     "fixed": [
-      "The Buffs & Debuffs tooltip now shows time left the same way as the Cooldowns bar, for example 25m instead of 1519s."
+      "Buffs and debuffs that have run out no longer stay on the Buffs & Debuffs icons."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "f96b2caf30a5d663bb729eadef7d31cf153433b9",
+  "commit": "4e0e847cba4b5ab5d63b1b338b3cc6b487c1b710",
   "projectPath": ".",
-  "tag": "v2.16.1"
+  "tag": "v2.16.2"
 }
