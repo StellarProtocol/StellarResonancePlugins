@@ -1,8 +1,8 @@
 {
   "id": "raidmanager",
   "name": "Raid Manager",
-  "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, and savable dungeon marker presets.",
-  "version": "2.2.0",
+  "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, and savable, shareable dungeon marker presets.",
+  "version": "2.3.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -10,19 +10,22 @@
     "coordination"
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.3.0",
-  "date": "2026-10-02",
+  "minModSystemVersion": "2.19.0",
+  "date": "2026-10-06",
   "changelog": {
     "added": [
-      "Mark Presets — save the markers you place in a dungeon and reload the whole layout in one click. Build a preset as a sequence of steps (one layout per phase) and move through them with Previous / Reset / Next during the fight, with a separate preset for each raid."
+      "Share Mark Presets with your group — Export Preset gives you a short code to copy, and Import Preset turns a pasted code into the same preset, with every step, marker and note.",
+      "Add a note to each step (for example \"P2 — stack west\"). It shows in the window and in the pop-up when you move to that step.",
+      "Rename a preset any time with the pencil button."
     ],
-    "fixed": [
-      "The countdown and raid-warning text is readable again — it had been showing far too small."
+    "changed": [
+      "The Mark Presets window is wider and easier to read.",
+      "Requires framework 2.19.0 or newer. If you're on an older framework you keep the previous version until you update."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "cdb3bbc4b03e7a98ef992132aa85c2edf771d0e2",
+  "commit": "2a3ff7ba528b13d275bbab8507dfa6ff05ae306d",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.2.0",
-  "tag": "v2.2.0"
+  "capPriorVersionsAt": "2.18.0",
+  "tag": "v2.3.0"
 }
