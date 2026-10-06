@@ -39,6 +39,19 @@ phase sequences. Open it from **Raid Manager → Open Mark Presets**:
 Keep a separate preset for each raid and **Activate** the one you're running (the button toggles to
 **Deactivate**). Marker placement works in dungeons.
 
+**Rename and add notes**
+
+- Click the **pencil** next to a preset to rename it.
+- Under the current step, click the **pencil** to add a note — e.g. "P2 — stack west". The note also
+  shows in the pop-up when you move to that step.
+
+**Share a preset**
+
+1. Activate the preset and click **Export Preset**, then **Copy** — or select the code and press Ctrl+C.
+2. Send the code to your group.
+3. They click **Import Preset**, paste the code and press **Import**. They get the whole preset —
+   every step, marker and note.
+
 ## Notes
 
 - Both overlays stay visible when the game menu (ESC) is open.
