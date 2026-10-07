@@ -23,19 +23,25 @@ All hotkeys can be changed in **Stellar Settings → Hotkeys**.
 - **Lights** — lamps, and a key light and rim for one person.
 - **Presets** — load, save, rename and share your looks.
 
-## Hiding yourself and effects
+## Hiding things
 
-In the **Capture** tab's **Hide** group:
+In the **Capture** tab's **Hide** group you find the same list as the game's own photo screen, in the same order:
 
-- **Me** hides your character, your pet and your Battle Imagine — on your screen only. You can still move and fight, and
-  other players still see you.
+- **Me** and **My own Spirit Echo** hide your character and your Spirit Echo — on your screen only. You can still move
+  and fight, and other players still see you.
+- **Other adventurers**, **Non-players**, **Enemy**, **Collectible** and **Other Spirit Echo** hide those on your screen.
+- **Friends**, **Party** and **Guild** really hide those players, even while other adventurers stay visible. A hidden
+  group always wins: a guild mate who is also your friend is hidden when you hide your guild. Party members stay visible
+  while you show your party.
+- **Weapon** hides every player's weapon, not only yours.
 - **Effects** hides skill, buff and hit effects by who caused them: **Mine** (yours, your pet's and your Battle Imagine's),
   **Party**, **Other players** and **Monsters** (including boss warning areas). Scenery like waterfalls and lamps is never
   hidden. A few effects the game doesn't link to anyone always stay visible.
 
 These apply while the panel is open and in every photo. In the **Camera** tab, **Hide me on entry** and **Hide effects on
 entry** do the same as soon as the free camera turns on (the effects follow your Capture-tab switches). Switching off — or
-closing the panel — brings everything back.
+closing Photo Studio — brings everything back. Your 1.6.0 hide settings carry over. **Ctrl+F10** still hides everything,
+including the Stellar overlay.
 
 ## ReShade
 
@@ -61,6 +67,8 @@ Press **Alt+F10** (or the **Free camera** button) to take control of the camera.
   **Q / E** move down / up. **Click** another character to orbit them; **Backspace** returns to you.
 - **Fly**: press **Tab**, then **WASD** to move, **right mouse** to look, **Q / E** for down / up.
 - **Z / C** tilt the camera, **Shift + wheel** zooms (field of view), **R** returns to the game's view.
+- **]** zooms in and **[** zooms out (hold to keep going), **\\** resets the field of view. The **Look** tab has a
+  **Field of view** slider (10–100°) too. The keys are shown on screen.
 - **Space** freezes the scene, **H** hides the key hints, **Esc** or **Alt+F10** leaves the free camera.
 
 ## Freezing the scene
@@ -97,3 +105,11 @@ In the **Lights** tab:
 
 **Reset scene** (Camera tab) unfreezes, removes posed copies and lights, and brings everyone back to normal. Changing
 zone, a cutscene or turning Photo Studio off does the same.
+
+## Minimizing and closing
+
+- **–** on the panel shrinks it to the small strip and changes nothing.
+- **✕** on the panel or the strip, or **Ctrl+Shift+F10**, closes Photo Studio fully: it leaves the free camera,
+  unfreezes, resets posed people and lamps, and shows everything you hid. If any of that is running, it asks first and
+  lists what will end.
+- While Photo Studio is closed, the scene and camera pills show the key that opens it again.

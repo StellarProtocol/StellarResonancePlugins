@@ -1,8 +1,8 @@
 {
   "id": "photostudio",
   "name": "Photo Studio",
-  "description": "Take beautiful screenshots: a free camera, freeze the whole scene, pose anyone, portrait and square photos, looks and lights, hide yourself or any effects — and ReShade.",
-  "version": "1.6.0",
+  "description": "Take beautiful screenshots: a free camera, freeze the whole scene, pose anyone, portrait and square photos, looks and lights, hide anything the game's photo screen can hide — and ReShade.",
+  "version": "1.7.0",
   "dll": "Stellar.PhotoStudio.dll",
   "author": "Stellar",
   "tags": [
@@ -29,23 +29,29 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.18.0",
-  "date": "2026-10-05",
+  "minModSystemVersion": "2.20.0",
+  "date": "2026-10-08",
   "changelog": {
     "added": [
-      "Head and Eyes Free aim: drag the dot on a grid to point exactly where you want, or nudge it with the arrows.",
-      "A Step switch (Fine, Normal, Coarse) sets how far each arrow press moves the aim, and it is remembered.",
-      "The current aim shows under the arrows, for example x +0.30, y -0.10."
+      "The Hide list now matches the game's own photo screen: Me, My own Spirit Echo, Other adventurers, Non-players, Enemy, Weapon, Friends, Party, Guild, Collectible and Other Spirit Echo.",
+      "Friends, Party and Guild really hide those players, even while other adventurers stay visible. A hidden group always wins, but party members stay while you show your party.",
+      "Weapon now hides every player's weapon, not only yours.",
+      "A Field of view slider in the Look tab, and keys for the free camera: ] zooms in, [ zooms out (hold to keep going), backslash resets. The keys are shown on screen.",
+      "Close Photo Studio with Ctrl+Shift+F10."
     ],
     "changed": [
-      "The free camera's hint bar now tells you that Z and C tilt the camera, and Roll is now called Tilt.",
-      "Dragging the aim grid or a colour picker no longer scrolls the Photo Studio window (needs framework 2.18.0)."
+      "Closing is clearer: the – button shrinks the panel to the small strip, and ✕ closes Photo Studio fully. If the free camera, a frozen scene, posed people, lamps or hides are still on, it asks first and lists what will end.",
+      "When Photo Studio is closed, the scene and camera pills show the key that opens it again.",
+      "Your 1.6.0 hide settings carry over to the new list."
+    ],
+    "removed": [
+      "The Stellar overlay switch in the Hide list. It hid the Photo Studio panel itself; Ctrl+F10 still hides everything."
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarPhotoStudioPlugin.git",
-  "commit": "af6e0273bae48da7e9f1895a2bd8075370732581",
+  "commit": "ae54ac901347760075b018b9e5868957a1b74564",
   "projectPath": ".",
-  "tag": "v1.6.0",
+  "tag": "v1.7.0",
   "dependencies": [
     {
       "id": "reshade",
