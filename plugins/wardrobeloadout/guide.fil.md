@@ -15,7 +15,7 @@ hotkey o mula sa isang menu — na may live na 3D preview.
    - Pindutin ang naka-bind na hotkey — ang unang 8 naka-save na kasuotan ay naka-map sa
      **Ilapat ang Kasuotan 1**–**Ilapat ang Kasuotan 8** (i-bind ang mga ito sa **Mga Setting ng
      Stellar → Mga Hotkey**, hindi pa naka-bind bilang default), o
-   - I-click ang **i-apply (▶)** button sa kahit anong row sa Wardrobe window.
+   - I-click ang **play (▶)** button sa kahit anong row sa Wardrobe window.
 
 ## Mga button ng row
 
@@ -41,4 +41,4 @@ I-hover ang kahit anong row para makita ang kasuotang iyon sa live na 3D model n
 - Dumadaan ang paglipat sa sariling fashion system ng laro, na nag-aapply ng sarili nitong mga
   patakaran (halimbawa, hindi ka makakapalit ng kasuotan habang nasa labanan) — ipinapakita ng laro
   ang isang banner kung hindi pinapayagan ang paglipat sa ngayon.
-- Available ang plugin sa English, 日本語, ไทย, Bahasa Indonesia, Filipino, at Korean.
+- Available ang plugin sa English, 日本語, ไทย, Bahasa Indonesia, Filipino, at 한국어.

@@ -15,7 +15,7 @@ menu — dengan pratinjau 3D langsung.
    - Tekan hotkey yang sudah diikat — 8 kostum tersimpan pertama dipetakan ke
      **Terapkan Kostum 1**–**Terapkan Kostum 8** (ikat di **Pengaturan Stellar → Hotkey**, belum
      diikat secara default), atau
-   - Klik tombol **terapkan (▶)** pada baris mana pun di jendela Wardrobe.
+   - Klik tombol **putar (▶)** pada baris mana pun di jendela Wardrobe.
 
 ## Tombol baris
 
@@ -41,4 +41,4 @@ Arahkan kursor ke baris mana pun untuk melihat kostum itu pada model 3D langsung
 - Peralihan berjalan melalui sistem fashion bawaan game, yang menerapkan aturannya sendiri
   (misalnya, kamu tidak bisa mengganti kostum saat bertarung) — game akan menampilkan banner jika
   peralihan tidak diizinkan saat ini.
-- Plugin tersedia dalam English, 日本語, ไทย, Bahasa Indonesia, Filipino, dan Korea.
+- Plugin tersedia dalam English, 日本語, ไทย, Bahasa Indonesia, Filipino, dan 한국어.
