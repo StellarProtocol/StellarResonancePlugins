@@ -44,6 +44,98 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "description": "ロールまたはクラスの色分けに対応したリアルタイムパーティDPS/HPSメーター。",
+      "captions": [
+        "ロールカラー付きのリアルタイムパーティDPS/HPS。",
+        "スキル別のダメージ、会心率、稼働率。",
+        "履歴 — ナビゲーターとソース別テーブル付きのダメージタイムライン。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)対応を追加 — 設定 → テーマ → 言語 で 한국어 を選べます(Stellar 2.21.0が必要)。"
+        ],
+        "changed": [
+          "スペック名がゲーム本来の名称を使うようになり、言語が日本語のときは日本語で表示されます。",
+          "設定内の CombatMeter のホットキー名が、選択した言語に従うようになりました。",
+          "ランチャーの CombatMeter 設定タイルが、選択した言語に従うようになりました。"
+        ]
+      }
+    },
+    "th": {
+      "description": "มิเตอร์ DPS/HPS ของปาร์ตี้แบบเรียลไทม์ พร้อมสีตามบทบาทหรือคลาส",
+      "captions": [
+        "DPS/HPS ของปาร์ตี้แบบเรียลไทม์พร้อมสีตามบทบาท",
+        "ดาเมจแยกตามสกิล, คริ % และอัพไทม์",
+        "ประวัติ — ไทม์ไลน์ดาเมจพร้อมตัวนำทางและตารางแยกตามแหล่งที่มา"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ชื่อสเปคตอนนี้ใช้ชื่อดั้งเดิมของเกม และจะแสดงเป็นภาษาญี่ปุ่นเมื่อภาษาที่ใช้เป็นภาษาญี่ปุ่น",
+          "ชื่อปุ่มลัดของ CombatMeter ใน Settings ตอนนี้ตามภาษาที่คุณเลือกแล้ว",
+          "ไทล์การตั้งค่า CombatMeter ในลอนเชอร์ตอนนี้ตามภาษาที่คุณเลือกแล้ว"
+        ]
+      }
+    },
+    "id": {
+      "description": "Meter DPS/HPS party real-time dengan warna berdasarkan peran atau kelas.",
+      "captions": [
+        "DPS/HPS party real-time dengan warna peran.",
+        "Damage per skill, CRIT % dan UPTIME.",
+        "Riwayat — linimasa damage dengan navigator dan tabel per sumber."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (butuh Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Nama spec sekarang memakai nama asli dari game, dan ditampilkan dalam bahasa Jepang saat bahasamu bahasa Jepang.",
+          "Nama hotkey CombatMeter di Pengaturan sekarang mengikuti bahasamu.",
+          "Tile pengaturan CombatMeter di launcher sekarang mengikuti bahasamu."
+        ]
+      }
+    },
+    "fil": {
+      "description": "Real-time na party DPS/HPS meter na may kulay ayon sa papel o class.",
+      "captions": [
+        "Real-time party DPS/HPS na may kulay ayon sa papel.",
+        "Damage kada skill, CRIT % at UPTIME.",
+        "Kasaysayan — timeline ng damage na may navigator at talahanayan kada pinagmulan."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Koreano (한국어) — piliin ang 한국어 sa Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang mga pangalan ng spec ay gumagamit na ngayon ng orihinal na pangalan mula sa laro, at ipinapakita sa wikang Hapon kapag Hapon ang iyong wika.",
+          "Ang mga pangalan ng hotkey ng CombatMeter sa Mga Setting ay sumusunod na ngayon sa iyong wika.",
+          "Ang settings tile ng CombatMeter sa launcher ay sumusunod na ngayon sa iyong wika."
+        ]
+      }
+    },
+    "ko": {
+      "description": "역할 또는 클래스 색상을 지원하는 실시간 파티 DPS/HPS 미터.",
+      "captions": [
+        "역할 색상이 적용된 실시간 파티 DPS/HPS.",
+        "스킬별 피해량, 치명타 %, 유지율.",
+        "기록 — 내비게이터와 출처별 표가 있는 피해량 타임라인."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "전문화(Spec) 이름이 이제 게임 자체의 이름을 사용하며, 사용 언어가 일본어일 때는 일본어로 표시됩니다.",
+          "설정의 CombatMeter 단축키 이름이 이제 사용 언어를 따릅니다.",
+          "런처의 CombatMeter 설정 타일이 이제 사용 언어를 따릅니다."
+        ]
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
   "commit": "03712e2df3ccd983375fece9868dcfa2062faae5",
   "projectPath": ".",
