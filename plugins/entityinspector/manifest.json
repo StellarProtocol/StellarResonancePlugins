@@ -2,7 +2,7 @@
   "id": "entityinspector",
   "name": "EntityInspector",
   "description": "Inspect any entity: identity, attributes, gear and skill book. Adds an 'Inspect' item to CombatMeter rows and a magnifier button to the profile card.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "dll": "Stellar.EntityInspector.dll",
   "author": "Stellar",
   "tags": [
@@ -18,25 +18,23 @@
     {
       "type": "image",
       "file": "media/entityinspector-gear.png",
-      "caption": "Gear tab \u2014 weapon card plus armor and accessory grids."
+      "caption": "Gear tab — weapon card plus armor and accessory grids."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.8.3",
-  "date": "2026-09-22",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
     "added": [
-      "New \"Show Weapon\" option in the character preview \u2014 keep the weapon out of the 3D portrait, or turn it back on. Hidden by default."
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
     ],
-    "changed": [
-      "The character preview is brighter and more vivid, and no longer shifts colour with wherever your character is standing \u2014 the model looks the same every time you open it.",
-      "Tidier inspector header: the name and class now sit together on one line, above an easier-to-read health bar.",
-      "Requires framework 2.8.3 or newer. On an older framework you'll keep the previous version of the plugin instead of an incompatible one."
-    ]
+    "changed": [],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
-  "commit": "081fcb3fb37127fcb5ddd0a846b0fa2013408a92",
+  "commit": "4a5f3fb4d9d268d3169c751076ee7d8bafea3511",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.8.2",
-  "tag": "v2.2.0"
+  "capPriorVersionsAt": "2.20.0",
+  "tag": "v2.3.0"
 }

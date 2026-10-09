@@ -2,7 +2,7 @@
   "id": "playerhud",
   "name": "PlayerHUD",
   "description": "Compact player HP / MP / buff HUD.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "dll": "Stellar.PlayerHUD.dll",
   "author": "Stellar",
   "tags": [
@@ -17,15 +17,21 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
-  "capPriorVersionsAt": "2.0.3",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
+  "capPriorVersionsAt": "2.20.0",
   "changelog": {
     "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
-    ]
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+    ],
+    "changed": [
+      "The two Player HUD hotkey names in Settings now follow your language."
+    ],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarPlayerHUDPlugin.git",
-  "commit": "68abda452350887a41abbf044269da345feee760",
-  "projectPath": "."
+  "commit": "69b612451fc15f3a5a4cb774df5aad63cb0fbeb1",
+  "projectPath": ".",
+  "tag": "v2.2.0"
 }

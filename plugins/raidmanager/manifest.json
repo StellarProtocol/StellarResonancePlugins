@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, and savable, shareable dungeon marker presets.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -10,22 +10,21 @@
     "coordination"
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.19.0",
-  "date": "2026-10-06",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
     "added": [
-      "Share Mark Presets with your group — Export Preset gives you a short code to copy, and Import Preset turns a pasted code into the same preset, with every step, marker and note.",
-      "Add a note to each step (for example \"P2 — stack west\"). It shows in the window and in the pop-up when you move to that step.",
-      "Rename a preset any time with the pencil button."
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
     ],
     "changed": [
-      "The Mark Presets window is wider and easier to read.",
-      "Requires framework 2.19.0 or newer. If you're on an older framework you keep the previous version until you update."
-    ]
+      "The Mark Presets hotkey names in Settings now follow your language."
+    ],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "2a3ff7ba528b13d275bbab8507dfa6ff05ae306d",
+  "commit": "50bd6da8cffc08db7207542b11da67f5fd23e777",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.18.0",
-  "tag": "v2.3.0"
+  "capPriorVersionsAt": "2.20.0",
+  "tag": "v2.4.0"
 }
