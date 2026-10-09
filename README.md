@@ -111,6 +111,10 @@ with provenance (`sourceRepository`/`sourceCommit`), after a maintainer's `Produ
 
 To **update**: bump `commit` (and `version`) via a new PR.
 
+**Translations** (optional): add an `i18n` block (translated name/description/media captions/changelog
+for `ja`, `th`, `id`, `fil`, `ko`) and `guide.<lang>.md` files beside `guide.md`; the launcher shows them
+in its language and falls back to English per field. See CONTRIBUTING.md § Translations.
+
 ### Channels
 The build emits `plugins.json` (stable only) and `plugins-testing.json` (a **superset** — every
 version). A plugin can be live on **both** at once via a two-file source model:
