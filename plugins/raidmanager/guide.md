@@ -25,14 +25,15 @@ phase sequences. Open it from **Raid Manager → Open Mark Presets**:
 **Build a preset**
 
 1. **Create** a preset, give it a name, and **Activate** it.
-2. In a dungeon, place your markers for the first phase, then **Save Step**.
-3. Place the next phase's markers and **Save Step** again — repeat for each phase.
+2. In a dungeon, place your markers for the first phase, then **+ Save Step**.
+3. Place the next phase's markers and **+ Save Step** again — repeat for each phase.
 
 **Use it during the fight**
 
-- **Next** / **Previous** move through the steps, clearing the board and placing that phase's markers.
+- **Next ▶** / **◀ Prev** move through the steps, clearing the board and placing that phase's markers.
 - **Reset** returns to the blank **Start**.
-- Bind **Previous / Reset / Next** to your own keys in the game's key settings (they start unbound).
+- Bind **Mark Presets: Previous step**, **Mark Presets: Reset to Start** and **Mark Presets: Next step**
+  to your own keys in **Stellar Settings → Hotkeys** (they start unbound).
 
 ![Mark Presets](images/mark-presets.png)
 

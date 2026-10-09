@@ -22,6 +22,78 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "レイドマネージャー",
+      "description": "ZDPS互換のレイド調整HUD — プルカウントダウン、レイド警告、保存・共有可能なダンジョンマーカープリセット。",
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [
+          "設定内のマーカープリセットのホットキー名が、使用言語に従うようになりました。"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "name": "ตัวจัดการเรด",
+      "description": "HUD ประสานงานเรดที่เข้ากันได้กับ ZDPS — นับถอยหลังก่อนบุก การแจ้งเตือนเรด และพรีเซ็ตมาร์กดันเจี้ยนที่บันทึกและแชร์ได้",
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ชื่อปุ่มลัดของพรีเซ็ตมาร์กในหน้าตั้งค่าจะใช้ตามภาษาของคุณแล้ว"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "name": "Manajer Raid",
+      "description": "HUD koordinasi raid yang kompatibel dengan ZDPS — countdown pull, peringatan raid, dan preset marker dungeon yang bisa disimpan dan dibagikan.",
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Nama hotkey Preset Mark di Pengaturan kini mengikuti bahasamu."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "name": "Tagapamahala ng Raid",
+      "description": "ZDPS-compatible na raid coordination HUD — pull countdown, raid warnings, at mga nase-save at mashe-share na dungeon marker preset.",
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang mga pangalan ng hotkey ng Mga Preset ng Mark sa Settings ay sumusunod na ngayon sa wika mo."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "name": "레이드 매니저",
+      "description": "ZDPS 호환 레이드 조율 HUD — 풀 카운트다운, 레이드 경고, 저장 및 공유 가능한 던전 표식 프리셋.",
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "설정의 표식 프리셋 단축키 이름이 이제 사용 언어를 따릅니다."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
   "commit": "50bd6da8cffc08db7207542b11da67f5fd23e777",
   "projectPath": ".",
