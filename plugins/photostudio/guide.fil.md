@@ -94,6 +94,7 @@ Pindutin ang **Alt+F10** (o ang button na **Free camera**) para kontrolin ang ca
   Nakikita ang mga key sa screen.
 - Nagfi-freeze ng eksena ang **Space**, itinatago ng **H** ang mga key hint, lumalabas sa free
   camera ang **Esc** o **Alt+F10**.
+- Ipinapakita ng **U** (o **Ipakita ang UI ng laro** sa tab na Kamera) ang interface ng laro habang naka-on pa ang free camera, para magamit mo ang mga window at slider ng laro: napupunta sa laro ang click, drag at wheel sa ibabaw ng window ng laro. Nasa free camera pa rin ang mga key, kaya buksan ang mga window ng laro sa pag-click. Hindi ito kailanman kasama sa litrato, at namamatay ito kapag umalis ka sa free camera.
 
 ## Pag-freeze ng eksena
 

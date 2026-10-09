@@ -86,6 +86,7 @@ Tekan **Alt+F10** (atau tombol **Kamera bebas**) untuk mengambil alih kamera.
   layar.
 - **Space** membekukan adegan, **H** menyembunyikan petunjuk tombol, **Esc** atau **Alt+F10**
   keluar dari kamera bebas.
+- **U** (atau **Tampilkan UI game** di tab Kamera) menampilkan antarmuka game sementara kamera bebas tetap aktif, jadi kamu bisa memakai jendela game dan slider-nya: klik, seret, dan roda mouse di atas jendela game diteruskan ke game. Tombol keyboard tetap dipakai kamera bebas, jadi buka jendela game dengan mengeklik. Tidak pernah ikut di foto, dan mati saat kamu keluar dari kamera bebas.
 
 ## Membekukan adegan
 

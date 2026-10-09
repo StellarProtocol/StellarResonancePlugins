@@ -70,6 +70,7 @@ Press **Alt+F10** (or the **Free camera** button) to take control of the camera.
 - **]** zooms in and **[** zooms out (hold to keep going), **\** resets the field of view. The **Look** tab has a
   **Field of view** slider (10–100°) too. The keys are shown on screen.
 - **Space** freezes the scene, **H** hides the key hints, **Esc** or **Alt+F10** leaves the free camera.
+- **U** (or **Show game UI** in the Camera tab) shows the game's interface while the free camera stays on, so you can use game windows and their sliders: clicks, drags and the wheel over a game window go to the game. Keys stay with the free camera, so open game windows by clicking. Photos never include it, and it turns off when you leave the free camera.
 
 ## Freezing the scene
 
