@@ -14,7 +14,7 @@ correctly hidden behind world geometry.
 3. Tune it to taste:
    - **Show Class Icon (badge)** — the role-coloured badge over each player.
    - **Show Player Name (under badge)** — the player name below the badge.
-   - **Hide My Own Badge + Name** — keep your own head clear.
+   - **Show Friend Icon** / **Show Guild Icon** — mark friends and guildmates.
    - **Badge Size / Name Size** — scale both independently.
 
 ## Behaviour
@@ -22,3 +22,6 @@ correctly hidden behind world geometry.
 The plates mirror the game's own nameplate visibility rules — the global HUD switch
 (HideUI, cutscenes, photo mode, menus), per-type head-info settings, and per-entity hides
 all apply, so nothing shows where the game itself wouldn't show a plate.
+
+To keep your own head clear, turn off the game's own head-info setting for your character —
+the plates follow it.

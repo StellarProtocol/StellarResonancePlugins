@@ -27,6 +27,12 @@ version-specific keys (plugins/<id>/<name>-<version>.dll), and the new release i
 to the published history — old versions stay downloadable so users can roll back. See
 docs/manifest-standard.md.
 
+Translations (launcher i18n, all optional + additive — old launchers ignore them): a manifest
+`i18n` block (ja/th/id/fil/ko → name/description/captions/changelog) is emitted as the registry
+entry's `i18n` (presentation) and the version entry's `changelogI18n`; `guide.<lang>.md` files
+beside `guide.md` publish next to it and are listed in `guideUrls`. English stays in the top-level
+fields and is always the fallback. See CONTRIBUTING.md § Translations.
+
 Source provenance: a build is pinned by `commit` (immutable, authoritative — CI builds this
 exact SHA). An optional `tag` is display-only provenance; CI may verify tag→commit but never
 builds from a tag alone.
@@ -63,11 +69,24 @@ REQUIRED = ("id", "name", "description", "version", "dll", "author", "minModSyst
 # tags/homepage/media/guide are presentation metadata for the launcher's plugin detail page —
 # they describe the plugin, not one build, so they are shared across channels.
 SHARED_FIELDS = ("id", "name", "description", "author", "dll", "repository", "projectPath",
-                 "tags", "homepage", "media", "guide", "icon")
+                 "tags", "homepage", "media", "guide", "icon", "i18n")
 # Fields a manifest.testing.json may carry — everything version-specific. A testing override
 # may ONLY set these; shared fields come from manifest.json so they can't drift between files.
+# `i18n` is the one split field: its presentation half (name/description/captions) is SHARED and
+# inherited, its `changelog` half is version-specific — a testing override's `i18n` may carry
+# ONLY `changelog` per language (see load_records).
 OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
-               "maxModSystemVersion", "capPriorVersionsAt", "changelog", "dependencies")
+               "maxModSystemVersion", "capPriorVersionsAt", "changelog", "dependencies", "i18n")
+
+# Per-language plugin presentation (launcher i18n). English is the top-level fields — always
+# required, always the fallback — so "en" is deliberately NOT a valid i18n key.
+I18N_LANGS = ("ja", "th", "id", "fil", "ko")
+I18N_PRESENTATION_KEYS = ("name", "description", "captions")
+I18N_KEYS = I18N_PRESENTATION_KEYS + ("changelog",)
+MAX_I18N_NAME = 100
+MAX_I18N_DESCRIPTION = 1000
+MAX_I18N_CAPTION = 500
+MAX_I18N_CHANGELOG_LINE = 2000
 
 
 def sha256(path: Path) -> str:
@@ -397,7 +416,141 @@ def resolve_docs(plugin_dir: Path, m: dict, where: str) -> tuple[dict, list[tupl
         uploads.append((path, key))
         extra["guideUrl"] = f"{PUBLIC_BASE}/{key}"
 
+    guide_urls, guide_uploads = resolve_localized_guides(plugin_dir, guide, pid, where)
+    uploads += guide_uploads
+    if guide_urls:
+        extra["guideUrls"] = guide_urls
+
     return extra, uploads
+
+
+def resolve_localized_guides(plugin_dir: Path, guide, pid: str, where: str) -> tuple[dict, list[tuple[Path, str]]]:
+    """Auto-discover translated guides beside the English one: `guide.md` -> `guide.<lang>.md`
+    (lang in I18N_LANGS), same directory, same size/safety rules. Each is published at the stable
+    key `plugins/<id>/guide.<lang>.md` — next to `guide.md`, so the guide's relative image paths
+    (`media/x.png`) resolve identically. Returns (`{lang: url}` for the languages PRESENT only,
+    uploads).
+
+    Fails on a translated guide the launcher would never show: one with no English `guide` to fall
+    back to, or one whose language code is not supported (e.g. a `guide.jp.md` typo for `ja`)."""
+    if guide is None:
+        stray = sorted(p.name for p in plugin_dir.glob("guide.*.md"))
+        if stray:
+            sys.exit(f"{where}: {stray} found but the manifest has no `guide` — a translated guide "
+                     "needs the English guide as its fallback")
+        return {}, []
+    english = plugin_dir / guide
+    stem, suffix = english.stem, english.suffix
+    for p in sorted(english.parent.glob(f"{stem}.*{suffix}")):
+        lang = p.name[len(stem) + 1:len(p.name) - len(suffix)]
+        if lang not in I18N_LANGS:
+            sys.exit(f"{where}: {p.name}: unsupported guide language {lang!r} "
+                     f"(supported: {', '.join(I18N_LANGS)}; English is the plain {english.name})")
+    urls: dict = {}
+    uploads: list[tuple[Path, str]] = []
+    for lang in I18N_LANGS:
+        path = english.parent / f"{stem}.{lang}{suffix}"
+        if not path.is_file():
+            continue
+        if path.stat().st_size > MAX_GUIDE_BYTES:
+            sys.exit(f"{where}: {path.name} exceeds {MAX_GUIDE_BYTES >> 20} MB")
+        key = f"plugins/{pid}/guide.{lang}.md"
+        uploads.append((path, key))
+        urls[lang] = f"{PUBLIC_BASE}/{key}"
+    return urls, uploads
+
+
+def _bad_text(v, max_len: int) -> bool:
+    return not isinstance(v, str) or not v.strip() or len(v) > max_len
+
+
+def validate_i18n(i18n, media, changelog, where: str) -> list[str]:
+    """Errors for a manifest's optional per-language presentation block (empty list = valid):
+
+        "i18n": { "<lang>": { "name"?, "description"?, "captions"?: [..], "changelog"?: {..} } }
+
+    lang in I18N_LANGS. English stays in the top-level fields (required, the fallback), so every
+    translated field needs its English counterpart: `captions[i]` needs `media[i].caption`, and
+    `changelog` needs this version's English `changelog` with only its section keys. `captions` is
+    per media index (`null` = no translation for that item; at most one per media entry).
+    Strict types, like validate_dependencies: the launcher parses the whole registry in one go."""
+    if not isinstance(i18n, dict):
+        return [f"{where}: i18n must be an object keyed by language"]
+    errs = []
+    media = media if isinstance(media, list) else []
+    allowed = I18N_KEYS
+    for lang, block in i18n.items():
+        at = f"{where}: i18n.{lang}"
+        if lang not in I18N_LANGS:
+            errs.append(f"{at}: unsupported language (supported: {', '.join(I18N_LANGS)}; "
+                        "English lives in the top-level fields)")
+            continue
+        if not isinstance(block, dict) or not block:
+            errs.append(f"{at} must be a non-empty object"); continue
+        stray = [k for k in block if k not in allowed]
+        if stray:
+            errs.append(f"{at}: unknown keys {stray} (allowed: {', '.join(allowed)})")
+        if "name" in block and _bad_text(block["name"], MAX_I18N_NAME):
+            errs.append(f"{at}.name must be a non-empty string ≤ {MAX_I18N_NAME} chars")
+        if "description" in block and _bad_text(block["description"], MAX_I18N_DESCRIPTION):
+            errs.append(f"{at}.description must be a non-empty string ≤ {MAX_I18N_DESCRIPTION} chars")
+        if "captions" in block:
+            errs += _validate_captions(block["captions"], media, f"{at}.captions")
+        if "changelog" in block:
+            errs += _validate_changelog_i18n(block["changelog"], changelog, f"{at}.changelog")
+    return errs
+
+
+def _validate_captions(captions, media: list, at: str) -> list[str]:
+    if not isinstance(captions, list) or not captions:
+        return [f"{at} must be a non-empty list (one entry per media item, null = untranslated)"]
+    if len(captions) > len(media):
+        return [f"{at} has {len(captions)} entries but media has {len(media)}"]
+    errs = []
+    for i, c in enumerate(captions):
+        if c is None:
+            continue
+        if _bad_text(c, MAX_I18N_CAPTION):
+            errs.append(f"{at}[{i}] must be a non-empty string ≤ {MAX_I18N_CAPTION} chars, or null")
+        elif not (isinstance(media[i], dict) and media[i].get("caption")):
+            errs.append(f"{at}[{i}]: media[{i}] has no English caption to fall back to")
+    return errs
+
+
+def _validate_changelog_i18n(cl, english, at: str) -> list[str]:
+    if not isinstance(english, dict) or not english:
+        return [f"{at}: no English `changelog` on this version to fall back to"]
+    if not isinstance(cl, dict) or not cl:
+        return [f"{at} must be a non-empty object like the English changelog"]
+    errs = []
+    for section, lines in cl.items():
+        if section not in english:
+            errs.append(f"{at}.{section}: not a section of the English changelog ({', '.join(english)})")
+        elif not isinstance(lines, list) or any(_bad_text(s, MAX_I18N_CHANGELOG_LINE) for s in lines):
+            errs.append(f"{at}.{section} must be a list of non-empty strings "
+                        f"(≤ {MAX_I18N_CHANGELOG_LINE} chars each)")
+        elif not lines and english[section]:
+            # An empty translated section over a non-empty English one would HIDE the English lines.
+            errs.append(f"{at}.{section} is empty but the English section is not — translate it or omit it")
+    return errs
+
+
+def i18n_presentation(i18n) -> dict:
+    """`meta.i18n`: the name/description/captions half, only languages that carry any (in
+    I18N_LANGS order, so output is stable regardless of manifest key order)."""
+    out = {}
+    for lang in I18N_LANGS:
+        block = (i18n or {}).get(lang) or {}
+        picked = {k: block[k] for k in I18N_PRESENTATION_KEYS if k in block}
+        if picked:
+            out[lang] = picked
+    return out
+
+
+def i18n_changelogs(i18n) -> dict:
+    """Version entry `changelogI18n`: `{lang: changelog}` for this version, languages present only."""
+    return {lang: i18n[lang]["changelog"] for lang in I18N_LANGS
+            if isinstance((i18n or {}).get(lang), dict) and "changelog" in i18n[lang]}
 
 
 def fetch_published(obj: str = "plugins.json", required: bool = False) -> dict:
@@ -453,8 +606,32 @@ def load_records(plugin_dir: Path) -> list[tuple[str, dict]]:
                      "(shared fields are inherited from manifest.json — don't repeat them)")
         merged = {k: base[k] for k in SHARED_FIELDS if k in base}
         merged.update(override)
+        if "i18n" in base or "i18n" in override:
+            merged["i18n"] = _testing_i18n(base.get("i18n"), override.get("i18n"), testing_path)
         records.append(("testing", merged))
     return records
+
+
+def _testing_i18n(base_i18n, override_i18n, testing_path: Path) -> dict:
+    """A testing record's i18n: the presentation half INHERITED from manifest.json (its changelog
+    belongs to the stable version, so it is dropped) + the override's own per-language changelog.
+    Only the override's SHAPE is checked here; collect() validates the merged record in full
+    (against the testing version's own English changelog)."""
+    if override_i18n is not None:
+        bad = not isinstance(override_i18n, dict) or any(
+            not isinstance(b, dict) or set(b) != {"changelog"} for b in override_i18n.values())
+        if bad:
+            sys.exit(f"{testing_path}: i18n may only carry {{\"<lang>\": {{\"changelog\": {{..}}}}}} — "
+                     "name/description/captions are inherited from manifest.json")
+    out: dict = {}
+    if isinstance(base_i18n, dict):
+        for lang, block in base_i18n.items():
+            kept = {k: v for k, v in block.items() if k != "changelog"} if isinstance(block, dict) else block
+            if kept:
+                out[lang] = kept
+    for lang, block in (override_i18n or {}).items():
+        out.setdefault(lang, {})["changelog"] = block["changelog"]
+    return out
 
 
 def plugin_dirs() -> list[Path]:
@@ -510,6 +687,14 @@ def collect() -> list[dict]:
             }
             if m.get("changelog"):
                 version_entry["changelog"] = m["changelog"]
+            i18n = m.get("i18n")
+            if i18n is not None:
+                i18n_errs = validate_i18n(i18n, m.get("media"), m.get("changelog"), where)
+                if i18n_errs:
+                    sys.exit("\n".join(i18n_errs))
+                changelog_i18n = i18n_changelogs(i18n)
+                if changelog_i18n:
+                    version_entry["changelogI18n"] = changelog_i18n
             if deps is not None:
                 version_entry["dependencies"] = deps
             # Provenance: when a plugin builds from its own pinned public repo (DIP17 model),
@@ -522,6 +707,9 @@ def collect() -> list[dict]:
                     version_entry["sourceTag"] = m["tag"]
 
             extra_meta, doc_uploads = resolve_docs(plugin_dir, m, where)
+            meta_i18n = i18n_presentation(i18n)
+            if meta_i18n:
+                extra_meta["i18n"] = meta_i18n
 
             plugins.append({
                 "_dll": staged, "_key": key, "_docs": doc_uploads,

@@ -35,6 +35,84 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "description": "スキルのクールダウンを追跡するバー。",
+      "captions": [
+        "可動式タイムラインに表示されるスキルのクールダウン。",
+        "追跡ウィンドウ — スキル・デバフ・バフの表示切り替え、フィルターと検索付き。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)対応を追加 — 設定 → テーマ → 言語 で 한국어 を選べます(Stellar 2.21.0が必要)。"
+        ],
+        "changed": [
+          "ランチャータイルとバーウィンドウのタイトルが選択した言語に従うようになりました。"
+        ]
+      }
+    },
+    "th": {
+      "description": "แถบติดตามคูลดาวน์สกิล",
+      "captions": [
+        "คูลดาวน์สกิลบนไทม์ไลน์ที่ย้ายได้",
+        "หน้าต่างติดตาม — สลับสกิล ดีบัฟ และบัฟ พร้อมตัวกรองและการค้นหา"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ไทล์ในลอนเชอร์และชื่อหน้าต่างแถบจะเปลี่ยนตามภาษาที่เลือกแล้ว"
+        ]
+      }
+    },
+    "id": {
+      "description": "Bilah pelacak cooldown skill.",
+      "captions": [
+        "Cooldown skill di linimasa yang bisa dipindah.",
+        "Jendela Lacak — aktifkan/nonaktifkan skill, debuff dan buff, dengan filter dan pencarian."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (butuh Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Tile launcher dan judul jendela bar sekarang mengikuti bahasamu."
+        ]
+      }
+    },
+    "fil": {
+      "description": "Bar na tagasubaybay ng cooldown ng skill.",
+      "captions": [
+        "Mga cooldown ng skill sa isang movable na timeline.",
+        "I-track na window — i-toggle ang mga skill, debuff at buff, may filter at paghahanap."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Koreano (한국어) — piliin ang 한국어 sa Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang launcher tile at ang pamagat ng bar window ay sumusunod na ngayon sa iyong wika."
+        ]
+      }
+    },
+    "ko": {
+      "name": "쿨타임 바",
+      "description": "스킬 쿨타임을 추적하는 바입니다.",
+      "captions": [
+        "움직일 수 있는 타임라인 위의 스킬 쿨타임.",
+        "추적 창 — 스킬, 디버프, 버프를 전환하며 필터와 검색을 제공합니다."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "런처 타일과 바 창의 제목이 이제 사용 언어를 따릅니다."
+        ]
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
   "commit": "29f6c8f917b9ff73cd133812c9a0a2d8a0f0b495",
   "projectPath": ".",

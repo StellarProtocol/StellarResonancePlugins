@@ -34,6 +34,86 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "ワードローブ",
+      "description": "着ている衣装を保存し、ホットキーやメニューでライブ3Dプレビューを見ながら即座に切り替えます。",
+      "captions": [
+        "ワールドで衣装を切り替える — ゲームが自身のバナーで変更を確認します。",
+        "ワードローブウィンドウ — ホバーした衣装のライブ3Dプレビュー付きの保存済み衣装。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "name": "ตู้เสื้อผ้า",
+      "description": "บันทึกชุดที่คุณสวมใส่และสลับไปมาได้ทันทีด้วยปุ่มลัดหรือเมนู พร้อมพรีวิว 3D แบบสด",
+      "captions": [
+        "สลับชุดในโลกเกม — เกมจะยืนยันการเปลี่ยนแปลงด้วยแบนเนอร์ของตัวเอง",
+        "หน้าต่างตู้เสื้อผ้า — ชุดที่บันทึกไว้พร้อมพรีวิว 3D แบบสดของชุดที่วางเมาส์ไว้"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "description": "Simpan kostum yang kamu pakai dan beralih di antaranya secara instan dengan hotkey atau menu, dengan pratinjau 3D langsung.",
+      "captions": [
+        "Beralih kostum di dunia game — game mengonfirmasi perubahan dengan bannernya sendiri.",
+        "Jendela Wardrobe — kostum tersimpan dengan pratinjau 3D langsung dari yang sedang dihover."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "description": "I-save ang mga kasuotang suot mo at lumipat sa pagitan ng mga ito agad gamit ang hotkey o menu, may live na 3D preview.",
+      "captions": [
+        "Paglipat ng kasuotan sa mundo — kinukumpirma ng laro ang pagbabago gamit ang sarili nitong banner.",
+        "Ang Wardrobe window — mga naka-save na kasuotan na may live na 3D preview ng hinohover."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "name": "옷장",
+      "description": "입고 있는 의상을 저장하고 단축키나 메뉴로 즉시 전환하세요, 실시간 3D 미리보기와 함께.",
+      "captions": [
+        "월드에서 의상 전환하기 — 게임이 자체 배너로 변경을 확인해 줍니다.",
+        "옷장 창 — 호버한 의상의 실시간 3D 미리보기와 함께 저장된 의상들."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarWardrobeLoadout.git",
   "commit": "f187e8c614ce6c64452cb85de9de2dbfe82c95dd",
   "projectPath": ".",

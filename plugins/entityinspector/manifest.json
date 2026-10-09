@@ -32,6 +32,88 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "エンティティインスペクター",
+      "description": "あらゆるエンティティを検査: アイデンティティ、属性、装備、スキルブック。CombatMeterの行に「Inspect」項目を、プロフィールカードに虫眼鏡ボタンを追加します。",
+      "captions": [
+        "装備、スキル、属性を検査します。",
+        "装備タブ — 武器カードと防具・アクセサリーのグリッド。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "name": "ตัวตรวจสอบเอนทิตี",
+      "description": "ตรวจสอบเอนทิตีใดก็ได้: ข้อมูลประจำตัว แอตทริบิวต์ อุปกรณ์ และสกิลบุ๊ก เพิ่มรายการ 'Inspect' ให้แถวของ CombatMeter และปุ่มแว่นขยายให้การ์ดโปรไฟล์",
+      "captions": [
+        "ตรวจสอบอุปกรณ์ สกิล และแอตทริบิวต์",
+        "แท็บอุปกรณ์ — การ์ดอาวุธพร้อมกริดเกราะและเครื่องประดับ"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "name": "Inspektur Entitas",
+      "description": "Periksa entitas apa pun: identitas, atribut, gear, dan skill book. Menambahkan item 'Inspect' ke baris CombatMeter dan tombol kaca pembesar ke kartu profil.",
+      "captions": [
+        "Periksa gear, skill, dan atribut.",
+        "Tab Perlengkapan — kartu senjata plus grid armor dan aksesori."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "name": "Inspektor ng Entidad",
+      "description": "Siyasatin ang kahit anong entity: identity, mga attribute, gear, at skill book. Nagdaragdag ng item na 'Inspect' sa mga row ng CombatMeter at isang magnifier button sa profile card.",
+      "captions": [
+        "Siyasatin ang gear, skills, at mga attribute.",
+        "Tab na Kagamitan — weapon card kasama ang armor at accessory grid."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "name": "엔티티 인스펙터",
+      "description": "모든 엔티티를 검사하세요: 식별 정보, 능력치, 장비, 스킬북. CombatMeter 행에 'Inspect' 항목을, 프로필 카드에 돋보기 버튼을 추가합니다.",
+      "captions": [
+        "장비, 스킬, 능력치를 검사하세요.",
+        "장비 탭 — 무기 카드와 방어구 및 액세서리 그리드."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
   "commit": "4a5f3fb4d9d268d3169c751076ee7d8bafea3511",
   "projectPath": ".",

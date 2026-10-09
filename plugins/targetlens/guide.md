@@ -55,5 +55,5 @@ You can also **hide permanent** (no-timer) effects, **show hidden** internal eff
 - Everything is optional — toggle any overlay on or off in the grouped settings (Target HUD /
   Threat / Aggro / Cast Bar / Boss Skill Timers).
 - Use the launcher's **"reset all HUD"** to return every overlay to its default position.
-- Localized in **English, Japanese, Thai, Indonesian and Filipino** — it follows the launcher
-  language.
+- Localized in **English, Japanese, Thai, Indonesian, Filipino and Korean** — it follows the
+  launcher language.

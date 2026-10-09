@@ -164,6 +164,7 @@ abandoned, just delete `manifest.testing.json`.
 | `guide` | string (path) | — | repo-relative markdown usage guide (conventionally `guide.md`, ≤ 1 MB); CI publishes it to `plugins/<id>/guide.md` |
 | `icon` | string (path or URL) | — | badge image shown on the launcher's plugin list and detail header; repo-relative file (published to `plugins/<id>/icon.<ext>`) or absolute http(s) URL. Without it the launcher uses the first `media` image, else a monogram tile. |
 | `dependencies` | array | — | things the launcher installs alongside this build (DLLs the plugin needs, a shared asset the game itself needs, …) — see below |
+| `i18n` | object | — | per-language name / description / media captions / this version's changelog — see [Translations](#translations-i18n--guidelangmd) below |
 
 ¹ Required by the **curated** registry (CI refuses a manifest without a pinned public repo).
 ² Required whenever `repository` is set.
@@ -189,6 +190,46 @@ plugin does, how to open/use it, and tips. **Reference your screenshots with rel
 own URL, so you never write your plugin id or any CDN base, and the same guide renders
 correctly on GitHub. Guides and media live at stable, non-versioned CDN keys — fixing a typo
 is just another PR, no release needed.
+
+#### Translations (`i18n` + `guide.<lang>.md`)
+
+The launcher shows a plugin in the player's launcher language when a translation exists, and falls
+back **per field** to English otherwise. English always lives in the normal top-level fields — they
+stay required and are the fallback. Supported language codes: `ja`, `th`, `id`, `fil`, `ko` (`en` is
+not an `i18n` key). Everything here is optional and additive: older launchers ignore it.
+
+**Guides** — put `guide.<lang>.md` next to your `guide.md` (same folder, same name with the
+language code before `.md`, ≤ 1 MB). CI finds them automatically (no manifest field), publishes each
+to `plugins/<id>/guide.<lang>.md` beside the English guide, and lists the ones present in the
+registry entry's `guideUrls` (`{ "ja": "<url>", … }`). Because they publish next to `guide.md`, the
+same relative image paths (`media/overview.png`) work unchanged. Translate only the prose — keep
+headings structure, image paths, links and code exactly as in the English guide. A
+`guide.<lang>.md` with no English `guide`, or with an unsupported code (e.g. `guide.jp.md`), fails CI.
+
+**Manifest `i18n`** — keyed by language; every key inside is optional:
+
+```json
+"i18n": {
+  "ja": {
+    "name": "フォトスタジオ",
+    "description": "…",
+    "captions": ["…", null, "…"],
+    "changelog": { "added": ["…"], "fixed": ["…"] }
+  },
+  "ko": { "description": "…" }
+}
+```
+
+| Key | Rules | Published as |
+|---|---|---|
+| `name` | non-empty string, ≤ 100 chars. Only translate a plugin name if the plugin itself shows a translated name in-game; otherwise leave it out | `i18n.<lang>.name` on the registry entry |
+| `description` | non-empty string, ≤ 1000 chars | `i18n.<lang>.description` |
+| `captions` | list, one entry per `media` item **by index** (≤ the number of media items); `null` = not translated; a translated caption needs an English `caption` on that media item | `i18n.<lang>.captions` |
+| `changelog` | same shape as this version's English `changelog`, using only its section names; a section may be `[]` only when the English one is empty too; strings ≤ 2000 chars. Requires an English `changelog` | `changelogI18n.<lang>` on **this version's** `versions[]` entry |
+
+Name/description/captions describe the plugin (shared by both channels); the `changelog` belongs to
+the one version in that manifest. Update the translated changelog together with the English one on
+every release — a stale translation is shown as-is.
 
 #### Plugin dependencies (`dependencies`)
 
@@ -278,7 +319,8 @@ shared fields and may set **only** the version-specific ones below — any other
 | `capPriorVersionsAt` | string (semver) | — | retro-cap prior published versions |
 | `changelog` | object | — | as above |
 | `dependencies` | array | — | this testing build's own dependencies (see above) — may differ from the stable manifest's |
-| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide`, `icon` come from `manifest.json` |
+| `i18n` | object | — | **changelog only**: `{ "<lang>": { "changelog": {…} } }` for this testing build. The stable manifest's translated name/description/captions are inherited; its translated changelog is **not** (it belongs to the stable version) |
+| **inherited — do _not_ repeat** | | | `id`, `name`, `description`, `author`, `dll`, `repository`, `projectPath`, `tags`, `homepage`, `media`, `guide`, `icon`, `i18n` (name/description/captions) come from `manifest.json`; translated guides are the same files for both channels |
 
 ## Third-party / unverified plugins
 

@@ -30,6 +30,79 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "description": "チャットキャプチャ + 快適機能のチャットツール。",
+      "captions": [
+        "チャンネルフィルター、入力欄、ウィスパー自動返信を備えたチャットログ。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)対応を追加 — 設定 → テーマ → 言語 で 한국어 を選べます(Stellar 2.21.0が必要)。"
+        ],
+        "changed": [
+          "ChatToolsウィンドウのタイトルが選択した言語に従うようになりました。"
+        ]
+      }
+    },
+    "th": {
+      "description": "ดักจับแชท + เครื่องมือแชทเสริมความสะดวก",
+      "captions": [
+        "บันทึกแชทพร้อมตัวกรองช่องทาง ช่องพิมพ์ข้อความ และการตอบกลับกระซิบอัตโนมัติ"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ชื่อหน้าต่าง ChatTools จะเปลี่ยนตามภาษาที่เลือกแล้ว"
+        ]
+      }
+    },
+    "id": {
+      "description": "Penangkap chat + alat chat quality-of-life.",
+      "captions": [
+        "Log chat dengan filter channel, composer, dan balas otomatis bisikan."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (butuh Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Judul jendela ChatTools sekarang mengikuti bahasamu."
+        ]
+      }
+    },
+    "fil": {
+      "description": "Pagkuha ng chat + mga chat tool na quality-of-life.",
+      "captions": [
+        "Chat log na may channel filter, composer, at awtomatikong sagot sa bulong."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Koreano (한국어) — piliin ang 한국어 sa Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang pamagat ng ChatTools window ay sumusunod na ngayon sa iyong wika."
+        ]
+      }
+    },
+    "ko": {
+      "name": "채팅 도구",
+      "description": "채팅 캡처 + 편의 채팅 도구.",
+      "captions": [
+        "채널 필터, 입력창, 귓속말 자동 응답을 갖춘 채팅 로그."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "채팅 도구 창 제목이 이제 사용 언어를 따릅니다."
+        ]
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
   "commit": "2226e9d2a46d6dcb37eafc263a454ae2de684e09",
   "projectPath": ".",

@@ -41,7 +41,7 @@ PLUGINS_DIR = ROOT / "plugins"
 
 # Fields a manifest.testing.json override owns (mirrors build-registry.py OVERRIDABLE).
 OVERRIDABLE = ("version", "date", "commit", "tag", "minModSystemVersion",
-               "maxModSystemVersion", "capPriorVersionsAt", "changelog")
+               "maxModSystemVersion", "capPriorVersionsAt", "changelog", "i18n")
 
 
 def stable_path(plugin: str) -> Path:
@@ -68,8 +68,29 @@ def apply_fields(m: dict, args: argparse.Namespace) -> None:
         m["date"] = args.date
 
 
+def dump(m: dict) -> str:
+    # ensure_ascii=False: manifests are authored as UTF-8 (translated `i18n` text, "→", …) — keep
+    # them human-readable instead of rewriting every non-ASCII character as a \uXXXX escape.
+    return json.dumps(m, indent=2, ensure_ascii=False) + "\n"
+
+
+def promoted_i18n(stable_i18n, testing_i18n, testing_has_changelog: bool):
+    """i18n after a promote: translated name/description/captions stay; when the testing build
+    brings its own English changelog, the stable's translated changelogs (for the OLD version) are
+    dropped and the testing build's translated changelogs take their place."""
+    out = {}
+    for lang, block in (stable_i18n or {}).items():
+        kept = {k: v for k, v in block.items() if not (testing_has_changelog and k == "changelog")}
+        if kept:
+            out[lang] = kept
+    for lang, block in (testing_i18n or {}).items():
+        if "changelog" in block:
+            out.setdefault(lang, {})["changelog"] = block["changelog"]
+    return out
+
+
 def write(path: Path, m: dict) -> None:
-    path.write_text(json.dumps(m, indent=2) + "\n", encoding="utf-8")
+    path.write_text(dump(m), encoding="utf-8")
     print(f"{path.relative_to(ROOT)}: v{m['version']} min={m.get('minModSystemVersion')} "
           f"commit={m.get('commit', '-')[:12]} cap={m.get('capPriorVersionsAt')}")
 
@@ -84,10 +105,16 @@ def do_promote(plugin: str) -> None:
     m = json.loads(mp.read_text(encoding="utf-8"))
     t = json.loads(tp.read_text(encoding="utf-8"))
     for k in OVERRIDABLE:
-        if k in t:
+        if k in t and k != "i18n":
             m[k] = t[k]
+    if "i18n" in m or "i18n" in t:
+        i18n = promoted_i18n(m.get("i18n"), t.get("i18n"), "changelog" in t)
+        if i18n:
+            m["i18n"] = i18n
+        else:
+            m.pop("i18n", None)
     m.pop("channel", None)            # promoted build is the stable one now
-    mp.write_text(json.dumps(m, indent=2) + "\n", encoding="utf-8")
+    mp.write_text(dump(m), encoding="utf-8")
     tp.unlink()
     print(f"promoted {plugin}: testing v{m['version']} -> stable (manifest.testing.json removed)")
 

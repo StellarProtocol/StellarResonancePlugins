@@ -37,5 +37,72 @@
   "commit": "9b7bccaf133400bfe0fef19ba92cd06afb81b174",
   "projectPath": ".",
   "tag": "v1.1.0",
-  "capPriorVersionsAt": "2.20.0"
+  "capPriorVersionsAt": "2.20.0",
+  "i18n": {
+    "ja": {
+      "name": "自動採取",
+      "description": "付近の生活資源の採取ポイントを自動で収穫します — 資源タイプを選ぶと、その種類のポイントまで自動で移動して採取します。集中モードもオプションで使えます。",
+      "captions": [
+        "付近のリストから資源タイプを選び、開始を押してください。",
+        "鉱脈を自動で採取する自動採取 — ロックしたタイプのポイントまで自動で移動し、すべて採取します。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)に対応 — Stellar 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+        ]
+      }
+    },
+    "th": {
+      "name": "เก็บเกี่ยวอัตโนมัติ",
+      "description": "เก็บเกี่ยวจุดทรัพยากรชีวิตที่อยู่ใกล้เคียงโดยอัตโนมัติ — เลือกประเภททรัพยากรแล้วมันจะเดินไปเก็บทุกจุดของประเภทนั้นให้เอง พร้อมโหมดสมาธิเป็นตัวเลือกเสริม",
+      "captions": [
+        "เลือกประเภททรัพยากรจากรายการใกล้เคียง แล้วกดเริ่ม",
+        "เก็บเกี่ยวอัตโนมัติกำลังทำฟาร์มสายแร่ — มันเดินไปเก็บเกี่ยวทุกจุดของประเภทที่ล็อกไว้ให้เองโดยอัตโนมัติ"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ การตั้งค่า Stellar → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+        ]
+      }
+    },
+    "id": {
+      "name": "Kumpul Otomatis",
+      "description": "Secara otomatis memanen node sumber daya kehidupan di sekitar — pilih jenis sumber daya dan plugin akan berjalan ke serta memanen setiap node jenis itu, dengan Mode Fokus opsional.",
+      "captions": [
+        "Pilih jenis sumber daya dari daftar terdekat, lalu tekan Mulai.",
+        "Kumpul Otomatis memanen urat bijih — ia berjalan ke dan memanen setiap node dari jenis yang terkunci dengan sendirinya."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan Stellar → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+        ]
+      }
+    },
+    "fil": {
+      "name": "Awtomatikong Pag-ani",
+      "description": "Awtomatikong inaani ang mga malapit na life-resource node — pumili ng uri ng resource at ito ay lalakad papunta at mag-aani ng bawat node ng uring iyon, may opsyonal na Focus mode.",
+      "captions": [
+        "Pumili ng uri ng resource mula sa listahan ng malapit, pagkatapos ay pindutin ang Simulan.",
+        "Ang Awtomatikong Pag-ani ay nagfa-farm ng ugat ng mineral — lumalakad ito papunta at nag-aani ng bawat node ng naka-lock na uri nang mag-isa."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting ng Stellar → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ]
+      }
+    },
+    "ko": {
+      "name": "자동 채집",
+      "description": "근처의 생활 자원 채집물을 자동으로 채집합니다 — 자원 종류를 고르면 그 종류의 채집물까지 걸어가 전부 채집합니다. 집중 모드도 선택적으로 사용할 수 있습니다.",
+      "captions": [
+        "근처 목록에서 자원 종류를 고른 다음 시작을 누르세요.",
+        "자동 채집이 광맥을 파밍하는 모습 — 고정한 종류의 채집물마다 스스로 걸어가 모두 채집합니다."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — Stellar 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ]
+      }
+    }
+  }
 }
