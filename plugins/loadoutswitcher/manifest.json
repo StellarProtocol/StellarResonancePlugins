@@ -13,7 +13,7 @@
     {
       "type": "image",
       "file": "media/loadoutswitcher-hotkeys.png",
-      "caption": "Stellar Settings — Hotkeys: the loadout group with apply.1–apply.8 bindings."
+      "caption": "Stellar Settings — Hotkeys: the plugin's hotkey group with its Apply Loadout 1–8 bindings."
     }
   ],
   "guide": "guide.md",
@@ -34,7 +34,7 @@
       "name": "ロードアウトスイッチャー",
       "description": "保存済みのゲーム内ロードアウト（ロールプラン）をホットキーで切り替え、ロードアウトごとにDeep-Slumberをバインドし、今装備しているロードアウトをワンクリックで別のスロットにコピーします。",
       "captions": [
-        "Stellar 設定 — ホットキー: apply.1〜apply.8 のバインドがある loadout グループ。"
+        "Stellar 設定 — ホットキー: プラグインのホットキーグループと、ロードアウト1〜8を適用のバインド。"
       ],
       "changelog": {
         "added": [
@@ -50,23 +50,23 @@
     "th": {
       "description": "สลับโหลดเอาต์ในเกมที่บันทึกไว้ (Role Plans) ด้วยปุ่มลัด ผูก Deep-Slumber ต่อโหลดเอาต์แต่ละตัว และคัดลอกโหลดเอาต์ที่คุณสวมอยู่ไปยังช่องอื่นได้ในคลิกเดียว",
       "captions": [
-        "Stellar การตั้งค่า — ปุ่มลัด: กลุ่ม loadout พร้อมการผูกปุ่ม apply.1–apply.8"
+        "การตั้งค่า Stellar — ปุ่มลัด: กลุ่มปุ่มลัดของปลั๊กอินพร้อมการผูกปุ่มใช้โหลดเอาต์ 1–8"
       ],
       "changelog": {
         "added": [
           "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
         ],
         "changed": [
-          "ชื่อฮอตคีย์ที่ใช้เปิดหน้าต่างตอนนี้แสดงอย่างชัดเจนในหน้าตั้งค่าแล้ว"
+          "ชื่อปุ่มลัดที่ใช้เปิดหน้าต่างตอนนี้แสดงอย่างชัดเจนในหน้าตั้งค่าแล้ว"
         ],
         "fixed": [],
         "removed": []
       }
     },
     "id": {
-      "description": "Beralih hotkey antar loadout in-game tersimpan (Role Plans), ikatan Deep-Slumber per loadout, dan menyalin loadout yang sedang kamu pakai ke slot lain dengan satu klik.",
+      "description": "Beralih antar loadout tersimpan dengan hotkey (Role Plans), ikatan Deep-Slumber per loadout, dan menyalin loadout yang sedang kamu pakai ke slot lain dengan satu klik.",
       "captions": [
-        "Stellar Settings — Hotkeys: grup loadout dengan ikatan apply.1–apply.8."
+        "Pengaturan Stellar — Hotkey: grup hotkey plugin dengan ikatan Terapkan Loadout 1–8."
       ],
       "changelog": {
         "added": [
@@ -82,11 +82,11 @@
     "fil": {
       "description": "Hotkey switching ng mga naka-save na in-game loadout (Role Plans), Deep-Slumber bindings kada loadout, at one-click na pagkopya ng loadout na suot mo papunta sa ibang slot.",
       "captions": [
-        "Stellar Settings — Hotkeys: ang grupong loadout na may mga apply.1–apply.8 binding."
+        "Mga Setting ng Stellar — Mga Hotkey: ang grupong hotkey ng plugin na may mga binding na Ilapat ang Loadout 1–8."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ],
         "changed": [
           "Ang pangalan ng hotkey na nagbubukas ng window ay malinaw na nang ipinapakita sa Settings."
@@ -99,7 +99,7 @@
       "name": "로드아웃 전환",
       "description": "저장된 인게임 로드아웃(역할 플랜)을 단축키로 전환하고, 로드아웃별 Deep-Slumber 바인딩을 설정하며, 지금 착용 중인 로드아웃을 다른 슬롯에 원클릭으로 복사합니다.",
       "captions": [
-        "Stellar 설정 — 단축키: apply.1–apply.8 바인딩이 있는 loadout 그룹."
+        "Stellar 설정 — 단축키: 플러그인의 단축키 그룹과 로드아웃 1–8 적용 바인딩."
       ],
       "changelog": {
         "added": [

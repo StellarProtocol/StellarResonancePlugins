@@ -4,11 +4,11 @@ Lumipat sa pagitan ng mga naka-save mong in-game na loadout (Role Plans) gamit a
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa mode na **Modded**.
+1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
 2. I-save ang mga loadout mo sa laro gaya ng dati (Role Plans).
-3. Buksan ang **Stellar Settings → Hotkeys**, i-expand ang grupong **loadout**, at mag-bind ng mga
-   key para sa **apply.1** hanggang **apply.8** (hindi pa naka-bind bilang default). Ina-apply ng
-   hotkey na *n* ang *n*-na loadout sa naka-save mong listahan.
+3. Buksan ang **Mga Setting ng Stellar → Mga Hotkey**, i-expand ang grupo ng plugin, at mag-bind ng
+   mga key para sa **Ilapat ang Loadout 1** hanggang **Ilapat ang Loadout 8** (hindi pa naka-bind
+   bilang default). Ina-apply ng hotkey na *n* ang *n*-na loadout sa naka-save mong listahan.
 
 ![Hotkey bindings](media/loadoutswitcher-hotkeys.png)
 
@@ -30,7 +30,7 @@ gusto mong i-overwrite, tingnan ang tanong ("I-overwrite gamit ang Ici-LF?"), at
 
 ## Mga Tip
 
-- I-on ang **Huwag ipasa ang mga hotkey sa laro** sa itaas ng Hotkeys panel para hindi rin
+- I-on ang **Huwag ipasa ang mga hotkey sa laro** sa itaas ng panel na Mga Hotkey para hindi rin
   ma-trigger ng mga naka-bind mong key ang mga aksyon ng laro habang lumilipat ka.
 
 ## Feedback
