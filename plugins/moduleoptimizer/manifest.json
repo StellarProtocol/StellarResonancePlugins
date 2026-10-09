@@ -34,6 +34,97 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "モジュールオプティマイザー",
+      "description": "モジュール／装備ロードアウトのオプティマイザー。",
+      "captions": [
+        "提案されたモジュールセットアップ — 承認するのはあなたです。",
+        "結果 — 整列されたステータスプレビュー付きのスコア化された組み合わせ。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [
+          "ランチャータイル、ウィンドウタイトル、トグルホットキーの名前が、使用言語に従うようになりました。"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "name": "ตัวปรับโมดูล",
+      "description": "ตัวปรับโมดูล/โหลดเอาต์อุปกรณ์ให้เหมาะสม",
+      "captions": [
+        "ชุดโมดูลที่แนะนำ — คุณเป็นผู้อนุมัติ",
+        "ผลลัพธ์ — ชุดค่าผสมที่ให้คะแนนพร้อมตัวอย่างค่าสถานะที่จัดเรียงไว้"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ไทล์ของลอนเชอร์ ชื่อหน้าต่าง และชื่อฮอตคีย์สลับตอนนี้เป็นไปตามภาษาของคุณแล้ว"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "name": "Optimizer Modul",
+      "description": "Optimizer loadout modul / gear.",
+      "captions": [
+        "Setup modul yang disarankan — kamu yang menyetujui.",
+        "Hasil — kombinasi yang dinilai dengan pratinjau statistik yang sejajar."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Tile launcher, judul jendela, dan nama hotkey toggle kini mengikuti bahasamu."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "description": "Module / gear loadout optimizer.",
+      "captions": [
+        "Mga iminumungkahing module setup — ikaw ang nag-aaprubar.",
+        "Mga Resulta — mga na-score na combo na may nakahanay na stat preview."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang launcher tile, mga window title, at pangalan ng toggle hotkey ay sumusunod na ngayon sa wika mo."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "name": "모듈 최적화",
+      "description": "모듈 / 장비 로드아웃 최적화 도구.",
+      "captions": [
+        "제안된 모듈 구성 — 사용자가 승인합니다.",
+        "결과 — 정렬된 능력치 미리보기와 함께 점수가 매겨진 조합들."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "런처 타일, 창 제목, 전환 단축키 이름이 이제 사용 언어를 따릅니다."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarModuleOptimizerPlugin.git",
   "commit": "8ac8767f40427946df24f76b54891c8304ea6605",
   "projectPath": ".",
