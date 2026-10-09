@@ -2,7 +2,7 @@
   "id": "photostudio",
   "name": "Photo Studio",
   "description": "Take beautiful screenshots: a free camera, freeze the whole scene, pose anyone, portrait and square photos, looks and lights, hide anything the game's photo screen can hide — and ReShade.",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "dll": "Stellar.PhotoStudio.dll",
   "author": "Stellar",
   "tags": [
@@ -29,29 +29,20 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.20.0",
-  "date": "2026-10-08",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
     "added": [
-      "The Hide list now matches the game's own photo screen: Me, My own Spirit Echo, Other adventurers, Non-players, Enemy, Weapon, Friends, Party, Guild, Collectible and Other Spirit Echo.",
-      "Friends, Party and Guild really hide those players, even while other adventurers stay visible. A hidden group always wins, but party members stay while you show your party.",
-      "Weapon now hides every player's weapon, not only yours.",
-      "A Field of view slider in the Look tab, and keys for the free camera: ] zooms in, [ zooms out (hold to keep going), backslash resets. The keys are shown on screen.",
-      "Close Photo Studio with Ctrl+Shift+F10."
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
     ],
-    "changed": [
-      "Closing is clearer: the – button shrinks the panel to the small strip, and ✕ closes Photo Studio fully. If the free camera, a frozen scene, posed people, lamps or hides are still on, it asks first and lists what will end.",
-      "When Photo Studio is closed, the scene and camera pills show the key that opens it again.",
-      "Your 1.6.0 hide settings carry over to the new list."
-    ],
-    "removed": [
-      "The Stellar overlay switch in the Hide list. It hid the Photo Studio panel itself; Ctrl+F10 still hides everything."
-    ]
+    "changed": [],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarPhotoStudioPlugin.git",
-  "commit": "ae54ac901347760075b018b9e5868957a1b74564",
+  "commit": "8d881ae9f8623bab6ba6fcd6a06e85180bbd30e8",
   "projectPath": ".",
-  "tag": "v1.7.0",
+  "tag": "v1.8.0",
   "dependencies": [
     {
       "id": "reshade",
@@ -121,5 +112,6 @@
       "licenseUrl": "https://learn.microsoft.com/en-us/legal/windows-sdk/redist",
       "sourceUrl": "https://github.com/mozilla/fxc2/tree/9aba9b11079303d5577e0e3eb455f4d00f3b5946/dll"
     }
-  ]
+  ],
+  "capPriorVersionsAt": "2.20.0"
 }

@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.16.2",
+  "version": "2.17.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -30,15 +30,23 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.11.0",
-  "date": "2026-10-05",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
-    "fixed": [
-      "Buffs and debuffs that have run out no longer stay on the Buffs & Debuffs icons."
-    ]
+    "added": [
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+    ],
+    "changed": [
+      "Spec names now use the game's own names, and show in Japanese when your language is Japanese.",
+      "CombatMeter's hotkey names in Settings now follow your language.",
+      "The CombatMeter settings tile in the launcher now follows your language."
+    ],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "4e0e847cba4b5ab5d63b1b338b3cc6b487c1b710",
+  "commit": "03712e2df3ccd983375fece9868dcfa2062faae5",
   "projectPath": ".",
-  "tag": "v2.16.2"
+  "tag": "v2.17.0",
+  "capPriorVersionsAt": "2.20.0"
 }

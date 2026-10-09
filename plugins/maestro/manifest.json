@@ -2,7 +2,7 @@
   "id": "maestro",
   "name": "Maestro",
   "description": "MIDI auto-player for the band instrument — playlists, group sync and a local sound preview.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "dll": "Stellar.Maestro.dll",
   "author": "Stellar",
   "tags": [
@@ -39,20 +39,19 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.3.0",
-  "date": "2026-10-02",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
     "added": [
-      "New experimental setting, \"Workaround server tone relay bug\" (off by default): when on, other players who also use Stellar can hear your guitar and bass Overdrive and Distortion — tones the game normally doesn't carry to them.",
-      "New \"Tone lead\" control in Network Settings: raise it if a tone change reaches your listeners a note late."
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
     ],
-    "fixed": [
-      "The Restrike gap's reset button now restores its default value instead of switching it off."
-    ]
+    "changed": [],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarMaestroPlugin.git",
-  "commit": "311a8aeff7b317d44435ab813070b98539265804",
+  "commit": "c4086eddeff50fed27c31e88c9d31d05c4337b6b",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.2.0",
-  "tag": "v2.2.0"
+  "capPriorVersionsAt": "2.20.0",
+  "tag": "v2.3.0"
 }

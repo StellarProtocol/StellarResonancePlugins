@@ -2,7 +2,7 @@
   "id": "targetlens",
   "name": "Target Lens",
   "description": "Customizable target HUD: buffs/debuffs, threat/aggro, boss skill timers and a live cast bar.",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "dll": "Stellar.TargetLens.dll",
   "author": "Stellar",
   "tags": [
@@ -18,29 +18,30 @@
     {
       "type": "image",
       "file": "media/target-overlays.png",
-      "caption": "Target overlays in a boss fight \u2014 HP + break gauge, the effect list (\u2605 = your own), threat/aggro %, and the cast bar."
+      "caption": "Target overlays in a boss fight — HP + break gauge, the effect list (★ = your own), threat/aggro %, and the cast bar."
     },
     {
       "type": "image",
       "file": "media/settings.png",
-      "caption": "Grouped settings \u2014 display style, effect-source filters, threat, cast bar and boss timers."
+      "caption": "Grouped settings — display style, effect-source filters, threat, cast bar and boss timers."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.2.0",
-  "date": "2026-09-21",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
-    "added": [],
-    "changed": [],
-    "fixed": [
-      "The in-game network ping reads correctly again instead of always showing 0ms.",
-      "Towns no longer stay stuck in permanent night \u2014 the day/night cycle works normally again.",
-      "Boss skill timers no longer briefly flash blank or unknown entries."
+    "added": [
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
     ],
+    "changed": [
+      "The Target Lens name now switches right away when you change language."
+    ],
+    "fixed": [],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarTargetLensPlugin.git",
-  "commit": "14c0968b8a427013527857ab76a2b95e5570097b",
+  "commit": "0b3d86e9a115c6ddbeff9a1f06c8a97776feea92",
   "projectPath": ".",
-  "tag": "v1.1.1"
+  "tag": "v1.2.0",
+  "capPriorVersionsAt": "2.20.0"
 }

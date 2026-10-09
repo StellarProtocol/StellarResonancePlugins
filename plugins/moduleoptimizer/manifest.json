@@ -2,7 +2,7 @@
   "id": "moduleoptimizer",
   "name": "ModuleOptimizer",
   "description": "Module / gear loadout optimizer.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "dll": "Stellar.ModuleOptimizer.dll",
   "author": "Stellar",
   "tags": [
@@ -22,15 +22,21 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-08-19",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
     "added": [
-      "The plugin's text now displays in your chosen language — English, 日本語 (Japanese), ไทย (Thai), Bahasa Indonesia, and Filipino. Set it in Stellar's Settings → Themes → Language (or leave it on \"Follow game client\")."
-    ]
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+    ],
+    "changed": [
+      "The launcher tile, the window titles and the toggle hotkey's name now follow your language."
+    ],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarModuleOptimizerPlugin.git",
-  "commit": "1dcaf54974c0067ff6031a420e96f19138dbf882",
+  "commit": "8ac8767f40427946df24f76b54891c8304ea6605",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.0.3"
+  "capPriorVersionsAt": "2.20.0",
+  "tag": "v2.2.0"
 }

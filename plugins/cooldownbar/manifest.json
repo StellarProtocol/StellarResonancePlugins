@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Skill cooldown tracker bar.",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -23,15 +23,21 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.1.0",
-  "date": "2026-09-29",
+  "minModSystemVersion": "2.21.0",
+  "date": "2026-10-09",
   "changelog": {
-    "fixed": [
-      "Imagine-lockout debuffs now really show the matching Battle Imagine card: Mechanical Failure shows Arcane! Superconductor Surge and Element Stasis shows Arcane! Fatal Spiral, instead of the grey generic icon."
-    ]
+    "added": [
+      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+    ],
+    "changed": [
+      "The launcher tile and the bar window's title now follow your language."
+    ],
+    "fixed": [],
+    "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "104ee3fb8c5350eb4519bd5e0edf63e79e83efe6",
+  "commit": "29f6c8f917b9ff73cd133812c9a0a2d8a0f0b495",
   "projectPath": ".",
-  "tag": "v2.2.4"
+  "tag": "v2.3.0",
+  "capPriorVersionsAt": "2.20.0"
 }
