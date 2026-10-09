@@ -38,5 +38,83 @@
   "commit": "cbcd1a84db32e3e2c66c4a5f8baba83cd1205d42",
   "projectPath": ".",
   "capPriorVersionsAt": "2.20.0",
-  "tag": "v2.2.0"
+  "tag": "v2.2.0",
+  "i18n": {
+    "ja": {
+      "description": "ライブで更新される属性表示(ミニHUD)と、画面に表示したいステータスをグループ分けして選べる設定画面を備えています。",
+      "captions": [
+        "キャラクターのステータスをひと目でライブ表示。",
+        "グループ分けされたステータス選択 — ミニHUDに表示したい項目にチェックを入れます。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)に対応 — 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+        ],
+        "changed": [
+          "ミニステータスウィンドウのタイトルが、選択した言語に対応するようになりました。"
+        ]
+      }
+    },
+    "th": {
+      "description": "แสดงแอตทริบิวต์แบบเรียลไทม์ (มินิ HUD) พร้อมตัวเลือกการตั้งค่าแบบจัดกลุ่มสำหรับเลือกสเตตัสที่ต้องการแสดงบนจอ",
+      "captions": [
+        "สเตตัสตัวละครของคุณแบบเรียลไทม์ ดูได้ในพริบตา",
+        "ตัวเลือกสเตตัสแบบจัดกลุ่ม — ติ๊กสิ่งที่ต้องการแสดงบนมินิ HUD"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ชื่อหน้าต่างสเตตัสขนาดเล็กตอนนี้แสดงตามภาษาที่คุณเลือกแล้ว"
+        ]
+      }
+    },
+    "id": {
+      "description": "Pembacaan atribut langsung (mini-HUD) dengan pemilih pengaturan berkelompok untuk statistik yang ingin kamu tampilkan di layar.",
+      "captions": [
+        "Statistik karaktermu secara langsung, sekilas lihat.",
+        "Pemilih statistik berkelompok — centang yang ingin kamu tampilkan di mini-HUD."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Judul jendela mini stat kini mengikuti bahasa Anda."
+        ]
+      }
+    },
+    "fil": {
+      "description": "Live na pagbasa ng attribute (mini-HUD) na may grouped settings picker para sa mga stat na gusto mong makita sa screen.",
+      "captions": [
+        "Ang live na stats ng character mo, sa isang sulyap lang.",
+        "Grouped stat picker — markahan ang gusto mong makita sa mini-HUD."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang pamagat ng maliit na window ng stats ay sumusunod na ngayon sa iyong wika."
+        ]
+      }
+    },
+    "ko": {
+      "name": "능력치 보기",
+      "description": "화면에 보고 싶은 능력치를 그룹별로 골라 설정할 수 있는, 실시간으로 갱신되는 미니 HUD입니다.",
+      "captions": [
+        "내 캐릭터의 실시간 능력치를 한눈에.",
+        "그룹별 능력치 선택 — 미니 HUD에 표시할 항목에 체크하세요."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "능력치 보기 미니 HUD 창의 제목이 이제 선택한 언어를 따릅니다."
+        ]
+      }
+    }
+  }
 }
