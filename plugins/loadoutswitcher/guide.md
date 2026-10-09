@@ -6,9 +6,9 @@ Switch between your saved in-game loadouts (Role Plans) with a hotkey.
 
 1. Install the plugin and launch the game **Modded**.
 2. Save your loadouts in the game as usual (Role Plans).
-3. Open **Stellar Settings → Hotkeys**, expand the plugin's group and bind keys to
-   **Apply Loadout 1** through **Apply Loadout 8** (they ship unbound). Hotkey *n* applies
-   the *n*-th loadout in your saved list.
+3. Open **Stellar Settings → Hotkeys** and bind keys to **Apply Loadout 1** through
+   **Apply Loadout 10** (they ship unbound). Hotkey *n* applies the *n*-th loadout in your
+   saved list.
 
 ![Hotkey bindings](media/loadoutswitcher-hotkeys.png)
 

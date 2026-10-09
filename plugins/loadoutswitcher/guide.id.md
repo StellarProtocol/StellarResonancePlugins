@@ -6,9 +6,9 @@ Beralih antar loadout in-game yang kamu simpan (Role Plan) dengan hotkey.
 
 1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Simpan loadout-mu di dalam game seperti biasa (Role Plan).
-3. Buka **Pengaturan Stellar → Hotkey**, perluas grup plugin ini, dan ikat tombol untuk
-   **Terapkan Loadout 1** sampai **Terapkan Loadout 8** (belum diikat secara default). Hotkey
-   ke-*n* menerapkan loadout ke-*n* dalam daftar tersimpanmu.
+3. Buka **Pengaturan Stellar → Hotkey** dan ikat tombol untuk **Terapkan Loadout 1** sampai
+   **Terapkan Loadout 10** (belum diikat secara default). Hotkey ke-*n* menerapkan loadout
+   ke-*n* dalam daftar tersimpanmu.
 
 ![Hotkey bindings](media/loadoutswitcher-hotkeys.png)
 

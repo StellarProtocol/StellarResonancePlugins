@@ -13,7 +13,7 @@
     {
       "type": "image",
       "file": "media/loadoutswitcher-hotkeys.png",
-      "caption": "Stellar Settings — Hotkeys: the plugin's hotkey group with its Apply Loadout 1–8 bindings."
+      "caption": "Stellar Settings — Hotkeys: the Apply Loadout 1–10 hotkeys (1–8 bound to the keypad here)."
     }
   ],
   "guide": "guide.md",
@@ -34,7 +34,7 @@
       "name": "ロードアウトスイッチャー",
       "description": "保存済みのゲーム内ロードアウト（ロールプラン）をホットキーで切り替え、ロードアウトごとにDeep-Slumberをバインドし、今装備しているロードアウトをワンクリックで別のスロットにコピーします。",
       "captions": [
-        "Stellar 設定 — ホットキー: プラグインのホットキーグループと、ロードアウト1〜8を適用のバインド。"
+        "Stellar 設定 — ホットキー: ロードアウト1〜10を適用のホットキー（ここでは1〜8をテンキーに割り当て済み）。"
       ],
       "changelog": {
         "added": [
@@ -50,7 +50,7 @@
     "th": {
       "description": "สลับโหลดเอาต์ในเกมที่บันทึกไว้ (Role Plans) ด้วยปุ่มลัด ผูก Deep-Slumber ต่อโหลดเอาต์แต่ละตัว และคัดลอกโหลดเอาต์ที่คุณสวมอยู่ไปยังช่องอื่นได้ในคลิกเดียว",
       "captions": [
-        "การตั้งค่า Stellar — ปุ่มลัด: กลุ่มปุ่มลัดของปลั๊กอินพร้อมการผูกปุ่มใช้โหลดเอาต์ 1–8"
+        "การตั้งค่า Stellar — ปุ่มลัด: ปุ่มลัดใช้โหลดเอาต์ 1–10 (ในภาพนี้ผูก 1–8 ไว้กับคีย์แพด)"
       ],
       "changelog": {
         "added": [
@@ -66,7 +66,7 @@
     "id": {
       "description": "Beralih antar loadout tersimpan dengan hotkey (Role Plans), ikatan Deep-Slumber per loadout, dan menyalin loadout yang sedang kamu pakai ke slot lain dengan satu klik.",
       "captions": [
-        "Pengaturan Stellar — Hotkey: grup hotkey plugin dengan ikatan Terapkan Loadout 1–8."
+        "Pengaturan Stellar — Hotkey: hotkey Terapkan Loadout 1–10 (1–8 diikat ke keypad di sini)."
       ],
       "changelog": {
         "added": [
@@ -82,7 +82,7 @@
     "fil": {
       "description": "Hotkey switching ng mga naka-save na in-game loadout (Role Plans), Deep-Slumber bindings kada loadout, at one-click na pagkopya ng loadout na suot mo papunta sa ibang slot.",
       "captions": [
-        "Mga Setting ng Stellar — Mga Hotkey: ang grupong hotkey ng plugin na may mga binding na Ilapat ang Loadout 1–8."
+        "Mga Setting ng Stellar — Mga Hotkey: ang mga hotkey na Ilapat ang Loadout 1–10 (1–8 naka-bind sa keypad dito)."
       ],
       "changelog": {
         "added": [
@@ -99,7 +99,7 @@
       "name": "로드아웃 전환",
       "description": "저장된 인게임 로드아웃(역할 플랜)을 단축키로 전환하고, 로드아웃별 Deep-Slumber 바인딩을 설정하며, 지금 착용 중인 로드아웃을 다른 슬롯에 원클릭으로 복사합니다.",
       "captions": [
-        "Stellar 설정 — 단축키: 플러그인의 단축키 그룹과 로드아웃 1–8 적용 바인딩."
+        "Stellar 설정 — 단축키: 로드아웃 1–10 적용 단축키(여기서는 1–8이 키패드에 지정됨)."
       ],
       "changelog": {
         "added": [

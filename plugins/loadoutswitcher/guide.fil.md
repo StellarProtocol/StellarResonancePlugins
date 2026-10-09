@@ -6,9 +6,9 @@ Lumipat sa pagitan ng mga naka-save mong in-game na loadout (Role Plans) gamit a
 
 1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
 2. I-save ang mga loadout mo sa laro gaya ng dati (Role Plans).
-3. Buksan ang **Mga Setting ng Stellar → Mga Hotkey**, i-expand ang grupo ng plugin, at mag-bind ng
-   mga key para sa **Ilapat ang Loadout 1** hanggang **Ilapat ang Loadout 8** (hindi pa naka-bind
-   bilang default). Ina-apply ng hotkey na *n* ang *n*-na loadout sa naka-save mong listahan.
+3. Buksan ang **Mga Setting ng Stellar → Mga Hotkey** at mag-bind ng mga key para sa
+   **Ilapat ang Loadout 1** hanggang **Ilapat ang Loadout 10** (hindi pa naka-bind bilang
+   default). Ina-apply ng hotkey na *n* ang *n*-na loadout sa naka-save mong listahan.
 
 ![Hotkey bindings](media/loadoutswitcher-hotkeys.png)
 
