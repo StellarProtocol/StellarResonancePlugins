@@ -29,6 +29,92 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "ミニマルネームプレート",
+      "description": "ゲームの頭上プレートを置き換える、ミニマルなクラスバッジ＆名前のネームプレート。",
+      "captions": [
+        "ワールド内のバッジと名前、そしてネームプレート設定ウィンドウ。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [
+          "設定のヘッダーとオン/オフスイッチのラベルが、使用言語に従うようになりました。"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "name": "เนมเพลตแบบมินิมัล",
+      "description": "เนมเพลตแบบมินิมัลที่มีตราสัญลักษณ์คลาสและชื่อ มาแทนที่แผ่นป้ายเหนือหัวของเกม",
+      "captions": [
+        "ตราสัญลักษณ์และชื่อในโลกเกม พร้อมหน้าต่างการตั้งค่าเนมเพลต"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "หัวข้อการตั้งค่าและป้ายสวิตช์เปิด/ปิดตอนนี้เป็นไปตามภาษาของคุณแล้ว"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "name": "Nameplate Minimal",
+      "description": "Nameplate minimal badge kelas & nama yang menggantikan pelat di atas kepala bawaan game.",
+      "captions": [
+        "Lencana + nama di dunia, dengan jendela pengaturan Nameplate."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Header pengaturan dan label sakelar on/off kini mengikuti bahasamu."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "description": "Minimal na class-badge at name nameplates na pumapalit sa overhead plate ng laro.",
+      "captions": [
+        "Mga badge + pangalan sa mundo, kasama ang Nameplates settings window."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Ang header ng settings at ang label ng on/off switch ay sumusunod na ngayon sa wika mo."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "name": "미니멀 이름표",
+      "description": "게임의 머리 위 이름표를 대체하는 미니멀 클래스 배지 & 이름 이름표.",
+      "captions": [
+        "월드에서 표시되는 배지와 이름, 그리고 이름표 설정 창."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "설정 헤더와 켜기/끄기 스위치 레이블이 이제 사용 언어를 따릅니다."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
   "commit": "f995e274ccb4917ffbfc90b573825a01a808db3c",
   "projectPath": ".",
