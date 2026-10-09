@@ -37,7 +37,7 @@
   "i18n": {
     "ja": {
       "name": "ワードローブ",
-      "description": "着ている衣装を保存し、ホットキーやメニューでライブ3Dプレビュー付きに即座に切り替えます。",
+      "description": "着ている衣装を保存し、ホットキーやメニューでライブ3Dプレビューを見ながら即座に切り替えます。",
       "captions": [
         "ワールドで衣装を切り替える — ゲームが自身のバナーで変更を確認します。",
         "ワードローブウィンドウ — ホバーした衣装のライブ3Dプレビュー付きの保存済み衣装。"
@@ -90,7 +90,7 @@
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ],
         "changed": [],
         "fixed": [],
