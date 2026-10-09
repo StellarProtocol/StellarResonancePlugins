@@ -90,7 +90,7 @@
       }
     },
     "fil": {
-      "description": "Module / gear loadout optimizer.",
+      "description": "Optimizer ng loadout ng module / gear.",
       "captions": [
         "Mga iminumungkahing module setup — ikaw ang nag-aaprubar.",
         "Mga Resulta — mga na-score na combo na may nakahanay na stat preview."
