@@ -7,7 +7,7 @@ satu jendela yang bisa kamu buka untuk siapa saja.
 
 ## Cara menggunakan
 
-1. Instal plugin lalu jalankan game dalam mode **Modded**.
+1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Buka pemeriksaan dari salah satu titik masuk ini:
    - **tombol kaca pembesar** pada kartu profil, atau
    - item **Inspect** pada baris CombatMeter (jika CombatMeter terpasang).

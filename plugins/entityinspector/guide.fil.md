@@ -1,4 +1,4 @@
-# Entity Inspector
+# Inspektor ng Entidad
 
 Siyasatin ang kahit anong entity sa mundo: identity, mga attribute, naka-equip na gear, at skill
 book — sa isang window na puwede mong buksan kahit kanino.
@@ -7,7 +7,7 @@ book — sa isang window na puwede mong buksan kahit kanino.
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa mode na **Modded**.
+1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
 2. Buksan ang isang inspection mula sa alinman sa dalawang entry point:
    - ang **magnifier button** sa isang profile card, o
    - ang item na **Inspect** sa isang row ng CombatMeter (kapag naka-install ang CombatMeter).
