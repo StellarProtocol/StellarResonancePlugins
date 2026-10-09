@@ -9,7 +9,7 @@ bar nito — bilang malinis na overlay na pwedeng i-drag.
 
 ## Pagsisimula
 
-1. I-install ang plugin at buksan ang laro sa mode na **Modded**.
+1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
 2. Buksan ang overlay ng launcher at i-click ang **Target Lens** para buksan ang settings nito.
 3. Mag-target ng kahit ano habang nasa labanan — awtomatikong lalabas ang mga overlay. I-drag ang
    kahit anong overlay para ilipat ito at i-drag ang gilid nito para baguhin ang laki; naaalala
@@ -21,7 +21,7 @@ bar nito — bilang malinis na overlay na pwedeng i-drag.
   target, kasama ang pangalan, rank, at distansya.
 - **Mga Epekto ng Target** — ang mga buff at debuff sa target, bawat isa may icon at natitirang
   oras. Minamarkahan ng **★** ang sarili mong mga epekto.
-- **Threat / Aggro** — kung sino ang pinoproblema ng boss at ang **% threat** ng bawat player; ang
+- **Threat / Aggro** — kung sino ang tinututukan ng boss at ang **% threat** ng bawat player; ang
   sarili mong row ay naka-highlight.
 - **Mga Timer ng Skill ng Boss** — isang live na **countdown** papunta sa mapanganib na skill ng
   boss, para makareact ka sa tamang oras. Lalabas lang sa mga laban sa boss na gumagamit nito.
@@ -64,5 +64,5 @@ markang **★** at nasa itaas ng listahan.
   Target / Threat / Aggro / Cast Bar / Mga Timer ng Skill ng Boss).
 - Gamitin ang **"I-reset lahat"** ng launcher para ibalik ang bawat overlay sa default nitong
   posisyon.
-- Naka-localize sa **English, Japanese, Thai, Indonesian, at Filipino** — sinusunod nito ang wika
-  ng launcher.
+- Naka-localize sa **English, Japanese, Thai, Indonesian, Filipino, at Korean** — sinusunod nito
+  ang wika ng launcher.

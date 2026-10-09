@@ -9,7 +9,7 @@ bisa diseret.
 
 ## Memulai
 
-1. Instal plugin lalu jalankan game dalam mode **Modded**.
+1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Buka overlay launcher dan klik **Target Lens** untuk membuka pengaturannya.
 3. Target sesuatu saat bertarung — overlay akan muncul secara otomatis. Seret overlay mana pun
    untuk memindahkannya dan seret tepinya untuk mengubah ukuran; posisinya akan diingat.
@@ -62,5 +62,5 @@ yang muncul — efek yang direkomendasikan ditandai **★** dan diurutkan ke ata
   dikelompokkan (HUD Target / Ancaman / Aggro / Bilah Cast / Pengatur Waktu Skill Bos).
 - Gunakan **"Atur ulang semua"** di launcher untuk mengembalikan semua overlay ke posisi
   bawaannya.
-- Dilokalkan dalam **Bahasa Inggris, Jepang, Thailand, Indonesia, dan Filipino** — mengikuti bahasa
-  launcher.
+- Dilokalkan dalam **Bahasa Inggris, Jepang, Thailand, Indonesia, Filipino, dan Korea** —
+  mengikuti bahasa launcher.
