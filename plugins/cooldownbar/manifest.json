@@ -85,7 +85,7 @@
       "description": "Bar na tagasubaybay ng cooldown ng skill.",
       "captions": [
         "Mga cooldown ng skill sa isang movable na timeline.",
-        "Track window — i-toggle ang mga skill, debuff at buff, may filter at paghahanap."
+        "I-track na window — i-toggle ang mga skill, debuff at buff, may filter at paghahanap."
       ],
       "changelog": {
         "added": [

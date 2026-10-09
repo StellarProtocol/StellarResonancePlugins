@@ -7,7 +7,7 @@ tanpa harus menatap hotbar.
 
 ## Cara pakai
 
-1. Pasang plugin-nya lalu jalankan game secara **Modded**.
+1. Pasang plugin-nya lalu jalankan game dalam mode **Dengan mod**.
 2. Bilah akan muncul sebagai overlay. Seret ke mana pun kamu mau — posisinya akan diingat.
 3. Ikon skill akan bergeser di sepanjang linimasa seiring cooldown-nya berkurang; saat ikon
    mencapai ujung, skill itu siap dipakai.
