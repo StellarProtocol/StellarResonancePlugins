@@ -77,11 +77,11 @@
       "name": "Pasadyang Larawan ng Profile",
       "description": "Mag-upload ng pasadyang PNG bilang avatar o namecard mo sa laro, nang hindi kailangan ng in-game camera.",
       "captions": [
-        "Ang Custom Profile Image window — pumili ng PNG, sundin ang mga hakbang sa screen, at ilapat ito bilang avatar o namecard mo."
+        "Ang Pasadyang Larawan ng Profile window — pumili ng PNG, sundin ang mga hakbang sa screen, at ilapat ito bilang avatar o namecard mo."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ],
         "changed": [],
         "fixed": [],

@@ -8,8 +8,8 @@ isang folder na may mga non-English na character.
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa mode na **Modded**, pagkatapos ay pumasok sa mundo.
-2. Buksan ang window na **Custom Profile Image** mula sa Stellar overlay.
+1. I-install ang plugin at buksan ang laro sa mode na **May mod**, pagkatapos ay pumasok sa mundo.
+2. Buksan ang window na **Pasadyang Larawan ng Profile** mula sa Stellar overlay.
 3. **Piliin ang larawan** na gusto mong ilapat sa iyong Avatar o Namecard. May magbubukas na
    native na PNG file picker — kung hindi mo ito makita, baka nasa likod ito ng window ng laro:
    pindutin ang **Alt+Tab** para dalhin ito sa harap, o patakbuhin ang laro sa mode na
@@ -32,4 +32,4 @@ iyong **Avatar** o **Namecard**, depende kung alin ang binabago mo sa laro.
 
 Ang pananatili sa mga sukat na ito ay umiiwas sa laro sa pag-scale o pag-crop ng larawan mo. Baka
 hindi eksaktong tumugma ang preview sa window sa huling resulta — tingnan ang in-game na preview
-bago ka kumpirmahin.
+bago mo kumpirmahin.

@@ -8,7 +8,7 @@ folder dengan karakter non-Inggris.
 
 ## Cara menggunakan
 
-1. Instal plugin lalu jalankan game dalam mode **Modded**, kemudian masuk ke dunia.
+1. Instal plugin lalu jalankan game dalam mode **Dengan mod**, kemudian masuk ke dunia.
 2. Buka jendela **Gambar Profil Kustom** dari overlay Stellar.
 3. **Pilih gambar** yang ingin kamu terapkan ke Avatar atau Kartu Nama-mu. Jendela pemilih file PNG
    bawaan akan terbuka — jika tidak terlihat, mungkin tersembunyi di belakang jendela game: tekan
