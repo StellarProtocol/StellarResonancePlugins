@@ -81,7 +81,7 @@ Tekan **Alt+F10** (atau tombol **Kamera bebas**) untuk mengambil alih kamera.
   sekeliling, **Q / E** untuk turun / naik.
 - **Z / C** memiringkan kamera, **Shift + scroll** zoom (field of view), **R** kembali ke
   tampilan game.
-- **]** zoom in dan **[** zoom out (tahan untuk terus), **\\** mereset field of view. Tab
+- **]** zoom in dan **[** zoom out (tahan untuk terus), **\** mereset field of view. Tab
   **Tampilan** juga punya slider **Sudut pandang** (10–100°). Tombol-tombolnya ditampilkan di
   layar.
 - **Space** membekukan adegan, **H** menyembunyikan petunjuk tombol, **Esc** atau **Alt+F10**

@@ -67,7 +67,7 @@ Press **Alt+F10** (or the **Free camera** button) to take control of the camera.
   **Q / E** move down / up. **Click** another character to orbit them; **Backspace** returns to you.
 - **Fly**: press **Tab**, then **WASD** to move, **right mouse** to look, **Q / E** for down / up.
 - **Z / C** tilt the camera, **Shift + wheel** zooms (field of view), **R** returns to the game's view.
-- **]** zooms in and **[** zooms out (hold to keep going), **\\** resets the field of view. The **Look** tab has a
+- **]** zooms in and **[** zooms out (hold to keep going), **\** resets the field of view. The **Look** tab has a
   **Field of view** slider (10–100°) too. The keys are shown on screen.
 - **Space** freezes the scene, **H** hides the key hints, **Esc** or **Alt+F10** leaves the free camera.
 

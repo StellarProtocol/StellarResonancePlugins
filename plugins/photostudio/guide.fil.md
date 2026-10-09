@@ -89,7 +89,7 @@ Pindutin ang **Alt+F10** (o ang button na **Free camera**) para kontrolin ang ca
   tumingin, **Q / E** para bumaba / umakyat.
 - Iniikot ng **Z / C** ang camera, nag-zoom ang **Shift + wheel** (field of view), bumabalik sa
   view ng laro ang **R**.
-- Nag-zoom in ang **]** at zoom out ang **[** (i-hold para magpatuloy), nire-reset ng **\\** ang
+- Nag-zoom in ang **]** at zoom out ang **[** (i-hold para magpatuloy), nire-reset ng **\** ang
   field of view. May slider din ang tab na **Itsura** para sa **Field of view** (10–100°).
   Nakikita ang mga key sa screen.
 - Nagfi-freeze ng eksena ang **Space**, itinatago ng **H** ang mga key hint, lumalabas sa free
