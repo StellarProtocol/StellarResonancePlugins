@@ -39,6 +39,93 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "description": "カスタマイズ可能なターゲットHUD：バフ/デバフ、ヘイト/アグロ、ボススキルタイマー、そしてリアルタイムの詠唱バー。",
+      "captions": [
+        "ボス戦でのターゲットオーバーレイ — HP+ブレイクゲージ、効果一覧（★=自分の効果）、ヘイト/アグロ％、詠唱バー。",
+        "グループ化された設定 — 表示スタイル、効果の発生源フィルター、ヘイト、詠唱バー、ボスタイマー。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [
+          "言語を変更すると、Target Lens の名前がすぐに切り替わるようになりました。"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "description": "HUD เป้าหมายที่ปรับแต่งได้: บัฟ/ดีบัฟ ความเกลียดชัง/อักโกร ตัวจับเวลาสกิลบอส และแถบร่ายเวทแบบเรียลไทม์",
+      "captions": [
+        "โอเวอร์เลย์เป้าหมายระหว่างต่อสู้บอส — เลือด + เกจเบรก รายการเอฟเฟกต์ (★ = ของคุณเอง) % ความเกลียดชัง/อักโกร และแถบร่ายเวท",
+        "การตั้งค่าแบบจัดกลุ่ม — รูปแบบการแสดงผล ตัวกรองแหล่งที่มาของเอฟเฟกต์ ความเกลียดชัง แถบร่ายเวท และตัวจับเวลาบอส"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [
+          "ชื่อ Target Lens จะเปลี่ยนทันทีเมื่อคุณเปลี่ยนภาษา"
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "description": "HUD target yang dapat disesuaikan: buff/debuff, ancaman/aggro, pengatur waktu skill bos, dan cast bar langsung.",
+      "captions": [
+        "Overlay target saat pertarungan bos — HP + gauge break, daftar efek (★ = milikmu sendiri), % ancaman/aggro, dan cast bar.",
+        "Pengaturan yang dikelompokkan — gaya tampilan, filter sumber efek, ancaman, cast bar, dan pengatur waktu bos."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Nama Target Lens kini langsung berganti saat kamu mengubah bahasa."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "description": "Nako-customize na target HUD: buffs/debuffs, threat/aggro, mga timer ng skill ng boss, at live na cast bar.",
+      "captions": [
+        "Mga target overlay sa isang labanan sa boss — HP + break gauge, listahan ng epekto (★ = sarili mo), % threat/aggro, at ang cast bar.",
+        "Pinagsama-samang settings — display style, mga filter ng pinagmulan ng epekto, threat, cast bar, at mga timer ng boss."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [
+          "Agad nang nagbabago ngayon ang pangalan ng Target Lens kapag binago mo ang wika."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "description": "커스터마이즈 가능한 대상 HUD: 버프/디버프, 어그로, 보스 스킬 타이머, 실시간 시전 바.",
+      "captions": [
+        "보스 전투 중 대상 오버레이 — HP + 브레이크 게이지, 효과 목록(★ = 내 효과), 어그로 %, 시전 바.",
+        "그룹화된 설정 — 표시 스타일, 효과 출처 필터, 어그로, 시전 바, 보스 타이머."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [
+          "언어를 변경하면 Target Lens 이름이 바로 바뀝니다."
+        ],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarTargetLensPlugin.git",
   "commit": "0b3d86e9a115c6ddbeff9a1f06c8a97776feea92",
   "projectPath": ".",
