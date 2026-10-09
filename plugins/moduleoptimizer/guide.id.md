@@ -7,7 +7,7 @@ melalui alur pemasangan bawaan game itu sendiri.
 
 ## Cara menggunakan
 
-1. Instal plugin lalu jalankan game dalam mode **Modded**.
+1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Buka optimizer dari overlay Stellar dan atur **atribut target**-mu — atribut yang kamu inginkan
    beserta nilai minimumnya (misalnya *Life Wave ≥ 20*).
 3. Jalankan optimizer: ia akan mendaftar dan menilai kombinasi modul dari inventarismu (5 slot

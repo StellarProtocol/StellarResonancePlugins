@@ -65,7 +65,7 @@
           "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
         ],
         "changed": [
-          "ไทล์ของลอนเชอร์ ชื่อหน้าต่าง และชื่อฮอตคีย์สลับตอนนี้เป็นไปตามภาษาของคุณแล้ว"
+          "ไทล์ของลอนเชอร์ ชื่อหน้าต่าง และชื่อปุ่มลัดสลับตอนนี้เป็นไปตามภาษาของคุณแล้ว"
         ],
         "fixed": [],
         "removed": []
@@ -97,7 +97,7 @@
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ],
         "changed": [
           "Ang launcher tile, mga window title, at pangalan ng toggle hotkey ay sumusunod na ngayon sa wika mo."
