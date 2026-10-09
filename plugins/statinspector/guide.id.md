@@ -6,7 +6,7 @@ Atribut karaktermu secara langsung di layar — mini-HUD ringkas dengan persis s
 
 ## Cara pakai
 
-1. Pasang plugin lalu jalankan game dalam mode **Modded**.
+1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Buka jendela StatInspector dari overlay Stellar untuk memilih statistikmu: pemilih pengaturan berkelompok menampilkan setiap atribut — centang yang ingin kamu tampilkan di mini-HUD.
 
 ![Pemilih statistik](media/statinspector-settings.png)

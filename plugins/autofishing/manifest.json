@@ -31,7 +31,7 @@
       "description": "釣りのミニゲームをキャストから釣果まで完全自動化。テンション制御の調整と自動ロッド交換に対応しており、放置したまま運用できます。",
       "changelog": {
         "added": [
-          "韓国語（한국어）に対応 — 設定 → テーマ → 言語 で「한국어」を選択してください（Stellar 2.21.0 が必要）。"
+          "韓国語（한국어）に対応 — Stellar 設定 → テーマ → 言語 で「한국어」を選択してください（Stellar 2.21.0 が必要）。"
         ]
       }
     },
@@ -40,7 +40,7 @@
       "description": "ทำให้มินิเกมตกปลาเป็นแบบอัตโนมัติทั้งหมด ตั้งแต่เหวี่ยงเบ็ดจนถึงจับได้ พร้อมควบคุมแรงตึงที่ปรับแต่งได้และเปลี่ยนคันเบ็ดอัตโนมัติ จึงปล่อยให้ทำงานโดยไม่ต้องเฝ้าได้",
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ การตั้งค่า Stellar → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
         ]
       }
     },
@@ -49,7 +49,7 @@
       "description": "Mengotomatiskan sepenuhnya minigame memancing — dari melempar sampai menangkap — dengan kontrol tegangan yang dapat disesuaikan dan ganti joran otomatis, jadi kamu bisa membiarkannya berjalan tanpa diawasi.",
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan Stellar → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
         ]
       }
     },
@@ -58,7 +58,7 @@
       "description": "Ganap na awtomatiko ang minigame ng pangingisda — mula sa paghahagis hanggang sa paghuli — may naaayos na kontrol ng tensyon at awtomatikong pagpapalit ng baras, kaya puwede mo itong iwanang tumatakbo nang walang bantay.",
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting ng Stellar → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ]
       }
     },
@@ -67,7 +67,7 @@
       "description": "캐스팅부터 포획까지 낚시 미니게임을 완전히 자동화합니다. 장력 조절을 설정할 수 있고 낚싯대도 자동으로 교체되어, 지켜보지 않아도 그대로 돌아가게 둘 수 있습니다.",
       "changelog": {
         "added": [
-          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "한국어 지원 추가 — Stellar 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
         ]
       }
     }

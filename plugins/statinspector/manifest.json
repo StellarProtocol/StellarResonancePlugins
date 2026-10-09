@@ -48,7 +48,7 @@
       ],
       "changelog": {
         "added": [
-          "韓国語(한국어)に対応 — 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+          "韓国語(한국어)に対応 — Stellar 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
         ],
         "changed": [
           "ミニステータスウィンドウのタイトルが、選択した言語に対応するようになりました。"
@@ -63,7 +63,7 @@
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ การตั้งค่า Stellar → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
         ],
         "changed": [
           "ชื่อหน้าต่างสเตตัสขนาดเล็กตอนนี้แสดงตามภาษาที่คุณเลือกแล้ว"
@@ -78,10 +78,10 @@
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan Stellar → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
         ],
         "changed": [
-          "Judul jendela mini stat kini mengikuti bahasa Anda."
+          "Judul jendela mini stat kini mengikuti bahasamu."
         ]
       }
     },
@@ -93,7 +93,7 @@
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting ng Stellar → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ],
         "changed": [
           "Ang pamagat ng maliit na window ng stats ay sumusunod na ngayon sa iyong wika."
@@ -109,7 +109,7 @@
       ],
       "changelog": {
         "added": [
-          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "한국어 지원 추가 — Stellar 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
         ],
         "changed": [
           "능력치 보기 미니 HUD 창의 제목이 이제 선택한 언어를 따릅니다."

@@ -4,7 +4,7 @@ Mengotomatiskan sepenuhnya minigame memancing — dari melempar sampai menangkap
 
 ## Cara pakai
 
-1. Pasang plugin lalu jalankan game dalam mode **Modded**.
+1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Pergi ke titik memancing dengan joran terpasang, lalu buka jendela Pancing Otomatis dari overlay Stellar.
 3. Aktifkan. Plugin akan melempar, memainkan minigame tegangan, dan mengangkat tangkapannya sendiri, lalu mengulang dari awal.
 

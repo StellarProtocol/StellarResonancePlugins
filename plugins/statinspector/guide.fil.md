@@ -6,7 +6,7 @@ Ang live na attribute ng character mo sa screen — compact na mini-HUD na may e
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa **Modded**.
+1. I-install ang plugin at buksan ang laro sa **May mod**.
 2. Buksan ang window ng StatInspector mula sa overlay ng Stellar para piliin ang iyong mga stat: nakalista sa grouped settings picker ang bawat attribute — markahan ang mga gusto mong makita sa mini-HUD.
 
 ![Pagpili ng stats](media/statinspector-settings.png)

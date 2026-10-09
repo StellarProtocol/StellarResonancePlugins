@@ -4,7 +4,7 @@ Secara otomatis memanen node sumber daya kehidupan — herba, bijih, kayu, perma
 
 ## Cara pakai
 
-1. Pasang plugin lalu jalankan game dalam mode **Modded**.
+1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Berdirilah di dekat sumber daya yang ingin kamu panen, lalu buka jendela **Kumpul Otomatis** dari overlay Stellar.
 3. Daftar **Jenis Sumber Daya Terdekat** akan terisi sendiri. Klik jenis yang kamu mau — tanda ▶ menandai jenis yang terkunci.
 4. Tekan **Mulai**. Kumpul Otomatis akan berjalan ke tiap node jenis itu dan memanennya, lalu pindah ke node berikutnya. Tekan **Hentikan** kapan saja.

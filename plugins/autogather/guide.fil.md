@@ -4,7 +4,7 @@ Awtomatikong inaani ang mga life-resource node — halamang-gamot, mineral, kaho
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa **Modded**.
+1. I-install ang plugin at buksan ang laro sa **May mod**.
 2. Tumayo malapit sa mga resource na gusto mong i-farm at buksan ang window ng **Awtomatikong Pag-ani** mula sa overlay ng Stellar.
 3. Awtomatikong mapupuno ang listahan ng **Mga Uri ng Resource sa Malapit**. I-click ang uring gusto mo — may ▶ na nagmamarka sa naka-lock na uri.
 4. Pindutin ang **Simulan**. Ang Awtomatikong Pag-ani ay lalakad sa bawat node ng uring iyon at aanihin ito, pagkatapos ay lilipat sa susunod. Pindutin ang **Ihinto** anumang oras.
