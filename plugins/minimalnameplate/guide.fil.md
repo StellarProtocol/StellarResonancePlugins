@@ -8,7 +8,7 @@ laro, kaya nananatili itong malinaw at tamang nakatago sa likod ng world geometr
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa mode na **Modded**.
+1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
 2. Buksan ang window na **Nameplates** mula sa Stellar overlay at i-on ang **Paganahin ang Minimal
    Nameplate (Huwag Paganahin ang Nameplate ng Laro)** (hindi na gagana ang sariling nameplate ng
    laro).
@@ -17,7 +17,8 @@ laro, kaya nananatili itong malinaw at tamang nakatago sa likod ng world geometr
      player.
    - **Ipakita ang Pangalan ng Player (sa ilalim ng badge)** — ang pangalan ng player sa ilalim ng
      badge.
-   - **Itago ang sarili kong Badge + Pangalan** — panatilihing malinis ang ibabaw ng ulo mo.
+   - **Ipakita ang Friend Icon** / **Ipakita ang Guild Icon** — markahan ang mga kaibigan at
+     kasapi ng guild.
    - **Laki ng Badge / Laki ng Pangalan** — i-scale ang dalawa nang hiwalay.
 
 ## Paggana
@@ -26,3 +27,6 @@ Sinusunod ng mga plate ang sariling mga panuntunan sa visibility ng nameplate ng
 global na HUD switch (HideUI, cutscenes, photo mode, menus), mga setting ng head-info kada type,
 at mga per-entity hide ay lahat nag-aapply, kaya walang lalabas kung saan talaga hindi rin
 magpapakita ang laro mismo ng plate.
+
+Para panatilihing malinis ang ibabaw ng ulo mo, i-off ang sariling setting ng head-info ng laro
+para sa character mo — sinusunod ng mga plate ang setting na iyon.
