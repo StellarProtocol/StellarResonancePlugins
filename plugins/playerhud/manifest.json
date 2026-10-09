@@ -1,7 +1,7 @@
 {
   "id": "playerhud",
   "name": "PlayerHUD",
-  "description": "Compact player HP / MP / buff HUD.",
+  "description": "Compact player HP / stamina / buff HUD.",
   "version": "2.2.0",
   "dll": "Stellar.PlayerHUD.dll",
   "author": "Stellar",
@@ -36,14 +36,13 @@
   "tag": "v2.2.0",
   "i18n": {
     "ja": {
-      "name": "プレイヤーHUD",
-      "description": "コンパクトなプレイヤー HP / MP / バフ HUD。",
+      "description": "コンパクトなプレイヤー HP / スタミナ / バフ HUD。",
       "captions": [
         "レベルと位置情報も表示するコンパクトな HP / スタミナ HUD。"
       ],
       "changelog": {
         "added": [
-          "韓国語(한국어)に対応 — 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+          "韓国語(한국어)に対応 — Stellar 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
         ],
         "changed": [
           "設定内の「PlayerHUD」の2つのホットキー名が、選択した言語に対応するようになりました。"
@@ -51,14 +50,13 @@
       }
     },
     "th": {
-      "name": "HUD ผู้เล่น",
-      "description": "HUD ขนาดกะทัดรัดแสดง HP / MP / บัฟของผู้เล่น",
+      "description": "HUD ขนาดกะทัดรัดแสดง HP / สตามินา / บัฟของผู้เล่น",
       "captions": [
         "HUD ขนาดกะทัดรัดแสดง HP / สตามินา พร้อมเลเวลและตำแหน่ง"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ การตั้งค่า Stellar → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
         ],
         "changed": [
           "ชื่อปุ่มลัดทั้งสองของ PlayerHUD ในตั้งค่าตอนนี้แสดงตามภาษาที่คุณเลือกแล้ว"
@@ -66,29 +64,27 @@
       }
     },
     "id": {
-      "name": "HUD Pemain",
-      "description": "HUD ringkas untuk HP / MP / buff pemain.",
+      "description": "HUD ringkas untuk HP / Stamina / buff pemain.",
       "captions": [
         "HUD ringkas HP / Stamina dengan level dan posisi."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan Stellar → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
         ],
         "changed": [
-          "Kedua nama hotkey PlayerHUD di Pengaturan kini mengikuti bahasa Anda."
+          "Kedua nama hotkey PlayerHUD di Pengaturan kini mengikuti bahasamu."
         ]
       }
     },
     "fil": {
-      "name": "HUD ng Manlalaro",
-      "description": "Compact na HP / MP / buff HUD ng manlalaro.",
+      "description": "Compact na HP / Stamina / buff HUD ng manlalaro.",
       "captions": [
         "Compact na HP / Stamina HUD na may level at posisyon."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting ng Stellar → Tema → Wika (kailangan ng Stellar 2.21.0)."
         ],
         "changed": [
           "Ang dalawang pangalan ng hotkey ng PlayerHUD sa Mga Setting ay sumusunod na ngayon sa iyong wika."
@@ -97,13 +93,13 @@
     },
     "ko": {
       "name": "플레이어 HUD",
-      "description": "플레이어 HP / MP / 버프를 보여주는 간단한 HUD입니다.",
+      "description": "플레이어 HP / 스태미나 / 버프를 보여주는 간단한 HUD입니다.",
       "captions": [
         "레벨과 위치까지 보여주는 간단한 HP / 스태미나 HUD."
       ],
       "changelog": {
         "added": [
-          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "한국어 지원 추가 — Stellar 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
         ],
         "changed": [
           "설정의 플레이어 HUD 단축키 이름 두 개가 이제 선택한 언어를 따릅니다."
