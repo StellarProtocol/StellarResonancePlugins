@@ -9,7 +9,7 @@ na-summon mong instrumento — mag-isa o may grupo — may playlist, group sync,
 ## Pagsisimula
 
 1. I-install ang plugin at buksan ang laro sa **May mod**.
-2. Buksan ang **Maestro** mula sa Stellar launcher (grupong Plugins). Sa loob lang ng mundo
+2. Buksan ang **Maestro** mula sa Stellar launcher (grupong MGA PLUGIN). Sa loob lang ng mundo
    magagamit ang mga tool ng band.
 3. Ilagay ang mga `.mid` / `.midi` file mo sa folder ng laro na `midi\` — gagawin ito ng Maestro at
    ipapakita ang path nito sa window ng **Aklatan**. Gamitin ang **I-rescan ang folder** o

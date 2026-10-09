@@ -9,7 +9,7 @@ sendirian atau dalam grup — lengkap dengan playlist, sinkron grup, dan pratinj
 ## Memulai
 
 1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
-2. Buka **Maestro** dari Stellar launcher (grup Plugins). Alat band hanya bisa dipakai di dalam dunia game.
+2. Buka **Maestro** dari Stellar launcher (grup PLUGIN). Alat band hanya bisa dipakai di dalam dunia game.
 3. Taruh file `.mid` / `.midi` Anda di folder `midi\` milik game — Maestro akan membuatnya dan
    menampilkan path-nya di jendela **Pustaka**. Gunakan **Pindai ulang folder** atau **Buka lokasi**
    jika Anda memindahkannya.
