@@ -27,6 +27,83 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "カスタムプロフィール画像",
+      "description": "ゲーム内カメラでの撮影を省略して、好きなPNG画像をアバターやネームカードとしてアップロードします。",
+      "captions": [
+        "カスタムプロフィール画像ウィンドウ — PNGを選び、画面の手順に従ってアバターやネームカードとして適用します。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "th": {
+      "name": "รูปโปรไฟล์ที่กำหนดเอง",
+      "description": "อัปโหลด PNG ที่กำหนดเองเป็นรูปโปรไฟล์หรือนามบัตรในเกมของคุณ โดยไม่ต้องใช้กล้องในเกม",
+      "captions": [
+        "หน้าต่างรูปโปรไฟล์ที่กำหนดเอง — เลือก PNG ทำตามขั้นตอนบนหน้าจอ แล้วนำไปใช้เป็นรูปโปรไฟล์หรือนามบัตร"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "id": {
+      "name": "Gambar Profil Kustom",
+      "description": "Unggah PNG kustom sebagai avatar atau kartu nama dalam game-mu, tanpa perlu kamera dalam game.",
+      "captions": [
+        "Jendela Gambar Profil Kustom — pilih PNG, ikuti langkah di layar, lalu terapkan sebagai avatar atau kartu nama."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "fil": {
+      "name": "Pasadyang Larawan ng Profile",
+      "description": "Mag-upload ng pasadyang PNG bilang avatar o namecard mo sa laro, nang hindi kailangan ng in-game camera.",
+      "captions": [
+        "Ang Custom Profile Image window — pumili ng PNG, sundin ang mga hakbang sa screen, at ilapat ito bilang avatar o namecard mo."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Settings → Themes → Language (kailangan ng Stellar 2.21.0)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    },
+    "ko": {
+      "name": "프로필 이미지",
+      "description": "인게임 카메라 촬영 없이, 원하는 PNG를 아바타나 명함으로 업로드하세요.",
+      "captions": [
+        "프로필 이미지 창 — PNG를 선택하고 화면의 단계를 따라 아바타나 명함으로 적용하세요."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ],
+        "changed": [],
+        "fixed": [],
+        "removed": []
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellaCustomProfileImagePlugin.git",
   "commit": "1a17a79407ce611e2ffb6bea3a71455b1425ed48",
   "projectPath": ".",
