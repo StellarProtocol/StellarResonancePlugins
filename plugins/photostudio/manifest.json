@@ -39,6 +39,77 @@
     "fixed": [],
     "removed": []
   },
+  "i18n": {
+    "ja": {
+      "name": "フォトスタジオ",
+      "description": "美しいスクリーンショットを撮ろう: 自由カメラ、シーン全体の停止、誰にでもポーズ、縦長・正方形の写真、ルックとライト、ゲームの写真画面が隠せるものは何でも隠せる機能——そしてReShade。",
+      "captions": [
+        "停止したボス戦の隣に表示されたフォトスタジオのパネル——自由カメラは選んだ相手の周りを周回します。",
+        "フォトスタジオで撮影した、ポーズ付きのグループ写真。",
+        "縦長写真は切り抜きではなく、縦長の形のまま全ディテールで描画されます。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)対応を追加 — 設定 → テーマ → 言語 で 한국어 を選べます(Stellar 2.21.0が必要)。"
+        ]
+      }
+    },
+    "th": {
+      "name": "สตูดิโอภาพถ่าย",
+      "description": "ถ่ายภาพที่สวยงาม: กล้องอิสระ, หยุดทั้งฉาก, ให้ใครก็ได้ทำท่าทาง, ภาพแนวตั้งและจัตุรัส, โทนภาพและแสงไฟ, ซ่อนทุกอย่างที่หน้าจอถ่ายภาพของเกมซ่อนได้ — และ ReShade",
+      "captions": [
+        "แผงสตูดิโอภาพถ่ายข้างการต่อสู้บอสที่หยุดภาพไว้ — กล้องอิสระหมุนรอบใครก็ตามที่คุณเลือก",
+        "ภาพถ่ายกลุ่มที่จัดท่าทางแล้ว ถ่ายด้วยสตูดิโอภาพถ่าย",
+        "ภาพแนวตั้งจะถูกวาดในรูปทรงแนวตั้งแบบเต็มรายละเอียด ไม่ใช่การครอป"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+        ]
+      }
+    },
+    "id": {
+      "name": "Studio Foto",
+      "description": "Ambil screenshot yang indah: kamera bebas, bekukan seluruh scene, pose siapa saja, foto potret dan persegi, tampilan dan cahaya, sembunyikan apa pun yang bisa disembunyikan layar foto game — dan ReShade.",
+      "captions": [
+        "Panel Studio Foto di samping pertarungan bos yang dibekukan — kamera bebas mengorbit siapa pun yang kamu pilih.",
+        "Foto grup yang di-pose, diambil dengan Studio Foto.",
+        "Foto potret digambar dalam bentuk tinggi dengan detail penuh, bukan di-crop."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (butuh Stellar 2.21.0)."
+        ]
+      }
+    },
+    "fil": {
+      "description": "Kumuha ng magagandang screenshot: free camera, i-freeze ang buong eksena, pumose ang kahit sino, mga litratong portrait at square, mga look at ilaw, itago ang kahit anong kayang itago ng photo screen ng laro — at ReShade.",
+      "captions": [
+        "Ang panel ng Photo Studio sa tabi ng frozen na labanan sa boss — umiikot ang free camera sa kahit kaninong piliin mo.",
+        "Isang posado na litrato ng grupo na kinuha gamit ang Photo Studio.",
+        "Iginuhit ang mga litratong portrait sa mataas na hugis nang may buong detalye, hindi pinutol (cropped)."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Koreano (한국어) — piliin ang 한국어 sa Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ]
+      }
+    },
+    "ko": {
+      "name": "포토 스튜디오",
+      "description": "아름다운 스크린샷을 찍으세요: 자유 카메라, 씬 전체 일시정지, 누구든 포즈 취하기, 세로형과 정방형 사진, 룩과 조명, 게임의 사진 화면이 숨길 수 있는 모든 것을 숨기는 기능 — 그리고 ReShade.",
+      "captions": [
+        "정지된 보스 전투 옆의 포토 스튜디오 패널 — 자유 카메라는 선택한 대상을 중심으로 궤도를 돕니다.",
+        "포토 스튜디오로 촬영한, 포즈를 취한 그룹 사진.",
+        "세로형 사진은 잘라내는 것이 아니라, 세로 형태 그대로 전체 디테일로 그려집니다."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ]
+      }
+    }
+  },
   "repository": "https://github.com/StellarProtocol/StellarPhotoStudioPlugin.git",
   "commit": "8d881ae9f8623bab6ba6fcd6a06e85180bbd30e8",
   "projectPath": ".",
