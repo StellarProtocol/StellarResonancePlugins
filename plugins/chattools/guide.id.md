@@ -6,7 +6,7 @@ Penangkap chat plus berbagai alat chat quality-of-life, dalam satu jendela yang 
 
 ## Cara pakai
 
-1. Pasang plugin-nya lalu jalankan game secara **Modded**.
+1. Pasang plugin-nya lalu jalankan game dalam mode **Dengan mod**.
 2. Buka jendela ChatTools dari overlay Stellar. Jendela ini menangkap chat game ke dalam log berwarna — Sekitar,
    Dunia, Party, bisikan, dan pesan sistem masing-masing punya warna sendiri.
 3. Ketik di kolom pengetikan di bagian bawah lalu pilih tombol channel (Sekitar / Dunia / Party / Guild) untuk

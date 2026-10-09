@@ -6,7 +6,7 @@ Pagkuha ng chat kasama ng mga kapaki-pakinabang na chat tool, sa isang window na
 
 ## Paano gamitin
 
-1. I-install ang plugin at i-launch ang laro nang **Modded**.
+1. I-install ang plugin at i-launch ang laro nang **May mod**.
 2. Buksan ang ChatTools window mula sa Stellar overlay. Kinukuha nito ang chat ng laro bilang isang log na may
    kulay — magkaiba ang kulay ng Sabihin, Mundo, Party, bulong, at mga mensahe ng sistema.
 3. Mag-type sa composer sa ibaba at pumili ng channel button (Sabihin / Mundo / Party / Guild) para magpadala
