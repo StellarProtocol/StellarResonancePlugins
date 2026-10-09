@@ -53,5 +53,82 @@
   "commit": "c4086eddeff50fed27c31e88c9d31d05c4337b6b",
   "projectPath": ".",
   "capPriorVersionsAt": "2.20.0",
-  "tag": "v2.3.0"
+  "tag": "v2.3.0",
+  "i18n": {
+    "ja": {
+      "description": "バンド楽器向けの MIDI 自動演奏 — プレイリスト、グループ同期、ローカルサウンドプレビューに対応。",
+      "captions": [
+        "ライブラリ、Auto-Player、プレビューのウィンドウを開いてワールド内で曲を演奏中。",
+        "Auto-Player — プレイリスト、キュー、再生コントロール。",
+        "ライブラリ — MIDIフォルダを閲覧し、曲をキューに追加。",
+        "Local Preview — 実際のゲーム内楽器音で試聴。",
+        "Settings — 曲ごとの設定、ネットワーク同期、合奏オプション。"
+      ],
+      "changelog": {
+        "added": [
+          "韓国語(한국어)に対応 — 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+        ]
+      }
+    },
+    "th": {
+      "description": "ตัวเล่น MIDI อัตโนมัติสำหรับเครื่องดนตรีวงดนตรี — พร้อมเพลย์ลิสต์ การซิงก์กลุ่ม และพรีวิวเสียงในเครื่อง",
+      "captions": [
+        "กำลังแสดงเพลงในโลกเกมโดยเปิดหน้าต่างคลัง, Auto-Player และพรีวิวไว้",
+        "Auto-Player — เพลย์ลิสต์ คิว และตัวควบคุมการเล่น",
+        "คลัง — เรียกดูโฟลเดอร์ MIDI ของคุณและเพิ่มเพลงเข้าคิว",
+        "Local Preview — ทดลองฟังผ่านเสียงเครื่องดนตรีในเกมจริง",
+        "Settings — การตั้งค่าต่อเพลง ซิงก์เครือข่าย และตัวเลือกวงดนตรี"
+      ],
+      "changelog": {
+        "added": [
+          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+        ]
+      }
+    },
+    "id": {
+      "description": "Pemutar otomatis MIDI untuk instrumen band — playlist, sinkron grup, dan pratinjau suara lokal.",
+      "captions": [
+        "Tampil di dunia game dengan jendela Pustaka, Auto-Player dan Pratinjau terbuka.",
+        "Auto-Player — playlist, antrean dan kontrol pemutaran.",
+        "Pustaka — jelajahi folder MIDI kamu dan tambahkan lagu ke antrean.",
+        "Local Preview — dengarkan lewat suara instrumen asli dalam game.",
+        "Settings — kontrol per lagu, Sinkron Jaringan dan opsi Ensembel."
+      ],
+      "changelog": {
+        "added": [
+          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+        ]
+      }
+    },
+    "fil": {
+      "description": "MIDI auto-player para sa instrumento ng band — may playlist, group sync, at local sound preview.",
+      "captions": [
+        "Tumutugtog sa loob ng mundo habang bukas ang mga window ng Aklatan, Auto-Player at Preview.",
+        "Auto-Player — playlist, pila at mga kontrol sa playback.",
+        "Aklatan — tingnan ang folder ng MIDI mo at magdagdag ng kanta sa pila.",
+        "Local Preview — pakinggan gamit ang tunay na tunog ng instrumento sa laro.",
+        "Settings — kontrol bawat kanta, Network Sync at mga opsyon ng Ensemble."
+      ],
+      "changelog": {
+        "added": [
+          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+        ]
+      }
+    },
+    "ko": {
+      "description": "밴드 악기용 MIDI 자동 연주 — 재생목록, 그룹 동기화, 로컬 사운드 미리듣기를 지원합니다.",
+      "captions": [
+        "라이브러리, Auto-Player, 미리듣기 창을 열어둔 채 월드에서 곡을 연주하는 모습.",
+        "Auto-Player — 재생목록, 대기열, 재생 컨트롤.",
+        "라이브러리 — MIDI 폴더를 둘러보고 곡을 대기열에 추가.",
+        "Local Preview — 실제 게임 내 악기 소리로 미리듣기.",
+        "Settings — 곡별 설정, 네트워크 동기화, 합주 옵션."
+      ],
+      "changelog": {
+        "added": [
+          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+        ]
+      }
+    }
+  }
 }
