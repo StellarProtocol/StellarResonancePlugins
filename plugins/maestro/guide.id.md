@@ -1,26 +1,26 @@
 # Maestro
 
-Pemutar otomatis MIDI untuk instrumen band (Musisi) Season 3 Star Resonance. Taruh file `.mid` kamu
-di sebuah folder, pilih lagu, dan Maestro akan memainkannya untukmu di instrumen yang kamu panggil —
+Pemutar otomatis MIDI untuk instrumen band (Musisi) Season 3 Star Resonance. Taruh file `.mid` Anda
+di sebuah folder, pilih lagu, dan Maestro akan memainkannya untuk Anda di instrumen yang Anda panggil —
 sendirian atau dalam grup — lengkap dengan playlist, sinkron grup, dan pratinjau suara lokal.
 
-![Tampil di dunia game dengan jendela Pustaka, Auto-Player dan Pratinjau terbuka](media/maestro-in-world.png)
+![Tampil di dunia game dengan jendela Pustaka, Pemutar Otomatis MIDI dan Pratinjau terbuka](media/maestro-in-world.png)
 
 ## Memulai
 
-1. Pasang plugin lalu jalankan game dalam mode **Modded**.
+1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Buka **Maestro** dari Stellar launcher (grup Plugins). Alat band hanya bisa dipakai di dalam dunia game.
-3. Taruh file `.mid` / `.midi` kamu di folder `midi\` milik game — Maestro akan membuatnya dan
+3. Taruh file `.mid` / `.midi` Anda di folder `midi\` milik game — Maestro akan membuatnya dan
    menampilkan path-nya di jendela **Pustaka**. Gunakan **Pindai ulang folder** atau **Buka lokasi**
-   jika kamu memindahkannya.
+   jika Anda memindahkannya.
 4. Panggil instrumen mode bebas-main di dalam game, tambahkan lagu dari **Pustaka** ke antrean, lalu
    tekan ▶.
 
 ## Memutar lagu
 
-Jendela utama adalah pemutarmu: playlist, antrean yang sedang diputar, dan kontrol transport.
+Jendela utama adalah pemutar Anda: playlist, antrean yang sedang diputar, dan kontrol transport.
 
-![Auto-Player — playlist, antrean dan kontrol pemutaran](media/auto-player.png)
+![Pemutar Otomatis MIDI — playlist, antrean dan kontrol pemutaran](media/auto-player.png)
 
 - Buat **playlist** bernama dan susun ulang antrean; header menampilkan lagu dan posisi saat ini.
 - **Maju otomatis**, **Ulang** (mati / semua / satu), **Acak**, dan **jeda antar lagu** semuanya tinggal
@@ -29,27 +29,27 @@ Jendela utama adalah pemutarmu: playlist, antrean yang sedang diputar, dan kontr
 
 ## Mencari lagu
 
-![Pustaka — jelajahi folder MIDI kamu dan tambahkan lagu ke antrean](media/library.png)
+![Pustaka — jelajahi folder MIDI Anda dan tambahkan lagu ke antrean](media/library.png)
 
-- Jelajahi seluruh folder MIDI kamu, **cari** berdasarkan nama, dan klik lagu untuk menambahkannya ke
+- Jelajahi seluruh folder MIDI Anda, **cari** berdasarkan nama, dan klik lagu untuk menambahkannya ke
   antrean.
-- Pemutaran hanya memainkan satu instrumen dalam satu waktu, jadi cukup antrekan stem yang ingin kamu
+- Pemutaran hanya memainkan satu instrumen dalam satu waktu, jadi cukup antrekan stem yang ingin Anda
   mainkan.
 
 ## Pratinjau sebelum memutar
 
 Dengarkan lagu lewat **suara instrumen asli dalam game** tanpa memanggil instrumen — pratinjau hanya
-diputar untukmu sendiri, jadi orang di sekitarmu tidak akan mendengarnya.
+diputar untuk Anda sendiri, jadi orang di sekitar Anda tidak akan mendengarnya.
 
-![Local Preview — dengarkan lewat suara instrumen asli dalam game](media/preview.png)
+![Pratinjau MIDI (Lokal) — dengarkan lewat suara instrumen asli dalam game](media/preview.png)
 
-- Satu baris per stem, dengan **bisukan** per bagian dan mode **sustain**, jadi kamu bisa mendengar
+- Satu baris per stem, dengan **bisukan** per bagian dan mode **sustain**, jadi Anda bisa mendengar
   persis bagaimana hasil akhir lagunya.
 - **Sinkron Instrumen** menunggu pemutar band yang sedang live lalu mengikutinya, membisukan bagian
-  yang akan kamu mainkan sendiri — berguna untuk jamming bareng orang lain.
+  yang akan Anda mainkan sendiri — berguna untuk jamming bareng orang lain.
 
 Pratinjau adalah tempat penamaan multi-stem jadi penting: beri bagian-bagian sebuah lagu nama dasar
-yang sama, diakhiri instrumen dalam tanda kurung, dan Pratinjau akan memuat **seluruh set** saat kamu
+yang sama, diakhiri instrumen dalam tanda kurung, dan Pratinjau akan memuat **seluruh set** saat Anda
 memilih salah satunya.
 
 ```
@@ -62,13 +62,13 @@ Duplikat seperti `(Bass 2)` menjadi trek tersendiri pada suara instrumen yang sa
 
 Buka **Pengaturan** untuk penyesuaian detail dan opsi grup.
 
-![Settings — kontrol per lagu, Sinkron Jaringan dan opsi Ensembel](media/settings.png)
+![Pengaturan — kontrol per lagu, Sinkron Jaringan dan opsi Ensembel](media/settings.png)
 
 - **Per lagu**: Transpose, Tahan not, Tempo %, Not maksimum (batas polifoni), Jeda pukul-ulang, Volume
   monitor, Paksa sustain, dan Terapkan tone/teknik dari MIDI.
-- **Sinkron Jaringan** mengalirkan not-mu lebih awal sehingga pendengar di sekitarmu mendengar
+- **Sinkron Jaringan** mengalirkan not Anda lebih awal sehingga pendengar di sekitar Anda mendengar
   penampilan yang lebih stabil saat not sedang padat.
-- **Ensembel**: kunci pemutaran ke ketukan bersama grupmu (hitung-masuk ke downbeat), opsional
+- **Ensembel**: kunci pemutaran ke ketukan bersama grup Anda (hitung-masuk ke downbeat), opsional
   cocokkan tempo ensembel, dan terima otomatis undangan supaya semua orang mulai bersamaan. Gabung
   atau mulai ensembel di dalam game dulu.
 
@@ -79,9 +79,9 @@ memainkan bagian berbeda dari lagu yang sama secara bersamaan dan tersinkron. Se
 **berada dalam party yang sama**.
 
 1. **Nyalakan sinkron ensembel.** Di **Pengaturan**, aktifkan **Sinkron ke ensembel** — di setiap
-   pemain. Menyalakan **Terima otomatis undangan ensembel** juga bersifat opsional, supaya kamu tak
+   pemain. Menyalakan **Terima otomatis undangan ensembel** juga bersifat opsional, supaya Anda tak
    perlu menerima tiap undangan secara manual.
-2. **Tiap pemain memilih bagiannya dan menekan ▶.** Pilih stem yang akan kamu mainkan dan tekan
+2. **Tiap pemain memilih bagiannya dan menekan ▶.** Pilih stem yang akan Anda mainkan dan tekan
    putar — alih-alih langsung mulai, Maestro akan menahan dan menampilkan **"menunggu ensembel…"**.
 3. **Pemimpin party memulai ensembel di dalam game.** Ini adalah permulaan ensembel milik game sendiri.
 4. **Semua orang bermain tersinkron.** Semua pemain yang menunggu mulai bersamaan di downbeat,
@@ -92,16 +92,16 @@ Piano) dari lagu yang sama, dan opsional nyalakan **Cocokkan tempo ensembel** su
 mengikuti BPM ensembel. Gunakan **Pratinjau** terlebih dahulu untuk mendengar bagaimana seluruh set
 cocok satu sama lain.
 
-## Menyiapkan file MIDI kamu
+## Menyiapkan file MIDI Anda
 
-Maestro memainkan MIDI-mu persis seperti yang tertulis, jadi sedikit persiapan membuat lagu terdengar
+Maestro memainkan MIDI Anda persis seperti yang tertulis, jadi sedikit persiapan membuat lagu terdengar
 pas di instrumen game.
 
 ### Efek (tone & teknik)
 
 Nyalakan **Terapkan tone / teknik dari instrumen MIDI** di Pengaturan, dan Maestro akan memilih efek
 gitar/bass dari **instrumen (program) yang ditetapkan pada trek stem tersebut**. Atur instrumen
-General MIDI trek itu di DAW kamu:
+General MIDI trek itu di DAW Anda:
 
 **Stem gitar**
 
@@ -121,12 +121,12 @@ General MIDI trek itu di DAW kamu:
 | Slap Bass 1 / 2 | 37 / 38 | Slap |
 | Synth Bass 1 / 2 | 39 / 40 | Overdrive |
 
-- Nomor program adalah nilai **1–128** yang ditampilkan DAW kamu; cocokkan lewat **nama instrumen**
+- Nomor program adalah nilai **1–128** yang ditampilkan DAW Anda; cocokkan lewat **nama instrumen**
   jika ragu.
 - Hanya **instrumen utama** stem yang dibaca, jadi jaga satu instrumen per stem. Perubahan program di
   tengah trek mengganti efek mulai dari titik itu.
 - Efek berlaku **hanya untuk gitar dan bass** — piano dan drum mengabaikannya.
-- Efek disesuaikan dengan instrumen yang benar-benar kamu panggil. **Bass tidak punya distortion** —
+- Efek disesuaikan dengan instrumen yang benar-benar Anda panggil. **Bass tidak punya distortion** —
   ia diputar sebagai Overdrive — dan teknik apa pun yang tak bisa dilakukan instrumen yang dipanggil
   kembali ke normal.
 - **Overdrive / Distortion hanya lokal saat Sinkron Jaringan** (lihat *Batasan yang diketahui* di
@@ -134,7 +134,7 @@ General MIDI trek itu di DAW kamu:
 
 ### Drum
 
-Drum kit game adalah **kit 9 bagian** tetap pada tuts di bawah ini, dan Maestro memainkan not-mu
+Drum kit game adalah **kit 9 bagian** tetap pada tuts di bawah ini, dan Maestro memainkan not Anda
 persis seperti yang tertulis — ia **tidak** mengonversi drum General MIDI secara otomatis — jadi
 stem drum harus memakai tuts berikut:
 
@@ -167,11 +167,11 @@ hi-hat terbuka (46) → **G5**, ride (51) → **F5**, crash (49) → **A5**, tom
 ## Batasan yang diketahui
 
 **Overdrive / Distortion tidak sampai ke pemain lain — ini bug game, bukan sesuatu yang bisa
-diperbaiki Maestro.** Game hanya pernah merender *tone* overdrive/distortion gitar/bass di klienmu
-sendiri dan tidak pernah mengirimkannya ke orang di sekitarmu. Jadi ia diputar Clean untuk semua
+diperbaiki Maestro.** Game hanya pernah merender *tone* overdrive/distortion gitar/bass di klien Anda
+sendiri dan tidak pernah mengirimkannya ke orang di sekitar Anda. Jadi ia diputar Clean untuk semua
 orang lain kapan pun **Sinkron Jaringan menyala**, dan bahkan dengan Sinkron Jaringan **mati**,
-hanya *kamu* yang mendengar distortion-nya — pemain lain tidak pernah mendengar overdrive/
-distortion-mu di kedua mode tersebut. Tidak ada pengaturan Maestro yang mengubah ini; perbaikannya
+hanya *Anda* yang mendengar distortion-nya — pemain lain tidak pernah mendengar overdrive/
+distortion Anda di kedua mode tersebut. Tidak ada pengaturan Maestro yang mengubah ini; perbaikannya
 ada di tangan game. *Teknik* (Muffled, Harmonics, Slap) tidak terpengaruh dan didengar oleh semua
 orang. Untuk lagu yang distortion-nya krusial, mainkan dengan Sinkron Jaringan **mati** agar
-setidaknya terdengar benar bagimu.
+setidaknya terdengar benar bagi Anda.
