@@ -9,13 +9,13 @@ resolusyon.
 
 ## Mabilisang simula
 
-1. I-install ang plugin at i-launch ang laro nang **Modded**.
+1. I-install ang plugin at i-launch ang laro nang **May mod**.
 2. Pindutin ang **Shift+F10** para buksan ang panel ng Photo Studio.
 3. Pindutin ang **F10** para kumuha ng litrato. Nase-save ang mga litrato sa folder ng
    screenshot mo (tab na Kuha → Folder).
 4. Itinatago ng **Ctrl+F10** ang lahat para sa malinis na kuha.
 
-Puwedeng baguhin ang lahat ng hotkey sa **Stellar Mga Setting → Mga Hotkey**.
+Puwedeng baguhin ang lahat ng hotkey sa **Mga Setting ng Stellar → Mga Hotkey**.
 
 ## Ang mga tab
 
@@ -63,10 +63,10 @@ Puwedeng gumamit ang Photo Studio ng mga epekto ng **ReShade** — sa screen mo 
 litrato mo.
 
 1. Sa Stellar launcher, buksan ang page ng Photo Studio at panatilihing naka-check ang
-   **ReShade** sa ilalim ng **Dependencies** (sa Linux / Proton, panatilihin ding naka-check
+   **ReShade** sa ilalim ng **Mga dependency** (sa Linux / Proton, panatilihin ding naka-check
    ang **Microsoft shader compiler**). Dina-download at sinusuri ito ng launcher bago magsimula
    ang laro.
-2. I-launch ang laro nang **Modded**. Ginagamit lang ang ReShade sa Modded na launch; walang
+2. I-launch ang laro nang **May mod**. Ginagamit lang ang ReShade sa May mod na launch; walang
    ReShade ang **Vanilla** na launch.
 3. Buksan ang tab na **Itsura** → grupong **ReShade**: i-on ang **Gamitin ang ReShade**, pumili
    ng **Preset** (o **Wala** para walang effect), at i-on o i-off ang mga effect.
@@ -86,7 +86,7 @@ Pindutin ang **Alt+F10** (o ang button na **Free camera**) para kontrolin ang ca
   **mouse wheel**, bumababa / umaakyat ang **Q / E**. **I-click** ang ibang karakter para umikot
   dito; bumabalik sa iyo ang **Backspace**.
 - **Lipad**: pindutin ang **Tab**, pagkatapos **WASD** para gumalaw, **right mouse** para
-  tumingin.
+  tumingin, **Q / E** para bumaba / umakyat.
 - Iniikot ng **Z / C** ang camera, nag-zoom ang **Shift + wheel** (field of view), bumabalik sa
   view ng laro ang **R**.
 - Nag-zoom in ang **]** at zoom out ang **[** (i-hold para magpatuloy), nire-reset ng **\\** ang
@@ -97,22 +97,22 @@ Pindutin ang **Alt+F10** (o ang button na **Free camera**) para kontrolin ang ca
 
 ## Pag-freeze ng eksena
 
-Pinapahinto ng **Space** sa free camera (o **Freeze** sa tab na Camera) ang buong laro sa
+Pinapahinto ng **Space** sa free camera (o **Ihinto** sa tab na Kamera) ang buong laro sa
 screen mo — lahat ng tao, bawat skill at effect, at ang sarili mong karakter — tulad ng
 pag-pause sa video. Nanatiling frozen ang mundo kahit umalis ka sa free camera; pindutin ang
-**Resume** o **Space** ulit para magpatuloy. Patuloy na tumatakbo ang laro sa server: tumutuloy
+**Ituloy** o **Space** ulit para magpatuloy. Patuloy na tumatakbo ang laro sa server: tumutuloy
 ang labanan, at anumang nangyari ay makikita mo pagkatapos mong magpatuloy. Nananatili sa
 screen ang monster na napatay habang frozen hanggang sa magpatuloy ka.
 
 ## Pagpo-pose ng tao
 
-Sa grupong **Tao** ng tab na Camera, pumili ng tao gamit ang **‹ ›** (o i-click sila sa free
+Sa grupong **Tao** ng tab na Kamera, pumili ng tao gamit ang **‹ ›** (o i-click sila sa free
 camera):
 
-- **Pose** — pumili ng emote at i-drag ang **Moment** papunta sa eksaktong frame; nagpi-play o
+- **Pose** — pumili ng emote at i-drag ang **Sandali** papunta sa eksaktong frame; nagpi-play o
   nagpa-pause ang ▶ / ❚❚.
 - **Ekspresyon** — isang ekspresyon ng mukha na mananatili hanggang baguhin mo ito.
-- **Ulo / Mata** — tumingin sa camera (**Lente**), malaya (**Malaya**), o normal, at i-lock ito.
+- **Ulo / Mata** — tumingin sa camera (Lente), malaya (Malaya), o normal, at i-lock ito.
   Sa **Malaya**, i-drag ang tuldok sa grid para mag-aim, o itulak gamit ang mga arrow;
   tinutukoy ng **Hakbang** (Pino · Normal · Magaspang) kung gaano kalayo ang kada pindot ng
   arrow.
@@ -135,7 +135,7 @@ Sa tab na **Ilaw**:
 
 ## Pagtatapos ng eksena
 
-Inaalis ng **I-reset ang eksena** (tab na Camera) ang freeze, tinatanggal ang mga na-pose na
+Inaalis ng **I-reset ang eksena** (tab na Kamera) ang freeze, tinatanggal ang mga na-pose na
 kopya at ilaw, at ibinabalik ang lahat sa normal. Ginagawa rin ito ng pagpalit ng zone, isang
 cutscene, o pag-off sa Photo Studio.
 

@@ -1,20 +1,20 @@
 # Studio Foto
 
 Ambil screenshot yang indah: sembunyikan antarmuka, gerakkan kamera bebas ke mana saja di
-sekitar scene, bekukan momennya, pose-kan siapa saja, foto dalam bentuk potret atau persegi,
+sekitar adegan, bekukan momennya, pose-kan siapa saja, foto dalam bentuk potret atau persegi,
 tambahkan tampilan dan cahaya — lalu simpan foto beresolusi tinggi.
 
 ![Panel Studio Foto](media/photostudio-inworld.png)
 
 ## Mulai cepat
 
-1. Pasang plugin-nya lalu jalankan game **Modded**.
+1. Pasang plugin-nya lalu jalankan game dalam mode **Dengan mod**.
 2. Tekan **Shift+F10** untuk membuka panel Studio Foto.
 3. Tekan **F10** untuk mengambil foto. Foto disimpan ke folder screenshot-mu (tab Tangkap →
    Folder).
 4. **Ctrl+F10** menyembunyikan semuanya untuk hasil yang bersih.
 
-Semua hotkey bisa diubah di **Stellar Pengaturan → Hotkey**.
+Semua hotkey bisa diubah di **Pengaturan Stellar → Hotkey**.
 
 ## Tab-tabnya
 
@@ -23,7 +23,7 @@ Semua hotkey bisa diubah di **Stellar Pengaturan → Hotkey**.
   memotret.
 - **Tampilan** — warna, exposure, kontras, white balance, kedalaman ruang dan lainnya. Simpan
   tampilan favoritmu sebagai preset.
-- **Kamera** — kamera bebas, scene (bekukan / reset), pengaturan gerakan, dan pose orang.
+- **Kamera** — kamera bebas, adegan (bekukan / reset), pengaturan gerakan, dan pose orang.
 - **Cahaya** — lampu, dan key light serta rim untuk satu orang.
 - **Preset** — muat, simpan, ganti nama, dan bagikan tampilanmu.
 
@@ -57,10 +57,10 @@ tetap menyembunyikan semuanya, termasuk overlay Stellar.
 Studio Foto bisa memakai efek **ReShade** — di layar dan di foto-fotomu.
 
 1. Di launcher Stellar, buka halaman Studio Foto dan biarkan **ReShade** tercentang di bawah
-   **Dependencies** (di Linux / Proton, biarkan juga **Microsoft shader compiler** tercentang).
+   **Dependensi** (di Linux / Proton, biarkan juga **Microsoft shader compiler** tercentang).
    Launcher akan mengunduh dan memeriksanya sebelum game dimulai.
-2. Jalankan game **Modded**. ReShade hanya dipakai saat Modded; peluncuran **Vanilla** tetap
-   tanpa ReShade.
+2. Jalankan game dalam mode **Dengan mod**. ReShade hanya dipakai saat Dengan mod; peluncuran
+   **Vanilla** tetap tanpa ReShade.
 3. Buka tab **Tampilan** → grup **ReShade**: nyalakan **Gunakan ReShade**, pilih **Preset**
    (atau **Tidak ada** untuk tanpa efek) dan nyalakan/matikan efeknya.
 4. Di bawah **Preset**, tambahkan tampilan siap pakai dengan satu klik, dan di bawah **Paket
@@ -78,16 +78,16 @@ Tekan **Alt+F10** (atau tombol **Kamera bebas**) untuk mengambil alih kamera.
   mendekat atau menjauh, **Q / E** turun / naik. **Klik** karakter lain untuk orbit ke mereka;
   **Backspace** kembali ke dirimu.
 - **Terbang**: tekan **Tab**, lalu **WASD** untuk bergerak, **klik kanan mouse** untuk melihat
-  sekeliling.
+  sekeliling, **Q / E** untuk turun / naik.
 - **Z / C** memiringkan kamera, **Shift + scroll** zoom (field of view), **R** kembali ke
   tampilan game.
 - **]** zoom in dan **[** zoom out (tahan untuk terus), **\\** mereset field of view. Tab
   **Tampilan** juga punya slider **Sudut pandang** (10–100°). Tombol-tombolnya ditampilkan di
   layar.
-- **Space** membekukan scene, **H** menyembunyikan petunjuk tombol, **Esc** atau **Alt+F10**
+- **Space** membekukan adegan, **H** menyembunyikan petunjuk tombol, **Esc** atau **Alt+F10**
   keluar dari kamera bebas.
 
-## Membekukan scene
+## Membekukan adegan
 
 **Space** di kamera bebas (atau **Bekukan** di tab Kamera) menjeda seluruh game di layarmu —
 semua orang, semua skill dan efek, dan karaktermu sendiri. Keluar dari kamera bebas membuat
@@ -103,13 +103,13 @@ bebas):
 - **Pose** — pilih emote dan seret **Momen** ke frame yang tepat; ▶ / ❚❚ memutar atau
   menahannya.
 - **Ekspresi** — ekspresi wajah yang bertahan sampai kamu mengubahnya.
-- **Kepala / Mata** — melihat ke kamera (**Lensa**), bebas (**Bebas**) atau normal, dan
+- **Kepala / Mata** — melihat ke kamera (Lensa), bebas (Bebas) atau normal, dan
   menguncinya. Di **Bebas**, seret titik di grid untuk membidik, atau geser dengan panah;
   **Langkah** (Halus · Normal · Kasar) mengatur seberapa jauh tiap tekan panah bergerak.
 - **Putar** — memutar mereka menghadap ke arah yang kamu mau.
 
 Pemain lain dan NPC di-pose sebagai salinan yang hanya kamu bisa lihat; orang aslinya
-disembunyikan sampai kamu mereset scene.
+disembunyikan sampai kamu mereset adegan.
 
 ## Cahaya
 
@@ -123,7 +123,7 @@ Di tab **Cahaya**:
 - **Cahaya orang** memberi satu orang **key light** dari sisi yang dipilih dan **rim** berwarna
   di rambut, penutup kepala dan senjata.
 
-## Mengakhiri scene
+## Mengakhiri adegan
 
 **Atur ulang adegan** (tab Kamera) membatalkan pembekuan, menghapus salinan yang di-pose dan
 cahaya, dan mengembalikan semua orang ke normal. Pindah zona, cutscene, atau mematikan Studio
@@ -136,4 +136,4 @@ Foto melakukan hal yang sama.
   dari kamera bebas, membatalkan pembekuan, mereset orang dan lampu yang di-pose, dan
   menampilkan semua yang kamu sembunyikan. Kalau ada salah satu dari itu yang masih berjalan,
   ia akan bertanya dulu dan menyebutkan apa yang akan berakhir.
-- Saat Studio Foto ditutup, pil scene dan kamera menunjukkan tombol untuk membukanya lagi.
+- Saat Studio Foto ditutup, pil adegan dan kamera menunjukkan tombol untuk membukanya lagi.
