@@ -5,7 +5,7 @@ ZDPS yang sudah digunakan statik-mu.
 
 ## Countdown & Peringatan Raid
 
-1. Instal plugin lalu jalankan game dalam mode **Modded**.
+1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Ketik `/ct <seconds>` di chat untuk memulai countdown pull besar di layar (berubah merah di
    5 detik terakhir).
 3. Ketik `/rw <message>` untuk menampilkan peringatan raid ke semua orang yang menjalankan plugin
@@ -35,8 +35,9 @@ sebagai urutan fase bertahap. Buka dari **Manajer Raid → Buka Preset Mark**:
 - **Berikutnya ▶** / **◀ Sebelumnya** berpindah antar langkah, membersihkan papan dan menempatkan
   marker fase tersebut.
 - **Reset** kembali ke **Start** yang kosong.
-- Ikat **Sebelumnya / Reset / Berikutnya** ke tombolmu sendiri di pengaturan tombol game (belum
-  diikat secara default).
+- Ikat **Preset Mark: Langkah sebelumnya**, **Preset Mark: Reset ke Start**, dan **Preset Mark:
+  Langkah berikutnya** ke tombolmu sendiri di **Pengaturan Stellar → Hotkey** (belum diikat secara
+  default).
 
 ![Mark Presets](images/mark-presets.png)
 

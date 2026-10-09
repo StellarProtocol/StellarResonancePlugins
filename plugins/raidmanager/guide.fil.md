@@ -5,7 +5,7 @@ raid-call convention na ginagamit na ng inyong statics.
 
 ## Countdown & Raid Warning
 
-1. I-install ang plugin at buksan ang laro sa mode na **Modded**.
+1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
 2. I-type ang `/ct <seconds>` sa chat para magsimula ng malaking on-screen pull countdown
    (magiging pula sa huling 5 segundo).
 3. I-type ang `/rw <message>` para mag-flash ng raid-warning callout sa lahat ng gumagamit ng
@@ -38,12 +38,13 @@ Preset ng Mark**:
 - Ang **Susunod ▶** / **◀ Nakaraan** ay lumilipat sa mga hakbang, nililinis ang board at inilalagay
   ang mga marker ng phase na iyon.
 - Ang **I-reset** ay bumabalik sa blangkong **Start**.
-- I-bind ang **Nakaraan / I-reset / Susunod** sa sarili mong mga key sa key settings ng laro
-  (hindi pa naka-bind bilang default).
+- I-bind ang **Mga Preset ng Mark: Nakaraang hakbang**, **Mga Preset ng Mark: I-reset sa Start**,
+  at **Mga Preset ng Mark: Susunod na hakbang** sa sarili mong mga key sa **Mga Setting ng
+  Stellar → Mga Hotkey** (hindi pa naka-bind bilang default).
 
 ![Mark Presets](images/mark-presets.png)
 
-Panatilihin ang hiwalay na preset para sa bawat raid at **i-activate** ang isinasagawa mo ngayon
+Panatilihin ang hiwalay na preset para sa bawat raid at **I-activate** ang isinasagawa mo ngayon
 (magiging **I-deactivate** ang button). Gumagana ang paglalagay ng marker sa mga dungeon.
 
 **Pagpapalit ng pangalan at pagdagdag ng tala**
