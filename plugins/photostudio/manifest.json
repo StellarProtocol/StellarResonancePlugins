@@ -2,7 +2,7 @@
   "id": "photostudio",
   "name": "Photo Studio",
   "description": "Take beautiful screenshots: a free camera, freeze the whole scene, pose anyone, portrait and square photos, looks and lights, hide anything the game's photo screen can hide — and ReShade.",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "dll": "Stellar.PhotoStudio.dll",
   "author": "Stellar",
   "tags": [
@@ -29,14 +29,18 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.22.0",
+  "date": "2026-10-10",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "See the game's interface while the free camera is on: press U, or turn on Show game UI in the Camera tab. Game windows and their sliders work, and your photos never include them (needs Stellar 2.22.0).",
+      "While the game interface is shown, clicks, drags and the mouse wheel over a game window go to the game, not the camera."
     ],
     "changed": [],
-    "fixed": [],
+    "fixed": [
+      "The free camera's info bar sits in the middle of the top of the screen again at every resolution (it could sit off to the right).",
+      "The free camera's key hints no longer spill out of their box in Indonesian and Filipino."
+    ],
     "removed": []
   },
   "i18n": {
@@ -50,7 +54,12 @@
       ],
       "changelog": {
         "added": [
-          "韓国語(한국어)対応を追加 — 設定 → テーマ → 言語 で 한국어 を選べます(Stellar 2.21.0が必要)。"
+          "フリーカメラ中にゲームの画面表示を出せるようになりました: U を押すか、カメラタブの「ゲームUIを表示」をオンにします。ゲームのウィンドウやスライダーを操作でき、写真には写りません(Stellar 2.22.0が必要)。",
+          "ゲームUIを表示している間、ゲームのウィンドウ上でのクリック・ドラッグ・マウスホイールはカメラではなくゲームに渡ります。"
+        ],
+        "fixed": [
+          "フリーカメラの情報バーが、どの解像度でも再び画面上部の中央に表示されるようになりました(右にずれることがありました)。",
+          "インドネシア語とフィリピン語で、フリーカメラのキー案内が枠からはみ出さなくなりました。"
         ]
       }
     },
@@ -64,7 +73,12 @@
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "ดูหน้าจอ UI ของเกมได้ระหว่างใช้กล้องอิสระ: กด U หรือเปิด แสดง UI ของเกม ในแท็บกล้อง ใช้หน้าต่างและแถบเลื่อนของเกมได้ และจะไม่ติดในรูปถ่าย (ต้องมี Stellar 2.22.0)",
+          "ระหว่างที่แสดง UI ของเกม การคลิก ลาก และหมุนล้อเมาส์บนหน้าต่างของเกมจะส่งไปที่เกม ไม่ใช่กล้อง"
+        ],
+        "fixed": [
+          "แถบข้อมูลของกล้องอิสระกลับมาอยู่กึ่งกลางด้านบนของหน้าจอในทุกความละเอียด (ก่อนหน้านี้อาจเยื้องไปทางขวา)",
+          "คำแนะนำปุ่มของกล้องอิสระไม่ล้นกรอบอีกต่อไปในภาษาอินโดนีเซียและฟิลิปปินส์"
         ]
       }
     },
@@ -78,7 +92,12 @@
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (butuh Stellar 2.21.0)."
+          "Lihat antarmuka game saat kamera bebas aktif: tekan U, atau nyalakan Tampilkan UI game di tab Kamera. Jendela game dan slider-nya bisa dipakai, dan tidak pernah ikut di foto (butuh Stellar 2.22.0).",
+          "Saat antarmuka game ditampilkan, klik, seret, dan roda mouse di atas jendela game diteruskan ke game, bukan ke kamera."
+        ],
+        "fixed": [
+          "Bilah info kamera bebas kembali berada di tengah atas layar di semua resolusi (sebelumnya bisa bergeser ke kanan).",
+          "Petunjuk tombol kamera bebas tidak lagi meluber keluar kotaknya dalam bahasa Indonesia dan Filipina."
         ]
       }
     },
@@ -91,7 +110,12 @@
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Koreano (한국어) — piliin ang 한국어 sa Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Makita ang interface ng laro habang naka-on ang free camera: pindutin ang U, o i-on ang Ipakita ang UI ng laro sa Camera tab. Gumagana ang mga window at slider ng laro, at hindi sila kailanman kasama sa litrato (kailangan ng Stellar 2.22.0).",
+          "Habang ipinapakita ang interface ng laro, ang click, drag at mouse wheel sa ibabaw ng window ng laro ay napupunta sa laro, hindi sa camera."
+        ],
+        "fixed": [
+          "Nasa gitna ulit ng itaas ng screen ang info bar ng free camera sa bawat resolution (puwede itong lumihis pakanan dati).",
+          "Hindi na lumalampas sa kahon nito ang mga key hint ng free camera sa Indonesian at Filipino."
         ]
       }
     },
@@ -105,15 +129,20 @@
       ],
       "changelog": {
         "added": [
-          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "자유 카메라 중에도 게임 화면 UI를 볼 수 있습니다: U를 누르거나 카메라 탭의 게임 UI 표시를 켜세요. 게임 창과 슬라이더를 사용할 수 있고, 사진에는 포함되지 않습니다(Stellar 2.22.0 필요).",
+          "게임 UI를 표시하는 동안 게임 창 위에서의 클릭, 드래그, 마우스 휠은 카메라 대신 게임으로 전달됩니다."
+        ],
+        "fixed": [
+          "자유 카메라의 정보 바가 모든 해상도에서 다시 화면 위쪽 가운데에 표시됩니다(오른쪽으로 치우칠 수 있었습니다).",
+          "인도네시아어와 필리핀어에서 자유 카메라 키 안내가 더 이상 상자 밖으로 넘치지 않습니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarPhotoStudioPlugin.git",
-  "commit": "8d881ae9f8623bab6ba6fcd6a06e85180bbd30e8",
+  "commit": "fa735635c34b02a7007afe299f3be4753982fc62",
   "projectPath": ".",
-  "tag": "v1.8.0",
+  "tag": "v1.9.0",
   "dependencies": [
     {
       "id": "reshade",
@@ -183,6 +212,5 @@
       "licenseUrl": "https://learn.microsoft.com/en-us/legal/windows-sdk/redist",
       "sourceUrl": "https://github.com/mozilla/fxc2/tree/9aba9b11079303d5577e0e3eb455f4d00f3b5946/dll"
     }
-  ],
-  "capPriorVersionsAt": "2.20.0"
+  ]
 }
