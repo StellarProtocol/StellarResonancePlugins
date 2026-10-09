@@ -8,7 +8,7 @@ membaca kondisi party sekilas.
 
 ## Memulai
 
-1. Pasang plugin-nya lalu jalankan game secara **Modded**.
+1. Pasang plugin-nya lalu jalankan game dalam mode **Dengan mod**.
 2. Meter akan muncul sebagai jendela overlay setelah kamu masuk ke dunia. Seret bagian judulnya
    untuk memindahkannya — posisinya akan diingat.
 3. Masuk pertempuran: baris akan muncul per anggota party dan ter-update secara real-time.

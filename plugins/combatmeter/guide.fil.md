@@ -8,7 +8,7 @@ mabasa mo ang grupo nang isang tingin lang.
 
 ## Pagsisimula
 
-1. I-install ang plugin at i-launch ang laro nang **Modded**.
+1. I-install ang plugin at i-launch ang laro nang **May mod**.
 2. Lalabas ang meter bilang isang overlay window kapag nasa mundo ka na. I-drag ang title area
    nito para ilipat — natatandaan ang posisyon.
 3. Pumasok sa labanan: lalabas ang mga row kada miyembro ng party at nag-a-update nang live.
