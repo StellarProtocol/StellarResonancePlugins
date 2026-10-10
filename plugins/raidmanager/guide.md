@@ -9,7 +9,7 @@ conventions your statics already use.
 2. Type `/ct <seconds>` in chat to start a big on-screen pull countdown (turns red in the last 5 seconds).
 3. Type `/rw <message>` to flash a raid-warning callout to everyone running the plugin.
 
-![Countdown](images/countdown.png)
+![Countdown](media/countdown.png)
 
 - **Use In-game Warning** (default on) — `/rw` shows the game's native notice banner with
   victory audio instead of the plugin's custom overlay, so callouts look and sound like the
@@ -20,7 +20,7 @@ conventions your statics already use.
 Save the dungeon markers you place and reload the whole layout in one click — as multi-step
 phase sequences. Open it from **Raid Manager → Open Mark Presets**:
 
-![Raid Manager settings](images/raid-manager-settings.png)
+![Raid Manager settings](media/raid-manager-settings.png)
 
 **Build a preset**
 
@@ -35,7 +35,7 @@ phase sequences. Open it from **Raid Manager → Open Mark Presets**:
 - Bind **Mark Presets: Previous step**, **Mark Presets: Reset to Start** and **Mark Presets: Next step**
   to your own keys in **Stellar Settings → Hotkeys** (they start unbound).
 
-![Mark Presets](images/mark-presets.png)
+![Mark Presets](media/mark-presets.png)
 
 Keep a separate preset for each raid and **Activate** the one you're running (the button toggles to
 **Deactivate**). Marker placement works in dungeons.
@@ -52,6 +52,41 @@ Keep a separate preset for each raid and **Activate** the one you're running (th
 2. Send the code to your group.
 3. They click **Import Preset**, paste the code and press **Import**. They get the whole preset —
    every step, marker and note.
+
+## Mechanic Callouts (Beta)
+
+See at a glance who is targeted by which boss mechanic — as a list, a minimap and a big alert when
+it's you. Open it from **Raid Manager → Open Mechanic Callouts (Beta)**:
+
+![Mechanic Callouts settings](media/mechanic-callouts-settings.png)
+
+**Supported content**
+
+- Forgotten Dreamwild raid — Clash!, Brutal! and Purge!
+- Cursed Radiant Tomb
+- Sea-Ringed Reef
+- Towering Ruin
+- Tina's Mindrealm
+
+Outside these, the callouts stay empty.
+
+**Callout List** — each mechanic with its countdown and the players it targets. Choose the order
+(**Arrival order**, **Most urgent first** or **Table order**), the text size and the background opacity.
+
+![Callout list](media/mechanic-callout-list.png)
+
+**Minimap** — your party on the arena, coloured by mechanic, with party markers and danger areas.
+In the raid it also shows floor damage, the crystal press order and the numbered electromagnetic ring steps.
+
+![Minimap](media/mechanic-minimap.png)
+
+**Mechanic Alerts** — a big banner when a mechanic targets you, and **MOVE OFF** when you stand on a
+danger tile. In the raid's ring phases it tells you which ring to move to. Sound is optional, with its
+own volume; use **Test alert** to preview. (Off by default.)
+
+![Alert banner](media/mechanic-alert.png)
+
+Move the list, minimap and banner anywhere in the HUD layout editor.
 
 ## Notes
 

@@ -11,7 +11,7 @@ raid-call convention na ginagamit na ng inyong statics.
 3. I-type ang `/rw <message>` para mag-flash ng raid-warning callout sa lahat ng gumagamit ng
    plugin.
 
-![Countdown](images/countdown.png)
+![Countdown](media/countdown.png)
 
 - **Gumamit ng Babala sa Loob ng Laro** (naka-on bilang default) — ipinapakita ng `/rw` ang native
   na banner ng laro kasama ang audio ng tagumpay sa halip na ang custom overlay ng plugin, kaya ang
@@ -23,7 +23,7 @@ I-save ang mga dungeon marker na inilagay mo at i-reload ang buong layout sa isa
 mga multi-step na phase sequence. Buksan ito mula sa **Tagapamahala ng Raid → Buksan ang Mga
 Preset ng Mark**:
 
-![Raid Manager settings](images/raid-manager-settings.png)
+![Raid Manager settings](media/raid-manager-settings.png)
 
 **Paggawa ng preset**
 
@@ -42,7 +42,7 @@ Preset ng Mark**:
   at **Mga Preset ng Mark: Susunod na hakbang** sa sarili mong mga key sa **Mga Setting ng
   Stellar → Mga Hotkey** (hindi pa naka-bind bilang default).
 
-![Mark Presets](images/mark-presets.png)
+![Mark Presets](media/mark-presets.png)
 
 Panatilihin ang hiwalay na preset para sa bawat raid at **I-activate** ang isinasagawa mo ngayon
 (magiging **I-deactivate** ang button). Gumagana ang paglalagay ng marker sa mga dungeon.
@@ -60,6 +60,45 @@ Panatilihin ang hiwalay na preset para sa bawat raid at **I-activate** ang isina
 2. Ipadala ang code sa inyong grupo.
 3. I-click nila ang **I-import ang Preset**, i-paste ang code, at pindutin ang **I-import**.
    Makukuha nila ang buong preset — bawat hakbang, marker, at tala.
+
+## Mga Tawag ng Mekaniko (Beta)
+
+Makita agad kung sino ang tinatarget ng bawat mekaniko ng boss — bilang listahan, minimap, at malaking
+alerto kapag ikaw ang target. Buksan ito mula sa **Tagapamahala ng Raid → Buksan ang Mga Tawag ng
+Mekaniko (Beta)**:
+
+![Mechanic Callouts settings](media/mechanic-callouts-settings.png)
+
+**Mga suportadong content**
+
+- Forgotten Dreamwild raid — Clash!, Brutal! at Purge!
+- Cursed Radiant Tomb
+- Sea-Ringed Reef
+- Towering Ruin
+- Tina's Mindrealm
+
+Sa labas ng mga ito, mananatiling walang laman ang mga tawag.
+
+**Listahan ng Tawag** — bawat mekaniko kasama ang countdown nito at ang mga player na tinatarget nito.
+Piliin ang pagkakasunod (**Ayon sa pagdating**, **Pinakamadalian muna** o **Ayon sa talahanayan**), ang
+laki ng teksto at ang opacity ng background.
+
+![Callout list](media/mechanic-callout-list.png)
+
+**Minimap** — ang party mo sa arena, may kulay ayon sa mekaniko, kasama ang mga party marker at mga
+mapanganib na lugar. Sa raid, ipinapakita rin nito ang floor damage, ang pagkakasunod ng pagpindot sa
+mga crystal at ang mga may-numerong hakbang ng electromagnetic ring.
+
+![Minimap](media/mechanic-minimap.png)
+
+**Mga Alerto ng Mekaniko** — malaking banner kapag ikaw ang tinarget ng mekaniko, at **UMALIS** kapag
+nakatayo ka sa mapanganib na tile. Sa mga ring phase ng raid, sinasabi nito kung saang ring ka dapat
+lumipat. Opsyonal ang tunog at may sarili itong lakas; gamitin ang **Subukan ang alerto** para
+i-preview. (Naka-off bilang default.)
+
+![Alert banner](media/mechanic-alert.png)
+
+Ilipat ang listahan, minimap at banner kahit saan sa HUD layout editor.
 
 ## Mga Paalala
 
