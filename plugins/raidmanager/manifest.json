@@ -1,102 +1,177 @@
 {
   "id": "raidmanager",
   "name": "Raid Manager",
-  "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, and savable, shareable dungeon marker presets.",
-  "version": "2.4.0",
+  "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, savable and shareable dungeon marker presets, and boss mechanic callouts.",
+  "version": "2.5.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
     "raid",
     "coordination"
   ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/mechanic-callout-list.png",
+      "caption": "The callout list: each boss mechanic with its countdown and the players it targets."
+    },
+    {
+      "type": "image",
+      "file": "media/mechanic-minimap.png",
+      "caption": "The mechanic minimap shows your party on the arena, coloured by mechanic, with danger areas."
+    },
+    {
+      "type": "image",
+      "file": "media/mechanic-alert.png",
+      "caption": "A big alert banner appears when a mechanic targets you."
+    },
+    {
+      "type": "image",
+      "file": "media/mechanic-callouts-settings.png",
+      "caption": "Mechanic Callouts settings for the list, minimap and alerts."
+    },
+    {
+      "type": "image",
+      "file": "media/countdown.png",
+      "caption": "A big on-screen pull countdown started with /ct."
+    },
+    {
+      "type": "image",
+      "file": "media/mark-presets.png",
+      "caption": "Mark Presets: save your dungeon markers and step through them during the fight."
+    },
+    {
+      "type": "image",
+      "file": "media/raid-manager-settings.png",
+      "caption": "The Raid Manager window: open Mark Presets and Mechanic Callouts, and set up the countdown and raid warning."
+    }
+  ],
   "guide": "guide.md",
   "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "date": "2026-10-10",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "Mechanic Callouts (Beta): see who each boss mechanic targets — as a list with countdowns, a minimap of your party, and a big alert when it's you. Supports the Forgotten Dreamwild raid, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin and Tina's Mindrealm.",
+      "In the raid's ring phases the alert tells you which ring to move to, and the minimap numbers each ring step."
     ],
-    "changed": [
-      "The Mark Presets hotkey names in Settings now follow your language."
-    ],
+    "changed": [],
     "fixed": [],
     "removed": []
   },
   "i18n": {
     "ja": {
       "name": "レイドマネージャー",
-      "description": "ZDPS互換のレイド調整HUD — プルカウントダウン、レイド警告、保存・共有可能なダンジョンマーカープリセット。",
+      "description": "ZDPS互換のレイド調整HUD — プルカウントダウン、レイド警告、保存・共有可能なダンジョンマーカープリセット、ボスギミック通知。",
+      "captions": [
+        "通知リスト：各ボスギミックをカウントダウンと対象プレイヤーとともに表示します。",
+        "ギミックのミニマップ：アリーナ上のパーティーをギミックごとに色分けし、危険エリアも表示します。",
+        "ギミックの対象になると大きなアラートバナーが表示されます。",
+        "通知リスト・ミニマップ・アラートを設定するギミック通知の設定画面。",
+        "/ct で始まる、画面上の大きなプルカウントダウン。",
+        "マーカープリセット：ダンジョンマーカーを保存し、戦闘中にステップごとに切り替えます。",
+        "レイドマネージャーのウィンドウ：マーカープリセットとギミック通知 (ベータ)を開き、カウントダウンとレイド警告を設定します。"
+      ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+          "ギミック通知 (ベータ)：各ボスギミックが誰を狙っているかを、カウントダウン付きのリスト、パーティーのミニマップ、自分が対象のときの大きなアラートで確認できます。Forgotten Dreamwild（レイド）、Cursed Radiant Tomb、Sea-Ringed Reef、Towering Ruin、Tina's Mindrealm に対応しています。",
+          "レイドのリングフェーズでは、どのリングへ移動すればよいかをアラートが知らせ、ミニマップには各リングのステップが番号で表示されます。"
         ],
-        "changed": [
-          "設定内のマーカープリセットのホットキー名が、使用言語に従うようになりました。"
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
     },
     "th": {
       "name": "ตัวจัดการเรด",
-      "description": "HUD ประสานงานเรดที่เข้ากันได้กับ ZDPS — นับถอยหลังก่อนบุก การแจ้งเตือนเรด และพรีเซ็ตมาร์กดันเจี้ยนที่บันทึกและแชร์ได้",
+      "description": "HUD ประสานงานเรดที่เข้ากันได้กับ ZDPS — นับถอยหลังก่อนบุก การแจ้งเตือนเรด พรีเซ็ตมาร์กดันเจี้ยนที่บันทึกและแชร์ได้ และการแจ้งเตือนกลไกของบอส",
+      "captions": [
+        "รายการแจ้งเตือน: แสดงกลไกของบอสแต่ละอันพร้อมเวลานับถอยหลังและผู้เล่นที่ถูกเล็ง",
+        "มินิแมปกลไกแสดงปาร์ตี้ของคุณบนสนามต่อสู้ แยกสีตามกลไก พร้อมพื้นที่อันตราย",
+        "แบนเนอร์แจ้งเตือนขนาดใหญ่จะปรากฏเมื่อกลไกเล็งมาที่คุณ",
+        "หน้าตั้งค่าแจ้งเตือนกลไก สำหรับรายการ มินิแมป และการแจ้งเตือน",
+        "นับถอยหลังก่อนบุกขนาดใหญ่บนหน้าจอ เริ่มด้วย /ct",
+        "พรีเซ็ตมาร์ก: บันทึกมาร์กเกอร์ดันเจี้ยนแล้วสลับทีละสเต็ประหว่างการต่อสู้",
+        "หน้าต่างตัวจัดการเรด: เปิดพรีเซ็ตมาร์กและแจ้งเตือนกลไก (เบต้า) และตั้งค่านับถอยหลังกับการแจ้งเตือนเรด"
+      ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "แจ้งเตือนกลไก (เบต้า): ดูว่ากลไกของบอสแต่ละอันเล็งใคร — ทั้งเป็นรายการพร้อมเวลานับถอยหลัง มินิแมปของปาร์ตี้ และการแจ้งเตือนขนาดใหญ่เมื่อเป็นคุณ รองรับเรด Forgotten Dreamwild, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin และ Tina's Mindrealm",
+          "ในช่วงวงแหวนของเรด การแจ้งเตือนจะบอกว่าคุณต้องย้ายไปวงไหน และมินิแมปจะแสดงหมายเลขของแต่ละขั้นของวง"
         ],
-        "changed": [
-          "ชื่อปุ่มลัดของพรีเซ็ตมาร์กในหน้าตั้งค่าจะใช้ตามภาษาของคุณแล้ว"
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
     },
     "id": {
       "name": "Manajer Raid",
-      "description": "HUD koordinasi raid yang kompatibel dengan ZDPS — countdown pull, peringatan raid, dan preset marker dungeon yang bisa disimpan dan dibagikan.",
+      "description": "HUD koordinasi raid yang kompatibel dengan ZDPS — countdown pull, peringatan raid, preset marker dungeon yang bisa disimpan dan dibagikan, serta panggilan mekanik boss.",
+      "captions": [
+        "Daftar panggilan: setiap mekanik boss beserta hitung mundurnya dan pemain yang ditargetkan.",
+        "Minimap mekanik menampilkan party-mu di arena, diwarnai sesuai mekanik, beserta area bahaya.",
+        "Banner peringatan besar muncul saat mekanik menargetkanmu.",
+        "Pengaturan Panggilan Mekanik untuk daftar, minimap, dan peringatan.",
+        "Countdown pull besar di layar yang dimulai dengan /ct.",
+        "Preset Mark: simpan marker dungeon dan pindah antar langkah selama pertarungan.",
+        "Jendela Manajer Raid: buka Preset Mark dan Panggilan Mekanik (Beta), serta atur countdown dan peringatan raid."
+      ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Panggilan Mekanik (Beta): lihat siapa yang ditargetkan setiap mekanik boss — sebagai daftar dengan hitung mundur, minimap party-mu, dan peringatan besar saat kamu yang kena. Mendukung raid Forgotten Dreamwild, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin, dan Tina's Mindrealm.",
+          "Pada fase cincin di raid, peringatan memberi tahu cincin mana yang harus kamu tuju, dan minimap menomori setiap langkah cincin."
         ],
-        "changed": [
-          "Nama hotkey Preset Mark di Pengaturan kini mengikuti bahasamu."
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
     },
     "fil": {
       "name": "Tagapamahala ng Raid",
-      "description": "ZDPS-compatible na raid coordination HUD — pull countdown, raid warnings, at mga nase-save at mashe-share na dungeon marker preset.",
+      "description": "ZDPS-compatible na raid coordination HUD — pull countdown, raid warnings, mga nase-save at mashe-share na dungeon marker preset, at mga tawag ng mekaniko ng boss.",
+      "captions": [
+        "Ang listahan ng tawag: bawat mekaniko ng boss kasama ang countdown nito at ang mga player na tinatarget nito.",
+        "Ipinapakita ng minimap ng mekaniko ang party mo sa arena, may kulay ayon sa mekaniko, kasama ang mga mapanganib na lugar.",
+        "May lalabas na malaking banner ng alerto kapag ikaw ang tinarget ng mekaniko.",
+        "Mga setting ng Mga Tawag ng Mekaniko para sa listahan, minimap at mga alerto.",
+        "Malaking pull countdown sa screen na sinisimulan gamit ang /ct.",
+        "Mga Preset ng Mark: i-save ang mga dungeon marker mo at lumipat sa bawat hakbang habang may laban.",
+        "Ang window ng Tagapamahala ng Raid: buksan ang Mga Preset ng Mark at Mga Tawag ng Mekaniko (Beta), at i-set up ang countdown at raid warning."
+      ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Mga Tawag ng Mekaniko (Beta): makita kung sino ang tinatarget ng bawat mekaniko ng boss — bilang listahan na may countdown, minimap ng party mo, at malaking alerto kapag ikaw ang target. Suportado ang Forgotten Dreamwild raid, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin at Tina's Mindrealm.",
+          "Sa mga ring phase ng raid, sinasabi ng alerto kung saang ring ka dapat lumipat, at may numero sa minimap ang bawat hakbang ng ring."
         ],
-        "changed": [
-          "Ang mga pangalan ng hotkey ng Mga Preset ng Mark sa Settings ay sumusunod na ngayon sa wika mo."
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
     },
     "ko": {
       "name": "레이드 매니저",
-      "description": "ZDPS 호환 레이드 조율 HUD — 풀 카운트다운, 레이드 경고, 저장 및 공유 가능한 던전 표식 프리셋.",
+      "description": "ZDPS 호환 레이드 조율 HUD — 풀 카운트다운, 레이드 경고, 저장 및 공유 가능한 던전 표식 프리셋, 보스 기믹 알림.",
+      "captions": [
+        "알림 목록: 각 보스 기믹을 카운트다운 및 대상 플레이어와 함께 표시합니다.",
+        "기믹 미니맵은 전장 위의 파티원을 기믹별 색으로 표시하고 위험 지역도 보여 줍니다.",
+        "기믹이 나를 대상으로 하면 큰 경고 배너가 표시됩니다.",
+        "목록, 미니맵, 경고를 설정하는 기믹 알림 설정 화면.",
+        "/ct로 시작하는 화면 위의 큰 풀 카운트다운.",
+        "표식 프리셋: 던전 표식을 저장하고 전투 중 단계별로 전환합니다.",
+        "레이드 매니저 창: 표식 프리셋과 기믹 알림 (베타)을 열고, 카운트다운과 레이드 경고를 설정합니다."
+      ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "기믹 알림 (베타): 각 보스 기믹이 누구를 노리는지 카운트다운이 있는 목록, 파티 미니맵, 내가 대상일 때 뜨는 큰 경고로 확인하세요. Forgotten Dreamwild 레이드, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin, Tina's Mindrealm을 지원합니다.",
+          "레이드의 링 페이즈에서는 경고가 어느 링으로 이동해야 하는지 알려 주고, 미니맵에 각 링 단계가 번호로 표시됩니다."
         ],
-        "changed": [
-          "설정의 표식 프리셋 단축키 이름이 이제 사용 언어를 따릅니다."
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "50bd6da8cffc08db7207542b11da67f5fd23e777",
+  "commit": "6110f744520c13bad689f7c1a497ebf810c7c610",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.20.0",
-  "tag": "v2.4.0"
+  "tag": "v2.5.0"
 }

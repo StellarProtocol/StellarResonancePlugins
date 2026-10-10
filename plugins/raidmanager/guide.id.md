@@ -11,7 +11,7 @@ ZDPS yang sudah digunakan statik-mu.
 3. Ketik `/rw <message>` untuk menampilkan peringatan raid ke semua orang yang menjalankan plugin
    ini.
 
-![Countdown](images/countdown.png)
+![Countdown](media/countdown.png)
 
 - **Gunakan Peringatan Dalam Game** (aktif secara default) — `/rw` akan menampilkan banner
   notifikasi asli game beserta audio kemenangan, menggantikan overlay kustom plugin, sehingga
@@ -22,7 +22,7 @@ ZDPS yang sudah digunakan statik-mu.
 Simpan marker dungeon yang kamu tempatkan dan muat ulang seluruh layout-nya dalam satu klik —
 sebagai urutan fase bertahap. Buka dari **Manajer Raid → Buka Preset Mark**:
 
-![Raid Manager settings](images/raid-manager-settings.png)
+![Raid Manager settings](media/raid-manager-settings.png)
 
 **Membuat preset**
 
@@ -39,7 +39,7 @@ sebagai urutan fase bertahap. Buka dari **Manajer Raid → Buka Preset Mark**:
   Langkah berikutnya** ke tombolmu sendiri di **Pengaturan Stellar → Hotkey** (belum diikat secara
   default).
 
-![Mark Presets](images/mark-presets.png)
+![Mark Presets](media/mark-presets.png)
 
 Simpan preset terpisah untuk tiap raid dan **Aktifkan** yang sedang kamu jalani (tombolnya akan
 berubah menjadi **Nonaktifkan**). Penempatan marker berfungsi di dalam dungeon.
@@ -57,6 +57,44 @@ berubah menjadi **Nonaktifkan**). Penempatan marker berfungsi di dalam dungeon.
 2. Kirim kode itu ke grupmu.
 3. Mereka klik **Impor Preset**, tempel kode-nya, lalu tekan **Impor**. Mereka akan mendapatkan
    seluruh preset — setiap langkah, marker, dan catatan.
+
+## Panggilan Mekanik (Beta)
+
+Lihat sekilas siapa yang ditargetkan oleh mekanik boss mana — sebagai daftar, minimap, dan peringatan
+besar saat kamu yang kena. Buka dari **Manajer Raid → Buka Panggilan Mekanik (Beta)**:
+
+![Mechanic Callouts settings](media/mechanic-callouts-settings.png)
+
+**Konten yang didukung**
+
+- Raid Forgotten Dreamwild — Clash!, Brutal!, dan Purge!
+- Cursed Radiant Tomb
+- Sea-Ringed Reef
+- Towering Ruin
+- Tina's Mindrealm
+
+Di luar konten ini, panggilan tetap kosong.
+
+**Daftar Panggilan** — setiap mekanik beserta hitung mundurnya dan pemain yang ditargetkan. Pilih
+urutannya (**Urutan kemunculan**, **Paling mendesak dulu**, atau **Urutan tabel**), ukuran teks, dan
+opasitas latar belakang.
+
+![Callout list](media/mechanic-callout-list.png)
+
+**Minimap** — party-mu di arena, diwarnai sesuai mekanik, dengan marker party dan area bahaya. Di raid,
+minimap juga menampilkan damage lantai, urutan menekan kristal, dan langkah cincin elektromagnetik
+yang bernomor.
+
+![Minimap](media/mechanic-minimap.png)
+
+**Peringatan Mekanik** — banner besar saat mekanik menargetkanmu, dan **PINDAH** saat kamu berdiri di
+petak bahaya. Pada fase cincin di raid, peringatan memberi tahu cincin mana yang harus kamu tuju. Suara
+bersifat opsional dengan volume tersendiri; gunakan **Uji peringatan** untuk pratinjau. (Nonaktif secara
+default.)
+
+![Alert banner](media/mechanic-alert.png)
+
+Pindahkan daftar, minimap, dan banner ke mana saja di editor tata letak HUD.
 
 ## Catatan
 
