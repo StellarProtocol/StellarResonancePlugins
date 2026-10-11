@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, savable and shareable dungeon marker presets, and boss mechanic callouts.",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -48,14 +48,15 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.21.0",
-  "date": "2026-10-10",
+  "date": "2026-10-11",
   "changelog": {
-    "added": [
-      "Mechanic Callouts (Beta): see who each boss mechanic targets — as a list with countdowns, a minimap of your party, and a big alert when it's you. Supports the Forgotten Dreamwild raid, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin and Tina's Mindrealm.",
-      "In the raid's ring phases the alert tells you which ring to move to, and the minimap numbers each ring step."
+    "added": [],
+    "changed": [
+      "The pinball ball on the raid minimap is now a big orange circle, so it's easier to spot."
     ],
-    "changed": [],
-    "fixed": [],
+    "fixed": [
+      "Mark Presets now place marks in the right spots when Auto Combo is on. Before, they all appeared at your feet."
+    ],
     "removed": []
   },
   "i18n": {
@@ -72,12 +73,13 @@
         "レイドマネージャーのウィンドウ：マーカープリセットとギミック通知 (ベータ)を開き、カウントダウンとレイド警告を設定します。"
       ],
       "changelog": {
-        "added": [
-          "ギミック通知 (ベータ)：各ボスギミックが誰を狙っているかを、カウントダウン付きのリスト、パーティーのミニマップ、自分が対象のときの大きなアラートで確認できます。Forgotten Dreamwild（レイド）、Cursed Radiant Tomb、Sea-Ringed Reef、Towering Ruin、Tina's Mindrealm に対応しています。",
-          "レイドのリングフェーズでは、どのリングへ移動すればよいかをアラートが知らせ、ミニマップには各リングのステップが番号で表示されます。"
+        "added": [],
+        "changed": [
+          "レイドのミニマップで、ピンボールの玉が大きなオレンジ色の円で表示され、見つけやすくなりました。"
         ],
-        "changed": [],
-        "fixed": [],
+        "fixed": [
+          "オートコンボ使用中でも、マーカープリセットのマーカーが正しい位置に設置されるようになりました（以前はすべて自分の足元に設置されていました）。"
+        ],
         "removed": []
       }
     },
@@ -94,12 +96,13 @@
         "หน้าต่างตัวจัดการเรด: เปิดพรีเซ็ตมาร์กและแจ้งเตือนกลไก (เบต้า) และตั้งค่านับถอยหลังกับการแจ้งเตือนเรด"
       ],
       "changelog": {
-        "added": [
-          "แจ้งเตือนกลไก (เบต้า): ดูว่ากลไกของบอสแต่ละอันเล็งใคร — ทั้งเป็นรายการพร้อมเวลานับถอยหลัง มินิแมปของปาร์ตี้ และการแจ้งเตือนขนาดใหญ่เมื่อเป็นคุณ รองรับเรด Forgotten Dreamwild, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin และ Tina's Mindrealm",
-          "ในช่วงวงแหวนของเรด การแจ้งเตือนจะบอกว่าคุณต้องย้ายไปวงไหน และมินิแมปจะแสดงหมายเลขของแต่ละขั้นของวง"
+        "added": [],
+        "changed": [
+          "ลูกพินบอลบนมินิแมปของเรดแสดงเป็นวงกลมสีส้มขนาดใหญ่ มองเห็นได้ง่ายขึ้น"
         ],
-        "changed": [],
-        "fixed": [],
+        "fixed": [
+          "พรีเซ็ตมาร์กวางมาร์กเกอร์ได้ตรงตำแหน่งแล้วเมื่อเปิด Auto Combo (ก่อนหน้านี้มาร์กเกอร์ทั้งหมดไปอยู่ที่เท้าของคุณ)"
+        ],
         "removed": []
       }
     },
@@ -116,12 +119,13 @@
         "Jendela Manajer Raid: buka Preset Mark dan Panggilan Mekanik (Beta), serta atur countdown dan peringatan raid."
       ],
       "changelog": {
-        "added": [
-          "Panggilan Mekanik (Beta): lihat siapa yang ditargetkan setiap mekanik boss — sebagai daftar dengan hitung mundur, minimap party-mu, dan peringatan besar saat kamu yang kena. Mendukung raid Forgotten Dreamwild, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin, dan Tina's Mindrealm.",
-          "Pada fase cincin di raid, peringatan memberi tahu cincin mana yang harus kamu tuju, dan minimap menomori setiap langkah cincin."
+        "added": [],
+        "changed": [
+          "Bola pinball di minimap raid kini tampil sebagai lingkaran oranye besar agar lebih mudah terlihat."
         ],
-        "changed": [],
-        "fixed": [],
+        "fixed": [
+          "Preset Mark kini memasang marker di posisi yang benar saat Auto Combo aktif (sebelumnya semua marker muncul di bawah kakimu)."
+        ],
         "removed": []
       }
     },
@@ -138,12 +142,13 @@
         "Ang window ng Tagapamahala ng Raid: buksan ang Mga Preset ng Mark at Mga Tawag ng Mekaniko (Beta), at i-set up ang countdown at raid warning."
       ],
       "changelog": {
-        "added": [
-          "Mga Tawag ng Mekaniko (Beta): makita kung sino ang tinatarget ng bawat mekaniko ng boss — bilang listahan na may countdown, minimap ng party mo, at malaking alerto kapag ikaw ang target. Suportado ang Forgotten Dreamwild raid, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin at Tina's Mindrealm.",
-          "Sa mga ring phase ng raid, sinasabi ng alerto kung saang ring ka dapat lumipat, at may numero sa minimap ang bawat hakbang ng ring."
+        "added": [],
+        "changed": [
+          "Malaking bilog na kulay kahel na ngayon ang pinball na bola sa minimap ng raid, kaya mas madali itong makita."
         ],
-        "changed": [],
-        "fixed": [],
+        "fixed": [
+          "Inilalagay na ngayon ng Mga Preset ng Mark ang mga marker sa tamang puwesto kahit naka-on ang Auto Combo (dati, lumalabas silang lahat sa paanan mo)."
+        ],
         "removed": []
       }
     },
@@ -160,18 +165,19 @@
         "레이드 매니저 창: 표식 프리셋과 기믹 알림 (베타)을 열고, 카운트다운과 레이드 경고를 설정합니다."
       ],
       "changelog": {
-        "added": [
-          "기믹 알림 (베타): 각 보스 기믹이 누구를 노리는지 카운트다운이 있는 목록, 파티 미니맵, 내가 대상일 때 뜨는 큰 경고로 확인하세요. Forgotten Dreamwild 레이드, Cursed Radiant Tomb, Sea-Ringed Reef, Towering Ruin, Tina's Mindrealm을 지원합니다.",
-          "레이드의 링 페이즈에서는 경고가 어느 링으로 이동해야 하는지 알려 주고, 미니맵에 각 링 단계가 번호로 표시됩니다."
+        "added": [],
+        "changed": [
+          "레이드 미니맵에서 핀볼 공이 큰 주황색 원으로 표시되어 더 쉽게 찾을 수 있습니다."
         ],
-        "changed": [],
-        "fixed": [],
+        "fixed": [
+          "자동 콤보를 켠 상태에서도 표식 프리셋이 표식을 올바른 위치에 설치합니다(이전에는 모든 표식이 내 발밑에 설치되었습니다)."
+        ],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "6110f744520c13bad689f7c1a497ebf810c7c610",
+  "commit": "a22a23f59504cd5745f8258004c5e7edce4f46bc",
   "projectPath": ".",
-  "tag": "v2.5.0"
+  "tag": "v2.5.1"
 }
