@@ -85,6 +85,8 @@ opasitas latar belakang.
 minimap juga menampilkan damage lantai, urutan menekan kristal, dan langkah cincin elektromagnetik
 yang bernomor.
 
+Opsional di pengaturan minimap: kerucut kamera yang menunjukkan arah pandanganmu, peta bawaan game di bawahnya, opasitas latar belakang, dan rotasi peta.
+
 ![Minimap](media/mechanic-minimap.png)
 
 **Peringatan Mekanik** — banner besar saat mekanik menargetkanmu, dan **PINDAH** saat kamu berdiri di

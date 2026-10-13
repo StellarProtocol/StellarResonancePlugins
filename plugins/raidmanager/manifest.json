@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, savable and shareable dungeon marker presets, and boss mechanic callouts.",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -48,15 +48,18 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.21.0",
-  "date": "2026-10-11",
+  "date": "2026-10-13",
   "changelog": {
-    "added": [],
+    "added": [
+      "Camera cone on the mechanic minimap: a soft white wedge shows where your camera is looking. Turn it on in the minimap settings.",
+      "Show the game's own map under the mechanic minimap. Turn it on in the minimap settings.",
+      "Background opacity slider for the mechanic minimap, from see-through to fully solid. Mechanics, players and markers always stay fully visible.",
+      "Minimap rotation: turn the mechanic minimap 90°, 180° or 270°."
+    ],
     "changed": [
-      "The pinball ball on the raid minimap is now a big orange circle, so it's easier to spot."
+      "The Cursed Radiant Tomb, Tina's Mindrealm and Towering Ruin minimaps are now shown upside down compared to before."
     ],
-    "fixed": [
-      "Mark Presets now place marks in the right spots when Auto Combo is on. Before, they all appeared at your feet."
-    ],
+    "fixed": [],
     "removed": []
   },
   "i18n": {
@@ -73,13 +76,16 @@
         "レイドマネージャーのウィンドウ：マーカープリセットとギミック通知 (ベータ)を開き、カウントダウンとレイド警告を設定します。"
       ],
       "changelog": {
-        "added": [],
+        "added": [
+          "ギミックミニマップにカメラコーンを追加：カメラが向いている方向を白い扇形で表示します。ミニマップ設定でオンにできます。",
+          "ギミックミニマップの下にゲーム本来のマップを表示できるようになりました。ミニマップ設定でオンにできます。",
+          "ギミックミニマップの背景の不透明度スライダーを追加：透過から完全に不透明まで調整できます。ギミック・プレイヤー・マーカーは常にはっきり表示されます。",
+          "ミニマップの回転：ギミックミニマップを90°・180°・270°回転できます。"
+        ],
         "changed": [
-          "レイドのミニマップで、ピンボールの玉が大きなオレンジ色の円で表示され、見つけやすくなりました。"
+          "Cursed Radiant Tomb、Tina's Mindrealm、Towering Ruin のミニマップが、以前と比べて上下逆さまに表示されるようになりました。"
         ],
-        "fixed": [
-          "オートコンボ使用中でも、マーカープリセットのマーカーが正しい位置に設置されるようになりました（以前はすべて自分の足元に設置されていました）。"
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -96,13 +102,16 @@
         "หน้าต่างตัวจัดการเรด: เปิดพรีเซ็ตมาร์กและแจ้งเตือนกลไก (เบต้า) และตั้งค่านับถอยหลังกับการแจ้งเตือนเรด"
       ],
       "changelog": {
-        "added": [],
+        "added": [
+          "กรวยกล้องบนมินิแมปกลไก: รูปพัดสีขาวจาง ๆ แสดงทิศที่กล้องของคุณกำลังมอง เปิดได้ในการตั้งค่ามินิแมป",
+          "แสดงแผนที่ของเกมเองไว้ใต้มินิแมปกลไก เปิดได้ในการตั้งค่ามินิแมป",
+          "แถบปรับความทึบของพื้นหลังมินิแมปกลไก ตั้งแต่โปร่งใสจนถึงทึบเต็มที่ กลไก ผู้เล่น และมาร์กเกอร์ยังมองเห็นชัดเสมอ",
+          "หมุนมินิแมป: หมุนมินิแมปกลไกได้ 90°, 180° หรือ 270°"
+        ],
         "changed": [
-          "ลูกพินบอลบนมินิแมปของเรดแสดงเป็นวงกลมสีส้มขนาดใหญ่ มองเห็นได้ง่ายขึ้น"
+          "มินิแมปของ Cursed Radiant Tomb, Tina's Mindrealm และ Towering Ruin แสดงกลับหัวเมื่อเทียบกับก่อนหน้า"
         ],
-        "fixed": [
-          "พรีเซ็ตมาร์กวางมาร์กเกอร์ได้ตรงตำแหน่งแล้วเมื่อเปิด Auto Combo (ก่อนหน้านี้มาร์กเกอร์ทั้งหมดไปอยู่ที่เท้าของคุณ)"
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -119,13 +128,16 @@
         "Jendela Manajer Raid: buka Preset Mark dan Panggilan Mekanik (Beta), serta atur countdown dan peringatan raid."
       ],
       "changelog": {
-        "added": [],
+        "added": [
+          "Kerucut kamera di minimap mekanik: irisan putih lembut menunjukkan arah kameramu menghadap. Aktifkan di pengaturan minimap.",
+          "Tampilkan peta bawaan game di bawah minimap mekanik. Aktifkan di pengaturan minimap.",
+          "Slider opasitas latar belakang minimap mekanik, dari tembus pandang hingga solid penuh. Mekanik, pemain, dan marker selalu tetap terlihat jelas.",
+          "Rotasi minimap: putar minimap mekanik 90°, 180°, atau 270°."
+        ],
         "changed": [
-          "Bola pinball di minimap raid kini tampil sebagai lingkaran oranye besar agar lebih mudah terlihat."
+          "Minimap Cursed Radiant Tomb, Tina's Mindrealm, dan Towering Ruin kini ditampilkan terbalik dibandingkan sebelumnya."
         ],
-        "fixed": [
-          "Preset Mark kini memasang marker di posisi yang benar saat Auto Combo aktif (sebelumnya semua marker muncul di bawah kakimu)."
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -142,13 +154,16 @@
         "Ang window ng Tagapamahala ng Raid: buksan ang Mga Preset ng Mark at Mga Tawag ng Mekaniko (Beta), at i-set up ang countdown at raid warning."
       ],
       "changelog": {
-        "added": [],
+        "added": [
+          "Camera cone sa minimap ng mekaniko: isang malabong puting hugis-pamaypay na nagpapakita kung saan nakaharap ang camera mo. I-on ito sa mga setting ng minimap.",
+          "Ipakita ang sariling mapa ng laro sa ilalim ng minimap ng mekaniko. I-on ito sa mga setting ng minimap.",
+          "Slider ng opacity ng background para sa minimap ng mekaniko, mula see-through hanggang buong solid. Laging malinaw na makikita ang mga mekaniko, player at marker.",
+          "Pag-ikot ng minimap: paikutin ang minimap ng mekaniko nang 90°, 180° o 270°."
+        ],
         "changed": [
-          "Malaking bilog na kulay kahel na ngayon ang pinball na bola sa minimap ng raid, kaya mas madali itong makita."
+          "Nakabaligtad na ngayon ang mga minimap ng Cursed Radiant Tomb, Tina's Mindrealm at Towering Ruin kumpara sa dati."
         ],
-        "fixed": [
-          "Inilalagay na ngayon ng Mga Preset ng Mark ang mga marker sa tamang puwesto kahit naka-on ang Auto Combo (dati, lumalabas silang lahat sa paanan mo)."
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -165,19 +180,22 @@
         "레이드 매니저 창: 표식 프리셋과 기믹 알림 (베타)을 열고, 카운트다운과 레이드 경고를 설정합니다."
       ],
       "changelog": {
-        "added": [],
+        "added": [
+          "기믹 미니맵에 카메라 시야 표시 추가: 카메라가 바라보는 방향을 옅은 흰색 부채꼴로 보여 줍니다. 미니맵 설정에서 켤 수 있습니다.",
+          "기믹 미니맵 아래에 게임 자체 지도를 표시할 수 있습니다. 미니맵 설정에서 켤 수 있습니다.",
+          "기믹 미니맵 배경 불투명도 슬라이더 추가: 투명부터 완전 불투명까지 조절할 수 있습니다. 기믹, 플레이어, 표식은 항상 선명하게 표시됩니다.",
+          "미니맵 회전: 기믹 미니맵을 90°, 180°, 270° 회전할 수 있습니다."
+        ],
         "changed": [
-          "레이드 미니맵에서 핀볼 공이 큰 주황색 원으로 표시되어 더 쉽게 찾을 수 있습니다."
+          "Cursed Radiant Tomb, Tina's Mindrealm, Towering Ruin 미니맵이 이전과 비교해 위아래가 뒤집혀 표시됩니다."
         ],
-        "fixed": [
-          "자동 콤보를 켠 상태에서도 표식 프리셋이 표식을 올바른 위치에 설치합니다(이전에는 모든 표식이 내 발밑에 설치되었습니다)."
-        ],
+        "fixed": [],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "a22a23f59504cd5745f8258004c5e7edce4f46bc",
+  "commit": "136a56cc751defa752924f5ce43e43bc35ce4156",
   "projectPath": ".",
-  "tag": "v2.5.1"
+  "tag": "v2.6.0"
 }
