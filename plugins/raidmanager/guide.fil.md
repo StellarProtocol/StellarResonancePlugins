@@ -89,6 +89,8 @@ laki ng teksto at ang opacity ng background.
 mapanganib na lugar. Sa raid, ipinapakita rin nito ang floor damage, ang pagkakasunod ng pagpindot sa
 mga crystal at ang mga may-numerong hakbang ng electromagnetic ring.
 
+Opsyonal sa mga setting ng minimap: camera cone na nagpapakita kung saan ka nakatingin, ang sariling mapa ng laro sa ilalim, opacity ng background at pag-ikot ng mapa.
+
 ![Minimap](media/mechanic-minimap.png)
 
 **Mga Alerto ng Mekaniko** — malaking banner kapag ikaw ang tinarget ng mekaniko, at **UMALIS** kapag

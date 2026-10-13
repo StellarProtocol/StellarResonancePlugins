@@ -78,6 +78,8 @@ Outside these, the callouts stay empty.
 **Minimap** — your party on the arena, coloured by mechanic, with party markers and danger areas.
 In the raid it also shows floor damage, the crystal press order and the numbered electromagnetic ring steps.
 
+Optional in the minimap settings: a camera cone showing where you're looking, the game's own map underneath, background opacity and map rotation.
+
 ![Minimap](media/mechanic-minimap.png)
 
 **Mechanic Alerts** — a big banner when a mechanic targets you, and **MOVE OFF** when you stand on a
