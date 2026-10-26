@@ -249,5 +249,6 @@
   },
   "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
   "commit": "c135e209ce4857197de03c4db8e7cced2e1065cb",
-  "projectPath": "."
+  "projectPath": ".",
+  "tag": "v3.0.0"
 }
