@@ -63,6 +63,7 @@ I-on ang **Compact na mode** sa Mga Setting para isang linya lang bawat mensahe,
 I-click ang gear sa title bar.
 
 - **Awtomatikong sagot sa mga bulong:** i-on ito at isulat ang sagot mo. Habang wala ka, matatanggap ito ng bawat taong bumulong sa iyo, hindi hihigit sa isang beses kada 30 segundo.
+- **Tab na Lahat:** piliin kung aling mga channel ang ipapakita sa tab na Lahat. I-click ang channel para i-off ito; laging lumalabas ang sarili mong mga mensahe.
 - **Pagsasalin:** ang wika mo, at kung lalabas ang button na isalin kapag itinapat ang cursor.
 - **Whisper history:** i-save ang mga bulong sa PC na ito (ang pinakabagong 500 bawat usapan, hiwalay para sa bawat character), o burahin ang mga ito.
 - **Compact na mode:** isang linya bawat mensahe, walang bubble o avatar.
