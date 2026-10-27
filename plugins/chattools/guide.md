@@ -63,6 +63,7 @@ Turn on **Compact mode** in Settings to show one line per message, without bubbl
 Click the gear in the title bar.
 
 - **Auto-reply to whispers:** turn it on and write your reply. While you're away, each person who whispers you gets it back, at most once every 30 seconds.
+- **All tab:** choose which channels the All tab shows. Click a channel to turn it off; your own messages always show.
 - **Translation:** your language, and whether the translate button shows on hover.
 - **Whisper history:** keep whispers on this PC (the newest 500 per conversation, separately for each character), or clear them.
 - **Compact mode:** one line per message, without bubbles or avatars.

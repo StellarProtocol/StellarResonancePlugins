@@ -63,6 +63,7 @@ Nyalakan **Mode ringkas** di Pengaturan untuk menampilkan satu baris per pesan, 
 Klik ikon roda gigi di bilah judul.
 
 - **Balas otomatis bisikan:** nyalakan lalu tulis balasanmu. Selama kamu pergi, setiap orang yang membisikimu akan menerima balasan itu, paling sering sekali setiap 30 detik.
+- **Tab Semua:** pilih kanal yang tampil di tab Semua. Klik kanal untuk mematikannya; pesanmu sendiri selalu tampil.
 - **Terjemahan:** bahasamu, dan apakah tombol terjemahan muncul saat kursor diarahkan ke pesan.
 - **Riwayat bisikan:** simpan bisikan di PC ini (500 pesan terbaru per percakapan, terpisah untuk tiap karakter), atau hapus.
 - **Mode ringkas:** satu baris per pesan, tanpa gelembung atau avatar.

@@ -2,7 +2,7 @@
   "id": "chattools",
   "name": "ChatTools",
   "description": "The game's chat in a window you can keep open anywhere: channel tabs, stickers, whispers and translation.",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "dll": "Stellar.ChatTools.dll",
   "author": "Stellar",
   "tags": [
@@ -64,23 +64,11 @@
   "guide": "guide.md",
   "minModSystemVersion": "2.27.1",
   "date": "2026-10-27",
-  "capPriorVersionsAt": "2.27.0",
   "changelog": {
     "added": [
-      "A full redesign: ChatTools now looks and works like the game's own chat, with channel tabs, speech bubbles with player avatars, and a window you can resize.",
-      "Stickers and emoji show as pictures in chat. Send them from the picker, and keep your favourites in the ★ tab (right-click a sticker to add it).",
-      "Whispers are grouped into one conversation per person, with online dots and unread counts. Start a new chat from your friends list.",
-      "Translate any message into your language with one click, or translate your own message before you send it. Text goes to Google Translate only when you click.",
-      "Quick phrases: save lines you send often and send them with one click.",
-      "Compact mode shows one line per message, without bubbles or avatars.",
-      "Whisper history can be kept on this PC, separately for each character.",
-      "Click a player's avatar to open their name card.",
-      "New hotkeys: focus the chat box (Enter by default) and next / previous tab (no key until you set one). They only work while ChatTools is open."
+      "Choose which channels appear in the All tab (Settings → All tab). Your own messages always show."
     ],
-    "changed": [
-      "Pick the channel to send to from the button next to the chat box.",
-      "Needs Stellar 2.27.1 or newer."
-    ],
+    "changed": [],
     "fixed": [],
     "removed": []
   },
@@ -101,19 +89,7 @@
       ],
       "changelog": {
         "added": [
-          "全面リニューアル：ChatToolsがゲーム本体のチャットと同じ見た目・使い勝手になりました。チャンネルタブ、プレイヤーのアバター付き吹き出しに加え、ウィンドウのサイズも変更できます。",
-          "スタンプと絵文字がチャット内に画像で表示されます。ピッカーから送信でき、お気に入りは★タブにまとめておけます（スタンプを右クリックで追加）。",
-          "ウィスパーは相手ごとに1つの会話にまとまり、オンライン表示の点と未読数が付きます。フレンドリストから新しいチャットを始められます。",
-          "どのメッセージもワンクリックで自分の言語に翻訳でき、自分のメッセージも送信前に翻訳できます。テキストはクリックしたときだけGoogle翻訳に送信されます。",
-          "定型文：よく送る一言を保存して、ワンクリックで送信できます。",
-          "コンパクトモードでは、吹き出しやアバターなしで1メッセージを1行で表示します。",
-          "個人チャット履歴を、キャラクターごとにこのPCに保存できます。",
-          "プレイヤーのアバターをクリックすると名刺が開きます。",
-          "新しいホットキー：チャット入力欄のフォーカス（初期設定はEnter）と、次／前のタブ（自分で設定するまでキーなし）。ChatToolsを開いているときだけ使えます。"
-        ],
-        "changed": [
-          "送信先のチャンネルは、チャット入力欄の横のボタンで選べます。",
-          "Stellar 2.27.1以降が必要です。"
+          "「すべて」タブに表示するチャンネルを選べるようになりました（設定 → 「すべて」タブ）。自分のメッセージは常に表示されます。"
         ]
       }
     },
@@ -133,19 +109,7 @@
       ],
       "changelog": {
         "added": [
-          "ออกแบบใหม่ทั้งหมด: ChatTools มีหน้าตาและใช้งานเหมือนแชทของเกมเอง มีแท็บแชนเนล กรอบข้อความพร้อมรูปโปรไฟล์ผู้เล่น และปรับขนาดหน้าต่างได้",
-          "สติกเกอร์และอีโมจิแสดงเป็นรูปภาพในแชท ส่งได้จากตัวเลือก และเก็บรายการโปรดไว้ในแท็บ ★ (คลิกขวาที่สติกเกอร์เพื่อเพิ่ม)",
-          "กระซิบจะรวมเป็นบทสนทนาเดียวต่อหนึ่งคน พร้อมจุดแสดงสถานะออนไลน์และจำนวนข้อความที่ยังไม่อ่าน เริ่มแชทใหม่ได้จากรายชื่อเพื่อน",
-          "แปลข้อความใดก็ได้เป็นภาษาของคุณในคลิกเดียว หรือแปลข้อความของคุณเองก่อนส่ง ข้อความจะถูกส่งไปยัง Google แปลภาษา เฉพาะเมื่อคุณคลิกเท่านั้น",
-          "ข้อความสำเร็จรูป: บันทึกข้อความที่ส่งบ่อยไว้ แล้วส่งได้ในคลิกเดียว",
-          "โหมดกะทัดรัดแสดงข้อความละหนึ่งบรรทัด ไม่มีกรอบข้อความหรือรูปโปรไฟล์",
-          "เก็บประวัติกระซิบไว้ในพีซีเครื่องนี้ได้ แยกตามตัวละคร",
-          "คลิกรูปโปรไฟล์ของผู้เล่นเพื่อเปิดนามบัตรของเขา",
-          "ปุ่มลัดใหม่: โฟกัสช่องพิมพ์แชท (ค่าเริ่มต้นคือ Enter) และแท็บถัดไป / ก่อนหน้า (ไม่มีปุ่มจนกว่าคุณจะตั้งเอง) ใช้ได้เฉพาะตอนที่เปิด ChatTools อยู่"
-        ],
-        "changed": [
-          "เลือกแชนเนลที่จะส่งได้จากปุ่มข้างช่องพิมพ์แชท",
-          "ต้องใช้ Stellar 2.27.1 ขึ้นไป"
+          "เลือกได้ว่าจะให้แชนเนลใดแสดงในแท็บทั้งหมด (ตั้งค่า → แท็บทั้งหมด) ข้อความของคุณเองจะแสดงเสมอ"
         ]
       }
     },
@@ -165,19 +129,7 @@
       ],
       "changelog": {
         "added": [
-          "Desain ulang total: ChatTools kini terlihat dan bekerja seperti chat bawaan game, dengan tab kanal, gelembung chat berisi avatar pemain, dan jendela yang bisa diubah ukurannya.",
-          "Stiker dan emoji tampil sebagai gambar di chat. Kirim dari pemilih, dan simpan favoritmu di tab ★ (klik kanan stiker untuk menambahkannya).",
-          "Bisikan dikelompokkan menjadi satu percakapan per orang, dengan titik status online dan jumlah pesan yang belum dibaca. Mulai obrolan baru dari daftar temanmu.",
-          "Terjemahkan pesan apa pun ke bahasamu dengan sekali klik, atau terjemahkan pesanmu sendiri sebelum dikirim. Teks hanya dikirim ke Google Terjemahan saat kamu mengeklik.",
-          "Frasa cepat: simpan kalimat yang sering kamu kirim, lalu kirim dengan sekali klik.",
-          "Mode ringkas menampilkan satu baris per pesan, tanpa gelembung atau avatar.",
-          "Riwayat bisikan bisa disimpan di PC ini, terpisah untuk tiap karakter.",
-          "Klik avatar pemain untuk membuka kartu namanya.",
-          "Hotkey baru: fokus ke kolom obrolan (bawaan: Enter) dan tab berikutnya / sebelumnya (tanpa tombol sampai kamu mengaturnya). Hanya berfungsi saat ChatTools terbuka."
-        ],
-        "changed": [
-          "Pilih kanal tujuan dari tombol di samping kolom obrolan.",
-          "Butuh Stellar 2.27.1 atau yang lebih baru."
+          "Pilih kanal yang tampil di tab Semua (Pengaturan → Tab Semua). Pesanmu sendiri selalu tampil."
         ]
       }
     },
@@ -197,19 +149,7 @@
       ],
       "changelog": {
         "added": [
-          "Bagong-bagong disenyo: kamukha at kagaya na ng sariling chat ng laro ang ChatTools, may mga channel tab, chat bubble na may avatar ng player, at window na puwedeng i-resize.",
-          "Lumalabas na bilang larawan sa chat ang mga sticker at emoji. Ipadala ang mga ito mula sa picker, at itago ang mga paborito mo sa ★ tab (i-right-click ang sticker para idagdag ito).",
-          "Naka-grupo ang mga bulong sa isang usapan bawat tao, may tuldok kung online at bilang ng hindi pa nababasa. Magsimula ng bagong chat mula sa friends list mo.",
-          "Isalin ang kahit anong mensahe sa wika mo sa isang click, o isalin ang sarili mong mensahe bago ipadala. Ipinapadala lang ang text sa Google Translate kapag nag-click ka.",
-          "Mabilisang parirala: i-save ang mga linyang madalas mong ipadala at ipadala ang mga ito sa isang click.",
-          "Sa compact na mode, isang linya bawat mensahe, walang bubble o avatar.",
-          "Puwedeng i-save ang whisper history sa PC na ito, hiwalay para sa bawat character.",
-          "I-click ang avatar ng player para buksan ang name card niya.",
-          "Mga bagong hotkey: i-focus ang input ng chat (Enter bilang default) at susunod / nakaraang tab (walang key hangga't hindi mo itinatakda). Gumagana lang habang bukas ang ChatTools."
-        ],
-        "changed": [
-          "Piliin ang channel na padadalhan gamit ang button sa tabi ng chat box.",
-          "Kailangan ng Stellar 2.27.1 o mas bago."
+          "Piliin kung aling mga channel ang lalabas sa tab na Lahat (Mga Setting → Tab na Lahat). Laging lumalabas ang sarili mong mga mensahe."
         ]
       }
     },
@@ -230,25 +170,13 @@
       ],
       "changelog": {
         "added": [
-          "전면 개편: 채팅 도구가 게임 자체 채팅처럼 보이고 동작합니다. 채널 탭과 플레이어 아바타가 있는 말풍선을 지원하며, 창 크기도 조절할 수 있습니다.",
-          "스티커와 이모지가 채팅에 그림으로 표시됩니다. 선택창에서 보낼 수 있고, 즐겨찾기는 ★ 탭에 모아둘 수 있습니다(스티커를 우클릭해 추가).",
-          "귓속말이 상대별 대화로 묶이고, 온라인 표시 점과 읽지 않은 메시지 수가 표시됩니다. 친구 목록에서 새 채팅을 시작할 수 있습니다.",
-          "클릭 한 번으로 어떤 메시지든 내 언어로 번역하거나, 내 메시지를 보내기 전에 번역할 수 있습니다. 텍스트는 클릭할 때만 Google 번역으로 전송됩니다.",
-          "상용구: 자주 보내는 문구를 저장해 두고 클릭 한 번으로 보낼 수 있습니다.",
-          "간결 모드는 말풍선과 아바타 없이 메시지를 한 줄로 표시합니다.",
-          "귓속말 기록을 캐릭터별로 이 PC에 보관할 수 있습니다.",
-          "플레이어 아바타를 클릭하면 명함이 열립니다.",
-          "새 단축키: 채팅 입력창 포커스(기본값 Enter)와 다음/이전 탭(직접 지정하기 전까지 키 없음). 채팅 도구 창이 열려 있을 때만 작동합니다."
-        ],
-        "changed": [
-          "보낼 채널은 채팅 입력창 옆 버튼에서 선택합니다.",
-          "Stellar 2.27.1 이상이 필요합니다."
+          "전체 탭에 표시할 채널을 고를 수 있습니다(설정 → 전체 탭). 내 메시지는 항상 표시됩니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
-  "commit": "c135e209ce4857197de03c4db8e7cced2e1065cb",
+  "commit": "1a73eb2caacb419f6e8286e0d2020c4137e98612",
   "projectPath": ".",
-  "tag": "v3.0.0"
+  "tag": "v3.1.0"
 }
