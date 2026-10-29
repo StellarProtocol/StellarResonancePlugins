@@ -67,6 +67,7 @@ I-click ang gear sa title bar.
 - **Pagsasalin:** ang wika mo, at kung lalabas ang button na isalin kapag itinapat ang cursor.
 - **Whisper history:** i-save ang mga bulong sa PC na ito (ang pinakabagong 500 bawat usapan, hiwalay para sa bawat character), o burahin ang mga ito.
 - **Compact na mode:** isang linya bawat mensahe, walang bubble o avatar.
+- **Custom na opacity ng window:** bigyan ang chat window ng sarili nitong transparency ng background (30–100%). Kapag naka-off, sinusunod nito ang Theme setting ng Stellar. Malinaw pa rin ang text at mga button.
 
 ![Mga Setting](media/chattools-settings.png)
 
