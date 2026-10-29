@@ -67,6 +67,7 @@ Click the gear in the title bar.
 - **Translation:** your language, and whether the translate button shows on hover.
 - **Whisper history:** keep whispers on this PC (the newest 500 per conversation, separately for each character), or clear them.
 - **Compact mode:** one line per message, without bubbles or avatars.
+- **Custom window opacity:** give the chat window its own background transparency (30–100%). When it is off, the window follows Stellar's Theme setting. Text and buttons stay solid.
 
 ![Settings](media/chattools-settings.png)
 

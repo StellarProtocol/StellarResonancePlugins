@@ -67,6 +67,7 @@ Klik ikon roda gigi di bilah judul.
 - **Terjemahan:** bahasamu, dan apakah tombol terjemahan muncul saat kursor diarahkan ke pesan.
 - **Riwayat bisikan:** simpan bisikan di PC ini (500 pesan terbaru per percakapan, terpisah untuk tiap karakter), atau hapus.
 - **Mode ringkas:** satu baris per pesan, tanpa gelembung atau avatar.
+- **Opasitas jendela kustom:** atur transparansi latar jendela chat secara terpisah (30–100%). Saat dimatikan, jendela mengikuti pengaturan Tema Stellar. Teks dan tombol tetap jelas.
 
 ![Pengaturan](media/chattools-settings.png)
 

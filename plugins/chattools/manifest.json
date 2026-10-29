@@ -2,7 +2,7 @@
   "id": "chattools",
   "name": "ChatTools",
   "description": "The game's chat in a window you can keep open anywhere: channel tabs, stickers, whispers and translation.",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "dll": "Stellar.ChatTools.dll",
   "author": "Stellar",
   "tags": [
@@ -62,13 +62,15 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.27.1",
-  "date": "2026-10-27",
+  "minModSystemVersion": "2.28.0",
+  "date": "2026-10-29",
   "changelog": {
     "added": [
-      "Choose which channels appear in the All tab (Settings → All tab). Your own messages always show."
+      "Give the chat window its own background transparency (Settings → Custom window opacity). Text and buttons stay solid."
     ],
-    "changed": [],
+    "changed": [
+      "The translation language picker has a new look, and long language names now show in full."
+    ],
     "fixed": [],
     "removed": []
   },
@@ -89,7 +91,10 @@
       ],
       "changelog": {
         "added": [
-          "「すべて」タブに表示するチャンネルを選べるようになりました（設定 → 「すべて」タブ）。自分のメッセージは常に表示されます。"
+          "チャットウィンドウの背景の透明度を個別に設定できるようになりました（設定 → ウィンドウの不透明度をカスタマイズ）。文字やボタンははっきり表示されたままです。"
+        ],
+        "changed": [
+          "翻訳先の言語選択のデザインを一新し、長い言語名も省略されずに表示されるようになりました。"
         ]
       }
     },
@@ -109,7 +114,10 @@
       ],
       "changelog": {
         "added": [
-          "เลือกได้ว่าจะให้แชนเนลใดแสดงในแท็บทั้งหมด (ตั้งค่า → แท็บทั้งหมด) ข้อความของคุณเองจะแสดงเสมอ"
+          "ตั้งความโปร่งใสของพื้นหลังหน้าต่างแชทแยกได้ (ตั้งค่า → กำหนดความทึบของหน้าต่างเอง) ข้อความและปุ่มยังคงชัดเจน"
+        ],
+        "changed": [
+          "ตัวเลือกภาษาที่จะแปลมีหน้าตาใหม่ และแสดงชื่อภาษายาว ๆ ได้ครบ"
         ]
       }
     },
@@ -129,7 +137,10 @@
       ],
       "changelog": {
         "added": [
-          "Pilih kanal yang tampil di tab Semua (Pengaturan → Tab Semua). Pesanmu sendiri selalu tampil."
+          "Atur transparansi latar jendela chat secara terpisah (Pengaturan → Opasitas jendela kustom). Teks dan tombol tetap jelas."
+        ],
+        "changed": [
+          "Pemilih bahasa terjemahan punya tampilan baru, dan nama bahasa yang panjang kini tampil utuh."
         ]
       }
     },
@@ -149,7 +160,10 @@
       ],
       "changelog": {
         "added": [
-          "Piliin kung aling mga channel ang lalabas sa tab na Lahat (Mga Setting → Tab na Lahat). Laging lumalabas ang sarili mong mga mensahe."
+          "Bigyan ang chat window ng sarili nitong transparency ng background (Mga Setting → Custom na opacity ng window). Malinaw pa rin ang text at mga button."
+        ],
+        "changed": [
+          "May bagong itsura ang pagpili ng wika ng pagsasalin, at buo nang lumalabas ang mahahabang pangalan ng wika."
         ]
       }
     },
@@ -170,13 +184,16 @@
       ],
       "changelog": {
         "added": [
-          "전체 탭에 표시할 채널을 고를 수 있습니다(설정 → 전체 탭). 내 메시지는 항상 표시됩니다."
+          "채팅 창 배경의 투명도를 따로 설정할 수 있습니다(설정 → 창 불투명도 직접 설정). 글자와 버튼은 선명하게 유지됩니다."
+        ],
+        "changed": [
+          "번역 언어 선택창의 디자인이 바뀌었고, 긴 언어 이름도 잘리지 않고 표시됩니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
-  "commit": "1a73eb2caacb419f6e8286e0d2020c4137e98612",
+  "commit": "61d73bd8d8854bed73a27592d1ca47bc33c1d3e4",
   "projectPath": ".",
-  "tag": "v3.1.0"
+  "tag": "v3.2.0"
 }
