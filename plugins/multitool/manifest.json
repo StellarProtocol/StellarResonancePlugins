@@ -1,0 +1,133 @@
+{
+  "id": "multitool",
+  "name": "MultiTool",
+  "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, and unlock every language.",
+  "version": "1.0.0",
+  "dll": "Stellar.MultiTool.dll",
+  "author": "Stellar",
+  "tags": [
+    "quality-of-life",
+    "band",
+    "party",
+    "language"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/hub.png",
+      "caption": "Every tool in one hub, each card showing what it's doing right now."
+    },
+    {
+      "type": "image",
+      "file": "media/band-mute.png",
+      "caption": "Mute Instruments: silence chosen performers, or everyone except your list."
+    },
+    {
+      "type": "image",
+      "file": "media/auto-accept.png",
+      "caption": "Auto-Accept Invites: party and social invites from the players you list."
+    },
+    {
+      "type": "image",
+      "file": "media/add-player.png",
+      "caption": "Add a player by UID, or straight from their name card."
+    },
+    {
+      "type": "image",
+      "file": "media/language-unlock.png",
+      "caption": "Language Unlock: every text and voice language your client has."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.28.0",
+  "date": "2026-10-30",
+  "changelog": {
+    "added": [
+      "First release: Mute Instruments, Auto-Accept Invites and Language Unlock in one hub."
+    ],
+    "changed": [],
+    "fixed": [],
+    "removed": []
+  },
+  "i18n": {
+    "ja": {
+      "description": "ちょっと便利な小さなツール集：他のプレイヤーの楽器をミュート、選んだ相手からの招待を自動承認、すべての言語を解放。",
+      "captions": [
+        "すべてのツールを1つのハブに。各カードに今の状態が表示されます。",
+        "Mute Instruments（楽器ミュート）：選んだ演奏者だけ、またはリスト以外の全員をミュート。",
+        "Auto-Accept Invites（招待の自動承認）：リストのプレイヤーからのパーティ招待とソーシャル招待を承認。",
+        "UIDで、または名刺から直接プレイヤーを追加。",
+        "Language Unlock（言語の解放）：クライアントに入っているすべてのテキスト言語と音声言語。"
+      ],
+      "changelog": {
+        "added": [
+          "初回リリース：Mute Instruments（楽器ミュート）、Auto-Accept Invites（招待の自動承認）、Language Unlock（言語の解放）を1つのハブにまとめました。"
+        ]
+      }
+    },
+    "th": {
+      "description": "เครื่องมือเล็ก ๆ ที่ช่วยให้เล่นสะดวกขึ้น: ปิดเสียงเครื่องดนตรีของผู้เล่นคนอื่น ตอบรับคำเชิญอัตโนมัติจากผู้เล่นที่เลือก และปลดล็อกทุกภาษา",
+      "captions": [
+        "ทุกเครื่องมือในฮับเดียว การ์ดแต่ละใบแสดงว่ากำลังทำอะไรอยู่ตอนนี้",
+        "Mute Instruments (ปิดเสียงเครื่องดนตรี): ปิดเสียงผู้เล่นที่เลือก หรือทุกคนยกเว้นคนในรายชื่อ",
+        "Auto-Accept Invites (ตอบรับคำเชิญอัตโนมัติ): คำเชิญปาร์ตี้และคำเชิญโซเชียลจากผู้เล่นในรายชื่อ",
+        "เพิ่มผู้เล่นด้วย UID หรือจากนามบัตรของเขาโดยตรง",
+        "Language Unlock (ปลดล็อกภาษา): ทุกภาษาข้อความและภาษาเสียงที่มีในไคลเอนต์ของคุณ"
+      ],
+      "changelog": {
+        "added": [
+          "เปิดตัวครั้งแรก: Mute Instruments (ปิดเสียงเครื่องดนตรี), Auto-Accept Invites (ตอบรับคำเชิญอัตโนมัติ) และ Language Unlock (ปลดล็อกภาษา) รวมไว้ในฮับเดียว"
+        ]
+      }
+    },
+    "id": {
+      "description": "Alat-alat kecil yang bikin main lebih nyaman: bisukan instrumen pemain lain, terima undangan otomatis dari pemain pilihan, dan buka semua bahasa.",
+      "captions": [
+        "Semua alat dalam satu hub, tiap kartu menunjukkan apa yang sedang dilakukannya.",
+        "Mute Instruments (Bisukan instrumen): bisukan pemain pilihan, atau semua orang kecuali daftarmu.",
+        "Auto-Accept Invites (Terima undangan otomatis): undangan party dan sosial dari pemain di daftarmu.",
+        "Tambahkan pemain lewat UID, atau langsung dari kartu namanya.",
+        "Language Unlock (Buka bahasa): semua bahasa teks dan suara yang ada di klienmu."
+      ],
+      "changelog": {
+        "added": [
+          "Rilis pertama: Mute Instruments (Bisukan instrumen), Auto-Accept Invites (Terima undangan otomatis), dan Language Unlock (Buka bahasa) dalam satu hub."
+        ]
+      }
+    },
+    "fil": {
+      "description": "Maliliit na tool para gumaan ang laro: i-mute ang mga instrumento ng ibang player, awtomatikong tanggapin ang imbitasyon mula sa mga piniling player, at i-unlock ang lahat ng wika.",
+      "captions": [
+        "Lahat ng tool sa iisang hub, ipinapakita ng bawat card kung ano ang ginagawa nito ngayon.",
+        "Mute Instruments (I-mute ang mga instrumento): patahimikin ang mga piniling tumutugtog, o lahat maliban sa listahan mo.",
+        "Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon): mga imbitasyon sa party at social mula sa mga player sa listahan mo.",
+        "Magdagdag ng player gamit ang UID, o diretso mula sa name card niya.",
+        "Language Unlock (Pag-unlock ng wika): lahat ng wika ng text at boses na nasa client mo."
+      ],
+      "changelog": {
+        "added": [
+          "Unang release: Mute Instruments (I-mute ang mga instrumento), Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon) at Language Unlock (Pag-unlock ng wika) sa iisang hub."
+        ]
+      }
+    },
+    "ko": {
+      "description": "작고 편리한 도구 모음: 다른 플레이어의 악기 음소거, 고른 플레이어의 초대 자동 수락, 모든 언어 잠금 해제.",
+      "captions": [
+        "모든 도구를 허브 하나에. 각 카드에 지금 작동 상태가 표시됩니다.",
+        "Mute Instruments(악기 음소거): 고른 연주자만, 또는 목록을 뺀 모두를 음소거.",
+        "Auto-Accept Invites(초대 자동 수락): 목록에 있는 플레이어의 파티 초대와 소셜 초대.",
+        "UID로, 또는 명함에서 바로 플레이어 추가.",
+        "Language Unlock(언어 잠금 해제): 클라이언트에 들어 있는 모든 텍스트·음성 언어."
+      ],
+      "changelog": {
+        "added": [
+          "첫 출시: Mute Instruments(악기 음소거), Auto-Accept Invites(초대 자동 수락), Language Unlock(언어 잠금 해제)을 허브 하나에 모았습니다."
+        ]
+      }
+    }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarMultiToolPlugin.git",
+  "commit": "e512485a38833c9d6c0210ff8d0f769f16fe31eb",
+  "projectPath": ".",
+  "tag": "v1.0.0"
+}
