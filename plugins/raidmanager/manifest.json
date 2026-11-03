@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, savable and shareable dungeon marker presets, and boss mechanic callouts.",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -48,17 +48,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.21.0",
-  "date": "2026-10-13",
+  "date": "2026-11-03",
   "changelog": {
     "added": [
-      "Camera cone on the mechanic minimap: a soft white wedge shows where your camera is looking. Turn it on in the minimap settings.",
-      "Show the game's own map under the mechanic minimap. Turn it on in the minimap settings.",
-      "Background opacity slider for the mechanic minimap, from see-through to fully solid. Mechanics, players and markers always stay fully visible.",
-      "Minimap rotation: turn the mechanic minimap 90°, 180° or 270°."
+      "Golem Line callout for the Forgotten Dreamwild raid: see which players the two golems are aiming at, with a countdown to when their aim locks and when they dash. The minimap draws each golem's dash line, and you get an alert when you're the target.",
+      "Spin Fan callout: the minimap shows where the spinning blue fan will stop, right from the moment it starts turning, with a countdown to the stop and the blast. A MOVE warning appears if you're standing in one of its blades.",
+      "Cannon Laser callout: see which players the corner cannons are aiming at, with a countdown to the lock and the shot, and each laser line on the minimap. You get an alert when you're the target."
     ],
-    "changed": [
-      "The Cursed Radiant Tomb, Tina's Mindrealm and Towering Ruin minimaps are now shown upside down compared to before."
-    ],
+    "changed": [],
     "fixed": [],
     "removed": []
   },
@@ -77,14 +74,11 @@
       ],
       "changelog": {
         "added": [
-          "ギミックミニマップにカメラコーンを追加：カメラが向いている方向を白い扇形で表示します。ミニマップ設定でオンにできます。",
-          "ギミックミニマップの下にゲーム本来のマップを表示できるようになりました。ミニマップ設定でオンにできます。",
-          "ギミックミニマップの背景の不透明度スライダーを追加：透過から完全に不透明まで調整できます。ギミック・プレイヤー・マーカーは常にはっきり表示されます。",
-          "ミニマップの回転：ギミックミニマップを90°・180°・270°回転できます。"
+          "Forgotten Dreamwild レイドにゴーレムラインの通知を追加：2体のゴーレムが狙っているプレイヤーを表示し、狙いが固定されるまでと突進するまでのカウントダウンを表示します。ミニマップには各ゴーレムの突進ラインが描かれ、自分が対象のときはアラートが表示されます。",
+          "スピンファンの通知を追加：回転する青い扇が止まる位置を、回り始めた瞬間からミニマップに表示し、停止と爆発までのカウントダウンも表示します。扇の羽の中に立っていると移動の警告が表示されます。",
+          "キャノンレーザーの通知を追加：四隅のキャノンが狙っているプレイヤーを表示し、狙いの固定と発射までのカウントダウン、ミニマップ上の各レーザーラインも表示します。自分が対象のときはアラートが表示されます。"
         ],
-        "changed": [
-          "Cursed Radiant Tomb、Tina's Mindrealm、Towering Ruin のミニマップが、以前と比べて上下逆さまに表示されるようになりました。"
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
@@ -103,14 +97,11 @@
       ],
       "changelog": {
         "added": [
-          "กรวยกล้องบนมินิแมปกลไก: รูปพัดสีขาวจาง ๆ แสดงทิศที่กล้องของคุณกำลังมอง เปิดได้ในการตั้งค่ามินิแมป",
-          "แสดงแผนที่ของเกมเองไว้ใต้มินิแมปกลไก เปิดได้ในการตั้งค่ามินิแมป",
-          "แถบปรับความทึบของพื้นหลังมินิแมปกลไก ตั้งแต่โปร่งใสจนถึงทึบเต็มที่ กลไก ผู้เล่น และมาร์กเกอร์ยังมองเห็นชัดเสมอ",
-          "หมุนมินิแมป: หมุนมินิแมปกลไกได้ 90°, 180° หรือ 270°"
+          "แจ้งเตือนเส้นพุ่งของโกเลมสำหรับเรด Forgotten Dreamwild: ดูว่าโกเลมทั้งสองตัวกำลังเล็งผู้เล่นคนไหน พร้อมนับถอยหลังจนถึงตอนที่ล็อกเป้าและตอนที่พุ่งชน มินิแมปจะวาดเส้นพุ่งของโกเลมแต่ละตัว และคุณจะได้รับการแจ้งเตือนเมื่อเป็นเป้าหมาย",
+          "แจ้งเตือนพัดหมุน: มินิแมปแสดงตำแหน่งที่พัดสีน้ำเงินที่กำลังหมุนจะหยุด ตั้งแต่วินาทีที่เริ่มหมุน พร้อมนับถอยหลังจนถึงตอนหยุดและตอนระเบิด คำเตือนให้เคลื่อนที่จะปรากฏหากคุณยืนอยู่ในใบพัดใบใดใบหนึ่ง",
+          "แจ้งเตือนเลเซอร์ปืนใหญ่: ดูว่าปืนใหญ่ที่มุมสนามกำลังเล็งผู้เล่นคนไหน พร้อมนับถอยหลังจนถึงตอนล็อกเป้าและตอนยิง และเส้นเลเซอร์แต่ละเส้นบนมินิแมป คุณจะได้รับการแจ้งเตือนเมื่อเป็นเป้าหมาย"
         ],
-        "changed": [
-          "มินิแมปของ Cursed Radiant Tomb, Tina's Mindrealm และ Towering Ruin แสดงกลับหัวเมื่อเทียบกับก่อนหน้า"
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
@@ -129,14 +120,11 @@
       ],
       "changelog": {
         "added": [
-          "Kerucut kamera di minimap mekanik: irisan putih lembut menunjukkan arah kameramu menghadap. Aktifkan di pengaturan minimap.",
-          "Tampilkan peta bawaan game di bawah minimap mekanik. Aktifkan di pengaturan minimap.",
-          "Slider opasitas latar belakang minimap mekanik, dari tembus pandang hingga solid penuh. Mekanik, pemain, dan marker selalu tetap terlihat jelas.",
-          "Rotasi minimap: putar minimap mekanik 90°, 180°, atau 270°."
+          "Panggilan Golem Line untuk raid Forgotten Dreamwild: lihat pemain mana yang dibidik kedua golem, dengan hitung mundur sampai bidikannya terkunci dan sampai mereka menerjang. Minimap menggambar garis terjangan tiap golem, dan kamu mendapat peringatan saat kamu yang jadi target.",
+          "Panggilan Spin Fan: minimap menunjukkan di mana kipas biru yang berputar akan berhenti, sejak saat ia mulai berputar, dengan hitung mundur sampai berhenti dan meledak. Peringatan untuk bergerak muncul jika kamu berdiri di salah satu bilahnya.",
+          "Panggilan Cannon Laser: lihat pemain mana yang dibidik meriam di sudut arena, dengan hitung mundur sampai bidikannya terkunci dan sampai menembak, serta tiap garis laser di minimap. Kamu mendapat peringatan saat kamu yang jadi target."
         ],
-        "changed": [
-          "Minimap Cursed Radiant Tomb, Tina's Mindrealm, dan Towering Ruin kini ditampilkan terbalik dibandingkan sebelumnya."
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
@@ -155,14 +143,11 @@
       ],
       "changelog": {
         "added": [
-          "Camera cone sa minimap ng mekaniko: isang malabong puting hugis-pamaypay na nagpapakita kung saan nakaharap ang camera mo. I-on ito sa mga setting ng minimap.",
-          "Ipakita ang sariling mapa ng laro sa ilalim ng minimap ng mekaniko. I-on ito sa mga setting ng minimap.",
-          "Slider ng opacity ng background para sa minimap ng mekaniko, mula see-through hanggang buong solid. Laging malinaw na makikita ang mga mekaniko, player at marker.",
-          "Pag-ikot ng minimap: paikutin ang minimap ng mekaniko nang 90°, 180° o 270°."
+          "Tawag ng Golem Line para sa raid na Forgotten Dreamwild: tingnan kung sinong mga player ang tinututukan ng dalawang golem, may countdown hanggang ma-lock ang tutok nila at hanggang sumugod sila. Iginuguhit ng minimap ang linya ng sugod ng bawat golem, at may alerto ka kapag ikaw ang target.",
+          "Tawag ng Spin Fan: ipinapakita ng minimap kung saan titigil ang umiikot na asul na pamaypay, mula pa lang sa sandaling magsimula itong umikot, may countdown hanggang tumigil ito at sumabog. May lalabas na babalang lumipat kapag nakatayo ka sa isa sa mga talim nito.",
+          "Tawag ng Cannon Laser: tingnan kung sinong mga player ang tinututukan ng mga kanyon sa sulok, may countdown hanggang ma-lock ang tutok at hanggang pumutok, at bawat linya ng laser sa minimap. May alerto ka kapag ikaw ang target."
         ],
-        "changed": [
-          "Nakabaligtad na ngayon ang mga minimap ng Cursed Radiant Tomb, Tina's Mindrealm at Towering Ruin kumpara sa dati."
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
@@ -181,21 +166,18 @@
       ],
       "changelog": {
         "added": [
-          "기믹 미니맵에 카메라 시야 표시 추가: 카메라가 바라보는 방향을 옅은 흰색 부채꼴로 보여 줍니다. 미니맵 설정에서 켤 수 있습니다.",
-          "기믹 미니맵 아래에 게임 자체 지도를 표시할 수 있습니다. 미니맵 설정에서 켤 수 있습니다.",
-          "기믹 미니맵 배경 불투명도 슬라이더 추가: 투명부터 완전 불투명까지 조절할 수 있습니다. 기믹, 플레이어, 표식은 항상 선명하게 표시됩니다.",
-          "미니맵 회전: 기믹 미니맵을 90°, 180°, 270° 회전할 수 있습니다."
+          "Forgotten Dreamwild 레이드에 골렘 라인 알림 추가: 두 골렘이 노리는 플레이어와 함께, 조준이 고정될 때까지와 돌진할 때까지의 카운트다운을 보여 줍니다. 미니맵에 각 골렘의 돌진 경로가 그려지며, 내가 대상이면 경고가 표시됩니다.",
+          "스핀 팬 알림 추가: 회전하는 파란 부채꼴이 멈출 위치를 회전이 시작되는 순간부터 미니맵에 보여 주고, 멈춤과 폭발까지의 카운트다운도 표시합니다. 날개 안에 서 있으면 이동 경고가 표시됩니다.",
+          "캐논 레이저 알림 추가: 모서리의 포대가 노리는 플레이어와 함께 조준 고정 및 발사까지의 카운트다운, 미니맵 위의 각 레이저 경로를 보여 줍니다. 내가 대상이면 경고가 표시됩니다."
         ],
-        "changed": [
-          "Cursed Radiant Tomb, Tina's Mindrealm, Towering Ruin 미니맵이 이전과 비교해 위아래가 뒤집혀 표시됩니다."
-        ],
+        "changed": [],
         "fixed": [],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "136a56cc751defa752924f5ce43e43bc35ce4156",
+  "commit": "65057e6071486e813cecf8af8d5b0fc1bbb6a6fe",
   "projectPath": ".",
-  "tag": "v2.6.0"
+  "tag": "v2.7.0"
 }

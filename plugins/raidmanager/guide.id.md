@@ -82,8 +82,8 @@ opasitas latar belakang.
 ![Callout list](media/mechanic-callout-list.png)
 
 **Minimap** — party-mu di arena, diwarnai sesuai mekanik, dengan marker party dan area bahaya. Di raid,
-minimap juga menampilkan damage lantai, urutan menekan kristal, dan langkah cincin elektromagnetik
-yang bernomor.
+minimap juga menampilkan damage lantai, urutan menekan kristal, langkah cincin elektromagnetik
+yang bernomor, garis terjangan golem, titik berhentinya kipas yang berputar, dan garis laser meriam.
 
 Opsional di pengaturan minimap: kerucut kamera yang menunjukkan arah pandanganmu, peta bawaan game di bawahnya, opasitas latar belakang, dan rotasi peta.
 
