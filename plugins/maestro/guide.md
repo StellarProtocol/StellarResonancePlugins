@@ -14,6 +14,41 @@ solo or in a group — with playlists, group sync, and a local sound preview.
    path in the **Library** window. Use **Rescan folder** or **Locate** if you move it.
 4. Summon a free-play instrument in-game, add songs from the **Library** to the queue, and hit ▶.
 
+## Maestro Link — play as a band from the website
+
+Maestro Link lets a whole band play together without an in-game ensemble. A band leader runs a room
+on the website [maestro.stellarresonance.app](https://maestro.stellarresonance.app), picks the songs
+and decides who plays which part — then every player's character equips its instrument and plays
+its part by itself, in sync with everyone else.
+
+![Playing a Maestro Link song on piano in-world](media/link-in-world.png)
+
+### Joining a room
+
+1. Get the **6-character room code** — create a room on the website, or ask your band leader for it.
+2. In-game, open **Maestro** → **Maestro Link**.
+3. Type the code in the box and press **Join**.
+4. That's it — when the room plays a song, your character plays its part automatically.
+
+![Maestro Link — enter the room code and press Join](media/link-join.png)
+
+While you're in a room, the window shows the room code, your ping, the part you're playing, the
+current song with its progress, and what's coming up next.
+
+![Maestro Link while in a room — your part, the song and what's next](media/link-connected.png)
+
+- **Stop my part** rests your part while the band keeps playing.
+- **Disconnect** leaves the room. Logging out disconnects you automatically.
+
+### The website
+
+The room page on the website is where the band is run: it lists everyone who joined, shows
+**Now playing** (pause, stop, skip, repeat), and holds the song queue, where you choose who plays
+each part. **Room settings** apply to every player at once, and you can still adjust any single
+player on their own.
+
+![The Maestro Link website — players, Now playing and the song queue](media/web-room.png)
+
 ## Playing songs
 
 The main window is your player: a playlist, the now-playing queue, and transport controls.
@@ -59,13 +94,17 @@ Open **Settings** for the fine-tuning and group options.
 
 ![Settings — per-song controls, Network Sync and Ensemble options](media/settings.png)
 
-- **Per-song**: Transpose, Note hold, Tempo %, Max notes (polyphony cap), Restrike gap, Monitor
-  volume, Force sustain, and Apply tone/technique from the MIDI.
+- **Per-song**: Transpose, Note hold, Tempo %, Max notes (polyphony cap), Restrike gap (default
+  33 ms, so fast repeated notes don't drop), Monitor volume, Force sustain, and Apply
+  tone/technique from the MIDI.
 - **Network Sync** streams your notes ahead of time so listeners around you hear a steadier
-  performance under dense note streams.
+  performance under dense note streams. Fine-tune it under **Network Settings** — Lookahead,
+  **Send every** (now up to 400 ms) and Tone lead.
 - **Ensemble**: lock playback to your group's shared beat (count-in to the downbeat), optionally
   match the ensemble tempo, and auto-accept invites so everyone starts together. Join or start an
   ensemble in-game first.
+
+![Network — Buffered Network Sync: Lookahead, Send every and Tone lead](media/network.png)
 
 ## Playing in an ensemble
 
