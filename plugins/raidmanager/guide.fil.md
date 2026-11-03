@@ -87,7 +87,8 @@ laki ng teksto at ang opacity ng background.
 
 **Minimap** — ang party mo sa arena, may kulay ayon sa mekaniko, kasama ang mga party marker at mga
 mapanganib na lugar. Sa raid, ipinapakita rin nito ang floor damage, ang pagkakasunod ng pagpindot sa
-mga crystal at ang mga may-numerong hakbang ng electromagnetic ring.
+mga crystal, ang mga may-numerong hakbang ng electromagnetic ring, ang mga linya ng sugod ng golem, kung saan
+titigil ang umiikot na pamaypay at ang mga linya ng laser ng kanyon.
 
 Opsyonal sa mga setting ng minimap: camera cone na nagpapakita kung saan ka nakatingin, ang sariling mapa ng laro sa ilalim, opacity ng background at pag-ikot ng mapa.
 
