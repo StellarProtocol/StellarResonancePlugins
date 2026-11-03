@@ -2,7 +2,7 @@
   "id": "maestro",
   "name": "Maestro",
   "description": "MIDI auto-player for the band instrument — playlists, group sync and a local sound preview.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "dll": "Stellar.Maestro.dll",
   "author": "Stellar",
   "tags": [
@@ -65,20 +65,28 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "date": "2026-11-03",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "Maestro Link — join a band room on the Maestro Link website (maestro.stellarresonance.app) with a 6-character code. The room picks your instrument and plays songs in sync with the rest of the band — no in-game ensemble needed.",
+      "While linked, a compact Link status view shows the room, ping, your part, the song and its progress, count-in and warnings, with Stop my part and Disconnect. Disconnecting brings back your normal window and your own settings.",
+      "The room stays in sync on late join, rejoin, seek, pause and resume, and when songs switch instrument or tone.",
+      "Logging out or switching character leaves the room immediately."
     ],
-    "changed": [],
-    "fixed": [],
+    "changed": [
+      "Restrike gap default is now 33 ms.",
+      "Network Settings: Send every can now be set from 100 to 400 ms."
+    ],
+    "fixed": [
+      "Listeners no longer hear notes ringing on after a part stops or pauses — the sustain pedal is now released.",
+      "Reading the ensemble timer no longer freezes the game clock (0 ms ping and a frozen night)."
+    ],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarMaestroPlugin.git",
-  "commit": "c4086eddeff50fed27c31e88c9d31d05c4337b6b",
+  "commit": "263836105b321c1028f8bfb36835cf3d77b3caa4",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.20.0",
-  "tag": "v2.3.0",
+  "tag": "v2.4.0",
   "i18n": {
     "ja": {
       "description": "バンド楽器向けの MIDI 自動演奏 — プレイリスト、グループ同期、ローカルサウンドプレビューに対応。",
@@ -96,7 +104,18 @@
       ],
       "changelog": {
         "added": [
-          "韓国語(한국어)に対応 — Stellar 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+          "Maestro Link — Maestro Link の Webサイト(maestro.stellarresonance.app)で6文字のルームコードを入力してバンドのルームに参加できます。ルームが楽器を選び、バンド全体と同期して曲を演奏します — ゲーム内の合奏は不要です。",
+          "ルーム参加中はコンパクトなリンク状態ビューに、ルーム、Ping、担当パート、曲と進行状況、カウントイン、警告が表示され、「自分のパートを停止」と「切断」ボタンがあります。切断すると通常のウィンドウと自分の設定に戻ります。",
+          "途中参加、再参加、シーク、一時停止・再開、曲ごとの楽器やトーンの切り替えでも、ルームの同期が保たれます。",
+          "ログアウトやキャラクター切り替えをすると、すぐにルームから退出します。"
+        ],
+        "changed": [
+          "リストライク間隔のデフォルトが 33 ms になりました。",
+          "ネットワーク設定: 送信間隔を 100〜400 ms の範囲で設定できるようになりました。"
+        ],
+        "fixed": [
+          "パートの停止・一時停止後に、リスナー側で音が鳴り続けなくなりました(サステインペダルを解放するようにしました)。",
+          "合奏タイマーの読み取りでゲーム内時計が止まる問題(Ping 0 ms・夜のまま固まる)を修正しました。"
         ]
       }
     },
@@ -116,7 +135,18 @@
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ การตั้งค่า Stellar → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+          "Maestro Link — เข้าร่วมห้องของวงบนเว็บไซต์ Maestro Link (maestro.stellarresonance.app) ด้วยรหัส 6 ตัวอักษร ห้องจะเลือกเครื่องดนตรีให้และเล่นเพลงพร้อมกันกับทั้งวง — ไม่ต้องตั้งวงดนตรีในเกม",
+          "ระหว่างอยู่ในห้อง หน้าต่างสถานะ Link แบบกะทัดรัดจะแสดงห้อง ค่าปิง พาร์ตของคุณ เพลงและความคืบหน้า การนับเข้า และคำเตือน พร้อมปุ่ม หยุดพาร์ตของฉัน และ ตัดการเชื่อมต่อ เมื่อตัดการเชื่อมต่อ หน้าต่างปกติและการตั้งค่าของคุณจะกลับมา",
+          "ห้องยังซิงก์กันเมื่อเข้าร่วมกลางเพลง เข้าใหม่ เลื่อนตำแหน่ง หยุดชั่วคราวและเล่นต่อ และเมื่อเพลงเปลี่ยนเครื่องดนตรีหรือโทนเสียง",
+          "ออกจากระบบหรือเปลี่ยนตัวละครจะออกจากห้องทันที"
+        ],
+        "changed": [
+          "ค่าเริ่มต้นของช่วงตีซ้ำเปลี่ยนเป็น 33 ms",
+          "ตั้งค่าเครือข่าย: ส่งทุก ตั้งได้ตั้งแต่ 100 ถึง 400 ms"
+        ],
+        "fixed": [
+          "ผู้ฟังจะไม่ได้ยินโน้ตค้างอีกหลังจากพาร์ตหยุดหรือหยุดชั่วคราว — ตอนนี้จะปล่อยแป้นซัสเทนให้",
+          "การอ่านตัวจับเวลาวงดนตรีไม่ทำให้นาฬิกาในเกมค้างอีกต่อไป (ปิง 0 ms และกลางคืนค้าง)"
         ]
       }
     },
@@ -136,7 +166,18 @@
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan Stellar → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+          "Maestro Link — gabung ke room band di situs Maestro Link (maestro.stellarresonance.app) dengan kode 6 karakter. Room memilih instrumen Anda dan memutar lagu sinkron dengan anggota band lainnya — tanpa ensembel di dalam game.",
+          "Selama terhubung, tampilan status Link yang ringkas menampilkan room, ping, bagian Anda, lagu dan progresnya, hitung-masuk, serta peringatan, dengan tombol Hentikan bagian saya dan Putuskan. Setelah memutus koneksi, jendela normal dan pengaturan Anda kembali.",
+          "Room tetap sinkron saat bergabung di tengah lagu, bergabung ulang, seek, jeda dan lanjut, serta saat lagu berganti instrumen atau tone.",
+          "Logout atau berganti karakter langsung keluar dari room."
+        ],
+        "changed": [
+          "Bawaan Jeda pukul-ulang kini 33 ms.",
+          "Pengaturan Jaringan: Kirim tiap kini bisa diatur dari 100 hingga 400 ms."
+        ],
+        "fixed": [
+          "Pendengar tidak lagi mendengar not yang terus berbunyi setelah sebuah bagian berhenti atau dijeda — pedal sustain kini dilepas.",
+          "Membaca timer ensembel tidak lagi membekukan jam game (ping 0 ms dan malam yang membeku)."
         ]
       }
     },
@@ -156,7 +197,18 @@
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting ng Stellar → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Maestro Link — sumali sa room ng band sa website ng Maestro Link (maestro.stellarresonance.app) gamit ang 6-character na code. Ang room ang pipili ng instrumento mo at magpapatugtog ng mga kanta nang sabay sa buong band — hindi na kailangan ng ensemble sa loob ng laro.",
+          "Habang naka-link, makikita sa compact na Link status view ang room, ping, ang part mo, ang kanta at progreso nito, count-in at mga babala, kasama ang Itigil ang bahagi ko at Idiskonekta. Pag nag-disconnect, babalik ang karaniwang window at ang sarili mong mga setting.",
+          "Nananatiling sabay ang room kapag sumali sa gitna, muling sumali, nag-seek, nag-pause at nag-resume, at kapag nagpapalit ng instrumento o tone ang mga kanta.",
+          "Kapag nag-log out o nagpalit ng character, agad kang aalis sa room."
+        ],
+        "changed": [
+          "Ang default ng Puwang ng restrike ay 33 ms na.",
+          "Mga Setting ng Network: puwede nang itakda ang Magpadala tuwing mula 100 hanggang 400 ms."
+        ],
+        "fixed": [
+          "Hindi na makakarinig ang mga nakikinig ng mga notang tuloy-tuloy na tumutunog pagkatapos ihinto o i-pause ang isang part — binibitawan na ang sustain pedal.",
+          "Hindi na pinapatigil ng pagbasa ng ensemble timer ang orasan ng laro (0 ms na ping at nakatigil na gabi)."
         ]
       }
     },
@@ -176,7 +228,18 @@
       ],
       "changelog": {
         "added": [
-          "한국어 지원 추가 — Stellar 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "Maestro Link — Maestro Link 웹사이트(maestro.stellarresonance.app)에서 6자리 코드로 밴드 방에 참가할 수 있습니다. 방이 악기를 정하고 밴드 전체와 맞춰 곡을 연주합니다 — 게임 내 합주가 필요 없습니다.",
+          "연결 중에는 간결한 Link 상태 화면에 방, 핑, 내 파트, 곡과 진행 상황, 카운트인, 경고가 표시되며 내 파트 멈추기와 연결 끊기 버튼이 있습니다. 연결을 끊으면 원래 창과 내 설정으로 돌아갑니다.",
+          "중간 참가, 재참가, 탐색, 일시정지와 재개, 곡마다 악기나 톤이 바뀔 때도 방의 동기화가 유지됩니다.",
+          "로그아웃하거나 캐릭터를 바꾸면 즉시 방에서 나갑니다."
+        ],
+        "changed": [
+          "재타격 간격 기본값이 33 ms로 바뀌었습니다.",
+          "네트워크 설정: 전송 간격을 100~400 ms로 설정할 수 있습니다."
+        ],
+        "fixed": [
+          "파트가 멈추거나 일시정지된 뒤 청취자에게 음이 계속 울리지 않습니다 — 이제 서스테인 페달을 놓습니다.",
+          "합주 타이머를 읽을 때 게임 시계가 멈추던 문제(핑 0 ms, 밤이 멈춤)를 수정했습니다."
         ]
       }
     }
