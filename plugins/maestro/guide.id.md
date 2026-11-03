@@ -16,6 +16,41 @@ sendirian atau dalam grup — lengkap dengan playlist, sinkron grup, dan pratinj
 4. Panggil instrumen mode bebas-main di dalam game, tambahkan lagu dari **Pustaka** ke antrean, lalu
    tekan ▶.
 
+## Maestro Link — main sebagai band dari situs web
+
+Dengan Maestro Link, satu band bisa bermain bersama tanpa ensembel di dalam game. Ketua band
+menjalankan room di situs [maestro.stellarresonance.app](https://maestro.stellarresonance.app),
+memilih lagu dan menentukan siapa memainkan bagian apa — lalu karakter setiap pemain memasang
+instrumennya dan memainkan bagiannya sendiri, sinkron dengan anggota band lainnya.
+
+![Memainkan lagu Maestro Link dengan piano di dunia game](media/link-in-world.png)
+
+### Bergabung ke room
+
+1. Dapatkan **kode room 6 karakter** — buat room di situs web, atau minta ke ketua band Anda.
+2. Di dalam game, buka **Maestro** → **Maestro Link**.
+3. Ketik kode di kotak lalu tekan **Gabung**.
+4. Selesai — saat room memutar lagu, karakter Anda memainkan bagiannya secara otomatis.
+
+![Maestro Link — masukkan kode room lalu tekan Gabung](media/link-join.png)
+
+Selama berada di room, jendela ini menampilkan kode room, ping Anda, bagian yang Anda mainkan, lagu
+yang sedang diputar beserta progresnya, dan lagu berikutnya.
+
+![Maestro Link saat berada di room — bagian Anda, lagu, dan lagu berikutnya](media/link-connected.png)
+
+- **Hentikan bagian saya** mengistirahatkan bagian Anda sementara band tetap bermain.
+- **Putuskan** keluar dari room. Saat Anda logout, koneksi otomatis terputus.
+
+### Situs web
+
+Halaman room di situs web adalah tempat band dijalankan: menampilkan semua pemain yang bergabung,
+**Now playing** (jeda, stop, lewati, ulangi), dan antrean lagu tempat Anda memilih siapa memainkan
+setiap bagian. **Room settings** berlaku untuk semua pemain sekaligus, dan Anda tetap bisa
+menyesuaikan tiap pemain secara terpisah.
+
+![Situs Maestro Link — pemain, Now playing, dan antrean lagu](media/web-room.png)
+
 ## Memutar lagu
 
 Jendela utama adalah pemutar Anda: playlist, antrean yang sedang diputar, dan kontrol transport.
@@ -64,13 +99,17 @@ Buka **Pengaturan** untuk penyesuaian detail dan opsi grup.
 
 ![Pengaturan — kontrol per lagu, Sinkron Jaringan dan opsi Ensembel](media/settings.png)
 
-- **Per lagu**: Transpose, Tahan not, Tempo %, Not maksimum (batas polifoni), Jeda pukul-ulang, Volume
-  monitor, Paksa sustain, dan Terapkan tone/teknik dari MIDI.
+- **Per lagu**: Transpose, Tahan not, Tempo %, Not maksimum (batas polifoni), Jeda pukul-ulang
+  (bawaan 33 ms, agar not berulang yang cepat tidak hilang), Volume monitor, Paksa sustain, dan
+  Terapkan tone/teknik dari MIDI.
 - **Sinkron Jaringan** mengalirkan not Anda lebih awal sehingga pendengar di sekitar Anda mendengar
-  penampilan yang lebih stabil saat not sedang padat.
+  penampilan yang lebih stabil saat not sedang padat. Atur lebih detail lewat **Pengaturan Jaringan**
+  — Lihat-ke-depan, **Kirim tiap** (kini hingga 400 ms) dan Lead nada.
 - **Ensembel**: kunci pemutaran ke ketukan bersama grup Anda (hitung-masuk ke downbeat), opsional
   cocokkan tempo ensembel, dan terima otomatis undangan supaya semua orang mulai bersamaan. Gabung
   atau mulai ensembel di dalam game dulu.
+
+![Jaringan — Sinkron Jaringan Berbufer: Lihat-ke-depan, Kirim tiap dan Lead nada](media/network.png)
 
 ## Bermain dalam ensembel
 

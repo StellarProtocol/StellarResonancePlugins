@@ -17,6 +17,42 @@ na-summon mong instrumento — mag-isa o may grupo — may playlist, group sync,
 4. Mag-summon ng free-play na instrumento sa loob ng laro, magdagdag ng mga kanta mula sa **Aklatan**
    papunta sa pila, at pindutin ang ▶.
 
+## Maestro Link — tumugtog bilang band mula sa website
+
+Sa Maestro Link, puwedeng tumugtog nang sabay ang buong band kahit walang ensemble sa loob ng laro.
+Ang band leader ang nagpapatakbo ng room sa website na
+[maestro.stellarresonance.app](https://maestro.stellarresonance.app), pumipili ng mga kanta, at
+nagpapasya kung sino ang tutugtog ng aling part — tapos kusang ihahanda ng character ng bawat player
+ang instrumento nito at tutugtugin ang part nito, sabay sa buong band.
+
+![Tumutugtog ng kanta ng Maestro Link sa piano sa loob ng mundo](media/link-in-world.png)
+
+### Pagsali sa isang room
+
+1. Kunin ang **6-character na room code** — gumawa ng room sa website, o hingin ito sa band leader mo.
+2. Sa loob ng laro, buksan ang **Maestro** → **Maestro Link**.
+3. I-type ang code sa kahon at pindutin ang **Sumali**.
+4. Ayan na — kapag nagpatugtog ng kanta ang room, awtomatikong tutugtugin ng character mo ang part nito.
+
+![Maestro Link — ilagay ang room code at pindutin ang Sumali](media/link-join.png)
+
+Habang nasa room ka, makikita sa window ang room code, ang ping mo, ang part na tinutugtog mo, ang
+kasalukuyang kanta at ang progreso nito, at kung ano ang susunod.
+
+![Maestro Link habang nasa room — ang part mo, ang kanta at ang susunod](media/link-connected.png)
+
+- Ang **Itigil ang bahagi ko** ay pinapahinga ang part mo habang tuloy ang tugtog ng band.
+- Ang **Idiskonekta** ay aalis sa room. Kapag nag-log out ka, awtomatiko kang madi-disconnect.
+
+### Ang website
+
+Sa room page ng website pinapatakbo ang band: nakalista ang lahat ng sumali, makikita ang
+**Now playing** (pause, stop, skip, repeat), at nandoon ang pila ng mga kanta kung saan pipiliin
+kung sino ang tutugtog ng bawat part. Ang **Room settings** ay para sa lahat ng player nang sabay,
+at puwede mo pa ring i-adjust ang bawat player nang hiwalay.
+
+![Ang website ng Maestro Link — mga player, Now playing at ang pila ng kanta](media/web-room.png)
+
 ## Pagpapatugtog ng kanta
 
 Ang pangunahing window ang iyong player: isang playlist, ang kasalukuyang pinapatugtog na pila, at
@@ -70,13 +106,17 @@ Buksan ang **Mga Setting** para sa detalyadong pag-aayos at mga opsyon para sa g
 ![Mga Setting — kontrol bawat kanta, Network Sync at mga opsyon ng Ensemble](media/settings.png)
 
 - **Bawat kanta**: Transpose, Hold ng nota, Tempo %, Max na nota (limitasyon sa polyphony), Puwang
-  ng restrike, Vol ng monitor, Pilitin ang sustain, at Ilapat ang tone/teknik mula sa MIDI.
+  ng restrike (default 33 ms, para hindi nawawala ang mabilis na paulit-ulit na nota), Vol ng
+  monitor, Pilitin ang sustain, at Ilapat ang tone/teknik mula sa MIDI.
 - Ang **Network Sync** ay nagpapadala ng mga nota mo nang maaga kaya mas matatag ang maririnig ng
-  mga nakikinig sa paligid mo kahit siksikan ang mga nota.
+  mga nakikinig sa paligid mo kahit siksikan ang mga nota. I-fine-tune ito sa **Mga Setting ng Network** —
+  Lookahead, **Magpadala tuwing** (hanggang 400 ms na ngayon) at Lead ng tono.
 - **Ensemble**: i-lock ang playback sa magkasanib na beat ng grupo mo (count-in papunta sa
   downbeat), opsyonal na itugma ang tempo ng ensemble, at awtomatikong tanggapin ang mga
   imbitasyon para sabay-sabay magsimula ang lahat. Sumali o magsimula muna ng ensemble sa loob ng
   laro.
+
+![Network — Naka-buffer na Network Sync: Lookahead, Magpadala tuwing at Lead ng tono](media/network.png)
 
 ## Pagtugtog sa isang ensemble
 
