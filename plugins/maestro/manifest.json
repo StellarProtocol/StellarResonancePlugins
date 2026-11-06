@@ -25,7 +25,7 @@
     {
       "type": "image",
       "file": "media/link-connected.png",
-      "caption": "Maestro Link while in a room — your part, the current song and what's next."
+      "caption": "Maestro Link in a room — room and your part, now playing, and the players list with each player's state."
     },
     {
       "type": "image",
@@ -35,32 +35,32 @@
     {
       "type": "image",
       "file": "media/maestro-in-world.png",
-      "caption": "Performing a song in-world with the Library, Auto-Player and Preview windows open."
+      "caption": "Performing a song in-world with the new Maestro main window open."
     },
     {
       "type": "image",
       "file": "media/auto-player.png",
-      "caption": "Auto-Player — playlist, queue and playback controls."
+      "caption": "The main window — Now playing with what's next, the playlist queue, and cards for Library, Maestro Link, Preview and Settings."
     },
     {
       "type": "image",
       "file": "media/library.png",
-      "caption": "Library — browse your MIDI folder and add songs to the queue."
+      "caption": "Library — search your songs and click one to add it to the current playlist."
     },
     {
       "type": "image",
       "file": "media/preview.png",
-      "caption": "Local Preview — audition through the real in-game instrument sounds."
+      "caption": "Preview — hear a song through the real in-game instrument sounds, with band sync and one row per stem."
     },
     {
       "type": "image",
       "file": "media/settings.png",
-      "caption": "Settings — per-song controls, Network Sync and Ensemble options."
+      "caption": "Settings — Playback, Ensemble, Sound and Network Sync in one window; every option has a ? help button."
     },
     {
       "type": "image",
       "file": "media/network.png",
-      "caption": "Network — Buffered Network Sync: Lookahead, Send every (up to 400 ms) and Tone lead."
+      "caption": "The Network Sync section of Settings — Lookahead, Send every and Tone lead."
     }
   ],
   "guide": "guide.md",
@@ -84,14 +84,14 @@
       "captions": [
         "ワールド内で Maestro Link の曲をピアノで演奏中 — キャラクターが自分のパートを自動で演奏。",
         "Maestro Link — Webサイトかバンドリーダーから受け取ったルームコードを入力して参加を押します。",
-        "ルーム参加中の Maestro Link — 担当パート、再生中の曲、次の曲。",
+        "ルーム参加中の Maestro Link — ルームと担当パート、再生中の曲、各プレイヤーの状態がわかるプレイヤー一覧。",
         "Maestro Link の Webサイト — プレイヤー、Now playing、パートごとの担当が見える曲のキュー。",
-        "ライブラリ、MIDI自動演奏、プレビューのウィンドウを開いてワールド内で曲を演奏中。",
-        "MIDI自動演奏 — プレイリスト、キュー、再生コントロール。",
-        "ライブラリ — MIDIフォルダを閲覧し、曲をキューに追加。",
-        "MIDIプレビュー（ローカル） — 実際のゲーム内楽器音で試聴。",
-        "設定 — 曲ごとの設定、ネットワーク同期、合奏オプション。",
-        "ネットワーク — バッファ付きネットワーク同期: 先読み、送信間隔（最大 400 ms）、トーン先行。"
+        "新しい Maestro のメインウィンドウを開いてワールド内で曲を演奏中。",
+        "メインウィンドウ — 次の曲もわかる再生中表示、プレイリストのキュー、ライブラリ・Maestro Link・プレビュー・設定のカード。",
+        "ライブラリ — 曲を検索し、クリックで今のプレイリストに追加。",
+        "プレビュー — 実際のゲーム内楽器音で試聴。バンドとの同期とステムごとの設定つき。",
+        "設定 — 再生、合奏、サウンド、ネットワーク同期を1つのウィンドウに。各項目に ? ヘルプボタンつき。",
+        "設定のネットワーク同期セクション — 先読み、送信間隔、トーン先行。"
       ],
       "changelog": {
         "added": [],
@@ -106,14 +106,14 @@
       "captions": [
         "กำลังเล่นเพลงผ่าน Maestro Link ด้วยเปียโนในโลกเกม — ตัวละครของคุณเล่นพาร์ตของตัวเองโดยอัตโนมัติ",
         "Maestro Link — ใส่รหัสห้องจากเว็บไซต์หรือจากหัวหน้าวง แล้วกดเข้าร่วม",
-        "Maestro Link ระหว่างอยู่ในห้อง — พาร์ตของคุณ เพลงปัจจุบัน และเพลงถัดไป",
+        "Maestro Link ระหว่างอยู่ในห้อง — ห้องและพาร์ตของคุณ เพลงที่กำลังเล่น และรายชื่อผู้เล่นพร้อมสถานะของแต่ละคน",
         "เว็บไซต์ Maestro Link — ผู้เล่น Now playing และคิวเพลงพร้อมพาร์ตของแต่ละคน",
-        "กำลังแสดงเพลงในโลกเกมโดยเปิดหน้าต่างคลัง, เล่น MIDI อัตโนมัติ และพรีวิวไว้",
-        "เล่น MIDI อัตโนมัติ — เพลย์ลิสต์ คิว และตัวควบคุมการเล่น",
-        "คลัง — เรียกดูโฟลเดอร์ MIDI ของคุณและเพิ่มเพลงเข้าคิว",
-        "พรีวิว MIDI (ในเครื่อง) — ทดลองฟังผ่านเสียงเครื่องดนตรีในเกมจริง",
-        "ตั้งค่า — การตั้งค่าต่อเพลง ซิงก์เครือข่าย และตัวเลือกวงดนตรี",
-        "เครือข่าย — ซิงก์เครือข่ายแบบมีบัฟเฟอร์: มองล่วงหน้า, ส่งทุก (สูงสุด 400 ms) และนำโทนเสียงล่วงหน้า"
+        "กำลังแสดงเพลงในโลกเกมโดยเปิดหน้าต่างหลักแบบใหม่ของ Maestro ไว้",
+        "หน้าต่างหลัก — เพลงที่กำลังเล่นพร้อมเพลงถัดไป คิวของเพลย์ลิสต์ และการ์ดคลังเพลง, Maestro Link, ฟังตัวอย่าง และการตั้งค่า",
+        "คลังเพลง — ค้นหาเพลงแล้วคลิกเพื่อเพิ่มลงในเพลย์ลิสต์ปัจจุบัน",
+        "ฟังตัวอย่าง — ทดลองฟังผ่านเสียงเครื่องดนตรีในเกมจริง พร้อมซิงก์กับวงและแถวของแต่ละสเต็ม",
+        "การตั้งค่า — การเล่น วงดนตรี เสียง และซิงก์เครือข่ายในหน้าต่างเดียว ทุกตัวเลือกมีปุ่มช่วยเหลือ ?",
+        "ส่วนซิงก์เครือข่ายในการตั้งค่า — มองล่วงหน้า ส่งทุก และนำโทนเสียงล่วงหน้า"
       ],
       "changelog": {
         "added": [],
@@ -128,14 +128,14 @@
       "captions": [
         "Memainkan lagu Maestro Link dengan piano di dunia game — karakter Anda memainkan bagiannya sendiri.",
         "Maestro Link — masukkan kode room dari situs web atau ketua band Anda lalu tekan Gabung.",
-        "Maestro Link saat berada di room — bagian Anda, lagu yang diputar, dan lagu berikutnya.",
+        "Maestro Link di dalam room — room dan bagian Anda, lagu yang diputar, dan daftar pemain beserta status tiap pemain.",
         "Situs Maestro Link — pemain, Now playing, dan antrean lagu beserta tiap bagiannya.",
-        "Tampil di dunia game dengan jendela Pustaka, Pemutar Otomatis MIDI dan Pratinjau terbuka.",
-        "Pemutar Otomatis MIDI — playlist, antrean dan kontrol pemutaran.",
-        "Pustaka — jelajahi folder MIDI Anda dan tambahkan lagu ke antrean.",
-        "Pratinjau MIDI (Lokal) — dengarkan lewat suara instrumen asli dalam game.",
-        "Pengaturan — kontrol per lagu, Sinkron Jaringan dan opsi Ensembel.",
-        "Jaringan — Sinkron Jaringan Berbufer: Lihat-ke-depan, Kirim tiap (hingga 400 ms) dan Lead nada."
+        "Tampil di dunia game dengan jendela utama Maestro yang baru terbuka.",
+        "Jendela utama — Sedang diputar beserta lagu berikutnya, antrean playlist, dan kartu Pustaka, Maestro Link, Pratinjau, dan Pengaturan.",
+        "Pustaka — cari lagu dan klik untuk menambahkannya ke playlist saat ini.",
+        "Pratinjau — dengarkan lewat suara instrumen asli dalam game, dengan sinkron band dan satu baris per stem.",
+        "Pengaturan — Pemutaran, Ensembel, Suara, dan Sinkron jaringan dalam satu jendela; tiap opsi punya tombol bantuan ?.",
+        "Bagian Sinkron jaringan di Pengaturan — Lihat-ke-depan, Kirim tiap, dan Lead nada."
       ],
       "changelog": {
         "added": [],
@@ -150,14 +150,14 @@
       "captions": [
         "Tumutugtog ng kanta ng Maestro Link sa piano sa loob ng mundo — kusang tinutugtog ng character mo ang part nito.",
         "Maestro Link — ilagay ang room code mula sa website o sa band leader mo at pindutin ang Sumali.",
-        "Maestro Link habang nasa room — ang part mo, ang kasalukuyang kanta at ang susunod.",
+        "Maestro Link habang nasa room — ang room at part mo, ang tumutugtog ngayon, at ang listahan ng mga manlalaro kasama ang estado ng bawat isa.",
         "Ang website ng Maestro Link — mga player, Now playing at ang pila ng kanta kasama ang bawat part.",
-        "Tumutugtog sa loob ng mundo habang bukas ang mga window ng Aklatan, Awtomatikong MIDI Player at Preview.",
-        "Awtomatikong MIDI Player — playlist, pila at mga kontrol sa playback.",
-        "Aklatan — tingnan ang folder ng MIDI mo at magdagdag ng kanta sa pila.",
-        "MIDI Preview (Lokal) — pakinggan gamit ang tunay na tunog ng instrumento sa laro.",
-        "Mga Setting — kontrol bawat kanta, Network Sync at mga opsyon ng Ensemble.",
-        "Network — Naka-buffer na Network Sync: Lookahead, Magpadala tuwing (hanggang 400 ms) at Lead ng tono."
+        "Tumutugtog sa loob ng mundo habang bukas ang bagong pangunahing window ng Maestro.",
+        "Ang pangunahing window — Tumutugtog ngayon kasama ang susunod, ang pila ng playlist, at mga card ng Library, Maestro Link, Preview at Mga Setting.",
+        "Library — hanapin ang kanta at i-click para idagdag sa kasalukuyang playlist.",
+        "Preview — pakinggan gamit ang tunay na tunog ng instrumento sa laro, may pag-sync sa banda at isang row bawat stem.",
+        "Mga Setting — Pagtugtog, Ensemble, Tunog at Network sync sa iisang window; may ? na button ng tulong ang bawat opsyon.",
+        "Ang seksyong Network sync ng Mga Setting — Lookahead, Magpadala tuwing at Lead ng tono."
       ],
       "changelog": {
         "added": [],
@@ -172,14 +172,14 @@
       "captions": [
         "월드에서 피아노로 Maestro Link 곡을 연주하는 모습 — 캐릭터가 자기 파트를 알아서 연주합니다.",
         "Maestro Link — 웹사이트나 밴드 리더에게 받은 방 코드를 입력하고 참가를 누릅니다.",
-        "방에 참가 중인 Maestro Link — 내 파트, 현재 곡, 다음 곡.",
+        "방에 참가 중인 Maestro Link — 방과 내 파트, 재생 중인 곡, 플레이어별 상태가 보이는 플레이어 목록.",
         "Maestro Link 웹사이트 — 플레이어, Now playing, 파트별 담당이 보이는 곡 대기열.",
-        "라이브러리, MIDI 자동 연주, 미리듣기 창을 열어둔 채 월드에서 곡을 연주하는 모습.",
-        "MIDI 자동 연주 — 재생목록, 대기열, 재생 컨트롤.",
-        "라이브러리 — MIDI 폴더를 둘러보고 곡을 대기열에 추가.",
-        "MIDI 미리듣기 (로컬) — 실제 게임 내 악기 소리로 미리듣기.",
-        "설정 — 곡별 설정, 네트워크 동기화, 합주 옵션.",
-        "네트워크 — 버퍼링된 네트워크 동기화: 선행 전송, 전송 간격(최대 400 ms), 톤 선행."
+        "새로워진 Maestro 메인 창을 열어둔 채 월드에서 곡을 연주하는 모습.",
+        "메인 창 — 다음 곡까지 보이는 재생 중 영역, 재생목록 대기열, 라이브러리·Maestro Link·미리 듣기·설정 카드.",
+        "라이브러리 — 곡을 검색하고 클릭해서 현재 재생목록에 추가.",
+        "미리 듣기 — 실제 게임 내 악기 소리로 미리 듣기. 밴드 동기화와 스템별 설정 포함.",
+        "설정 — 재생, 합주, 사운드, 네트워크 동기화를 한 창에. 모든 항목에 ? 도움말 버튼.",
+        "설정의 네트워크 동기화 영역 — 선행 전송, 전송 간격, 톤 선행."
       ],
       "changelog": {
         "added": [],

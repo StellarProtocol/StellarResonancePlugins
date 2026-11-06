@@ -4,17 +4,17 @@ Pemutar otomatis MIDI untuk instrumen band (Musisi) Season 3 Star Resonance. Tar
 di sebuah folder, pilih lagu, dan Maestro akan memainkannya untuk Anda di instrumen yang Anda panggil —
 sendirian atau dalam grup — lengkap dengan playlist, sinkron grup, dan pratinjau suara lokal.
 
-![Tampil di dunia game dengan jendela Pustaka, Pemutar Otomatis MIDI dan Pratinjau terbuka](media/maestro-in-world.png)
+![Tampil di dunia game dengan jendela Maestro terbuka](media/maestro-in-world.png)
 
 ## Memulai
 
 1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Buka **Maestro** dari Stellar launcher (grup PLUGIN). Alat band hanya bisa dipakai di dalam dunia game.
-3. Taruh file `.mid` / `.midi` Anda di folder `midi\` milik game — Maestro akan membuatnya dan
-   menampilkan path-nya di jendela **Pustaka**. Gunakan **Pindai ulang folder** atau **Buka lokasi**
-   jika Anda memindahkannya.
-4. Panggil instrumen mode bebas-main di dalam game, tambahkan lagu dari **Pustaka** ke antrean, lalu
-   tekan ▶.
+3. Taruh file `.mid` / `.midi` Anda di folder `midi\` milik game — Maestro membuatkannya untuk Anda.
+   Di **Pustaka**, **Buka folder** langsung membuka folder itu, dan **Pindai ulang** memuat file yang
+   baru Anda tambahkan.
+4. Panggil instrumen mode bebas-main di dalam game, tekan **+ Tambah** untuk memilih lagu dari Pustaka,
+   lalu tekan **Putar**.
 
 ## Maestro Link — main sebagai band dari situs web
 
@@ -32,43 +32,70 @@ instrumennya dan memainkan bagiannya sendiri, sinkron dengan anggota band lainny
 3. Ketik kode di kotak lalu tekan **Gabung**.
 4. Selesai — saat room memutar lagu, karakter Anda memainkan bagiannya secara otomatis.
 
+Panel **Cara kerja** merangkum langkah-langkah ini, dan **Buka situs web** membuka situs Maestro Link.
+
 ![Maestro Link — masukkan kode room lalu tekan Gabung](media/link-join.png)
 
-Selama berada di room, jendela ini menampilkan kode room, ping Anda, bagian yang Anda mainkan, lagu
-yang sedang diputar beserta progresnya, dan lagu berikutnya.
+### Di dalam room
 
-![Maestro Link saat berada di room — bagian Anda, lagu, dan lagu berikutnya](media/link-connected.png)
+![Maestro Link di dalam room — info room, lagu yang diputar, dan daftar pemain](media/link-connected.png)
 
-- **Hentikan bagian saya** mengistirahatkan bagian Anda sementara band tetap bermain.
-- **Putuskan** keluar dari room. Saat Anda logout, koneksi otomatis terputus.
+- **Ruang** menampilkan kode dan nama room, ping Anda, dan bagian yang Anda mainkan.
+- **Sedang diputar** menampilkan lagu saat ini, progresnya, dan lagu **Berikutnya**.
+- **Pemain** mencantumkan semua orang di room beserta nama, instrumen, status, dan ping. Statusnya
+  **Main**, **Siap**, **Siaga**, atau **Masalah**. *Masalah* hanya muncul saat bagian yang sedang
+  diputar saat itu gagal dimainkan — belum memegang instrumen tidak apa-apa, karena Link akan
+  memasangkannya untuk lagu berikutnya. **Sembunyikan** menciutkan daftar.
+- **Hentikan bagian saya** (oranye) mengistirahatkan bagian Anda sementara band tetap bermain;
+  tombolnya lalu berubah menjadi **Lanjutkan bagian saya**.
+- **Putuskan** (merah) keluar dari room. Saat Anda logout, koneksi otomatis terputus.
 
 ### Situs web
 
 Halaman room di situs web adalah tempat band dijalankan: menampilkan semua pemain yang bergabung,
 **Now playing** (jeda, stop, lewati, ulangi), dan antrean lagu tempat Anda memilih siapa memainkan
-setiap bagian. **Room settings** berlaku untuk semua pemain sekaligus, dan Anda tetap bisa
-menyesuaikan tiap pemain secara terpisah.
+setiap bagian. Satu bagian bisa diberikan ke beberapa pemain, dan satu pemain bisa mengambil
+beberapa bagian dari instrumen yang sama. **Room settings** berlaku untuk semua pemain sekaligus, dan
+Anda tetap bisa menyesuaikan tiap pemain secara terpisah.
 
 ![Situs Maestro Link — pemain, Now playing, dan antrean lagu](media/web-room.png)
 
 ## Memutar lagu
 
-Jendela utama adalah pemutar Anda: playlist, antrean yang sedang diputar, dan kontrol transport.
+Jendela utama adalah pemutar Anda. Di bagian atas, **Sedang diputar** menampilkan lagu saat ini dan
+progresnya, dengan tombol ◀◀ / **Putar** (**Jeda**) / ▶▶ / **Stop** serta baris **Berikutnya:** yang
+memberi tahu lagu apa yang menyusul.
 
-![Pemutar Otomatis MIDI — playlist, antrean dan kontrol pemutaran](media/auto-player.png)
+![Jendela utama — Sedang diputar, antrean, dan empat kartu](media/auto-player.png)
 
-- Buat **playlist** bernama dan susun ulang antrean; header menampilkan lagu dan posisi saat ini.
-- **Maju otomatis**, **Ulang** (mati / semua / satu), **Acak**, dan **jeda antar lagu** semuanya tinggal
-  satu klik.
-- Baris status menampilkan posisi langsung dan jumlah not untuk lagu yang sedang diputar.
+**Antrean**
+
+- Pilih playlist dari dropdown, atau gunakan **+ Baru**, **Ganti nama**, dan **✕** (hapus playlist).
+- **Seret lagu** ke atas atau ke bawah untuk mengubah urutannya, dan tekan **✕** di sebuah baris untuk
+  menghapusnya.
+- Berpindah ke playlist lain tidak menghentikan lagu yang sedang diputar — lagu itu terus berjalan
+  sampai Anda memilih lagu di playlist lain dan menekan **Putar**.
+- Ikon di bawah antrean menyalakan **Lanjut otomatis**, **Ulang** (mati / semua lagu / satu lagu),
+  dan **Acak**. Arahkan kursor ke sebuah ikon, maka nama dan setelannya muncul di judul **Antrean**.
+- **Acak** memutar setiap lagu di playlist satu kali dengan urutan acak. Jika Ulang mati, pemutaran
+  berhenti setelah lagu terakhir; jika Ulang semua, urutannya diacak ulang di setiap putaran. Baris
+  **Berikutnya:** selalu menampilkan lagu yang benar-benar akan diputar berikutnya.
+- **+ Tambah** membuka Pustaka.
+
+Di bagian bawah, empat kartu membuka jendela lain: **Pustaka**, **Maestro Link**, **Pratinjau**, dan
+**Pengaturan**. Tiap kartu juga menampilkan status singkat, seperti jumlah lagu atau apakah Anda
+sedang berada di room.
 
 ## Mencari lagu
 
-![Pustaka — jelajahi folder MIDI Anda dan tambahkan lagu ke antrean](media/library.png)
+![Pustaka — cari lagu dan klik untuk menambahkannya ke playlist](media/library.png)
 
-- Jelajahi seluruh folder MIDI Anda, **cari** berdasarkan nama, dan klik lagu untuk menambahkannya ke
-  antrean.
-- Pemutaran hanya memainkan satu instrumen dalam satu waktu, jadi cukup antrekan stem yang ingin Anda
+- **Cari** berdasarkan nama (✕ menghapus pencarian), **Pindai ulang** untuk memuat file baru, dan
+  **Buka folder** untuk langsung ke folder MIDI Anda.
+- **Klik sebuah lagu** untuk menambahkannya ke playlist saat ini. Barisnya berkedip hijau dengan
+  tulisan **Ditambah**, dan baris di bawah mengonfirmasinya, misalnya *✓ “Bad Apple (Piano)”
+  ditambahkan ke Playlist 1 · 11 lagu*.
+- Pemutaran hanya memainkan satu instrumen dalam satu waktu, jadi cukup tambahkan stem yang ingin Anda
   mainkan.
 
 ## Pratinjau sebelum memutar
@@ -76,12 +103,15 @@ Jendela utama adalah pemutar Anda: playlist, antrean yang sedang diputar, dan ko
 Dengarkan lagu lewat **suara instrumen asli dalam game** tanpa memanggil instrumen — pratinjau hanya
 diputar untuk Anda sendiri, jadi orang di sekitar Anda tidak akan mendengarnya.
 
-![Pratinjau MIDI (Lokal) — dengarkan lewat suara instrumen asli dalam game](media/preview.png)
+![Pratinjau — lagu yang dipratinjau, opsi sinkron band, dan satu baris per stem](media/preview.png)
 
-- Satu baris per stem, dengan **bisukan** per bagian dan mode **sustain**, jadi Anda bisa mendengar
-  persis bagaimana hasil akhir lagunya.
-- **Sinkron Instrumen** menunggu pemutar band yang sedang live lalu mengikutinya, membisukan bagian
-  yang akan Anda mainkan sendiri — berguna untuk jamming bareng orang lain.
+- **Pratinjau** di bagian atas menampilkan lagu antrean yang dipilih beserta progresnya, dengan tombol
+  **Pratinjau** dan **Stop**.
+- **Sinkron dengan band**: **Sinkron instrumen** menunggu permainan band Anda dimulai lalu ikut
+  bermain bersamanya — bisukan bagian yang Anda mainkan sendiri. **Ofset sinkron** menunda pratinjau
+  agar pas dengan yang didengar band; **= Delay band** mengaturnya untuk Anda.
+- **Stem** berisi satu baris per file, masing-masing dengan sakelar bisu, instrumennya, mode
+  **Sustain**, dan sakelar **Tone**, jadi Anda bisa mendengar persis bagaimana hasil akhir lagunya.
 
 Pratinjau adalah tempat penamaan multi-stem jadi penting: beri bagian-bagian sebuah lagu nama dasar
 yang sama, diakhiri instrumen dalam tanda kurung, dan Pratinjau akan memuat **seluruh set** saat Anda
@@ -95,21 +125,27 @@ Duplikat seperti `(Bass 2)` menjadi trek tersendiri pada suara instrumen yang sa
 
 ## Kontrol per lagu & bermain berkelompok
 
-Buka **Pengaturan** untuk penyesuaian detail dan opsi grup.
+Semua penyesuaian detail dan opsi grup ada di satu jendela dua kolom yang dibuka dari kartu
+**Pengaturan**. Setiap pengaturan punya tombol bulat **?** yang membuka penjelasan singkat — klik lagi,
+atau ✕-nya, untuk menutup. Setiap slider juga punya tombol **↺** untuk mengembalikannya ke nilai
+bawaan.
 
-![Pengaturan — kontrol per lagu, Sinkron Jaringan dan opsi Ensembel](media/settings.png)
+![Pengaturan — Pemutaran, Ensembel, Suara, dan Sinkron jaringan, dengan bantuan Volume monitor terbuka](media/settings.png)
 
-- **Per lagu**: Transpose, Tahan not, Tempo %, Not maksimum (batas polifoni), Jeda pukul-ulang
-  (bawaan 33 ms, agar not berulang yang cepat tidak hilang), Volume monitor, Paksa sustain, dan
-  Terapkan tone/teknik dari MIDI.
-- **Sinkron Jaringan** mengalirkan not Anda lebih awal sehingga pendengar di sekitar Anda mendengar
-  penampilan yang lebih stabil saat not sedang padat. Atur lebih detail lewat **Pengaturan Jaringan**
-  — Lihat-ke-depan, **Kirim tiap** (kini hingga 400 ms) dan Lead nada.
-- **Ensembel**: kunci pemutaran ke ketukan bersama grup Anda (hitung-masuk ke downbeat), opsional
-  cocokkan tempo ensembel, dan terima otomatis undangan supaya semua orang mulai bersamaan. Gabung
-  atau mulai ensembel di dalam game dulu.
+- **Pemutaran**: Transpose, Tempo, Tahan not, Not maksimum (berapa banyak not yang boleh berbunyi
+  bersamaan), Jeda pukul-ulang (bawaan 33 ms, agar not berulang yang cepat tidak hilang), dan Jeda
+  antarlagu.
+- **Ensembel**: **Sinkron ke ensembel** mengunci pemutaran ke ketukan bersama grup Anda (hitung-masuk
+  ke downbeat), **Cocokkan tempo ensembel** mengikuti BPM ensembel, dan **Terima otomatis undangan
+  ensembel** menerima undangan untuk Anda. Gabung atau mulai ensembel di dalam game dulu.
+- **Suara**: Volume monitor, Paksa sustain, dan Terapkan nada dari instrumen MIDI.
+- **Sinkron jaringan**: **Mode Sinkron Jaringan** mengalirkan not Anda lebih awal sehingga pendengar
+  di sekitar Anda mendengar penampilan yang lebih stabil, bahkan saat not sedang padat. Mode ini juga
+  membuka **Bisukan suara lokal saya** dan **Tampilkan animasi tuts**. Atur lebih detail lewat
+  **Lihat-ke-depan**, **Kirim tiap**, dan **Lead nada**. **Solusi relay nada (eksperimental)**
+  dijelaskan di *Batasan yang diketahui* di bawah.
 
-![Jaringan — Sinkron Jaringan Berbufer: Lihat-ke-depan, Kirim tiap dan Lead nada](media/network.png)
+![Bagian Sinkron jaringan di Pengaturan](media/network.png)
 
 ## Bermain dalam ensembel
 
@@ -120,8 +156,8 @@ memainkan bagian berbeda dari lagu yang sama secara bersamaan dan tersinkron. Se
 1. **Nyalakan sinkron ensembel.** Di **Pengaturan**, aktifkan **Sinkron ke ensembel** — di setiap
    pemain. Menyalakan **Terima otomatis undangan ensembel** juga bersifat opsional, supaya Anda tak
    perlu menerima tiap undangan secara manual.
-2. **Tiap pemain memilih bagiannya dan menekan ▶.** Pilih stem yang akan Anda mainkan dan tekan
-   putar — alih-alih langsung mulai, Maestro akan menahan dan menampilkan **"menunggu ensembel…"**.
+2. **Tiap pemain memilih bagiannya dan menekan Putar.** Pilih stem yang akan Anda mainkan dan tekan
+   putar — alih-alih langsung mulai, Maestro akan menahan dan menampilkan **"Menunggu ansambel…"**.
 3. **Pemimpin party memulai ensembel di dalam game.** Ini adalah permulaan ensembel milik game sendiri.
 4. **Semua orang bermain tersinkron.** Semua pemain yang menunggu mulai bersamaan di downbeat,
    terkunci ke ketukan ensembel.
@@ -138,7 +174,7 @@ pas di instrumen game.
 
 ### Efek (tone & teknik)
 
-Nyalakan **Terapkan tone / teknik dari instrumen MIDI** di Pengaturan, dan Maestro akan memilih efek
+Nyalakan **Terapkan nada dari instrumen MIDI** di Pengaturan, dan Maestro akan memilih efek
 gitar/bass dari **instrumen (program) yang ditetapkan pada trek stem tersebut**. Atur instrumen
 General MIDI trek itu di DAW Anda:
 
@@ -210,7 +246,8 @@ diperbaiki Maestro.** Game hanya pernah merender *tone* overdrive/distortion git
 sendiri dan tidak pernah mengirimkannya ke orang di sekitar Anda. Jadi ia diputar Clean untuk semua
 orang lain kapan pun **Sinkron Jaringan menyala**, dan bahkan dengan Sinkron Jaringan **mati**,
 hanya *Anda* yang mendengar distortion-nya — pemain lain tidak pernah mendengar overdrive/
-distortion Anda di kedua mode tersebut. Tidak ada pengaturan Maestro yang mengubah ini; perbaikannya
-ada di tangan game. *Teknik* (Muffled, Harmonics, Slap) tidak terpengaruh dan didengar oleh semua
+distortion Anda di kedua mode tersebut. **Solusi relay nada (eksperimental)** di Pengaturan
+mengirim nada Anda lewat jalur lain, tetapi hanya pendengar yang juga memakai Stellar yang
+mendengarnya; pemain lain tetap mendengar Clean sampai game memperbaikinya. *Teknik* (Muffled, Harmonics, Slap) tidak terpengaruh dan didengar oleh semua
 orang. Untuk lagu yang distortion-nya krusial, mainkan dengan Sinkron Jaringan **mati** agar
 setidaknya terdengar benar bagi Anda.

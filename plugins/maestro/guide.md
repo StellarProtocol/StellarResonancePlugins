@@ -4,15 +4,16 @@ A MIDI auto-player for Star Resonance's Season-3 band (Musician) instrument. Dro
 files in a folder, pick a song, and Maestro performs it for you on your summoned instrument —
 solo or in a group — with playlists, group sync, and a local sound preview.
 
-![Performing in-world with the Library, Auto-Player and Preview windows open](media/maestro-in-world.png)
+![Performing in-world with the Maestro window open](media/maestro-in-world.png)
 
 ## Getting started
 
 1. Install the plugin and launch the game **Modded**.
 2. Open **Maestro** from the Stellar launcher (Plugins group). Band tools are in-world only.
-3. Put your `.mid` / `.midi` files in the game's `midi\` folder — Maestro creates it and shows the
-   path in the **Library** window. Use **Rescan folder** or **Locate** if you move it.
-4. Summon a free-play instrument in-game, add songs from the **Library** to the queue, and hit ▶.
+3. Put your `.mid` / `.midi` files in the game's `midi\` folder — Maestro creates it for you. In the
+   **Library**, **Open folder** takes you straight there, and **Rescan** picks up files you've added.
+4. Summon a free-play instrument in-game, press **+ Add** to pick songs from the Library, and press
+   **Play**.
 
 ## Maestro Link — play as a band from the website
 
@@ -30,54 +31,81 @@ its part by itself, in sync with everyone else.
 3. Type the code in the box and press **Join**.
 4. That's it — when the room plays a song, your character plays its part automatically.
 
+The **How it works** panel sums up these steps, and **Open website** opens the Maestro Link site.
+
 ![Maestro Link — enter the room code and press Join](media/link-join.png)
 
-While you're in a room, the window shows the room code, your ping, the part you're playing, the
-current song with its progress, and what's coming up next.
+### In a room
 
-![Maestro Link while in a room — your part, the song and what's next](media/link-connected.png)
+![Maestro Link in a room — room, now playing and the players list](media/link-connected.png)
 
-- **Stop my part** rests your part while the band keeps playing.
-- **Disconnect** leaves the room. Logging out disconnects you automatically.
+- **Room** shows the room code and name, your ping and the part you're playing.
+- **Now playing** shows the current song, its progress and what's **Next**.
+- **Players** lists everyone in the room with their name, instrument, state and ping. The state is
+  **Playing**, **Ready**, **Idle** or **Problem**. *Problem* only appears when a part that's playing
+  right now can't play — not having an instrument yet is fine, because Link equips it for the next
+  song. **Hide** collapses the list.
+- **Stop my part** (amber) rests your part while the band keeps playing; the button then becomes
+  **Resume my part**.
+- **Disconnect** (red) leaves the room. Logging out disconnects you automatically.
 
 ### The website
 
 The room page on the website is where the band is run: it lists everyone who joined, shows
 **Now playing** (pause, stop, skip, repeat), and holds the song queue, where you choose who plays
-each part. **Room settings** apply to every player at once, and you can still adjust any single
+each part. One part can go to several players, and one player can take several parts of the same
+instrument. **Room settings** apply to every player at once, and you can still adjust any single
 player on their own.
 
 ![The Maestro Link website — players, Now playing and the song queue](media/web-room.png)
 
 ## Playing songs
 
-The main window is your player: a playlist, the now-playing queue, and transport controls.
+The main window is your player. At the top, **Now playing** shows the current song and its
+progress, with ◀◀ / **Play** (**Pause**) / ▶▶ / **Stop** and a **Next:** line telling you what
+comes after it.
 
-![Auto-Player — playlist, queue and playback controls](media/auto-player.png)
+![The main window — Now playing, the queue and the four cards](media/auto-player.png)
 
-- Build named **playlists** and reorder the queue; the header shows the current song and position.
-- **Auto-advance**, **Loop** (off / all / one), **Shuffle**, and a **gap between songs** are all
-  one click away.
-- The status line shows the live position and note count for the song that's playing.
+**The queue**
+
+- Pick a playlist from the dropdown, or use **+ New**, **Rename** and **✕** (delete the playlist).
+- **Drag a song** up or down to reorder it, and press the **✕** on a row to remove it.
+- Switching to another playlist doesn't stop the song that's playing — it keeps going until you pick
+  a song in the other playlist and press **Play**.
+- The icons under the queue switch **Auto next**, **Loop** (off / all songs / one song) and
+  **Shuffle**. Hover an icon and its name and setting appear in the **QUEUE** heading.
+- **Shuffle** plays every song in the playlist once, in random order. With Loop off it stops after
+  the last song; with Loop all it reshuffles for each new round. The **Next:** line always shows the
+  song that will really play next.
+- **+ Add** opens the Library.
+
+At the bottom, four cards open the other windows: **Library**, **Maestro Link**, **Preview** and
+**Settings**. Each card shows a quick status, such as your song count or whether you're in a room.
 
 ## Finding songs
 
-![Library — browse your MIDI folder and add songs to the queue](media/library.png)
+![Library — search your songs and click one to add it to the playlist](media/library.png)
 
-- Browse your whole MIDI folder, **search** by name, and click a song to add it to the queue.
-- Playback performs a single instrument at a time, so just queue the stem you want to play.
+- **Search** by name (✕ clears the search), **Rescan** to pick up new files, and **Open folder** to
+  jump to your MIDI folder.
+- **Click a song** to add it to the current playlist. The row flashes green with **Added**, and the
+  line at the bottom confirms it, e.g. *✓ Added "Bad Apple (Piano)" to Playlist 1 · 11 songs*.
+- Playback performs a single instrument at a time, so just add the stem you want to play.
 
 ## Preview before you play
 
 Audition a song through the **real in-game instrument sounds** without summoning an instrument — the
 preview plays just for you, so no one around you hears it.
 
-![Local Preview — audition through the real in-game instrument sounds](media/preview.png)
+![Preview — the song being previewed, band sync options and one row per stem](media/preview.png)
 
-- One row per stem, with per-part **mute** and a **sustain** mode, so you can hear exactly how a
-  song will come out.
-- **Instrument Sync** waits for the live band player and follows along, muting the parts you'll
-  play yourself — handy for jamming with someone else.
+- **Previewing** shows the selected queue song with its progress, plus **Preview** and **Stop**.
+- **Sync with band**: **Instrument Sync** waits for your band performance to start and plays along
+  with it — mute the parts you're playing yourself. **Sync offset** delays the preview so it lines
+  up with what the band hears; **= Band delay** sets it for you.
+- **Stems** has one row per file, each with a mute toggle, its instrument, a **Sustain** mode and a
+  **Tone** switch, so you can hear exactly how a song will come out.
 
 Preview is where the multi-stem naming matters: give a song's parts the same base name, ending in
 the instrument in parentheses, and Preview loads the **whole set** when you select any one of them.
@@ -90,21 +118,24 @@ Duplicates like `(Bass 2)` become their own track on the same instrument sound.
 
 ## Per-song controls & group play
 
-Open **Settings** for the fine-tuning and group options.
+Open the **Settings** card for all fine-tuning and group options, in one window with two columns.
+Every setting has a round **?** button that opens a short explanation — click it again, or its ✕, to
+close it. Each slider also has a **↺** button that puts it back to its default.
 
-![Settings — per-song controls, Network Sync and Ensemble options](media/settings.png)
+![Settings — Playback, Ensemble, Sound and Network Sync, with the Monitor volume help open](media/settings.png)
 
-- **Per-song**: Transpose, Note hold, Tempo %, Max notes (polyphony cap), Restrike gap (default
-  33 ms, so fast repeated notes don't drop), Monitor volume, Force sustain, and Apply
-  tone/technique from the MIDI.
-- **Network Sync** streams your notes ahead of time so listeners around you hear a steadier
-  performance under dense note streams. Fine-tune it under **Network Settings** — Lookahead,
-  **Send every** (now up to 400 ms) and Tone lead.
-- **Ensemble**: lock playback to your group's shared beat (count-in to the downbeat), optionally
-  match the ensemble tempo, and auto-accept invites so everyone starts together. Join or start an
-  ensemble in-game first.
+- **Playback**: Transpose, Tempo, Note hold, Max notes (how many notes may sound at once),
+  Restrike gap (default 33 ms, so fast repeated notes don't drop) and Gap between songs.
+- **Ensemble**: **Sync to ensemble** locks playback to your group's shared beat (count-in to the
+  downbeat), **Match ensemble tempo** follows the ensemble's BPM, and **Auto-accept ensemble
+  invites** saves you clicking Accept. Join or start an ensemble in-game first.
+- **Sound**: Monitor volume, Force sustain and Apply tone from MIDI instrument.
+- **Network Sync**: **Network Sync Mode** streams your notes ahead of time so listeners around you
+  hear a steadier performance, even with dense note streams. It also unlocks **Mute my local sound**
+  and **Show key animation**. Fine-tune it with **Lookahead**, **Send every** and **Tone lead**.
+  **Tone relay workaround (experimental)** is explained under *Known limitation* below.
 
-![Network — Buffered Network Sync: Lookahead, Send every and Tone lead](media/network.png)
+![The Network Sync section of Settings](media/network.png)
 
 ## Playing in an ensemble
 
@@ -114,8 +145,8 @@ different parts of the same song together, in sync. Everyone must be **in the sa
 1. **Turn on ensemble sync.** In **Settings**, enable **Sync to ensemble** — on every player. Turning
    on **Auto-accept ensemble invites** too is optional, so you don't have to accept each invite by
    hand.
-2. **Each player picks their part and presses ▶.** Choose the stem you'll play and hit play — instead
-   of starting, Maestro holds and shows **"waiting for ensemble…"**.
+2. **Each player picks their part and presses Play.** Choose the stem you'll play and press Play —
+   instead of starting, Maestro holds and shows **"Waiting for the ensemble…"**.
 3. **The party leader starts the ensemble in-game.** This is the game's own ensemble start.
 4. **Everyone plays in sync.** All the waiting players begin together on the downbeat, locked to the
    ensemble's beat.
@@ -131,7 +162,7 @@ instruments.
 
 ### Effects (tone & technique)
 
-Turn on **Apply tone / technique from MIDI instrument** in Settings, and Maestro picks the
+Turn on **Apply tone from MIDI instrument** in Settings, and Maestro picks the
 guitar/bass effect from the **instrument (program) assigned to the stem's track**. Set that track's
 General MIDI instrument in your DAW:
 
@@ -199,6 +230,8 @@ usual GM notes onto these keys — kick (GM 35/36) → **F4**, snare (38/40) →
 fix.** The game only ever renders the guitar/bass overdrive/distortion *tone* on your own client and
 never sends it to the people around you. So it plays Clean for everyone else whenever **Network Sync
 is on**, and even with Network Sync **off**, only *you* hear the distortion — other players never
-hear your overdrive/distortion in either mode. No Maestro setting changes this; it's up to the game
-to fix. *Techniques* (Muffled, Harmonics, Slap) are unaffected and are heard by everyone. For
-distortion-critical songs, play with Network Sync **off** so at least it sounds right to you.
+hear your overdrive/distortion in either mode. The experimental **Tone relay workaround** in
+Settings sends your tone another way, but only listeners who also run Stellar hear it; everyone else
+still hears Clean until the game fixes it. *Techniques* (Muffled, Harmonics, Slap) are unaffected
+and are heard by everyone. For distortion-critical songs, play with Network Sync **off** so at least
+it sounds right to you.
