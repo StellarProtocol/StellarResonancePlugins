@@ -2,7 +2,7 @@
   "id": "maestro",
   "name": "Maestro",
   "description": "MIDI auto-player for the band instrument — playlists, group sync and a local sound preview.",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "dll": "Stellar.Maestro.dll",
   "author": "Stellar",
   "tags": [
@@ -64,15 +64,27 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-11-03",
+  "minModSystemVersion": "2.29.0",
+  "date": "2026-11-06",
   "changelog": {
-    "added": [],
-    "changed": [],
-    "fixed": [
-      "Maestro Link: notes no longer bunch up or play late when your PC's clock is wrong — Link now times your part by the game's server clock."
+    "added": [
+      "Maestro Link: see everyone in your room from inside the game — each player's instrument, state and ping. A Problem label only shows when a part that's playing fails.",
+      "Maestro Link: Resume my part — after Stop my part, pick the song back up without leaving the room.",
+      "Drag songs in the queue to reorder them.",
+      "A round ? next to every setting explains what it does.",
+      "The Library now confirms every song you add: the row flashes green and a line shows which playlist it went to."
     ],
-    "removed": []
+    "changed": [
+      "A whole new look: rounded windows in your theme's colours, a cleaner main window with Now playing and what's Next, and Settings in two columns. Network Sync now lives in Settings.",
+      "Shuffle now plays every song in the playlist once before repeating, and the Next line shows the song that will really play.",
+      "Switching to another playlist keeps the current song playing until you pick a song there and press Play.",
+      "Maestro Link: one part can be played by several players, and one player can play several parts on the same instrument."
+    ],
+    "fixed": [],
+    "removed": [
+      "The move up / move down buttons in the queue — drag songs instead.",
+      "The separate Network window — its settings are now in Settings."
+    ]
   },
   "repository": "https://github.com/StellarProtocol/StellarMaestroPlugin.git",
   "commit": "409dd01dc57fef894c7e3289276598be74cd6e94",
@@ -94,10 +106,23 @@
         "設定のネットワーク同期セクション — 先読み、送信間隔、トーン先行。"
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
-        "fixed": [
-          "Maestro Link: PC の時計がずれていても、音が固まって鳴ったり遅れたりしなくなりました — パートのタイミングをゲームのサーバー時計で合わせるようにしました。"
+        "added": [
+          "Maestro Link: ルームにいる全員をゲーム内で確認できるようになりました — 各プレイヤーの楽器、状態、Ping を表示。「問題」は演奏中のパートが失敗したときだけ表示されます。",
+          "Maestro Link: 自分のパートを再開 — 自分のパートを停止したあと、ルームを抜けずに曲に戻れます。",
+          "キューの曲をドラッグして並び替えられるようになりました。",
+          "すべての設定の横にある丸い ? ボタンで、その設定の説明が見られます。",
+          "ライブラリで曲を追加すると確認が出るようになりました: 行が緑に光り、どのプレイリストに追加されたかが表示されます。"
+        ],
+        "changed": [
+          "見た目を一新: テーマカラーの角丸ウィンドウ、再生中の曲と次の曲が見やすいメインウィンドウ、2列の設定。ネットワーク同期は設定の中に移りました。",
+          "シャッフルはプレイリストの全曲を1回ずつ再生してから繰り返すようになり、「次」の行には実際に次に流れる曲が表示されます。",
+          "別のプレイリストに切り替えても、そこで曲を選んで再生を押すまで今の曲が流れ続けます。",
+          "Maestro Link: 1つのパートを複数のプレイヤーで演奏したり、1人で同じ楽器の複数のパートを演奏したりできるようになりました。"
+        ],
+        "fixed": [],
+        "removed": [
+          "キューの上へ / 下へボタン — 代わりに曲をドラッグしてください。",
+          "独立したネットワークウィンドウ — その設定は設定ウィンドウに移りました。"
         ]
       }
     },
@@ -116,10 +141,23 @@
         "ส่วนซิงก์เครือข่ายในการตั้งค่า — มองล่วงหน้า ส่งทุก และนำโทนเสียงล่วงหน้า"
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
-        "fixed": [
-          "Maestro Link: โน้ตไม่เล่นรวมเป็นก้อนหรือช้าอีกต่อไปเมื่อนาฬิกาของ PC ไม่ตรง — ตอนนี้ Link จับเวลาพาร์ตของคุณด้วยนาฬิกาเซิร์ฟเวอร์ของเกม"
+        "added": [
+          "Maestro Link: ดูทุกคนในห้องได้จากในเกม — เครื่องดนตรี สถานะ และปิงของผู้เล่นแต่ละคน ป้าย ปัญหา จะขึ้นเฉพาะเมื่อพาร์ตที่กำลังเล่นอยู่เล่นไม่ได้",
+          "Maestro Link: เล่นพาร์ตของฉันต่อ — หลังจากกดหยุดพาร์ตของฉัน คุณกลับมาเล่นเพลงต่อได้โดยไม่ต้องออกจากห้อง",
+          "ลากเพลงในคิวเพื่อจัดลำดับใหม่ได้แล้ว",
+          "ปุ่มกลม ? ข้างทุกการตั้งค่าจะอธิบายว่าการตั้งค่านั้นทำอะไร",
+          "คลังเพลงจะยืนยันทุกเพลงที่คุณเพิ่ม: แถวจะกะพริบสีเขียว และมีบรรทัดบอกว่าเพิ่มลงเพลย์ลิสต์ไหน"
+        ],
+        "changed": [
+          "โฉมใหม่ทั้งหมด: หน้าต่างมุมโค้งตามสีธีมของคุณ หน้าต่างหลักที่สะอาดตาขึ้นพร้อมเพลงที่กำลังเล่นและเพลงถัดไป และการตั้งค่าแบบสองคอลัมน์ ซิงก์เครือข่ายย้ายมาอยู่ในการตั้งค่าแล้ว",
+          "โหมดสุ่มจะเล่นทุกเพลงในเพลย์ลิสต์ครบหนึ่งรอบก่อนวนซ้ำ และบรรทัด ถัดไป จะแสดงเพลงที่จะเล่นต่อจริง ๆ",
+          "สลับไปเพลย์ลิสต์อื่นแล้วเพลงปัจจุบันจะยังเล่นต่อ จนกว่าคุณจะเลือกเพลงในเพลย์ลิสต์นั้นแล้วกดเล่น",
+          "Maestro Link: พาร์ตเดียวให้ผู้เล่นหลายคนเล่นได้ และผู้เล่นคนเดียวเล่นได้หลายพาร์ตของเครื่องดนตรีเดียวกัน"
+        ],
+        "fixed": [],
+        "removed": [
+          "ปุ่มเลื่อนขึ้น / เลื่อนลงในคิว — ให้ลากเพลงแทน",
+          "หน้าต่างเครือข่ายที่แยกออกมา — การตั้งค่าของมันย้ายไปอยู่ในการตั้งค่าแล้ว"
         ]
       }
     },
@@ -138,10 +176,23 @@
         "Bagian Sinkron jaringan di Pengaturan — Lihat-ke-depan, Kirim tiap, dan Lead nada."
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
-        "fixed": [
-          "Maestro Link: not tidak lagi menumpuk atau terlambat saat jam PC Anda tidak tepat — Link kini mengatur waktu bagian Anda dengan jam server game."
+        "added": [
+          "Maestro Link: lihat semua orang di room Anda langsung dari dalam game — instrumen, status, dan ping tiap pemain. Label Masalah hanya muncul saat bagian yang sedang diputar gagal.",
+          "Maestro Link: Lanjutkan bagian saya — setelah Hentikan bagian saya, ikut main lagi tanpa keluar dari room.",
+          "Seret lagu di antrean untuk mengubah urutannya.",
+          "Tombol bulat ? di samping setiap pengaturan menjelaskan fungsinya.",
+          "Pustaka kini mengonfirmasi setiap lagu yang Anda tambahkan: barisnya berkedip hijau dan ada baris yang menunjukkan playlist tujuannya."
+        ],
+        "changed": [
+          "Tampilan baru sepenuhnya: jendela bersudut bulat dengan warna tema Anda, jendela utama yang lebih rapi dengan Sedang diputar dan lagu Berikutnya, serta Pengaturan dua kolom. Sinkron jaringan kini ada di Pengaturan.",
+          "Acak kini memutar setiap lagu di playlist satu kali sebelum mengulang, dan baris Berikutnya menampilkan lagu yang benar-benar akan diputar.",
+          "Berpindah ke playlist lain tetap memutar lagu saat ini sampai Anda memilih lagu di sana dan menekan Putar.",
+          "Maestro Link: satu bagian bisa dimainkan beberapa pemain, dan satu pemain bisa memainkan beberapa bagian di instrumen yang sama."
+        ],
+        "fixed": [],
+        "removed": [
+          "Tombol naik / turun di antrean — seret lagu sebagai gantinya.",
+          "Jendela Jaringan yang terpisah — pengaturannya kini ada di Pengaturan."
         ]
       }
     },
@@ -160,10 +211,23 @@
         "Ang seksyong Network sync ng Mga Setting — Lookahead, Magpadala tuwing at Lead ng tono."
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
-        "fixed": [
-          "Maestro Link: hindi na nagsasabay-sabay o nahuhuli ang mga nota kapag mali ang orasan ng PC mo — ginagamit na ng Link ang orasan ng server ng laro sa pag-time ng part mo."
+        "added": [
+          "Maestro Link: makikita mo na ang lahat ng nasa room mula sa loob ng laro — ang instrumento, estado at ping ng bawat player. Lumalabas lang ang Problema kapag pumalya ang part na tumutugtog.",
+          "Maestro Link: Ituloy ang bahagi ko — pagkatapos ng Itigil ang bahagi ko, makakabalik ka sa kanta nang hindi umaalis sa room.",
+          "I-drag ang mga kanta sa pila para ayusin ang pagkakasunod.",
+          "May bilog na ? sa tabi ng bawat setting na nagpapaliwanag kung ano ang ginagawa nito.",
+          "Kinukumpirma na ng Library ang bawat kantang idinagdag mo: kikislap nang berde ang row at ipapakita kung saang playlist ito napunta."
+        ],
+        "changed": [
+          "Bagong-bagong itsura: mga bilugang window sa kulay ng theme mo, mas malinis na pangunahing window na may Tumutugtog ngayon at Susunod, at Mga Setting na may dalawang column. Nasa Mga Setting na ang Network sync.",
+          "Tinutugtog na ng Shuffle ang bawat kanta sa playlist nang isang beses bago umulit, at ipinapakita ng linyang Susunod ang talagang susunod na kanta.",
+          "Kapag lumipat ka sa ibang playlist, tuloy ang kasalukuyang kanta hanggang pumili ka ng kanta roon at pindutin ang I-play.",
+          "Maestro Link: puwedeng tugtugin ng ilang player ang iisang part, at puwedeng tumugtog ang isang player ng ilang part sa parehong instrumento."
+        ],
+        "fixed": [],
+        "removed": [
+          "Ang mga button na pataas / pababa sa pila — i-drag na lang ang mga kanta.",
+          "Ang hiwalay na window ng Network — nasa Mga Setting na ang mga setting nito."
         ]
       }
     },
@@ -182,10 +246,23 @@
         "설정의 네트워크 동기화 영역 — 선행 전송, 전송 간격, 톤 선행."
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
-        "fixed": [
-          "Maestro Link: PC 시계가 틀려도 음이 뭉쳐서 나거나 늦게 나지 않습니다 — 이제 Link가 게임 서버 시계로 파트 타이밍을 맞춥니다."
+        "added": [
+          "Maestro Link: 방에 있는 모든 사람을 게임 안에서 볼 수 있습니다 — 플레이어마다 악기, 상태, 핑 표시. 문제 표시는 연주 중인 파트가 실패할 때만 나옵니다.",
+          "Maestro Link: 내 파트 다시 시작 — 내 파트 멈추기 후 방을 나가지 않고 다시 곡에 합류할 수 있습니다.",
+          "대기열의 곡을 드래그해서 순서를 바꿀 수 있습니다.",
+          "모든 설정 옆의 동그란 ? 버튼으로 그 설정이 무엇을 하는지 볼 수 있습니다.",
+          "라이브러리에서 곡을 추가하면 확인해 줍니다: 줄이 초록색으로 깜빡이고 어느 재생목록에 들어갔는지 표시됩니다."
+        ],
+        "changed": [
+          "완전히 새로워진 디자인: 테마 색상의 둥근 창, 재생 중인 곡과 다음 곡이 보이는 깔끔한 메인 창, 두 열로 된 설정. 네트워크 동기화는 이제 설정 안에 있습니다.",
+          "셔플은 이제 재생목록의 모든 곡을 한 번씩 재생한 뒤 반복하며, 다음 줄에는 실제로 다음에 나올 곡이 표시됩니다.",
+          "다른 재생목록으로 바꿔도 그 목록에서 곡을 고르고 재생을 누를 때까지 지금 곡이 계속 재생됩니다.",
+          "Maestro Link: 한 파트를 여러 플레이어가 연주할 수 있고, 한 플레이어가 같은 악기의 여러 파트를 연주할 수 있습니다."
+        ],
+        "fixed": [],
+        "removed": [
+          "대기열의 위로 / 아래로 이동 버튼 — 대신 곡을 드래그하세요.",
+          "따로 있던 네트워크 창 — 그 설정은 이제 설정에 있습니다."
         ]
       }
     }
