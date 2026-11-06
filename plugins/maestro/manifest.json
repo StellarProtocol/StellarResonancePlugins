@@ -87,9 +87,9 @@
     ]
   },
   "repository": "https://github.com/StellarProtocol/StellarMaestroPlugin.git",
-  "commit": "409dd01dc57fef894c7e3289276598be74cd6e94",
+  "commit": "ac70923b53bfa5a9c6dc687f948470bc51a8e1d2",
   "projectPath": ".",
-  "tag": "v2.4.1",
+  "tag": "v2.5.0",
   "i18n": {
     "ja": {
       "description": "バンド楽器向けの MIDI 自動演奏 — プレイリスト、グループ同期、ローカルサウンドプレビューに対応。",
