@@ -148,8 +148,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
-  "commit": "f995e274ccb4917ffbfc90b573825a01a808db3c",
+  "commit": "3c9e02e62a42572d80d077c16ca6c461b7bed22b",
   "projectPath": ".",
-  "tag": "v2.2.0",
+  "tag": "v2.3.0",
   "capPriorVersionsAt": "2.20.0"
 }
