@@ -14,6 +14,16 @@
       "type": "image",
       "file": "media/minimalnameplate.png",
       "caption": "Badges + names in the world, with the Nameplates settings window."
+    },
+    {
+      "type": "image",
+      "file": "media/settings.png",
+      "caption": "The Nameplates settings window: master switch, what to show above players, and sizes. Every setting has a ? help button."
+    },
+    {
+      "type": "image",
+      "file": "media/revive-sealed.png",
+      "caption": "Revive-sealed marker: a dead player who can't be revived by skill or Imagine yet gets a purple badge and name with the seconds left."
     }
   ],
   "guide": "guide.md",
@@ -34,7 +44,9 @@
       "name": "ミニマルネームプレート",
       "description": "ゲームの頭上プレートを置き換える、ミニマルなクラスバッジ＆名前のネームプレート。",
       "captions": [
-        "ワールド内のバッジと名前、そしてネームプレート設定ウィンドウ。"
+        "ワールド内のバッジと名前、そしてネームプレート設定ウィンドウ。",
+        "ネームプレート設定ウィンドウ：オン/オフ、プレイヤーの上に表示する項目、サイズ。各設定に「?」ヘルプボタンがあります。",
+        "蘇生封印マーカー：スキルやイマジンでまだ蘇生できない倒れたプレイヤーは、バッジと名前が紫色になり残り秒数が表示されます。"
       ],
       "changelog": {
         "added": [
@@ -51,7 +63,9 @@
       "name": "เนมเพลตแบบมินิมัล",
       "description": "เนมเพลตแบบมินิมัลที่มีตราสัญลักษณ์คลาสและชื่อ มาแทนที่แผ่นป้ายเหนือหัวของเกม",
       "captions": [
-        "ตราสัญลักษณ์และชื่อในโลกเกม พร้อมหน้าต่างการตั้งค่าเนมเพลต"
+        "ตราสัญลักษณ์และชื่อในโลกเกม พร้อมหน้าต่างการตั้งค่าเนมเพลต",
+        "หน้าต่างการตั้งค่าเนมเพลต: สวิตช์เปิด/ปิด สิ่งที่แสดงเหนือผู้เล่น และขนาด ทุกการตั้งค่ามีปุ่ม ? อธิบาย",
+        "เครื่องหมายผนึกการชุบชีวิต: ผู้เล่นที่ตายและยังชุบชีวิตด้วยสกิลหรือ Imagine ไม่ได้ จะมีตราและชื่อเป็นสีม่วงพร้อมวินาทีที่เหลือ"
       ],
       "changelog": {
         "added": [
@@ -68,7 +82,9 @@
       "name": "Nameplate Minimal",
       "description": "Nameplate minimal badge kelas & nama yang menggantikan pelat di atas kepala bawaan game.",
       "captions": [
-        "Lencana + nama di dunia, dengan jendela pengaturan Nameplate."
+        "Lencana + nama di dunia, dengan jendela pengaturan Nameplate.",
+        "Jendela pengaturan Nameplate: sakelar utama, apa yang ditampilkan di atas pemain, dan ukuran. Setiap pengaturan punya tombol bantuan ?.",
+        "Penanda segel kebangkitan: pemain mati yang belum bisa dihidupkan dengan skill atau Imagine mendapat lencana dan nama ungu dengan sisa detik."
       ],
       "changelog": {
         "added": [
@@ -84,7 +100,9 @@
     "fil": {
       "description": "Minimal na class-badge at name nameplates na pumapalit sa overhead plate ng laro.",
       "captions": [
-        "Mga badge + pangalan sa mundo, kasama ang Nameplates settings window."
+        "Mga badge + pangalan sa mundo, kasama ang Nameplates settings window.",
+        "Ang Nameplates settings window: master switch, kung ano ang ipapakita sa itaas ng mga player, at mga laki. May ? help button ang bawat setting.",
+        "Revive-sealed marker: ang patay na player na hindi pa mabubuhay ng skill o Imagine ay may lilang badge at pangalan kasama ang natitirang segundo."
       ],
       "changelog": {
         "added": [
@@ -101,7 +119,9 @@
       "name": "미니멀 이름표",
       "description": "게임의 머리 위 이름표를 대체하는 미니멀 클래스 배지 & 이름 이름표.",
       "captions": [
-        "월드에서 표시되는 배지와 이름, 그리고 이름표 설정 창."
+        "월드에서 표시되는 배지와 이름, 그리고 이름표 설정 창.",
+        "이름표 설정 창: 켜기/끄기, 플레이어 위에 표시할 항목, 크기. 모든 설정에 ? 도움말 버튼이 있습니다.",
+        "부활 봉인 마커: 아직 스킬이나 이매진으로 부활할 수 없는 쓰러진 플레이어는 배지와 이름이 보라색이 되고 남은 초가 표시됩니다."
       ],
       "changelog": {
         "added": [
