@@ -2,7 +2,7 @@
   "id": "minimalnameplate",
   "name": "Minimal Nameplate",
   "description": "Minimal class-badge & name nameplates that replace the game's overhead plate.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "dll": "Stellar.MinimalNameplate.dll",
   "author": "Stellar",
   "tags": [
@@ -14,17 +14,29 @@
       "type": "image",
       "file": "media/minimalnameplate.png",
       "caption": "Badges + names in the world, with the Nameplates settings window."
+    },
+    {
+      "type": "image",
+      "file": "media/settings.png",
+      "caption": "The Nameplates settings window: master switch, what to show above players, and sizes. Every setting has a ? help button."
+    },
+    {
+      "type": "image",
+      "file": "media/revive-sealed.png",
+      "caption": "Revive-sealed marker: a dead player who can't be revived by skill or Imagine yet gets a purple badge and name with the seconds left."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.29.0",
+  "date": "2026-11-07",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "Revive-sealed marker: if a player dies while still sealed from the Renewal Prayer skill or the \"Arcane! Prayer of Life\" Imagine, their badge turns purple and their name shows the seconds left, e.g. \"Player (42s)\". Turn it off with the Revive-sealed marker chip."
     ],
     "changed": [
-      "The settings header and the on/off switch label now follow your language."
+      "New settings window: an On/Off switch in the header, \"Show above players\" chips, \"Size\" sliders, and a \"?\" help button on every setting. Your saved settings are kept.",
+      "Classes without a role colour now show an orange badge instead of grey. Grey now always means the player is dead.",
+      "Needs Stellar 2.29.0 or newer."
     ],
     "fixed": [],
     "removed": []
@@ -34,14 +46,18 @@
       "name": "ミニマルネームプレート",
       "description": "ゲームの頭上プレートを置き換える、ミニマルなクラスバッジ＆名前のネームプレート。",
       "captions": [
-        "ワールド内のバッジと名前、そしてネームプレート設定ウィンドウ。"
+        "ワールド内のバッジと名前、そしてネームプレート設定ウィンドウ。",
+        "ネームプレート設定ウィンドウ：オン/オフ、プレイヤーの上に表示する項目、サイズ。各設定に「?」ヘルプボタンがあります。",
+        "復活封印マーカー：スキルやイマジンでまだ蘇生できない倒れたプレイヤーは、バッジと名前が紫色になり残り秒数が表示されます。"
       ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+          "復活封印マーカー：スキル「Renewal Prayer」やイマジン「Arcane! Prayer of Life」の封印中に倒れたプレイヤーは、バッジが紫色になり、名前に残り秒数（例：「プレイヤー (42s)」）が表示されます。「復活封印マーカー」のチップでオフにできます。"
         ],
         "changed": [
-          "設定のヘッダーとオン/オフスイッチのラベルが、使用言語に従うようになりました。"
+          "新しい設定ウィンドウ：ヘッダーのオン/オフスイッチ、「プレイヤーの上に表示」のチップ、「サイズ」のスライダー、各設定の「?」ヘルプボタン。保存済みの設定はそのまま引き継がれます。",
+          "ロールカラーのないクラスのバッジが、灰色ではなくオレンジ色になりました。灰色は常にプレイヤーが倒れていることを表します。",
+          "Stellar 2.29.0 以降が必要です。"
         ],
         "fixed": [],
         "removed": []
@@ -51,14 +67,18 @@
       "name": "เนมเพลตแบบมินิมัล",
       "description": "เนมเพลตแบบมินิมัลที่มีตราสัญลักษณ์คลาสและชื่อ มาแทนที่แผ่นป้ายเหนือหัวของเกม",
       "captions": [
-        "ตราสัญลักษณ์และชื่อในโลกเกม พร้อมหน้าต่างการตั้งค่าเนมเพลต"
+        "ตราสัญลักษณ์และชื่อในโลกเกม พร้อมหน้าต่างการตั้งค่าเนมเพลต",
+        "หน้าต่างการตั้งค่าเนมเพลต: สวิตช์เปิด/ปิด สิ่งที่แสดงเหนือผู้เล่น และขนาด ทุกการตั้งค่ามีปุ่ม ? อธิบาย",
+        "เครื่องหมายผนึกการชุบชีวิต: ผู้เล่นที่ตายและยังชุบชีวิตด้วยสกิลหรือ Imagine ไม่ได้ จะมีตราและชื่อเป็นสีม่วงพร้อมวินาทีที่เหลือ"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "เครื่องหมายผนึกการชุบชีวิต: ถ้าผู้เล่นตายขณะยังติดผนึกจากสกิล Renewal Prayer หรือ Imagine \"Arcane! Prayer of Life\" ตราสัญลักษณ์จะเป็นสีม่วง และชื่อจะแสดงวินาทีที่เหลือ เช่น \"ผู้เล่น (42s)\" ปิดได้ด้วยชิปเครื่องหมายผนึกการชุบชีวิต"
         ],
         "changed": [
-          "หัวข้อการตั้งค่าและป้ายสวิตช์เปิด/ปิดตอนนี้เป็นไปตามภาษาของคุณแล้ว"
+          "หน้าต่างการตั้งค่าใหม่: สวิตช์เปิด/ปิดที่หัวข้อ ชิป \"แสดงเหนือผู้เล่น\" แถบเลื่อน \"ขนาด\" และปุ่ม \"?\" อธิบายทุกการตั้งค่า การตั้งค่าที่บันทึกไว้ยังอยู่ครบ",
+          "คลาสที่ไม่มีสีบทบาทจะแสดงตราสัญลักษณ์สีส้มแทนสีเทา ตอนนี้สีเทาหมายถึงผู้เล่นที่ตายแล้วเท่านั้น",
+          "ต้องใช้ Stellar 2.29.0 ขึ้นไป"
         ],
         "fixed": [],
         "removed": []
@@ -68,14 +88,18 @@
       "name": "Nameplate Minimal",
       "description": "Nameplate minimal badge kelas & nama yang menggantikan pelat di atas kepala bawaan game.",
       "captions": [
-        "Lencana + nama di dunia, dengan jendela pengaturan Nameplate."
+        "Lencana + nama di dunia, dengan jendela pengaturan Nameplate.",
+        "Jendela pengaturan Nameplate: sakelar utama, apa yang ditampilkan di atas pemain, dan ukuran. Setiap pengaturan punya tombol bantuan ?.",
+        "Penanda segel kebangkitan: pemain mati yang belum bisa dihidupkan dengan skill atau Imagine mendapat lencana dan nama ungu dengan sisa detik."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Penanda segel kebangkitan: jika pemain mati saat masih tersegel dari skill Renewal Prayer atau Imagine \"Arcane! Prayer of Life\", lencananya menjadi ungu dan namanya menampilkan sisa detik, misalnya \"Pemain (42s)\". Matikan lewat chip Penanda segel kebangkitan."
         ],
         "changed": [
-          "Header pengaturan dan label sakelar on/off kini mengikuti bahasamu."
+          "Jendela pengaturan baru: sakelar Aktif/Mati di header, chip \"Tampil di atas pemain\", slider \"Ukuran\", dan tombol bantuan \"?\" di setiap pengaturan. Pengaturan yang tersimpan tetap dipakai.",
+          "Kelas tanpa warna peran kini memakai lencana oranye, bukan abu-abu. Abu-abu kini selalu berarti pemain sudah mati.",
+          "Perlu Stellar 2.29.0 atau lebih baru."
         ],
         "fixed": [],
         "removed": []
@@ -84,14 +108,18 @@
     "fil": {
       "description": "Minimal na class-badge at name nameplates na pumapalit sa overhead plate ng laro.",
       "captions": [
-        "Mga badge + pangalan sa mundo, kasama ang Nameplates settings window."
+        "Mga badge + pangalan sa mundo, kasama ang Nameplates settings window.",
+        "Ang Nameplates settings window: master switch, kung ano ang ipapakita sa itaas ng mga player, at mga laki. May ? help button ang bawat setting.",
+        "Revive-sealed marker: ang patay na player na hindi pa mabubuhay ng skill o Imagine ay may lilang badge at pangalan kasama ang natitirang segundo."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Marker ng selyadong pagbuhay: kapag namatay ang player habang selyado pa mula sa Renewal Prayer skill o sa \"Arcane! Prayer of Life\" Imagine, magiging lila ang badge niya at ipapakita ng pangalan ang natitirang segundo, gaya ng \"Player (42s)\". I-off ito gamit ang chip na Marker ng selyadong pagbuhay."
         ],
         "changed": [
-          "Ang header ng settings at ang label ng on/off switch ay sumusunod na ngayon sa wika mo."
+          "Bagong settings window: On/Off switch sa header, mga chip na \"Ipakita sa itaas ng player\", mga slider na \"Laki\", at ? help button sa bawat setting. Nananatili ang mga naka-save mong setting.",
+          "Ang mga class na walang role colour ay may orange na badge na ngayon sa halip na gray. Ang gray ay laging nangangahulugang patay ang player.",
+          "Kailangan ng Stellar 2.29.0 o mas bago."
         ],
         "fixed": [],
         "removed": []
@@ -101,14 +129,18 @@
       "name": "미니멀 이름표",
       "description": "게임의 머리 위 이름표를 대체하는 미니멀 클래스 배지 & 이름 이름표.",
       "captions": [
-        "월드에서 표시되는 배지와 이름, 그리고 이름표 설정 창."
+        "월드에서 표시되는 배지와 이름, 그리고 이름표 설정 창.",
+        "이름표 설정 창: 켜기/끄기, 플레이어 위에 표시할 항목, 크기. 모든 설정에 ? 도움말 버튼이 있습니다.",
+        "부활 봉인 마커: 아직 스킬이나 이매진으로 부활할 수 없는 쓰러진 플레이어는 배지와 이름이 보라색이 되고 남은 초가 표시됩니다."
       ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "부활 봉인 표시: Renewal Prayer 스킬이나 \"Arcane! Prayer of Life\" 이매진의 봉인이 남아 있는 동안 쓰러진 플레이어는 배지가 보라색이 되고 이름에 남은 시간이 \"플레이어 (42s)\"처럼 표시됩니다. 부활 봉인 표시 칩으로 끌 수 있습니다."
         ],
         "changed": [
-          "설정 헤더와 켜기/끄기 스위치 레이블이 이제 사용 언어를 따릅니다."
+          "새 설정 창: 헤더의 켜짐/꺼짐 스위치, \"플레이어 위에 표시\" 칩, \"크기\" 슬라이더, 모든 설정의 \"?\" 도움말 버튼. 저장된 설정은 그대로 유지됩니다.",
+          "역할색이 없는 클래스의 배지가 회색 대신 주황색으로 표시됩니다. 이제 회색은 항상 쓰러진 플레이어를 뜻합니다.",
+          "Stellar 2.29.0 이상이 필요합니다."
         ],
         "fixed": [],
         "removed": []
@@ -116,8 +148,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
-  "commit": "f995e274ccb4917ffbfc90b573825a01a808db3c",
+  "commit": "3c9e02e62a42572d80d077c16ca6c461b7bed22b",
   "projectPath": ".",
-  "tag": "v2.2.0",
+  "tag": "v2.3.0",
   "capPriorVersionsAt": "2.20.0"
 }
