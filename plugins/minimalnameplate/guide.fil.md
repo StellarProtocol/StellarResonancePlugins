@@ -29,6 +29,7 @@ May **?** na button sa tabi ng bawat setting na nagpapaliwanag kung ano ang gina
 
 - **Pula**, **berde** o **asul** — ang role ng player.
 - **Orange** — class na walang kulay ng role (dati ay kulay abo ang mga ito).
+- **"?" sa badge** — class na walang icon sa laro.
 - **Kulay abo** — patay ang player. Pula rin ang pangalan ng mga patay na player.
 
 ## Marker ng selyadong pagbuhay
@@ -37,9 +38,10 @@ Kapag may nabuhay muli dahil sa role skill na **"Renewal Prayer"** o sa Imagine 
 **"Arcane! Prayer of Life"**, magkakaroon siya ng **"Weakened: Wish Sealed"** at hindi na siya mabubuhay muli
 sa ganoong paraan nang mga 60 segundo (mas matagal sa mga Nightmare party dungeon).
 
-Kung mamatay siya sa panahong iyon, magiging lila ang badge niya at magiging lila ang pangalan niya
-kasama ang natitirang segundo — halimbawa **Player (42s)** — para alam ng mga healer na huwag sayangin
-ang revive sa kanya. I-off ito gamit ang chip na **Marker ng selyadong pagbuhay**.
+Kung mamatay siya sa panahong iyon, magiging lila ang badge at pangalan niya, at lalabas ang
+natitirang segundo sa sarili nitong linya sa itaas ng pangalan — halimbawa **(42s)** — para alam ng
+mga healer na huwag sayangin ang revive sa kanya. Puwedeng i-off ang segundo sa setting na
+**Countdown**. I-off ang buong marker gamit ang chip na **Marker ng selyadong pagbuhay**.
 
 ![Marker ng selyadong pagbuhay](media/revive-sealed.png)
 

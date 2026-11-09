@@ -29,6 +29,7 @@ Setiap pengaturan punya tombol **?** di sebelahnya yang menjelaskan fungsinya.
 
 - **Merah**, **hijau**, atau **biru** — peran pemain.
 - **Oranye** — kelas yang tidak punya warna peran (dulu tampil abu-abu).
+- **"?" di lencana** — kelas yang tidak punya ikon di game.
 - **Abu-abu** — pemain sedang mati. Pemain yang mati juga namanya berwarna merah.
 
 ## Penanda segel kebangkitan
@@ -37,9 +38,10 @@ Setelah skill peran **"Renewal Prayer"** atau Imagine **"Arcane! Prayer of Life"
 seseorang, orang itu mendapat **"Weakened: Wish Sealed"** dan tidak bisa dibangkitkan dengan cara
 itu lagi selama sekitar 60 detik (lebih lama di dungeon party Nightmare).
 
-Jika ia mati selama waktu itu, lencananya menjadi ungu dan namanya menjadi ungu dengan sisa detik —
-misalnya **Pemain (42s)** — sehingga healer tahu agar tidak menyia-nyiakan kebangkitan untuknya.
-Matikan lewat chip **Penanda segel kebangkitan**.
+Jika ia mati selama waktu itu, lencana dan namanya menjadi ungu, dan sisa detik tampil di barisnya
+sendiri di atas nama — misalnya **(42s)** — sehingga healer tahu agar tidak menyia-nyiakan
+kebangkitan untuknya. Detik ini bisa dimatikan lewat pengaturan **Hitung mundur**. Matikan seluruh
+penanda lewat chip **Penanda segel kebangkitan**.
 
 ![Penanda segel kebangkitan](media/revive-sealed.png)
 

@@ -28,6 +28,7 @@ Every setting has a **?** button next to it that explains what it does.
 
 - **Red**, **green** or **blue** — the player's role.
 - **Orange** — a class that has no role colour (these used to show grey).
+- **"?" on the badge** — a class the game has no icon for.
 - **Grey** — the player is dead. Dead players also get a red name.
 
 ## Revive-sealed marker
@@ -36,9 +37,10 @@ After the **"Renewal Prayer"** role skill or the **"Arcane! Prayer of Life"** Im
 someone back, they get **"Weakened: Wish Sealed"** and can't be revived that way again for
 about 60 seconds (longer in Nightmare party dungeons).
 
-If they die during that time, their badge turns purple and their name turns purple with the
-seconds left — for example **Player (42s)** — so healers know not to waste the revive on them.
-Turn it off with the **Revive-sealed marker** chip.
+If they die during that time, their badge and name turn purple, and the seconds left show on
+their own line above the name — for example **(42s)** — so healers know not to waste the revive
+on them. The seconds can be turned off with the **Countdown** setting. Turn the whole marker off
+with the **Revive-sealed marker** chip.
 
 ![Revive-sealed marker](media/revive-sealed.png)
 
