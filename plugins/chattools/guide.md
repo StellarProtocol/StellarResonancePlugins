@@ -16,7 +16,7 @@ All, World, Current, Party, Guild, Whisper and System each have a tab, and a dot
 
 ## Sending messages
 
-Type in the box at the bottom and press **Enter** or **Send**. The button on the left picks the channel.
+Type in the box at the bottom and press **Enter** or **Send**. The button on the left picks the channel. Enter sends your message once and gives the keyboard back to the game.
 
 ![Send-to channel picker](media/chattools-send-to.png)
 
@@ -52,31 +52,33 @@ The Whisper tab keeps one conversation per person, with online dots and unread c
 
 Text is sent to Google Translate only when you click.
 
-## Compact mode
+## Compact messages
 
-Turn on **Compact mode** in Settings to show one line per message, without bubbles or avatars.
+Turn on **Compact messages** in Settings to show one line per message, without bubbles or avatars.
 
 ![Compact mode](media/chattools-compact.png)
 
 ## Settings
 
-Click the gear in the title bar.
+Click the gear in the title bar. Every setting has a **?** button that explains it.
 
-- **Auto-reply to whispers:** turn it on and write your reply. While you're away, each person who whispers you gets it back, at most once every 30 seconds.
+- **Whispers**
+  - **Auto-reply to whispers:** turn it on and write your reply. While you're away, each person who whispers you gets it back, at most once every 30 seconds.
+  - **Keep whisper history on this PC:** the newest 500 messages per conversation, separately for each character. **Clear saved whisper history** asks you to confirm with **Delete** or **Cancel**.
+- **Translation:** **Translate to** picks your language; **Translate button on hover** shows the 文A button when you point at a message.
 - **All tab:** choose which channels the All tab shows. Click a channel to turn it off; your own messages always show.
-- **Translation:** your language, and whether the translate button shows on hover.
-- **Whisper history:** keep whispers on this PC (the newest 500 per conversation, separately for each character), or clear them.
-- **Compact mode:** one line per message, without bubbles or avatars.
-- **Custom window opacity:** give the chat window its own background transparency (30–100%). When it is off, the window follows Stellar's Theme setting. Text and buttons stay solid.
+- **Display**
+  - **Compact messages:** one line per message, without bubbles or avatars.
+  - **Custom window opacity:** give the chat window its own background transparency (30–100%). When it is off, the window uses Stellar's opacity. Text and buttons stay solid.
 
 ![Settings](media/chattools-settings.png)
 
-Channel colours follow the chat tabs; change them in Stellar's Theme settings.
+Channel colours follow the chat tabs; change them in Stellar Settings › Themes.
 
 ## Hotkeys
 
 Change them in Stellar's hotkey settings.
 
 - **Show/Hide ChatTools:** F12.
-- **Focus chat input:** Enter. Press it once to type, and again to go back to the game. Only while ChatTools is open.
+- **Focus chat input:** Enter. Press it to start typing. With text in the box, Enter sends it and goes back to the game; with an empty box, it just goes back. Only while ChatTools is open.
 - **Next / Previous chat tab:** no key until you choose one. Only while ChatTools is open.

@@ -16,7 +16,7 @@ Semua, Dunia, Sekitar, Party, Guild, Bisikan, dan Sistem masing-masing punya tab
 
 ## Mengirim pesan
 
-Ketik di kolom bagian bawah lalu tekan **Enter** atau **Kirim**. Tombol di sebelah kiri untuk memilih kanal.
+Ketik di kolom bagian bawah lalu tekan **Enter** atau **Kirim**. Tombol di sebelah kiri untuk memilih kanal. Enter mengirim pesanmu sekali dan mengembalikan keyboard ke game.
 
 ![Pemilih kanal tujuan](media/chattools-send-to.png)
 
@@ -52,31 +52,33 @@ Tab Bisikan menyimpan satu percakapan per orang, dengan titik status online dan 
 
 Teks hanya dikirim ke Google Terjemahan saat kamu mengeklik.
 
-## Mode ringkas
+## Pesan ringkas
 
-Nyalakan **Mode ringkas** di Pengaturan untuk menampilkan satu baris per pesan, tanpa gelembung atau avatar.
+Nyalakan **Pesan ringkas** di Pengaturan untuk menampilkan satu baris per pesan, tanpa gelembung atau avatar.
 
 ![Mode ringkas](media/chattools-compact.png)
 
 ## Pengaturan
 
-Klik ikon roda gigi di bilah judul.
+Klik ikon roda gigi di bilah judul. Setiap pengaturan punya tombol **?** yang menjelaskannya.
 
-- **Balas otomatis bisikan:** nyalakan lalu tulis balasanmu. Selama kamu pergi, setiap orang yang membisikimu akan menerima balasan itu, paling sering sekali setiap 30 detik.
+- **Bisikan**
+  - **Balas otomatis bisikan:** nyalakan lalu tulis balasanmu. Selama kamu pergi, setiap orang yang membisikimu akan menerima balasan itu, paling sering sekali setiap 30 detik.
+  - **Simpan riwayat bisikan di PC ini:** 500 pesan terbaru per percakapan, terpisah untuk tiap karakter. **Hapus riwayat bisikan tersimpan** meminta konfirmasi dengan **Hapus** atau **Batal**.
+- **Terjemahan:** **Terjemahkan ke** memilih bahasamu; **Tombol terjemah saat disorot** menampilkan tombol 文A saat kursor diarahkan ke pesan.
 - **Tab Semua:** pilih kanal yang tampil di tab Semua. Klik kanal untuk mematikannya; pesanmu sendiri selalu tampil.
-- **Terjemahan:** bahasamu, dan apakah tombol terjemahan muncul saat kursor diarahkan ke pesan.
-- **Riwayat bisikan:** simpan bisikan di PC ini (500 pesan terbaru per percakapan, terpisah untuk tiap karakter), atau hapus.
-- **Mode ringkas:** satu baris per pesan, tanpa gelembung atau avatar.
-- **Opasitas jendela kustom:** atur transparansi latar jendela chat secara terpisah (30–100%). Saat dimatikan, jendela mengikuti pengaturan Tema Stellar. Teks dan tombol tetap jelas.
+- **Tampilan**
+  - **Pesan ringkas:** satu baris per pesan, tanpa gelembung atau avatar.
+  - **Opasitas jendela kustom:** atur transparansi latar jendela chat secara terpisah (30–100%). Saat dimatikan, jendela memakai opasitas Stellar. Teks dan tombol tetap jelas.
 
 ![Pengaturan](media/chattools-settings.png)
 
-Warna kanal mengikuti tab chat; ubah di pengaturan Tema Stellar.
+Warna kanal mengikuti tab chat; ubah di Pengaturan Stellar › Tema.
 
 ## Hotkey
 
 Ubah di pengaturan hotkey Stellar.
 
 - **Alihkan jendela ChatTools:** F12.
-- **Fokus/lepas fokus kolom obrolan:** Enter. Tekan sekali untuk mengetik, dan sekali lagi untuk kembali ke game. Hanya saat ChatTools terbuka.
+- **Fokus/lepas fokus kolom obrolan:** Enter. Tekan untuk mulai mengetik. Jika ada teks di kolom, Enter mengirimnya lalu kembali ke game; jika kosong, langsung kembali ke game. Hanya saat ChatTools terbuka.
 - **Tab obrolan berikutnya / sebelumnya:** tanpa tombol sampai kamu memilihnya. Hanya saat ChatTools terbuka.

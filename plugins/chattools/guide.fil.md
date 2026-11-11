@@ -16,7 +16,7 @@ May sariling tab ang Lahat, Mundo, Kasalukuyan, Party, Guild, Bulong at Sistema,
 
 ## Pagpapadala ng mensahe
 
-Mag-type sa box sa ibaba at pindutin ang **Enter** o **Ipadala**. Ang button sa kaliwa ang pumipili ng channel.
+Mag-type sa box sa ibaba at pindutin ang **Enter** o **Ipadala**. Ang button sa kaliwa ang pumipili ng channel. Ipinapadala ng Enter ang mensahe nang isang beses at ibinabalik ang keyboard sa laro.
 
 ![Pagpili ng channel na padadalhan](media/chattools-send-to.png)
 
@@ -52,31 +52,33 @@ Sa Bulong tab, isang usapan para sa bawat tao, may tuldok kung online at bilang 
 
 Ipinapadala lang ang text sa Google Translate kapag nag-click ka.
 
-## Compact na mode
+## Compact na mensahe
 
-I-on ang **Compact na mode** sa Mga Setting para isang linya lang bawat mensahe, walang bubble o avatar.
+I-on ang **Compact na mensahe** sa Mga Setting para isang linya lang bawat mensahe, walang bubble o avatar.
 
 ![Compact na mode](media/chattools-compact.png)
 
 ## Mga Setting
 
-I-click ang gear sa title bar.
+I-click ang gear sa title bar. May **?** na button ang bawat setting na nagpapaliwanag dito.
 
-- **Awtomatikong sagot sa mga bulong:** i-on ito at isulat ang sagot mo. Habang wala ka, matatanggap ito ng bawat taong bumulong sa iyo, hindi hihigit sa isang beses kada 30 segundo.
+- **Mga bulong**
+  - **Auto-sagot sa mga bulong:** i-on ito at isulat ang sagot mo. Habang wala ka, matatanggap ito ng bawat taong bumulong sa iyo, hindi hihigit sa isang beses kada 30 segundo.
+  - **I-save ang whisper history sa PC:** ang pinakabagong 500 bawat usapan, hiwalay para sa bawat character. Ang **Burahin ang naka-save na whisper history** ay magtatanong muna gamit ang **Burahin** o **Kanselahin**.
+- **Pagsasalin:** sa **Isalin sa** pipiliin ang wika mo; ipinapakita ng **Button na isalin sa hover** ang 文A button kapag itinapat ang cursor sa mensahe.
 - **Tab na Lahat:** piliin kung aling mga channel ang ipapakita sa tab na Lahat. I-click ang channel para i-off ito; laging lumalabas ang sarili mong mga mensahe.
-- **Pagsasalin:** ang wika mo, at kung lalabas ang button na isalin kapag itinapat ang cursor.
-- **Whisper history:** i-save ang mga bulong sa PC na ito (ang pinakabagong 500 bawat usapan, hiwalay para sa bawat character), o burahin ang mga ito.
-- **Compact na mode:** isang linya bawat mensahe, walang bubble o avatar.
-- **Custom na opacity ng window:** bigyan ang chat window ng sarili nitong transparency ng background (30–100%). Kapag naka-off, sinusunod nito ang Theme setting ng Stellar. Malinaw pa rin ang text at mga button.
+- **Display**
+  - **Compact na mensahe:** isang linya bawat mensahe, walang bubble o avatar.
+  - **Custom na opacity ng window:** bigyan ang chat window ng sarili nitong transparency ng background (30–100%). Kapag naka-off, ginagamit nito ang opacity ng Stellar. Malinaw pa rin ang text at mga button.
 
 ![Mga Setting](media/chattools-settings.png)
 
-Sumusunod ang mga kulay ng channel sa mga chat tab; palitan ang mga ito sa mga setting ng Theme ng Stellar.
+Sumusunod ang mga kulay ng channel sa mga chat tab; palitan ang mga ito sa Stellar Settings › Themes.
 
 ## Mga hotkey
 
 Palitan ang mga ito sa mga setting ng hotkey ng Stellar.
 
 - **I-toggle ang bintana ng ChatTools:** F12.
-- **I-focus/alisin ang focus sa input ng chat:** Enter. Pindutin nang isang beses para mag-type, at isa pa para bumalik sa laro. Habang bukas lang ang ChatTools.
+- **I-focus/alisin ang focus sa input ng chat:** Enter. Pindutin para magsimulang mag-type. Kapag may text sa box, ipinapadala ito ng Enter at bumabalik sa laro; kapag walang laman, bumabalik lang sa laro. Habang bukas lang ang ChatTools.
 - **Susunod / Nakaraang tab ng chat:** walang key hangga't hindi ka pumipili. Habang bukas lang ang ChatTools.
