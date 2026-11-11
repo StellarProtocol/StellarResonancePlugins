@@ -45,7 +45,7 @@
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarStatInspectorPlugin.git",
-  "commit": "cbcd1a84db32e3e2c66c4a5f8baba83cd1205d42",
+  "commit": "dd39a3ba01702f2a630e860be56c9b73ef7e1bd2",
   "projectPath": ".",
   "capPriorVersionsAt": "2.29.1",
   "tag": "v2.3.0",
