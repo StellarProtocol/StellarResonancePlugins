@@ -2,7 +2,7 @@
   "id": "chattools",
   "name": "ChatTools",
   "description": "The game's chat in a window you can keep open anywhere: channel tabs, stickers, whispers and translation.",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "dll": "Stellar.ChatTools.dll",
   "author": "Stellar",
   "tags": [
@@ -62,16 +62,21 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.28.0",
-  "date": "2026-10-29",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-12",
   "changelog": {
     "added": [
-      "Give the chat window its own background transparency (Settings → Custom window opacity). Text and buttons stay solid."
+      "A redesigned Settings window: two clear columns, ON/OFF switches and a \"?\" help button on every setting."
     ],
     "changed": [
-      "The translation language picker has a new look, and long language names now show in full."
+      "Clearing whisper history now asks you to confirm with Delete or Cancel.",
+      "Warning and status colours (send failed, \"online\" in the friend picker, the character counters) now follow your theme.",
+      "Send and Add look pressed in while you can't use them."
     ],
-    "fixed": [],
+    "fixed": [
+      "Pressing Enter with text in the box sometimes didn't send the message, especially over remote play or streaming. It now always sends once and gives the keyboard back to the game.",
+      "The chat window no longer freezes the game the first time you open it."
+    ],
     "removed": []
   },
   "i18n": {
@@ -91,10 +96,16 @@
       ],
       "changelog": {
         "added": [
-          "チャットウィンドウの背景の透明度を個別に設定できるようになりました（設定 → ウィンドウの不透明度をカスタマイズ）。文字やボタンははっきり表示されたままです。"
+          "設定ウィンドウを一新しました。見やすい2列のレイアウト、ON/OFFスイッチ、すべての設定に「?」ヘルプボタンが付きました。"
         ],
         "changed": [
-          "翻訳先の言語選択のデザインを一新し、長い言語名も省略されずに表示されるようになりました。"
+          "個人チャット履歴を消去するときは、「削除」か「キャンセル」で確認するようになりました。",
+          "警告・状態の色（送信失敗、フレンド選択の「オンライン」、文字数カウンター）がテーマの色に合わせて変わるようになりました。",
+          "送信・追加ボタンは、使えないあいだ押し込まれた見た目になります。"
+        ],
+        "fixed": [
+          "入力欄に文字がある状態でEnterを押しても、メッセージが送信されないことがありました（特にリモートプレイやストリーミング時）。今は必ず1回送信され、キーボード操作はゲームに戻ります。",
+          "チャットウィンドウを初めて開いたときに、ゲームが一瞬止まらなくなりました。"
         ]
       }
     },
@@ -114,10 +125,16 @@
       ],
       "changelog": {
         "added": [
-          "ตั้งความโปร่งใสของพื้นหลังหน้าต่างแชทแยกได้ (ตั้งค่า → กำหนดความทึบของหน้าต่างเอง) ข้อความและปุ่มยังคงชัดเจน"
+          "หน้าต่างตั้งค่าโฉมใหม่: แบ่งเป็นสองคอลัมน์ชัดเจน มีสวิตช์ เปิด/ปิด และปุ่มช่วยเหลือ \"?\" ในทุกการตั้งค่า"
         ],
         "changed": [
-          "ตัวเลือกภาษาที่จะแปลมีหน้าตาใหม่ และแสดงชื่อภาษายาว ๆ ได้ครบ"
+          "การล้างประวัติกระซิบจะถามยืนยันด้วยปุ่ม ลบ หรือ ยกเลิก",
+          "สีเตือนและสีสถานะ (ส่งไม่สำเร็จ, \"ออนไลน์\" ในตัวเลือกเพื่อน, ตัวนับตัวอักษร) เปลี่ยนตามธีมของคุณแล้ว",
+          "ปุ่มส่งและปุ่มเพิ่มจะดูเหมือนถูกกดลงไปในขณะที่ยังใช้ไม่ได้"
+        ],
+        "fixed": [
+          "บางครั้งกด Enter ตอนมีข้อความในช่องแล้วข้อความไม่ถูกส่ง โดยเฉพาะตอนเล่นผ่านรีโมตหรือสตรีมมิง ตอนนี้จะส่งครั้งเดียวทุกครั้ง แล้วคืนคีย์บอร์ดให้เกม",
+          "หน้าต่างแชทไม่ทำให้เกมค้างอีกแล้วตอนเปิดครั้งแรก"
         ]
       }
     },
@@ -137,10 +154,16 @@
       ],
       "changelog": {
         "added": [
-          "Atur transparansi latar jendela chat secara terpisah (Pengaturan → Opasitas jendela kustom). Teks dan tombol tetap jelas."
+          "Jendela Pengaturan yang didesain ulang: dua kolom yang rapi, sakelar AKTIF/MATI, dan tombol bantuan \"?\" di setiap pengaturan."
         ],
         "changed": [
-          "Pemilih bahasa terjemahan punya tampilan baru, dan nama bahasa yang panjang kini tampil utuh."
+          "Menghapus riwayat bisikan kini meminta konfirmasi dengan Hapus atau Batal.",
+          "Warna peringatan dan status (gagal kirim, \"online\" di pemilih teman, penghitung karakter) kini mengikuti temamu.",
+          "Tombol Kirim dan Tambah terlihat tertekan saat belum bisa dipakai."
+        ],
+        "fixed": [
+          "Menekan Enter saat ada teks di kotak kadang tidak mengirim pesan, terutama saat main jarak jauh atau streaming. Kini pesan selalu terkirim sekali dan keyboard kembali ke game.",
+          "Jendela chat tidak lagi membuat game tersendat saat pertama kali dibuka."
         ]
       }
     },
@@ -160,10 +183,16 @@
       ],
       "changelog": {
         "added": [
-          "Bigyan ang chat window ng sarili nitong transparency ng background (Mga Setting → Custom na opacity ng window). Malinaw pa rin ang text at mga button."
+          "Bagong disenyo ng Settings window: dalawang malinaw na column, ON/OFF na switch at \"?\" na help button sa bawat setting."
         ],
         "changed": [
-          "May bagong itsura ang pagpili ng wika ng pagsasalin, at buo nang lumalabas ang mahahabang pangalan ng wika."
+          "Kapag binura ang whisper history, magtatanong muna ito gamit ang Burahin o Kanselahin.",
+          "Sumusunod na sa theme mo ang mga kulay ng babala at status (hindi naipadala, \"online\" sa friend picker, ang bilang ng character).",
+          "Mukhang nakabaon ang Send at Add habang hindi pa magagamit."
+        ],
+        "fixed": [
+          "Minsan hindi naipapadala ang mensahe kapag pinindot ang Enter na may text sa kahon, lalo na sa remote play o streaming. Ngayon, laging isang beses itong naipapadala at bumabalik ang keyboard sa laro.",
+          "Hindi na natitigilan ang laro sa unang pagbukas ng chat window."
         ]
       }
     },
@@ -184,16 +213,23 @@
       ],
       "changelog": {
         "added": [
-          "채팅 창 배경의 투명도를 따로 설정할 수 있습니다(설정 → 창 불투명도 직접 설정). 글자와 버튼은 선명하게 유지됩니다."
+          "설정 창을 새로 디자인했습니다. 깔끔한 2열 구성, 켬/끔 스위치, 모든 설정에 \"?\" 도움말 버튼이 생겼습니다."
         ],
         "changed": [
-          "번역 언어 선택창의 디자인이 바뀌었고, 긴 언어 이름도 잘리지 않고 표시됩니다."
+          "귓속말 기록을 지울 때 삭제 또는 취소로 한 번 더 확인합니다.",
+          "경고·상태 색상(전송 실패, 친구 선택의 \"온라인\", 글자 수 표시)이 테마 색상을 따릅니다.",
+          "보내기·추가 버튼은 사용할 수 없을 때 눌린 모양으로 표시됩니다."
+        ],
+        "fixed": [
+          "입력창에 글자가 있을 때 Enter를 눌러도 메시지가 전송되지 않는 경우가 있었습니다(특히 원격 플레이나 스트리밍). 이제 항상 한 번 전송되고 키보드는 게임으로 돌아갑니다.",
+          "채팅 창을 처음 열 때 게임이 멈칫하지 않습니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
-  "commit": "61d73bd8d8854bed73a27592d1ca47bc33c1d3e4",
+  "commit": "83e698754c7e47b487f8e6c113053b90720faf76",
   "projectPath": ".",
-  "tag": "v3.2.0"
+  "tag": "v3.3.0",
+  "capPriorVersionsAt": "2.29.1"
 }
