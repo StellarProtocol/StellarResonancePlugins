@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -30,16 +30,13 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-12",
   "changelog": {
-    "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
-    ],
+    "added": [],
     "changed": [
-      "Spec names now use the game's own names, and show in Japanese when your language is Japanese.",
-      "CombatMeter's hotkey names in Settings now follow your language.",
-      "The CombatMeter settings tile in the launcher now follows your language."
+      "Performance improvements, especially in raids.",
+      "Requires Stellar 2.30.0 or newer."
     ],
     "fixed": [],
     "removed": []
@@ -53,13 +50,9 @@
         "履歴 — ナビゲーターとソース別テーブル付きのダメージタイムライン。"
       ],
       "changelog": {
-        "added": [
-          "韓国語(한국어)対応を追加 — 設定 → テーマ → 言語 で 한국어 を選べます(Stellar 2.21.0が必要)。"
-        ],
         "changed": [
-          "スペック名がゲーム本来の名称を使うようになり、言語が日本語のときは日本語で表示されます。",
-          "設定内の CombatMeter のホットキー名が、選択した言語に従うようになりました。",
-          "ランチャーの CombatMeter 設定タイルが、選択した言語に従うようになりました。"
+          "パフォーマンスを改善しました(特にレイド中)。",
+          "Stellar 2.30.0以降が必要です。"
         ]
       }
     },
@@ -71,13 +64,9 @@
         "ประวัติ — ไทม์ไลน์ดาเมจพร้อมตัวนำทางและตารางแยกตามแหล่งที่มา"
       ],
       "changelog": {
-        "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
-        ],
         "changed": [
-          "ชื่อสเปคตอนนี้ใช้ชื่อดั้งเดิมของเกม และจะแสดงเป็นภาษาญี่ปุ่นเมื่อภาษาที่ใช้เป็นภาษาญี่ปุ่น",
-          "ชื่อปุ่มลัดของ CombatMeter ใน Settings ตอนนี้ตามภาษาที่คุณเลือกแล้ว",
-          "ไทล์การตั้งค่า CombatMeter ในลอนเชอร์ตอนนี้ตามภาษาที่คุณเลือกแล้ว"
+          "ปรับปรุงประสิทธิภาพ โดยเฉพาะในเรด",
+          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
         ]
       }
     },
@@ -89,13 +78,9 @@
         "Riwayat — linimasa damage dengan navigator dan tabel per sumber."
       ],
       "changelog": {
-        "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (butuh Stellar 2.21.0)."
-        ],
         "changed": [
-          "Nama spec sekarang memakai nama asli dari game, dan ditampilkan dalam bahasa Jepang saat bahasamu bahasa Jepang.",
-          "Nama hotkey CombatMeter di Pengaturan sekarang mengikuti bahasamu.",
-          "Tile pengaturan CombatMeter di launcher sekarang mengikuti bahasamu."
+          "Peningkatan performa, terutama saat raid.",
+          "Butuh Stellar 2.30.0 atau lebih baru."
         ]
       }
     },
@@ -107,13 +92,9 @@
         "Kasaysayan — timeline ng damage na may navigator at talahanayan kada pinagmulan."
       ],
       "changelog": {
-        "added": [
-          "Suporta sa wikang Koreano (한국어) — piliin ang 한국어 sa Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
-        ],
         "changed": [
-          "Ang mga pangalan ng spec ay gumagamit na ngayon ng orihinal na pangalan mula sa laro, at ipinapakita sa wikang Hapon kapag Hapon ang iyong wika.",
-          "Ang mga pangalan ng hotkey ng CombatMeter sa Mga Setting ay sumusunod na ngayon sa iyong wika.",
-          "Ang settings tile ng CombatMeter sa launcher ay sumusunod na ngayon sa iyong wika."
+          "Mga pagpapabuti sa performance, lalo na sa mga raid.",
+          "Kailangan ng Stellar 2.30.0 o mas bago."
         ]
       }
     },
@@ -125,20 +106,16 @@
         "기록 — 내비게이터와 출처별 표가 있는 피해량 타임라인."
       ],
       "changelog": {
-        "added": [
-          "한국어 지원 추가 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
-        ],
         "changed": [
-          "전문화 이름이 이제 게임 자체의 이름을 사용하며, 사용 언어가 일본어일 때는 일본어로 표시됩니다.",
-          "설정의 CombatMeter 단축키 이름이 이제 사용 언어를 따릅니다.",
-          "런처의 CombatMeter 설정 타일이 이제 사용 언어를 따릅니다."
+          "성능이 개선되었습니다(특히 레이드에서).",
+          "Stellar 2.30.0 이상이 필요합니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "03712e2df3ccd983375fece9868dcfa2062faae5",
+  "commit": "5dba71110381e77cc15122028f1282643c8b397b",
   "projectPath": ".",
-  "tag": "v2.17.0",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v2.18.0",
+  "capPriorVersionsAt": "2.29.1"
 }
