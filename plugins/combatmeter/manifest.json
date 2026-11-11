@@ -35,9 +35,8 @@
   "changelog": {
     "added": [],
     "changed": [
-      "Smoother raids: no more short freeze when the first fight of your session is saved to History.",
-      "The meter window opens instantly the first time, instead of hitching.",
-      "Requires Stellar 2.30.0 or newer. On an older Stellar you keep getting the previous CombatMeter until you update."
+      "Performance improvements, especially in raids.",
+      "Requires Stellar 2.30.0 or newer."
     ],
     "fixed": [],
     "removed": []
@@ -52,9 +51,8 @@
       ],
       "changelog": {
         "changed": [
-          "レイドがより快適に:セッション最初の戦闘を履歴に保存するときの一瞬の固まりがなくなりました。",
-          "メーターウィンドウを初めて開くときも引っかからず、すぐに開くようになりました。",
-          "Stellar 2.30.0以降が必要です。古いStellarでは、更新するまで以前のCombatMeterが使われます。"
+          "パフォーマンスを改善しました(特にレイド中)。",
+          "Stellar 2.30.0以降が必要です。"
         ]
       }
     },
@@ -67,9 +65,8 @@
       ],
       "changelog": {
         "changed": [
-          "เล่นเรดลื่นขึ้น: ไม่ค้างแวบหนึ่งอีกต่อไปตอนบันทึกการต่อสู้ครั้งแรกของเซสชันลงในประวัติ",
-          "หน้าต่างมิเตอร์เปิดได้ทันทีตั้งแต่ครั้งแรก ไม่กระตุกอีกต่อไป",
-          "ต้องใช้ Stellar 2.30.0 ขึ้นไป หากใช้ Stellar เวอร์ชันเก่า จะยังได้ CombatMeter เวอร์ชันก่อนหน้าจนกว่าจะอัปเดต"
+          "ปรับปรุงประสิทธิภาพ โดยเฉพาะในเรด",
+          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
         ]
       }
     },
@@ -82,9 +79,8 @@
       ],
       "changelog": {
         "changed": [
-          "Raid lebih mulus: tidak ada lagi macet sesaat saat pertarungan pertama di sesimu disimpan ke Riwayat.",
-          "Jendela meter kini langsung terbuka sejak pertama kali, tanpa tersendat.",
-          "Butuh Stellar 2.30.0 atau lebih baru. Di Stellar versi lama, kamu tetap mendapat CombatMeter versi sebelumnya sampai kamu memperbarui."
+          "Peningkatan performa, terutama saat raid.",
+          "Butuh Stellar 2.30.0 atau lebih baru."
         ]
       }
     },
@@ -97,9 +93,8 @@
       ],
       "changelog": {
         "changed": [
-          "Mas maayos na mga raid: wala nang saglit na pagtigil kapag sine-save sa Kasaysayan ang unang laban ng iyong session.",
-          "Agad nang bumubukas ang meter window kahit sa unang pagkakataon, nang walang pagkaantala.",
-          "Kailangan ng Stellar 2.30.0 o mas bago. Sa mas lumang Stellar, mananatili sa iyo ang naunang CombatMeter hanggang mag-update ka."
+          "Mga pagpapabuti sa performance, lalo na sa mga raid.",
+          "Kailangan ng Stellar 2.30.0 o mas bago."
         ]
       }
     },
@@ -112,9 +107,8 @@
       ],
       "changelog": {
         "changed": [
-          "레이드가 더 부드러워졌습니다: 세션의 첫 전투를 기록에 저장할 때 잠깐 멈추던 현상이 사라졌습니다.",
-          "미터 창을 처음 열 때도 끊김 없이 바로 열립니다.",
-          "Stellar 2.30.0 이상이 필요합니다. 이전 Stellar에서는 업데이트할 때까지 이전 버전의 CombatMeter가 제공됩니다."
+          "성능이 개선되었습니다(특히 레이드에서).",
+          "Stellar 2.30.0 이상이 필요합니다."
         ]
       }
     }
