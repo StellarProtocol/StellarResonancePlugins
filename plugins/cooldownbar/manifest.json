@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Tracks your skill cooldowns, debuffs and buffs — on one bar, or as separate tiles you place anywhere on screen.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -28,8 +28,8 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-12",
   "changelog": {
     "added": [
       "New “Placed” display mode: every effect you tick becomes its own small tile you can put anywhere on screen. A tile shows only while its effect is active. Move the tiles in the HUD layout editor, where all of them show. Up to 30 effects.",
@@ -213,8 +213,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "29f6c8f917b9ff73cd133812c9a0a2d8a0f0b495",
+  "commit": "5b857dc23c22e49d513cf54454bb62df6237dfe6",
   "projectPath": ".",
-  "tag": "v2.3.0",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v2.4.0",
+  "capPriorVersionsAt": "2.29.1"
 }
