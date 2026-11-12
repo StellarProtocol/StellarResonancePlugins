@@ -2,7 +2,7 @@
   "id": "multitool",
   "name": "MultiTool",
   "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, and smoother fights by hiding other players' effects.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dll": "Stellar.MultiTool.dll",
   "author": "Stellar",
   "tags": [
@@ -45,7 +45,7 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.28.0",
-  "date": "2026-10-30",
+  "date": "2026-11-12",
   "changelog": {
     "added": [
       "New Performance tool for smoother fights: hide other players' skill effects (with separate switches for their pets, heals and effects on you), and update the party list less often in raids. Raid ground marks always stay visible. Everything starts off."
@@ -154,7 +154,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMultiToolPlugin.git",
-  "commit": "e512485a38833c9d6c0210ff8d0f769f16fe31eb",
+  "commit": "aeb7679ad5aa7316446a9292b9a8568fcdc43cc2",
   "projectPath": ".",
-  "tag": "v1.0.0"
+  "tag": "v1.1.0"
 }
