@@ -69,6 +69,29 @@ lang ang mga inaalok sa rehiyon mo.
 - Magkakabisa ang mga pagbabago pagkatapos mong i-restart ang laro. Saka mo piliin ang wika sa sariling setting ng
   laro.
 
+## Performance
+
+Mas maayos na laban sa mga siksikang dungeon at raid. Itago ang mga skill effect ng ibang player, at hindi gaanong madalas i-redraw ang party list.
+
+![Performance](media/performance.png)
+
+**Hide (Itago)** (kapag On ang switch, nakatago ang ganoong uri ng effect):
+
+- **Other players' effects (Effects ng ibang player)**: itinatago ang mga skill effect na ginamit ng ibang player. Batay ito sa kung sino ang gumamit ng skill, kaya nakikita pa rin ang atake ng boss na tumama sa ibang player. May tatlong row sa ilalim para i-fine-tune:
+  - **…their pets & summons (Mga pet at summon nila)**: itago rin ang mga pet, summon at mga projectile na pinapakawalan nila.
+  - **…their heals & buffs (Mga heal at buff nila)**: itago rin ang mga healing circle at support zone. Iwanang Off para makita mo pa rin kung saan tatayo.
+  - **…their effects on me (Mga effect nila sa akin)**: itago rin ang heal, shield at iba pang effect na inilagay nila sa iyo.
+- **My own effects (Sarili kong effects)**: itinatago ang visuals ng sarili mong mga skill.
+- **Boss & monster effects (Effects ng boss at monster)**: itinatago ang visuals ng sariling skill ng boss at mga monster.
+- **Telegraphs & important markers (Mga babala at mahalagang marker)**: mga babala ng atake ng boss, danger zone at aiming circle.
+  ⚠️ Kapag in-On ito, maitatago ang mga babala ng boss at puwedeng hindi na malaro ang raid. Iwanang Off.
+
+Laging nakikita ang mga marka sa sahig ng raid at dungeon. Wala ring tunog ang mga nakatagong effect.
+
+**Party list**: ang **Reduce party list updates (Bawasan ang update ng party list)** ay nire-redraw ang HP bar at buff icon ng party list nang hanggang **10** o **5** beses lang bawat segundo. Pinakamalaki ang tulong nito sa raid. Puwedeng ma-late ang HP bar nang hanggang 0.1 s (o 0.2 s sa 5 / sec), at lumalabas pa rin ang mga buff icon.
+
+Pinipili ng **Where (Saan)** kung gagana ang dalawang feature **Everywhere (Kahit saan)** o sa **Dungeons & raids (Dungeon at raid lang, default)**. Lahat ay nagsisimulang Off, kaya i-On ang gusto mo.
+
 ## Mga tala
 
 - Bumubukas lang ang MultiTool habang nasa mundo ka ng laro, at nagsasara ang mga window nito kapag nag-log out ka.
