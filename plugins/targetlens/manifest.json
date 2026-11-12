@@ -1,8 +1,8 @@
 {
   "id": "targetlens",
   "name": "Target Lens",
-  "description": "Customizable target HUD: buffs/debuffs, threat/aggro, boss skill timers and a live cast bar.",
-  "version": "1.2.0",
+  "description": "Customizable target HUD: buffs/debuffs, threat/aggro, boss skill timers, a live cast bar and a nearby monster list.",
+  "version": "1.3.0",
   "dll": "Stellar.TargetLens.dll",
   "author": "Stellar",
   "tags": [
@@ -12,7 +12,9 @@
     "threat",
     "boss",
     "overlay",
-    "hud"
+    "hud",
+    "nearby",
+    "monsters"
   ],
   "media": [
     {
@@ -22,104 +24,148 @@
     },
     {
       "type": "image",
+      "file": "media/nearby-monsters.png",
+      "caption": "Nearby Monsters — enemies around you by rank and distance; click one to lock on (padlock = locked, blue = current target)."
+    },
+    {
+      "type": "image",
       "file": "media/settings.png",
-      "caption": "Grouped settings — display style, effect-source filters, threat, cast bar and boss timers."
+      "caption": "Settings — one section per overlay with its own on/off switch, and a ? help button on every option."
+    },
+    {
+      "type": "image",
+      "file": "media/select-effects.png",
+      "caption": "Select effects — Debuffs and Buffs tabs with search; ★ marks recommended effects."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-12",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "Nearby Monsters: a new list of the enemies around you, bosses and elites first. Click a monster to lock on to it — the locked one shows a padlock, and your current target is highlighted in blue.",
+      "Option to list only the monsters close enough to lock on to. The distance for your class is shown in metres."
     ],
     "changed": [
-      "The Target Lens name now switches right away when you change language."
+      "Redesigned settings: each overlay has its own section with an on/off switch, every option has a ? help button, and options that don't apply are greyed out instead of disappearing.",
+      "Redesigned Select effects window: separate Debuffs and Buffs tabs, a search box on each, and Untick all.",
+      "Less stutter the first time the effect list appears in a fight.",
+      "Requires Stellar 2.30.0 or newer."
     ],
     "fixed": [],
     "removed": []
   },
   "i18n": {
     "ja": {
-      "description": "カスタマイズ可能なターゲットHUD：バフ / デバフ、ヘイト / アグロ、ボススキルタイマー、そしてリアルタイムの詠唱バー。",
+      "description": "カスタマイズ可能なターゲットHUD：バフ / デバフ、ヘイト / アグロ、ボススキルタイマー、リアルタイムの詠唱バー、そして近くのモンスター一覧。",
       "captions": [
         "ボス戦でのターゲットオーバーレイ — HP+ブレイクゲージ、効果一覧（★=自分の効果）、ヘイト/アグロ％、詠唱バー。",
-        "グループ化された設定 — 表示スタイル、効果の発生源フィルター、ヘイト、詠唱バー、ボスタイマー。"
+        "近くのモンスター — 周囲の敵をランクと距離順に表示。クリックでロックオン（南京錠＝ロック中、青＝現在のターゲット）。",
+        "設定 — オーバーレイごとにオン/オフスイッチ付きのセクションがあり、すべてのオプションに ? ヘルプボタンがあります。",
+        "効果を選択 — 検索付きのデバフ / バフタブ。★はおすすめの効果。"
       ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択（Stellar 2.21.0 が必要）。"
+          "近くのモンスター：周囲の敵を一覧表示する新機能。ボスとエリートが先頭に並びます。モンスターをクリックするとロックオンでき、ロック中のモンスターには南京錠が、現在のターゲットは青でハイライトされます。",
+          "ロックオンできる距離にいるモンスターだけを表示するオプション。クラスごとの距離がメートル単位で表示されます。"
         ],
         "changed": [
-          "言語を変更すると、Target Lens の名前がすぐに切り替わるようになりました。"
+          "設定を一新：オーバーレイごとにオン/オフスイッチ付きのセクションを用意し、すべてのオプションに ? ヘルプボタンを追加。適用されないオプションは消えずにグレー表示になります。",
+          "「効果を選択」ウィンドウを一新：デバフとバフのタブを分け、それぞれに検索ボックスと「すべて外す」を追加。",
+          "戦闘で効果一覧が初めて表示されるときのカクつきを軽減しました。",
+          "Stellar 2.30.0 以降が必要です。"
         ],
         "fixed": [],
         "removed": []
       }
     },
     "th": {
-      "description": "HUD เป้าหมายที่ปรับแต่งได้: บัฟ / ดีบัฟ ความเกลียดชัง / อักโกร ตัวจับเวลาสกิลบอส และแถบร่ายเวทแบบเรียลไทม์",
+      "description": "HUD เป้าหมายที่ปรับแต่งได้: บัฟ / ดีบัฟ ความเกลียดชัง / อักโกร ตัวจับเวลาสกิลบอส แถบร่ายเวทแบบเรียลไทม์ และรายการมอนสเตอร์ใกล้เคียง",
       "captions": [
         "โอเวอร์เลย์เป้าหมายระหว่างต่อสู้บอส — พลังชีวิต + เกจเบรก รายการเอฟเฟกต์ (★ = ของคุณเอง) % ความเกลียดชัง / อักโกร และแถบร่ายเวท",
-        "การตั้งค่าแบบจัดกลุ่ม — รูปแบบการแสดงผล ตัวกรองแหล่งที่มาของเอฟเฟกต์ ความเกลียดชัง แถบร่ายเวท และตัวจับเวลาบอส"
+        "มอนสเตอร์ใกล้เคียง — ศัตรูรอบตัวคุณเรียงตามระดับและระยะห่าง คลิกเพื่อล็อกเป้า (แม่กุญแจ = ล็อกอยู่, สีน้ำเงิน = เป้าหมายปัจจุบัน)",
+        "การตั้งค่า — โอเวอร์เลย์แต่ละตัวมีส่วนของตัวเองพร้อมสวิตช์เปิด/ปิด และทุกตัวเลือกมีปุ่มวิธีใช้ ?",
+        "เลือกเอฟเฟกต์ — แท็บดีบัฟและบัฟพร้อมช่องค้นหา ★ คือเอฟเฟกต์ที่แนะนำ"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "มอนสเตอร์ใกล้เคียง: รายการใหม่ของศัตรูรอบตัวคุณ โดยบอสและอีลิทจะอยู่ก่อน คลิกที่มอนสเตอร์เพื่อล็อกเป้า — ตัวที่ล็อกอยู่จะแสดงแม่กุญแจ และเป้าหมายปัจจุบันจะถูกไฮไลต์เป็นสีน้ำเงิน",
+          "ตัวเลือกให้แสดงเฉพาะมอนสเตอร์ที่อยู่ใกล้พอจะล็อกเป้าได้ ระยะของคลาสคุณจะแสดงเป็นเมตร"
         ],
         "changed": [
-          "ชื่อ Target Lens จะเปลี่ยนทันทีเมื่อคุณเปลี่ยนภาษา"
+          "ออกแบบการตั้งค่าใหม่: โอเวอร์เลย์แต่ละตัวมีส่วนของตัวเองพร้อมสวิตช์เปิด/ปิด ทุกตัวเลือกมีปุ่มวิธีใช้ ? และตัวเลือกที่ใช้ไม่ได้จะเป็นสีเทาแทนที่จะหายไป",
+          "ออกแบบหน้าต่างเลือกเอฟเฟกต์ใหม่: แยกแท็บดีบัฟและบัฟ มีช่องค้นหาในแต่ละแท็บ และปุ่มล้างทั้งหมด",
+          "กระตุกน้อยลงเมื่อรายการเอฟเฟกต์ปรากฏครั้งแรกในการต่อสู้",
+          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
         ],
         "fixed": [],
         "removed": []
       }
     },
     "id": {
-      "description": "HUD target yang dapat disesuaikan: buff/debuff, ancaman/aggro, pengatur waktu skill bos, dan cast bar langsung.",
+      "description": "HUD target yang dapat disesuaikan: buff/debuff, ancaman/aggro, pengatur waktu skill bos, cast bar langsung, dan daftar monster terdekat.",
       "captions": [
         "Overlay target saat pertarungan bos — HP + gauge break, daftar efek (★ = milikmu sendiri), % ancaman/aggro, dan cast bar.",
-        "Pengaturan yang dikelompokkan — gaya tampilan, filter sumber efek, ancaman, cast bar, dan pengatur waktu bos."
+        "Monster Terdekat — musuh di sekitarmu berdasarkan rank dan jarak; klik salah satu untuk mengunci (gembok = terkunci, biru = target saat ini).",
+        "Pengaturan — satu bagian per overlay dengan sakelar aktif/mati sendiri, dan tombol bantuan ? di setiap opsi.",
+        "Pilih efek — tab Debuff dan Buff dengan pencarian; ★ menandai efek yang direkomendasikan."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Monster Terdekat: daftar baru musuh di sekitarmu, bos dan elit lebih dulu. Klik monster untuk menguncinya — monster yang terkunci menampilkan gembok, dan target saat ini disorot biru.",
+          "Opsi untuk menampilkan hanya monster yang cukup dekat untuk dikunci. Jarak untuk class-mu ditampilkan dalam meter."
         ],
         "changed": [
-          "Nama Target Lens kini langsung berganti saat kamu mengubah bahasa."
+          "Pengaturan didesain ulang: setiap overlay punya bagiannya sendiri dengan sakelar aktif/mati, setiap opsi punya tombol bantuan ?, dan opsi yang tidak berlaku berwarna abu-abu alih-alih menghilang.",
+          "Jendela Pilih efek didesain ulang: tab Debuff dan Buff terpisah, kotak pencarian di masing-masing, dan Hapus centang.",
+          "Lebih sedikit patah-patah saat daftar efek pertama kali muncul dalam pertarungan.",
+          "Memerlukan Stellar 2.30.0 atau lebih baru."
         ],
         "fixed": [],
         "removed": []
       }
     },
     "fil": {
-      "description": "Nako-customize na target HUD: buffs/debuffs, threat/aggro, mga timer ng skill ng boss, at live na cast bar.",
+      "description": "Nako-customize na target HUD: buffs/debuffs, threat/aggro, mga timer ng skill ng boss, live na cast bar, at listahan ng mga malapit na monster.",
       "captions": [
         "Mga target overlay sa isang labanan sa boss — HP + break gauge, listahan ng epekto (★ = sarili mo), % threat/aggro, at ang cast bar.",
-        "Pinagsama-samang settings — display style, mga filter ng pinagmulan ng epekto, threat, cast bar, at mga timer ng boss."
+        "Mga Malapit na Monster — mga kalaban sa paligid mo ayon sa rank at distansya; i-click ang isa para mag-lock on (padlock = naka-lock, asul = kasalukuyang target).",
+        "Settings — isang seksyon bawat overlay na may sariling on/off na switch, at ? na help button sa bawat opsyon.",
+        "Pumili ng epekto — mga tab na Debuffs at Buffs na may search; ang ★ ay mga rekomendadong epekto."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Mga Malapit na Monster: bagong listahan ng mga kalaban sa paligid mo, nauuna ang mga boss at elite. I-click ang isang monster para mag-lock on dito — may padlock ang naka-lock, at naka-highlight sa asul ang kasalukuyan mong target.",
+          "Opsyon na ilista lang ang mga monster na sapat ang lapit para ma-lock on. Ipinapakita sa metro ang distansya para sa class mo."
         ],
         "changed": [
-          "Agad nang nagbabago ngayon ang pangalan ng Target Lens kapag binago mo ang wika."
+          "Bagong disenyo ng settings: may sariling seksyon at on/off na switch ang bawat overlay, may ? na help button ang bawat opsyon, at nagiging kulay-abo ang mga opsyong hindi naaangkop sa halip na mawala.",
+          "Bagong disenyo ng window na Pumili ng epekto: hiwalay na tab para sa Debuffs at Buffs, may search box ang bawat isa, at Alisin lahat.",
+          "Mas kaunting pag-stutter sa unang paglabas ng listahan ng epekto sa isang laban.",
+          "Kailangan ng Stellar 2.30.0 o mas bago."
         ],
         "fixed": [],
         "removed": []
       }
     },
     "ko": {
-      "description": "커스터마이즈 가능한 대상 HUD: 버프/디버프, 어그로, 보스 스킬 타이머, 실시간 시전 바.",
+      "description": "커스터마이즈 가능한 대상 HUD: 버프/디버프, 어그로, 보스 스킬 타이머, 실시간 시전 바, 주변 몬스터 목록.",
       "captions": [
         "보스 전투 중 대상 오버레이 — HP + 브레이크 게이지, 효과 목록(★ = 내 효과), 어그로 %, 시전 바.",
-        "그룹화된 설정 — 표시 스타일, 효과 출처 필터, 어그로, 시전 바, 보스 타이머."
+        "주변 몬스터 — 주변의 적을 등급과 거리순으로 표시. 클릭하면 타겟 고정(자물쇠 = 고정됨, 파란색 = 현재 대상).",
+        "설정 — 오버레이마다 켬/끔 스위치가 있는 섹션, 모든 옵션에 ? 도움말 버튼.",
+        "효과 선택 — 검색 기능이 있는 디버프/버프 탭. ★는 추천 효과."
       ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "주변 몬스터: 주변의 적을 보여주는 새 목록으로, 보스와 정예가 먼저 표시됩니다. 몬스터를 클릭하면 타겟 고정되며, 고정된 몬스터에는 자물쇠가 표시되고 현재 대상은 파란색으로 강조됩니다.",
+          "타겟 고정이 가능한 거리 안의 몬스터만 표시하는 옵션. 내 클래스의 거리가 미터 단위로 표시됩니다."
         ],
         "changed": [
-          "언어를 변경하면 Target Lens 이름이 바로 바뀝니다."
+          "설정 디자인 변경: 오버레이마다 켬/끔 스위치가 있는 섹션이 생겼고, 모든 옵션에 ? 도움말 버튼이 있으며, 적용되지 않는 옵션은 사라지지 않고 회색으로 표시됩니다.",
+          "효과 선택 창 디자인 변경: 디버프와 버프 탭이 분리되고, 탭마다 검색창과 모두 해제 버튼이 있습니다.",
+          "전투에서 효과 목록이 처음 나타날 때의 끊김이 줄었습니다.",
+          "Stellar 2.30.0 이상이 필요합니다."
         ],
         "fixed": [],
         "removed": []
@@ -127,8 +173,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarTargetLensPlugin.git",
-  "commit": "0b3d86e9a115c6ddbeff9a1f06c8a97776feea92",
+  "commit": "1a82ab970ad282ea1e03d42bc2b6436c85c4bda5",
   "projectPath": ".",
-  "tag": "v1.2.0",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v1.3.0",
+  "capPriorVersionsAt": "2.29.1"
 }

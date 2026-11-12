@@ -2,8 +2,8 @@
 
 Kilalanin ang iyong target. Binabasa ng Target Lens ang kasalukuyan mong combat target at
 inilalatag ang lahat ng mahalaga — ang HP nito, shield, at break gauge, ang mga buff at debuff
-dito, kung sino ang may hawak ng aggro, ang susunod na mapanganib na skill ng boss, at ang cast
-bar nito — bilang malinis na overlay na pwedeng i-drag.
+dito, kung sino ang may hawak ng aggro, ang susunod na mapanganib na skill ng boss, ang cast bar
+nito, at ang mga monster sa paligid mo — bilang malinis na overlay na pwedeng i-drag.
 
 ![Target overlays in a boss fight](media/target-overlays.png)
 
@@ -27,42 +27,77 @@ bar nito — bilang malinis na overlay na pwedeng i-drag.
   boss, para makareact ka sa tamang oras. Lalabas lang sa mga laban sa boss na gumagamit nito.
 - **Cast Bar** — ang cast/channel ng target, napupuno habang nagka-cast ito; ang mga mapanganib na
   cast ay naka-highlight.
+- **Mga Malapit na Monster** — listahan ng mga kalaban sa paligid mo, nauuna ang mga boss at elite,
+  tapos ayon sa distansya.
 
-## Display ng buff / debuff
+## Mga Malapit na Monster
 
-Sa ilalim ng **Display ng buff / debuff** mapipili mo kung paano ipapakita ang mga epekto:
+![Nearby Monsters list with a locked target](media/nearby-monsters.png)
 
-- **Classic (sa HUD ng Target)** — compact na tiles sa loob ng HUD ng Target.
-- **Listahan (hiwalay na window)** — hiwalay na window na puwedeng baguhin ang laki, may isang
-  row bawat epekto (icon, pangalan, at oras).
-- **Naka-off (nakatago)** — itinatago nang buo ang display ng epekto.
+Ipinapakita ng bawat row ang pangalan at HP ng monster sa loob ng bar na may kulay ayon sa rank
+(**pula** boss, **orange** elite, **berde** normal), at ang distansya nito sa kanan.
 
-I-filter kung ano ang lalabas batay sa **kung sino ang naglagay nito**:
+- **I-click ang isang row para mag-lock on sa monster na iyon** — kapareho ng lock-on ng sariling
+  lock key ng laro. I-click ulit ang row para i-release ito.
+- Nagiging **asul** ang row ng **kasalukuyan mong target**, at may gintong **padlock** ang monster
+  na **naka-lock on** ka.
+- I-on ang **Sa abot ng lock lang** para ilista lang ang mga monster na sapat ang lapit para
+  ma-lock on at manatiling naka-lock. Nakadepende ang distansya sa class mo at ipinapakita ito sa
+  metro sa tabi ng opsyon.
+- I-drag ang ibabang gilid ng window para magpakita ng mas marami o mas kaunting row.
 
-- **Ipakita ang mga buff/debuff na inilagay ko** — ang sarili mong mga epekto (may markang ★).
-- **Ipakita ang mga buff/debuff na inilagay ng iba** — mga epekto mula sa ibang players.
-- **Ipakita ang sariling buff/debuff ng monster at mula sa di-kilalang pinagmulan** — ang sariling
-  buff ng boss at mga ambient na epekto.
+## Settings
 
-Puwede mo ring **itago ang mga permanenteng buff/debuff** (walang timer), **ipakita ang mga
-nakatagong buff/debuff** (internal na mga epekto), at buksan ang **Pumili ng mga epekto…** para
-piliin nang eksakto kung aling mga buff/debuff ang lalabas — ang mga rekomendadong epekto ay may
-markang **★** at nasa itaas ng listahan.
+![Target Lens settings](media/settings.png)
 
-![Grouped settings](media/settings.png)
+May sariling seksyon ang bawat overlay na may **On / Off** na switch sa header nito. Bawat opsyon
+ay may **?** na button na nagpapaliwanag kung ano ang ginagawa nito. Ang mga opsyon na hindi
+naaangkop sa ngayon — halimbawa, ang laki ng listahan habang ipinapakita ang mga epekto bilang
+Classic na tiles — ay nagiging kulay-abo sa halip na mawala.
+
+Sa ilalim ng **Buff / Debuff → Display** mapipili mo kung paano ipapakita ang mga epekto:
+
+- **Classic** — compact na tiles sa loob ng HUD ng Target.
+- **Listahan** — hiwalay na window na puwedeng baguhin ang laki, may isang row bawat epekto (icon,
+  pangalan, at oras).
+- **Off** — itinatago nang buo ang display ng epekto.
+
+Sa ilalim ng **Ipakita**, piliin kung aling mga epekto ang lalabas:
+
+- **Inilagay ko** — ang sarili mong mga epekto (may markang ★).
+- **Inilagay ng iba** — mga epekto mula sa ibang players.
+- **Sa monster / di-kilala** — ang sariling buff ng boss at mga epekto na hindi matukoy ang
+  pinagmulan.
+- **Mga nakatagong epekto** — mga epekto na karaniwang hindi ipinapakita ng laro.
+- **Itago ang permanenteng epekto** — huwag isama ang mga epekto na hindi nauubos.
+
+## Pumili ng epekto
+
+![Select effects window](media/select-effects.png)
+
+I-click ang **Pumili ng epekto…** para piliin nang eksakto kung aling mga buff at debuff ang
+lalabas.
+
+- May sariling tab ang **Debuffs** at **Buffs**, at bawat isa ay may sariling search box.
+- Piliin ang **Mga napili lang** para ipakita lang ang mga epektong tinik mo, o **Lahat maliban sa
+  napili** para itago ang mga epektong tinik mo. Sariling pagpipilian ang naaalala ng bawat tab.
+- Minamarkahan ng **★** ang mga rekomendadong epekto. Nauuna sa listahan ang mga napiling epekto,
+  sunod ang mga rekomendado, tapos ang iba pa.
+- Inaalis ng **Alisin lahat** ang lahat ng tsek sa kasalukuyang tab pagkatapos mong kumpirmahin.
 
 ## Mga Tip
 
-- **I-lock sa isang target** — mag-assign ng key sa hotkey na "I-lock ang HUD sa kasalukuyang
-  target" sa hotkey settings ng launcher. Pindutin ito habang nasa labanan para i-pin ang mga
-  overlay sa kasalukuyan mong target, para patuloy itong ipakita habang nakikipaglaban ka sa iba;
-  pindutin ulit para i-release. Awtomatiko itong nawawala kapag namatay ang target.
-- **Laki ng bawat overlay** — ang listahan ng epekto, listahan ng threat/aggro, cast bar, at mga
-  timer ng skill ng boss ay may sarili-sariling slider ng laki, at puwede mong itago ang title ng
-  kahit anong overlay.
-- Opsyonal ang lahat — i-on o i-off ang kahit anong overlay sa pinagsama-samang settings (HUD ng
-  Target / Threat / Aggro / Cast Bar / Mga Timer ng Skill ng Boss).
-- Gamitin ang **"I-reset lahat"** ng launcher para ibalik ang bawat overlay sa default nitong
+- **I-lock ang HUD sa isang target** — mag-assign ng key sa hotkey na "I-lock ang HUD sa
+  kasalukuyang target" sa hotkey settings ng launcher. Pindutin ito habang nasa labanan para i-pin
+  ang mga overlay sa kasalukuyan mong target, para patuloy itong ipakita habang nakikipaglaban ka
+  sa iba; pindutin ulit para i-release. Awtomatiko itong nawawala kapag namatay ang target. Binabago
+  lang nito ang ipinapakita ng mga overlay — para mag-lock on mismo sa laro, i-click ang row ng
+  monster sa **Mga Malapit na Monster**.
+- **Laki ng bawat overlay** — ang listahan ng epekto, listahan ng threat/aggro, cast bar, mga timer
+  ng skill ng boss, at listahan ng mga malapit na monster ay may sarili-sariling slider ng laki, at
+  puwede mong itago ang title ng kahit anong overlay.
+- Opsyonal ang lahat — i-on o i-off ang kahit anong overlay mula sa seksyon nito sa settings.
+- Gamitin ang **"I-reset lahat ng HUD"** ng launcher para ibalik ang bawat overlay sa default nitong
   posisyon.
 - Naka-localize sa **English, Japanese, Thai, Indonesian, Filipino, at Korean** — sinusunod nito
   ang wika ng launcher.
