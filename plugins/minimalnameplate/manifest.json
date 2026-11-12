@@ -2,7 +2,7 @@
   "id": "minimalnameplate",
   "name": "Minimal Nameplate",
   "description": "Minimal class-badge & name nameplates that replace the game's overhead plate.",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "dll": "Stellar.MinimalNameplate.dll",
   "author": "Stellar",
   "tags": [
@@ -28,19 +28,13 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.29.0",
-  "date": "2026-11-09",
+  "date": "2026-11-12",
   "changelog": {
-    "added": [
-      "New Countdown setting under Revive-sealed marker: turn off the seconds and keep only the purple badge and name.",
-      "A class the game has no icon for now shows a \"?\" on its badge instead of an empty square."
-    ],
+    "added": [],
     "changed": [
-      "The revive-sealed countdown now shows on its own line above the player's name, e.g. \"(42s)\"."
+      "Smoother performance in crowded towns and raids with many players around."
     ],
-    "fixed": [
-      "Class icons no longer go missing from some players' badges in busy places for the rest of the session.",
-      "The revive-sealed countdown no longer overlaps the player's name."
-    ],
+    "fixed": [],
     "removed": []
   },
   "i18n": {
@@ -53,17 +47,11 @@
         "復活封印マーカー：スキルやイマジンでまだ蘇生できない倒れたプレイヤーは、バッジと名前が紫色になり、名前の上に残り秒数が表示されます。"
       ],
       "changelog": {
-        "added": [
-          "「復活封印マーカー」に新しい「カウントダウン」設定を追加：秒数をオフにして、紫色のバッジと名前だけを表示できます。",
-          "ゲームにアイコンがないクラスは、空の四角ではなく、バッジに「?」が表示されるようになりました。"
-        ],
+        "added": [],
         "changed": [
-          "復活封印のカウントダウンが、プレイヤー名の上の行に「(42s)」のように表示されるようになりました。"
+          "人の多い街やレイドで、より軽快に動作するようになりました。"
         ],
-        "fixed": [
-          "人の多い場所で、一部のプレイヤーのバッジからクラスアイコンが消えたまま戻らなくなる問題を修正しました。",
-          "復活封印のカウントダウンがプレイヤー名と重ならなくなりました。"
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -76,17 +64,11 @@
         "เครื่องหมายผนึกการชุบชีวิต: ผู้เล่นที่ตายและยังชุบชีวิตด้วยสกิลหรือ Imagine ไม่ได้ จะมีตราและชื่อเป็นสีม่วง พร้อมวินาทีที่เหลือแสดงอยู่เหนือชื่อ"
       ],
       "changelog": {
-        "added": [
-          "การตั้งค่าใหม่ \"นับถอยหลัง\" ใต้เครื่องหมายผนึกการชุบชีวิต: ปิดการแสดงวินาทีเพื่อให้เหลือเพียงตราสัญลักษณ์และชื่อสีม่วง",
-          "คลาสที่เกมไม่มีไอคอนให้ ตอนนี้จะแสดง \"?\" บนตราสัญลักษณ์แทนช่องสี่เหลี่ยมว่าง"
-        ],
+        "added": [],
         "changed": [
-          "การนับถอยหลังของผนึกการชุบชีวิตจะแสดงในบรรทัดของตัวเองเหนือชื่อผู้เล่น เช่น \"(42s)\""
+          "ทำงานลื่นขึ้นในเมืองที่คนเยอะและในเรดที่มีผู้เล่นจำนวนมาก"
         ],
-        "fixed": [
-          "ไอคอนคลาสจะไม่หายไปจากตราสัญลักษณ์ของผู้เล่นบางคนในที่ที่มีคนเยอะ จนไม่กลับมาอีกตลอดการเล่นครั้งนั้นแล้ว",
-          "การนับถอยหลังของผนึกการชุบชีวิตไม่ทับชื่อผู้เล่นอีกต่อไป"
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -99,17 +81,11 @@
         "Penanda segel kebangkitan: pemain mati yang belum bisa dihidupkan dengan skill atau Imagine mendapat lencana dan nama ungu, dengan sisa detik tampil di atas nama."
       ],
       "changelog": {
-        "added": [
-          "Pengaturan baru Hitung mundur di bawah Penanda segel kebangkitan: matikan sisa detik dan tampilkan hanya lencana dan nama ungu.",
-          "Kelas yang tidak punya ikon di game kini menampilkan \"?\" di lencananya, bukan kotak kosong."
-        ],
+        "added": [],
         "changed": [
-          "Hitung mundur segel kebangkitan kini tampil di barisnya sendiri di atas nama pemain, misalnya \"(42s)\"."
+          "Performa lebih lancar di kota yang ramai dan raid dengan banyak pemain di sekitar."
         ],
-        "fixed": [
-          "Ikon kelas tidak lagi hilang dari lencana beberapa pemain di tempat ramai lalu tak muncul lagi selama sisa sesi.",
-          "Hitung mundur segel kebangkitan tidak lagi menimpa nama pemain."
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -121,17 +97,11 @@
         "Revive-sealed marker: ang patay na player na hindi pa mabubuhay ng skill o Imagine ay may lilang badge at pangalan, at ipinapakita ang natitirang segundo sa itaas ng pangalan."
       ],
       "changelog": {
-        "added": [
-          "Bagong setting na Countdown sa ilalim ng Marker ng selyadong pagbuhay: i-off ang segundo para ang lilang badge at pangalan na lang ang matira.",
-          "Ang class na walang icon sa laro ay may \"?\" na sa badge nito sa halip na bakanteng parisukat."
-        ],
+        "added": [],
         "changed": [
-          "Lumalabas na ang countdown ng selyadong pagbuhay sa sarili nitong linya sa itaas ng pangalan ng player, gaya ng \"(42s)\"."
+          "Mas maayos na performance sa mataong bayan at sa raid na maraming player sa paligid."
         ],
-        "fixed": [
-          "Naayos ang mga class icon na nawawala sa badge ng ilang player sa mataong lugar at hindi na bumabalik sa buong session.",
-          "Hindi na natatakpan ng countdown ng selyadong pagbuhay ang pangalan ng player."
-        ],
+        "fixed": [],
         "removed": []
       }
     },
@@ -144,24 +114,17 @@
         "부활 봉인 표시: 아직 스킬이나 이매진으로 부활할 수 없는 쓰러진 플레이어는 배지와 이름이 보라색이 되고, 남은 시간이 이름 위에 표시됩니다."
       ],
       "changelog": {
-        "added": [
-          "부활 봉인 표시에 새 \"카운트다운\" 설정 추가: 남은 시간을 끄고 보라색 배지와 이름만 표시할 수 있습니다.",
-          "게임에 아이콘이 없는 클래스는 이제 빈 사각형 대신 배지에 \"?\"가 표시됩니다."
-        ],
+        "added": [],
         "changed": [
-          "부활 봉인 카운트다운이 이제 플레이어 이름 위 별도 줄에 \"(42s)\"처럼 표시됩니다."
+          "사람이 많은 마을과 레이드에서 더 부드럽게 동작합니다."
         ],
-        "fixed": [
-          "사람이 많은 곳에서 일부 플레이어의 배지에서 클래스 아이콘이 사라진 뒤 다시 나타나지 않던 문제를 수정했습니다.",
-          "부활 봉인 카운트다운이 더 이상 플레이어 이름과 겹치지 않습니다."
-        ],
+        "fixed": [],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMinimalNameplatePlugin.git",
-  "commit": "bad8895f636f9bf0042ee8a93510924933d4c589",
+  "commit": "42d0ae1b37a0901853ffdbe6a0d5803b9521e852",
   "projectPath": ".",
-  "tag": "v2.3.1",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v2.3.2"
 }
