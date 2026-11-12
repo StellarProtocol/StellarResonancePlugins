@@ -65,6 +65,29 @@ yang tersedia di wilayahmu.
 - **Unlock extra voice languages** (Buka bahasa suara tambahan) menambahkan bahasa suara yang ada di klienmu.
 - Perubahan berlaku setelah game dimulai ulang. Setelah itu, pilih bahasanya di pengaturan game itu sendiri.
 
+## Performance (Performa)
+
+Pertarungan lebih mulus di dungeon dan raid yang ramai. Sembunyikan efek skill pemain lain, dan gambar ulang daftar party lebih jarang.
+
+![Performance](media/performance.png)
+
+**Hide (Sembunyikan)** (sakelar yang On menyembunyikan jenis efek itu):
+
+- **Other players' effects (Efek pemain lain)**: menyembunyikan efek skill yang dipakai pemain lain. Ini dilihat dari siapa yang memakai skill, jadi serangan bos yang mengenai pemain lain tetap terlihat. Tiga baris di bawahnya untuk penyesuaian:
+  - **…their pets & summons (Pet dan panggilan)**: ikut sembunyikan pet, panggilan, dan proyektil yang mereka tembakkan.
+  - **…their heals & buffs (Heal dan buff)**: ikut sembunyikan lingkaran heal dan area dukungan. Biarkan Off agar tetap tahu di mana harus berdiri.
+  - **…their effects on me (Efek mereka padaku)**: ikut sembunyikan heal, perisai, dan efek lain yang mereka berikan padamu.
+- **My own effects (Efekku sendiri)**: menyembunyikan visual skill milikmu.
+- **Boss & monster effects (Efek bos dan monster)**: menyembunyikan visual skill bos dan monster itu sendiri.
+- **Telegraphs & important markers (Peringatan dan penanda penting)**: peringatan serangan bos, zona bahaya, dan lingkaran bidik.
+  ⚠️ Menyalakan ini menyembunyikan peringatan bos, sehingga raid bisa jadi tidak bisa dimainkan. Biarkan Off.
+
+Penanda lantai raid dan dungeon selalu terlihat. Efek yang disembunyikan juga tanpa suara.
+
+**Party list (Daftar party)**: **Reduce party list updates (Kurangi pembaruan daftar party)** menggambar ulang bar HP dan ikon buff di daftar party paling banyak **10** atau **5** kali per detik. Paling terasa di raid. Bar HP bisa telat sampai 0,1 detik (atau 0,2 detik di 5 / sec), dan ikon buff tetap tampil.
+
+**Where (Di mana)** memilih apakah kedua fitur bekerja **Everywhere (Di mana saja)** atau hanya di **Dungeons & raids (Dungeon dan raid, bawaan)**. Semuanya mulai dalam keadaan Off, jadi nyalakan yang kamu mau.
+
 ## Catatan
 
 - MultiTool hanya bisa dibuka saat kamu berada di dunia game, dan jendelanya tertutup saat kamu logout.
