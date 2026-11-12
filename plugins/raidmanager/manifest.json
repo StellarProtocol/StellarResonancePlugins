@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, savable and shareable dungeon marker presets, and boss mechanic callouts.",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -47,8 +47,8 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-11-03",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-12",
   "changelog": {
     "added": [
       "The countdown now shows a sample in the HUD layout editor, so you can place it where you like."
@@ -207,7 +207,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "65057e6071486e813cecf8af8d5b0fc1bbb6a6fe",
+  "commit": "d84db2ebd20fd3de135dee4a26e06fa490aaa6e6",
   "projectPath": ".",
-  "tag": "v2.7.0"
+  "tag": "v2.8.0",
+  "capPriorVersionsAt": "2.29.1"
 }
