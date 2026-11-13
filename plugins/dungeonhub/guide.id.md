@@ -101,7 +101,7 @@ Klik tombol roda gigi (**⚙**) di bagian atas Pusat Dungeon untuk membuka **Pen
 
 - **Suara saat terbuka**: suara ketika jendela konfirmasi muncul.
 - **Detik hitung mundur**: bunyi setiap detik pada 10 detik terakhir selama Anda belum menjawab.
-- **Volume**: untuk kedua suara. Tekan **▶** di samping suara untuk mendengarnya.
+- **Volume**: untuk kedua suara. Tekan **▶** di samping suara untuk mendengarnya, dan **■** untuk menghentikannya.
 - **Buka folder suara**: taruh file .wav atau .mp3 Anda di sana, lalu pilih di daftar suara. **Bawaan** kembali ke
   suara bawaan. Kalau sebuah file tidak bisa diputar, suara bawaan yang diputar dan pengaturan menyebutkan file
   mana itu.

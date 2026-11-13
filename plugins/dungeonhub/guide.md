@@ -99,7 +99,7 @@ Click the gear button (**⚙**) in the Dungeon Hub header to open **Dungeon Hub 
 
 - **Sound when it opens**: a sound when the confirm window appears.
 - **Countdown ticks**: a tick each second for the last 10 seconds while you still have to answer.
-- **Volume**: for both sounds. Press **▶** next to a sound to hear it.
+- **Volume**: for both sounds. Press **▶** next to a sound to hear it, and **■** to stop it.
 - **Open sounds folder**: put your own .wav or .mp3 files there, then pick them in the sound lists.
   **Default** goes back to the built-in sound. If a file can't be played, the default sound plays and the
   settings tell you which file it was.

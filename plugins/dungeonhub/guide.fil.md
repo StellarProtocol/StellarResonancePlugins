@@ -104,7 +104,7 @@ I-click ang gear button (**⚙**) sa header ng Dungeon Hub para buksan ang **Set
 
 - **Tunog kapag bumukas**: tunog kapag lumabas ang confirm window.
 - **Tik ng countdown**: isang tik bawat segundo sa huling 10 segundo habang hindi ka pa sumasagot.
-- **Lakas**: para sa dalawang tunog. Pindutin ang **▶** sa tabi ng tunog para marinig ito.
+- **Lakas**: para sa dalawang tunog. Pindutin ang **▶** sa tabi ng tunog para marinig ito, at **■** para ihinto ito.
 - **Buksan ang folder**: ilagay doon ang sarili mong .wav o .mp3, saka piliin sa listahan ng tunog. Ibinabalik ng
   **Default** ang kasamang tunog. Kapag hindi ma-play ang isang file, ang default na tunog ang tutunog at sasabihin
   ng settings kung aling file iyon.
