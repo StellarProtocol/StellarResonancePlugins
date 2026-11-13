@@ -1,0 +1,118 @@
+{
+  "id": "dungeonhub",
+  "name": "Dungeon Hub",
+  "description": "Every dungeon in one window: pick a dungeon and a difficulty, then go in Solo, start a Match or enter with your Party. Also swaps the game's full-screen entry confirm for a small window that shows who is ready.",
+  "version": "1.0.0",
+  "dll": "Stellar.DungeonHub.dll",
+  "author": "Stellar",
+  "tags": [
+    "quality-of-life",
+    "dungeons",
+    "raid",
+    "party"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/hub.png",
+      "caption": "Every dungeon, raid and activity in one window: pick a dungeon, a difficulty and how to go."
+    },
+    {
+      "type": "image",
+      "file": "media/confirm.png",
+      "caption": "Dungeon Confirm: a small entry check with your party's ready state, affixes and a countdown."
+    },
+    {
+      "type": "image",
+      "file": "media/settings.png",
+      "caption": "Settings: turn the confirm window on or off, preview it, and choose its sounds."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-12",
+  "changelog": {
+    "added": [
+      "First release: Dungeon Hub, one window for every dungeon, raid, World Boss and activity, and Dungeon Confirm, a small window in place of the game's full-screen entry confirm."
+    ],
+    "changed": [],
+    "fixed": [],
+    "removed": []
+  },
+  "i18n": {
+    "ja": {
+      "name": "ダンジョンハブ",
+      "description": "すべてのダンジョンを1つのウィンドウに。ダンジョンと難易度を選んで、ソロで入場、マッチング開始、またはパーティーで入場できます。ゲームの全画面の入場確認も、誰が準備完了かがわかる小さなウィンドウに置き換えます。",
+      "captions": [
+        "すべてのダンジョン・レイド・アクティビティを1つのウィンドウに。ダンジョン、難易度、参加方法を選ぶだけ。",
+        "入場確認：パーティーの準備状況、特性、カウントダウンが見える小さな確認ウィンドウ。",
+        "設定：入場確認ウィンドウのオン・オフ、プレビュー、サウンドの選択。"
+      ],
+      "changelog": {
+        "added": [
+          "初回リリース：すべてのダンジョン・レイド・ワールドボス・アクティビティを1つにまとめたダンジョンハブと、ゲームの全画面の入場確認の代わりに表示される小さなウィンドウ「入場確認」。"
+        ]
+      }
+    },
+    "th": {
+      "name": "ศูนย์ดันเจี้ยน",
+      "description": "ทุกดันเจี้ยนในหน้าต่างเดียว: เลือกดันเจี้ยนและความยาก แล้วเข้าแบบเดี่ยว เริ่มจับคู่ หรือเข้ากับปาร์ตี้ของคุณ และยังเปลี่ยนหน้าจอยืนยันเข้าดันเจี้ยนแบบเต็มจอของเกมเป็นหน้าต่างเล็กที่บอกว่าใครพร้อมแล้ว",
+      "captions": [
+        "ทุกดันเจี้ยน เรด และกิจกรรมในหน้าต่างเดียว: เลือกดันเจี้ยน ความยาก และวิธีเข้าร่วม",
+        "ยืนยันเข้าดันเจี้ยน: หน้าต่างยืนยันขนาดเล็กที่แสดงความพร้อมของปาร์ตี้ คุณสมบัติพิเศษ และการนับถอยหลัง",
+        "การตั้งค่า: เปิดหรือปิดหน้าต่างยืนยัน ดูตัวอย่าง และเลือกเสียง"
+      ],
+      "changelog": {
+        "added": [
+          "เปิดตัวครั้งแรก: ศูนย์ดันเจี้ยน หน้าต่างเดียวสำหรับทุกดันเจี้ยน เรด เวิลด์บอส และกิจกรรม พร้อมหน้าต่างยืนยันเข้าดันเจี้ยนขนาดเล็กแทนหน้าจอยืนยันแบบเต็มจอของเกม"
+        ]
+      }
+    },
+    "id": {
+      "name": "Pusat Dungeon",
+      "description": "Semua dungeon dalam satu jendela: pilih dungeon dan tingkat kesulitan, lalu masuk Solo, mulai Cari Tim, atau masuk bersama party Anda. Juga mengganti layar konfirmasi masuk layar penuh dari game dengan jendela kecil yang menunjukkan siapa yang sudah siap.",
+      "captions": [
+        "Semua dungeon, raid, dan aktivitas dalam satu jendela: pilih dungeon, tingkat kesulitan, dan cara masuk.",
+        "Konfirmasi Dungeon: jendela konfirmasi kecil dengan status siap party, afiks, dan hitung mundur.",
+        "Pengaturan: aktifkan atau matikan jendela konfirmasi, lihat pratinjaunya, dan pilih suaranya."
+      ],
+      "changelog": {
+        "added": [
+          "Rilis pertama: Pusat Dungeon, satu jendela untuk semua dungeon, raid, World Boss, dan aktivitas, serta Konfirmasi Dungeon, jendela kecil sebagai ganti layar konfirmasi masuk layar penuh dari game."
+        ]
+      }
+    },
+    "fil": {
+      "name": "Dungeon Hub",
+      "description": "Lahat ng dungeon sa iisang window: pumili ng dungeon at hirap, saka pumasok nang Solo, mag-Match, o pumasok kasama ang party mo. Pinapalitan din nito ang full-screen na entry confirm ng laro ng maliit na window na nagpapakita kung sino ang handa na.",
+      "captions": [
+        "Lahat ng dungeon, raid at activity sa iisang window: pumili ng dungeon, hirap at kung paano papasok.",
+        "Kumpirmasyon sa Dungeon: maliit na entry check na nagpapakita kung sino sa party ang handa na, ang mga affix at ang countdown.",
+        "Settings: i-on o i-off ang confirm window, i-preview ito, at pumili ng mga tunog."
+      ],
+      "changelog": {
+        "added": [
+          "Unang release: Dungeon Hub, iisang window para sa lahat ng dungeon, raid, World Boss at activity, at Kumpirmasyon sa Dungeon, maliit na window kapalit ng full-screen na entry confirm ng laro."
+        ]
+      }
+    },
+    "ko": {
+      "name": "던전 허브",
+      "description": "모든 던전을 창 하나에. 던전과 난이도를 고른 뒤 솔로로 입장하거나, 매칭을 시작하거나, 파티와 함께 입장하세요. 게임의 전체 화면 입장 확인도 누가 준비됐는지 보여 주는 작은 창으로 바꿉니다.",
+      "captions": [
+        "모든 던전, 레이드, 활동을 창 하나에. 던전, 난이도, 참가 방법만 고르면 됩니다.",
+        "입장 확인: 파티의 준비 상태, 특성, 카운트다운이 보이는 작은 입장 확인 창.",
+        "설정: 입장 확인 창 켜기/끄기, 미리보기, 사운드 선택."
+      ],
+      "changelog": {
+        "added": [
+          "첫 출시: 모든 던전, 레이드, 월드 보스, 활동을 창 하나에 모은 던전 허브와, 게임의 전체 화면 입장 확인 대신 뜨는 작은 창 입장 확인."
+        ]
+      }
+    }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarDungeonHubPlugin.git",
+  "commit": "f0f2c0969521ef82621dcbbf853158feefffdabe",
+  "projectPath": ".",
+  "tag": "v1.0.0"
+}
