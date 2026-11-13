@@ -1,8 +1,8 @@
 {
   "id": "entityinspector",
   "name": "EntityInspector",
-  "description": "Inspect any entity: identity, attributes, gear and skill book. Adds an 'Inspect' item to CombatMeter rows and a magnifier button to the profile card.",
-  "version": "2.3.0",
+  "description": "Inspect any player: stats, gear, skills and outfits with their dyes. Adds an 'Inspect' item to CombatMeter rows and an Inspect button to the profile card.",
+  "version": "2.4.0",
   "dll": "Stellar.EntityInspector.dll",
   "author": "Stellar",
   "tags": [
@@ -12,111 +12,203 @@
   "media": [
     {
       "type": "image",
-      "file": "media/entity-inspector.png",
-      "caption": "Inspect gear, skills and attributes."
+      "file": "media/entityinspector-overview.png",
+      "caption": "Overview — stats grouped into panels, with the 3D portrait, HP bar and imagines on the left."
     },
     {
       "type": "image",
       "file": "media/entityinspector-gear.png",
-      "caption": "Gear tab — weapon card plus armor and accessory grids."
+      "caption": "Gear — the weapon on its own row, the other pieces in a grid. Click an item for details."
+    },
+    {
+      "type": "image",
+      "file": "media/entityinspector-wardrobe.png",
+      "caption": "Wardrobe — every outfit piece with its numbered dye slots. Click a colour to copy its code."
+    },
+    {
+      "type": "image",
+      "file": "media/entityinspector-location.png",
+      "caption": "Location — where the player is on the map."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.32.0",
+  "date": "2026-11-13",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "Overview now shows the player's equipped title and their fashion, mount and weapon skin collection points.",
+      "Your own gear shows its upgraded gear score, refine level and upgrade stage.",
+      "Click a dye colour on the Wardrobe tab to copy its colour code."
     ],
-    "changed": [],
-    "fixed": [],
+    "changed": [
+      "A complete new look: a header with class, spec and how fresh the shown data is, a portrait panel with a Weapon On/Off switch, an HP bar with shield, and the player's imagines.",
+      "Rounded tabs that switch instantly. The window keeps a steady size, and the stat columns grow when you make it wider.",
+      "Overview groups stats into panels in two columns. For other players it only shows the stats the game actually shares, and hides empty sections.",
+      "Gear shows the weapon on its own row on top, with the other pieces in a grid. Other players' upgradeable pieces show \"GS 260+\", because the game doesn't share their upgrade stage.",
+      "Wardrobe shows every dye slot, numbered like the game's dye screen, with \"Default\" for undyed slots. Alternate outfit styles show their real names, and item icons are bigger.",
+      "Movement speed stats have clear names: Walk, Run and Dash Speed, and Mount Walk, Run and Dash Speed.",
+      "Requires Stellar 2.32.0 or newer."
+    ],
+    "fixed": [
+      "The item details popup now opens in front of the inspector window."
+    ],
     "removed": []
   },
   "i18n": {
     "ja": {
       "name": "エンティティインスペクター",
-      "description": "あらゆるエンティティを検査: アイデンティティ、属性、装備、スキルブック。CombatMeterの行に「Inspect」項目を、プロフィールカードに虫眼鏡ボタンを追加します。",
+      "description": "あらゆるプレイヤーを検査：ステータス、装備、スキル、染色付きの衣装。CombatMeterの行に「Inspect」項目を、プロフィールカードにInspectボタンを追加します。",
       "captions": [
-        "装備、スキル、属性を検査します。",
-        "装備タブ — 武器カードと防具・アクセサリーのグリッド。"
+        "概要 — パネルにまとめられたステータス。左側に3Dポートレート、HPバー、イマジン。",
+        "装備 — 武器は専用の行に、その他の装備はグリッドに。アイテムをクリックすると詳細を表示します。",
+        "ワードローブ — 衣装の各パーツと番号付きの染色スロット。色をクリックするとカラーコードをコピーします。",
+        "位置 — プレイヤーがマップ上のどこにいるか。"
       ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+          "概要に、装備中の称号と、ファッション・マウント・武器スキンのコレクションポイントを表示するようになりました。",
+          "自分の装備では、強化後の装備スコア、精錬値、強化段階を表示します。",
+          "ワードローブタブで染色の色をクリックすると、カラーコードをコピーできます。"
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "デザインを一新しました。クラス、スペック、表示中のデータの新しさがわかるヘッダー、武器のオン/オフ切り替え付きのポートレート、シールド付きのHPバー、そしてイマジンを表示します。",
+          "角丸のタブは瞬時に切り替わります。ウィンドウの大きさは安定し、横に広げるとステータスの列も広がります。",
+          "概要ではステータスをパネルにまとめて2列で表示します。他のプレイヤーについては、ゲームが実際に公開しているステータスだけを表示し、空のセクションは隠します。",
+          "装備では武器を上の専用の行に、その他の装備をグリッドに表示します。他のプレイヤーの強化可能な装備は「GS 260+」と表示されます。ゲームがその強化段階を公開していないためです。",
+          "ワードローブでは、ゲームの染色画面と同じ番号で全ての染色スロットを表示し、未染色のスロットは「デフォルト」と表示します。衣装の別スタイルは本来の名前で表示され、アイテムアイコンも大きくなりました。",
+          "移動速度のステータスにわかりやすい名前を付けました：歩行・走行・ダッシュ速度、マウントの歩行・走行・ダッシュ速度。",
+          "Stellar 2.32.0 以降が必要です。"
+        ],
+        "fixed": [
+          "アイテム詳細のポップアップがインスペクターウィンドウの手前に開くようになりました。"
+        ],
         "removed": []
       }
     },
     "th": {
       "name": "ตัวตรวจสอบเอนทิตี",
-      "description": "ตรวจสอบเอนทิตีใดก็ได้: ข้อมูลประจำตัว แอตทริบิวต์ อุปกรณ์ และสกิลบุ๊ก เพิ่มรายการ 'Inspect' ให้แถวของ CombatMeter และปุ่มแว่นขยายให้การ์ดโปรไฟล์",
+      "description": "ตรวจสอบผู้เล่นคนใดก็ได้: ค่าสถานะ อุปกรณ์ สกิล และชุดพร้อมสีย้อม เพิ่มรายการ 'Inspect' ให้แถวของ CombatMeter และปุ่ม Inspect ให้การ์ดโปรไฟล์",
       "captions": [
-        "ตรวจสอบอุปกรณ์ สกิล และแอตทริบิวต์",
-        "แท็บอุปกรณ์ — การ์ดอาวุธพร้อมกริดเกราะและเครื่องประดับ"
+        "ภาพรวม — ค่าสถานะจัดเป็นแผง พร้อมภาพตัวละคร 3D แถบ HP และ Imagine ทางด้านซ้าย",
+        "อุปกรณ์ — อาวุธอยู่แถวของตัวเอง ชิ้นอื่นอยู่ในกริด คลิกไอเท็มเพื่อดูรายละเอียด",
+        "ตู้เสื้อผ้า — ชุดทุกชิ้นพร้อมช่องสีย้อมที่มีหมายเลข คลิกสีเพื่อคัดลอกรหัสสี",
+        "ตำแหน่ง — ผู้เล่นอยู่ตรงไหนบนแผนที่"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "ภาพรวมแสดงฉายาที่ผู้เล่นใช้อยู่ และแต้มสะสมแฟชั่น พาหนะ และสกินอาวุธ",
+          "อุปกรณ์ของคุณเองแสดงคะแนนอุปกรณ์หลังอัปเกรด ระดับการขัดเกลา และขั้นการอัปเกรด",
+          "คลิกสีย้อมในแท็บตู้เสื้อผ้าเพื่อคัดลอกรหัสสี"
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "โฉมใหม่ทั้งหมด: ส่วนหัวแสดงคลาส สเปก และความสดใหม่ของข้อมูลที่แสดง แผงภาพตัวละครพร้อมสวิตช์เปิด/ปิดอาวุธ แถบ HP พร้อมโล่ และ Imagine ของผู้เล่น",
+          "แท็บขอบมนที่สลับได้ทันที หน้าต่างคงขนาดไว้ และคอลัมน์ค่าสถานะจะขยายตามเมื่อคุณทำให้หน้าต่างกว้างขึ้น",
+          "ภาพรวมจัดค่าสถานะเป็นแผงในสองคอลัมน์ สำหรับผู้เล่นอื่นจะแสดงเฉพาะค่าสถานะที่เกมเปิดเผยจริง และซ่อนส่วนที่ว่าง",
+          "อุปกรณ์แสดงอาวุธในแถวของตัวเองด้านบน และชิ้นอื่นในกริด ชิ้นที่อัปเกรดได้ของผู้เล่นอื่นจะแสดง \"GS 260+\" เพราะเกมไม่เปิดเผยขั้นการอัปเกรดของพวกเขา",
+          "ตู้เสื้อผ้าแสดงช่องสีย้อมทุกช่อง โดยใช้หมายเลขเดียวกับหน้าจอย้อมสีของเกม และแสดง \"ค่าเริ่มต้น\" สำหรับช่องที่ยังไม่ย้อม สไตล์ชุดแบบอื่นแสดงชื่อจริง และไอคอนไอเท็มใหญ่ขึ้น",
+          "ค่าสถานะความเร็วการเคลื่อนที่มีชื่อที่ชัดเจน: ความเร็วเดิน วิ่ง และพุ่ง และความเร็วเดิน วิ่ง และพุ่งของพาหนะ",
+          "ต้องใช้ Stellar 2.32.0 ขึ้นไป"
+        ],
+        "fixed": [
+          "หน้าต่างรายละเอียดไอเท็มเปิดขึ้นด้านหน้าหน้าต่างตัวตรวจสอบแล้ว"
+        ],
         "removed": []
       }
     },
     "id": {
       "name": "Inspektur Entitas",
-      "description": "Periksa entitas apa pun: identitas, atribut, gear, dan skill book. Menambahkan item 'Inspect' ke baris CombatMeter dan tombol kaca pembesar ke kartu profil.",
+      "description": "Periksa pemain mana pun: stat, gear, skill, dan kostum beserta pewarnanya. Menambahkan item 'Inspect' ke baris CombatMeter dan tombol Inspect ke kartu profil.",
       "captions": [
-        "Periksa gear, skill, dan atribut.",
-        "Tab Perlengkapan — kartu senjata plus grid armor dan aksesori."
+        "Ringkasan — stat dikelompokkan dalam panel, dengan potret 3D, bar HP, dan imagine di sebelah kiri.",
+        "Perlengkapan — senjata di barisnya sendiri, bagian lain dalam grid. Klik item untuk detailnya.",
+        "Lemari — setiap bagian kostum dengan slot pewarna bernomor. Klik warna untuk menyalin kodenya.",
+        "Lokasi — posisi pemain di peta."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Ringkasan kini menampilkan gelar yang dipakai pemain serta poin koleksi fashion, tunggangan, dan skin senjata.",
+          "Gear milikmu sendiri menampilkan gear score setelah upgrade, level refine, dan tahap upgrade.",
+          "Klik warna pewarna di tab Lemari untuk menyalin kode warnanya."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Tampilan yang sepenuhnya baru: header dengan class, spec, dan seberapa baru data yang ditampilkan, panel potret dengan saklar Senjata On/Off, bar HP dengan shield, dan imagine milik pemain.",
+          "Tab bersudut bulat yang berpindah seketika. Ukuran jendela tetap stabil, dan kolom stat ikut melebar saat kamu memperlebar jendela.",
+          "Ringkasan mengelompokkan stat ke dalam panel dalam dua kolom. Untuk pemain lain hanya stat yang benar-benar dibagikan game yang ditampilkan, dan bagian kosong disembunyikan.",
+          "Perlengkapan menampilkan senjata di barisnya sendiri di atas, dengan bagian lain dalam grid. Bagian yang bisa di-upgrade milik pemain lain menampilkan \"GS 260+\", karena game tidak membagikan tahap upgrade mereka.",
+          "Lemari menampilkan setiap slot pewarna, bernomor seperti di layar pewarna game, dengan \"Bawaan\" untuk slot yang belum diwarnai. Gaya kostum alternatif menampilkan nama aslinya, dan ikon item lebih besar.",
+          "Stat kecepatan gerak punya nama yang jelas: Kecepatan Jalan, Lari, dan Dash, serta Kecepatan Jalan, Lari, dan Dash Tunggangan.",
+          "Memerlukan Stellar 2.32.0 atau yang lebih baru."
+        ],
+        "fixed": [
+          "Popup detail item kini terbuka di depan jendela inspektur."
+        ],
         "removed": []
       }
     },
     "fil": {
       "name": "Inspektor ng Entidad",
-      "description": "Siyasatin ang kahit anong entity: identity, mga attribute, gear, at skill book. Nagdaragdag ng item na 'Inspect' sa mga row ng CombatMeter at isang magnifier button sa profile card.",
+      "description": "Siyasatin ang kahit sinong player: stats, gear, skills, at mga kasuotan kasama ang dye nila. Nagdaragdag ng item na 'Inspect' sa mga row ng CombatMeter at isang Inspect button sa profile card.",
       "captions": [
-        "Siyasatin ang gear, skills, at mga attribute.",
-        "Tab na Kagamitan — weapon card kasama ang armor at accessory grid."
+        "Pangkalahatan — mga stat na nakagrupo sa mga panel, kasama ang 3D portrait, HP bar, at mga imagine sa kaliwa.",
+        "Kagamitan — ang armas sa sarili nitong row, ang ibang piraso sa grid. I-click ang item para sa detalye.",
+        "Aparador — bawat piraso ng kasuotan kasama ang mga may-numerong dye slot. I-click ang kulay para kopyahin ang code nito.",
+        "Lokasyon — kung nasaan ang player sa mapa."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Ipinapakita na ng Pangkalahatan ang suot na title ng player at ang mga collection point nila sa fashion, mount, at weapon skin.",
+          "Ipinapakita ng sarili mong gear ang na-upgrade na gear score, refine level, at upgrade stage nito.",
+          "I-click ang kulay ng dye sa tab na Aparador para kopyahin ang color code nito."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Ganap na bagong itsura: header na may class, spec, at kung gaano kabago ang ipinapakitang data, portrait panel na may Weapon On/Off switch, HP bar na may shield, at mga imagine ng player.",
+          "Mga bilugang tab na agad lumilipat. Hindi nagbabago ang laki ng window, at lumalapad ang mga column ng stat kapag pinalapad mo ito.",
+          "Pinapangkat ng Pangkalahatan ang mga stat sa mga panel sa dalawang column. Para sa ibang player, ang mga stat lang na talagang ibinabahagi ng laro ang ipinapakita, at itinatago ang mga walang laman na seksyon.",
+          "Ipinapakita ng Kagamitan ang armas sa sarili nitong row sa itaas, at ang ibang piraso sa grid. Ang mga ma-upgrade na piraso ng ibang player ay nagpapakita ng \"GS 260+\", dahil hindi ibinabahagi ng laro ang upgrade stage nila.",
+          "Ipinapakita ng Aparador ang bawat dye slot, may numero gaya sa dye screen ng laro, at \"Default\" para sa mga slot na walang dye. Ipinapakita ng mga alternatibong style ng kasuotan ang tunay nilang pangalan, at mas malaki na ang mga icon ng item.",
+          "May malinaw nang pangalan ang mga stat ng bilis ng paggalaw: Bilis ng Paglakad, Pagtakbo at Dash, at ang Bilis ng Paglakad, Pagtakbo at Dash ng Mount.",
+          "Kailangan ng Stellar 2.32.0 o mas bago."
+        ],
+        "fixed": [
+          "Bumubukas na ang popup ng detalye ng item sa harap ng inspector window."
+        ],
         "removed": []
       }
     },
     "ko": {
       "name": "엔티티 인스펙터",
-      "description": "모든 엔티티를 검사하세요: 식별 정보, 능력치, 장비, 스킬북. CombatMeter 행에 'Inspect' 항목을, 프로필 카드에 돋보기 버튼을 추가합니다.",
+      "description": "모든 플레이어를 검사하세요: 능력치, 장비, 스킬, 염색까지 포함한 의상. CombatMeter 행에 'Inspect' 항목을, 프로필 카드에 Inspect 버튼을 추가합니다.",
       "captions": [
-        "장비, 스킬, 능력치를 검사하세요.",
-        "장비 탭 — 무기 카드와 방어구 및 액세서리 그리드."
+        "개요 — 패널로 묶인 능력치와 왼쪽의 3D 초상화, HP 바, 이매진.",
+        "장비 — 무기는 별도의 행에, 나머지 장비는 그리드에. 아이템을 클릭하면 상세 정보를 볼 수 있습니다.",
+        "옷장 — 의상의 모든 부위와 번호가 매겨진 염색 슬롯. 색을 클릭하면 색상 코드를 복사합니다.",
+        "위치 — 플레이어가 지도 위 어디에 있는지."
       ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "개요에 플레이어가 장착한 칭호와 패션, 탈것, 무기 스킨 수집 포인트가 표시됩니다.",
+          "내 장비에는 강화 후 장비 점수, 제련 수치, 강화 단계가 표시됩니다.",
+          "옷장 탭에서 염색 색을 클릭하면 색상 코드를 복사합니다."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "완전히 새로운 디자인: 클래스, 스펙, 표시 중인 데이터가 얼마나 최신인지 보여 주는 헤더, 무기 켜기/끄기 스위치가 있는 초상화 패널, 보호막이 표시되는 HP 바, 그리고 플레이어의 이매진.",
+          "즉시 전환되는 둥근 탭. 창 크기가 안정적으로 유지되고, 창을 넓히면 능력치 열도 함께 넓어집니다.",
+          "개요는 능력치를 패널로 묶어 두 열로 보여 줍니다. 다른 플레이어는 게임이 실제로 공개하는 능력치만 표시하고, 빈 섹션은 숨깁니다.",
+          "장비는 무기를 맨 위 별도의 행에, 나머지 장비를 그리드에 표시합니다. 다른 플레이어의 강화 가능한 장비는 \"GS 260+\"로 표시됩니다. 게임이 그 강화 단계를 공개하지 않기 때문입니다.",
+          "옷장은 게임의 염색 화면과 같은 번호로 모든 염색 슬롯을 표시하고, 염색하지 않은 슬롯은 \"기본\"으로 표시합니다. 의상의 다른 스타일은 실제 이름으로 표시되고, 아이템 아이콘이 커졌습니다.",
+          "이동 속도 능력치에 알기 쉬운 이름을 붙였습니다: 걷기·달리기·대시 속도, 탈것 걷기·달리기·대시 속도.",
+          "Stellar 2.32.0 이상이 필요합니다."
+        ],
+        "fixed": [
+          "아이템 상세 팝업이 인스펙터 창 앞에 열립니다."
+        ],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarEntityInspectorPlugin.git",
-  "commit": "4a5f3fb4d9d268d3169c751076ee7d8bafea3511",
+  "commit": "b01b38df75cbdb330097c5449fda5f4663148cd4",
   "projectPath": ".",
-  "capPriorVersionsAt": "2.20.0",
-  "tag": "v2.3.0"
+  "capPriorVersionsAt": "2.31.0",
+  "tag": "v2.4.0"
 }
