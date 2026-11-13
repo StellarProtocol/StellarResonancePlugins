@@ -1,7 +1,7 @@
 # Wardrobe
 
-Simpan kostum yang kamu pakai dan beralih di antaranya secara instan — dengan hotkey atau dari
-menu — dengan pratinjau 3D langsung.
+Simpan kostum yang kamu pakai dan beralih di antaranya secara instan — dengan satu klik atau hotkey —
+dengan pratinjau 3D langsung dari setiap kostum.
 
 ![The Wardrobe window](media/wardrobe-window.png)
 
@@ -9,31 +9,49 @@ menu — dengan pratinjau 3D langsung.
 
 1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Berdandan di dalam game sesukamu, lalu buka **Wardrobe** dari launcher Stellar (atau ikat hotkey
-   toggle jendelanya) dan klik **Simpan kostum saat ini**. Kostum itu disimpan dalam slot bernama
+   **Buka Wardrobe**) dan klik **Simpan yang dipakai** di kanan atas. Kostum itu ditambahkan ke daftar
    untuk karakter tersebut.
-3. Ubah kostummu di dalam game, lalu kembalikan yang lama:
-   - Tekan hotkey yang sudah diikat — 8 kostum tersimpan pertama dipetakan ke
-     **Terapkan Kostum 1**–**Terapkan Kostum 8** (ikat di **Pengaturan Stellar → Hotkey**, belum
-     diikat secara default), atau
-   - Klik tombol **putar (▶)** pada baris mana pun di jendela Wardrobe.
+3. Ubah kostummu di dalam game, lalu kembalikan kostum yang tersimpan:
+   - Klik **Pakai** pada barisnya, atau
+   - Tekan hotkey-nya — 8 kostum pertama di daftar dipetakan ke **Terapkan Kostum 1**–**Terapkan Kostum 8**
+     (ikat di **Pengaturan Stellar › Hotkey**; belum diikat secara default).
 
-## Tombol baris
+Tombol bulat **?** di sebelah **Simpan yang dipakai** menampilkan bantuan singkat. Baris di bagian atas
+memberi tahu kostum tersimpan mana yang sedang kamu pakai dan berapa banyak kostum yang kamu punya.
 
-Setiap kostum tersimpan punya toolbar kecil:
+## Daftar kostum
 
-- **✎ ubah nama** — beri nama kostum tersebut.
-- **⟳ perbarui** — tangkap ulang kostum yang sedang kamu pakai sekarang ke slot ini (nama dan
-  posisinya tetap).
-- **▲ / ▼ urutkan ulang** — pindahkan naik atau turun; 8 slot pertama adalah slot hotkey.
-- **▶ terapkan** — kenakan kostum ini.
-- **🗑 hapus** — hapus kostum ini.
+Setiap baris menampilkan, dari kiri ke kanan:
 
-Perbarui dan hapus akan meminta konfirmasi terlebih dahulu.
+- **Pegangan seret** — seret baris naik atau turun untuk mengubah posisinya. 8 baris pertama adalah slot
+  hotkey.
+- **Lencana hotkey** — tombol yang kamu ikat untuk slot itu (misalnya **F1**). Jika slot belum punya tombol,
+  lencana menampilkan **H1**–**H8**; baris setelah baris ke-8 hanya menampilkan nomornya.
+- **Nama** dan **jumlah bagian** (misalnya "12 pcs").
+- **Pakai** — kenakan kostum ini. Kostum yang sedang kamu pakai menampilkan **Dipakai** sebagai gantinya;
+  klik **Dipakai** untuk memakainya lagi (misalnya setelah mengganti pewarna).
+- **Pensil** — ubah nama kostum. Tekan **Enter** atau **✓** untuk menyimpan nama, **✕** untuk membatalkan.
+- **Segarkan** — ganti kostum ini dengan yang sedang kamu pakai. Nama dan posisinya tetap, dan kamu diminta
+  mengonfirmasi dengan **Ganti** terlebih dahulu.
+- **✕** — hapus kostum. Kamu diminta mengonfirmasi dengan **Hapus** terlebih dahulu.
+
+Selama ubah nama atau konfirmasi sedang terbuka, baris lain menunggu sampai kamu selesai.
 
 ## Pratinjau
 
-Arahkan kursor ke baris mana pun untuk melihat kostum itu pada model 3D langsung karaktermu.
-**Seret** untuk memutar, **gulir** untuk zoom, dan **shift-seret** untuk menggeser.
+Arahkan kursor ke baris mana pun untuk melihat kostum itu pada model 3D langsung karaktermu. **Seret** untuk
+memutar, **Shift+seret** untuk menggeser, dan gunakan **roda mouse** untuk zoom.
+
+Pratinjau menampilkan kostum persis seperti saat disimpan, termasuk bagian yang disembunyikannya. Chip
+**Senjata: On / Off** menampilkan atau menyembunyikan senjatamu pada model; jika kostum punya skin senjata
+tersimpan, senjata ditampilkan dengan skin itu.
+
+## Bagian yang ditampilkan dan disembunyikan
+
+Setiap kostum mengingat bagian yang kamu sembunyikan (misalnya topi) dan menyembunyikannya lagi saat kamu
+memakainya. Kostum yang disimpan sebelum versi 1.5.0 belum punya info ini: pakai kostum itu dengan bagian
+yang ditampilkan atau disembunyikan sesuai keinginanmu, lalu tekan **Segarkan** → **Ganti** pada barisnya
+sekali.
 
 ## Catatan
 

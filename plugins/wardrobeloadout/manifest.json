@@ -2,7 +2,7 @@
   "id": "wardrobeloadout",
   "name": "Wardrobe",
   "description": "Save your worn outfits and switch between them instantly by hotkey or menu, with a live 3D preview.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "dll": "Stellar.WardrobeLoadout.dll",
   "author": "Stellar",
   "tags": [
@@ -20,18 +20,29 @@
     {
       "type": "image",
       "file": "media/wardrobe-window.png",
-      "caption": "The Wardrobe window — saved outfits with a live 3D preview of the hovered one."
+      "caption": "The Wardrobe window — your saved outfits, a Wear button on each, and a live 3D preview with the outfit's hidden pieces and weapon."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.31.0",
+  "date": "2026-11-13",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "A new look for the Wardrobe window, with a Wear button on every outfit and a Worn marker on the one you have on.",
+      "Each outfit now remembers which pieces you hide (like a hat) and brings that back when you wear it.",
+      "The preview shows each outfit exactly as saved, including hidden pieces, and can show your weapon in the outfit's weapon skin.",
+      "Hotkey badges show the key you actually bound.",
+      "Drag an outfit to change its place in the list."
     ],
-    "changed": [],
-    "fixed": [],
+    "changed": [
+      "Click Worn to put the same outfit on again, for example after changing dyes.",
+      "Delete and Replace ask first, and ignore a too-quick second click so an outfit can't be deleted by accident.",
+      "A new wardrobe icon.",
+      "Requires Stellar 2.31.0 or newer."
+    ],
+    "fixed": [
+      "Worn now marks the right outfit when two outfits share the same pieces but hide different ones."
+    ],
     "removed": []
   },
   "i18n": {
@@ -40,14 +51,25 @@
       "description": "着ている衣装を保存し、ホットキーやメニューでライブ3Dプレビューを見ながら即座に切り替えます。",
       "captions": [
         "ワールドで衣装を切り替える — ゲームが自身のバナーで変更を確認します。",
-        "ワードローブウィンドウ — ホバーした衣装のライブ3Dプレビュー付きの保存済み衣装。"
+        "ワードローブウィンドウ — 保存した衣装、各衣装の「着る」ボタン、非表示のパーツと武器も反映したライブ3Dプレビュー。"
       ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+          "ワードローブウィンドウのデザインを一新しました。すべての衣装に「着る」ボタンがあり、今着ている衣装には「着用中」の印が付きます。",
+          "衣装ごとに非表示にしたパーツ（帽子など）を記憶し、その衣装を着るときに元どおりにします。",
+          "プレビューは非表示のパーツも含めて保存したとおりに衣装を表示し、武器を衣装の武器スキンで表示することもできます。",
+          "ホットキーのバッジに、実際に割り当てたキーが表示されます。",
+          "衣装をドラッグして、リスト内の位置を変えられます。"
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "「着用中」をクリックすると同じ衣装をもう一度着られます（染色を変えた後など）。",
+          "削除と上書きは実行前に確認し、速すぎる2回目のクリックは無視するので、誤って衣装を削除することはありません。",
+          "新しいワードローブのアイコン。",
+          "Stellar 2.31.0 以降が必要です。"
+        ],
+        "fixed": [
+          "同じパーツで非表示にしたパーツだけが違う2つの衣装があっても、「着用中」が正しい衣装に付くようになりました。"
+        ],
         "removed": []
       }
     },
@@ -56,14 +78,25 @@
       "description": "บันทึกชุดที่คุณสวมใส่และสลับไปมาได้ทันทีด้วยปุ่มลัดหรือเมนู พร้อมพรีวิว 3D แบบสด",
       "captions": [
         "สลับชุดในโลกเกม — เกมจะยืนยันการเปลี่ยนแปลงด้วยแบนเนอร์ของตัวเอง",
-        "หน้าต่างตู้เสื้อผ้า — ชุดที่บันทึกไว้พร้อมพรีวิว 3D แบบสดของชุดที่วางเมาส์ไว้"
+        "หน้าต่างตู้เสื้อผ้า — ชุดที่บันทึกไว้ ปุ่มสวมในทุกชุด และพรีวิว 3D แบบสดที่แสดงชิ้นที่ซ่อนไว้และอาวุธของชุดนั้น"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "หน้าต่างตู้เสื้อผ้าโฉมใหม่ มีปุ่มสวมในทุกชุด และมีป้ายสวมอยู่บนชุดที่คุณสวมอยู่",
+          "แต่ละชุดจะจำชิ้นที่คุณซ่อนไว้ (เช่น หมวก) และซ่อนให้เหมือนเดิมเมื่อคุณสวมชุดนั้น",
+          "พรีวิวแสดงแต่ละชุดตรงตามที่บันทึกไว้ รวมถึงชิ้นที่ซ่อนไว้ และแสดงอาวุธของคุณด้วยสกินอาวุธของชุดนั้นได้",
+          "ป้ายปุ่มลัดแสดงปุ่มที่คุณผูกไว้จริง",
+          "ลากชุดเพื่อเปลี่ยนตำแหน่งในรายการ"
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "คลิกสวมอยู่เพื่อสวมชุดเดิมอีกครั้ง เช่น หลังจากเปลี่ยนสีย้อม",
+          "การลบและการแทนที่จะถามก่อนเสมอ และไม่สนใจการคลิกครั้งที่สองที่เร็วเกินไป ชุดจึงไม่ถูกลบโดยไม่ตั้งใจ",
+          "ไอคอนตู้เสื้อผ้าใหม่",
+          "ต้องใช้ Stellar 2.31.0 ขึ้นไป"
+        ],
+        "fixed": [
+          "ป้ายสวมอยู่แสดงบนชุดที่ถูกต้องแล้ว เมื่อสองชุดมีชิ้นเหมือนกันแต่ซ่อนชิ้นต่างกัน"
+        ],
         "removed": []
       }
     },
@@ -71,14 +104,25 @@
       "description": "Simpan kostum yang kamu pakai dan beralih di antaranya secara instan dengan hotkey atau menu, dengan pratinjau 3D langsung.",
       "captions": [
         "Beralih kostum di dunia game — game mengonfirmasi perubahan dengan bannernya sendiri.",
-        "Jendela Wardrobe — kostum tersimpan dengan pratinjau 3D langsung dari yang sedang dihover."
+        "Jendela Wardrobe — kostum tersimpanmu, tombol Pakai di setiap kostum, dan pratinjau 3D langsung lengkap dengan bagian tersembunyi dan senjata kostum itu."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Tampilan baru untuk jendela Wardrobe, dengan tombol Pakai di setiap kostum dan tanda Dipakai pada kostum yang sedang kamu kenakan.",
+          "Setiap kostum kini mengingat bagian yang kamu sembunyikan (misalnya topi) dan mengembalikannya saat kamu memakainya.",
+          "Pratinjau menampilkan setiap kostum persis seperti saat disimpan, termasuk bagian yang disembunyikan, dan bisa menampilkan senjatamu dengan skin senjata kostum itu.",
+          "Lencana hotkey menampilkan tombol yang benar-benar kamu ikat.",
+          "Seret kostum untuk mengubah posisinya di daftar."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Klik Dipakai untuk memakai kostum yang sama lagi, misalnya setelah mengganti pewarna.",
+          "Hapus dan Ganti meminta konfirmasi dulu, dan mengabaikan klik kedua yang terlalu cepat sehingga kostum tidak terhapus tanpa sengaja.",
+          "Ikon wardrobe baru.",
+          "Memerlukan Stellar 2.31.0 atau yang lebih baru."
+        ],
+        "fixed": [
+          "Dipakai kini menandai kostum yang benar saat dua kostum memiliki bagian yang sama tetapi menyembunyikan bagian yang berbeda."
+        ],
         "removed": []
       }
     },
@@ -86,14 +130,25 @@
       "description": "I-save ang mga kasuotang suot mo at lumipat sa pagitan ng mga ito agad gamit ang hotkey o menu, may live na 3D preview.",
       "captions": [
         "Paglipat ng kasuotan sa mundo — kinukumpirma ng laro ang pagbabago gamit ang sarili nitong banner.",
-        "Ang Wardrobe window — mga naka-save na kasuotan na may live na 3D preview ng hinohover."
+        "Ang Wardrobe window — ang mga naka-save mong kasuotan, Isuot na button sa bawat isa, at live na 3D preview kasama ang mga nakatagong piraso at armas ng kasuotan."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Bagong itsura ng Wardrobe window, may Isuot na button sa bawat kasuotan at markang Suot sa kasuotang suot mo.",
+          "Naaalala na ng bawat kasuotan kung aling mga piraso ang itinatago mo (gaya ng sombrero) at ibinabalik iyon kapag isinuot mo ito.",
+          "Ipinapakita ng preview ang bawat kasuotan nang eksakto kung paano ito na-save, kasama ang mga nakatagong piraso, at kaya nitong ipakita ang armas mo gamit ang weapon skin ng kasuotan.",
+          "Ipinapakita ng mga hotkey badge ang key na talagang na-bind mo.",
+          "I-drag ang isang kasuotan para palitan ang puwesto nito sa listahan."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "I-click ang Suot para isuot muli ang parehong kasuotan, halimbawa pagkatapos magpalit ng dye.",
+          "Nagtatanong muna ang Burahin at Palitan, at hindi pinapansin ang masyadong mabilis na pangalawang click para hindi aksidenteng mabura ang isang kasuotan.",
+          "Bagong icon ng wardrobe.",
+          "Kailangan ng Stellar 2.31.0 o mas bago."
+        ],
+        "fixed": [
+          "Tamang kasuotan na ang minamarkahan ng Suot kapag may dalawang kasuotang pareho ang mga piraso pero magkaiba ang itinatago."
+        ],
         "removed": []
       }
     },
@@ -102,21 +157,32 @@
       "description": "입고 있는 의상을 저장하고 단축키나 메뉴로 즉시 전환하세요, 실시간 3D 미리보기와 함께.",
       "captions": [
         "월드에서 의상 전환하기 — 게임이 자체 배너로 변경을 확인해 줍니다.",
-        "옷장 창 — 호버한 의상의 실시간 3D 미리보기와 함께 저장된 의상들."
+        "옷장 창 — 저장한 의상, 각 의상의 착용 버튼, 그리고 의상의 숨긴 부위와 무기까지 보여 주는 실시간 3D 미리보기."
       ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "옷장 창이 새롭게 바뀌었습니다. 모든 의상에 착용 버튼이 있고, 지금 입고 있는 의상에는 착용 중 표시가 붙습니다.",
+          "각 의상이 숨긴 부위(모자 등)를 기억하고, 그 의상을 착용할 때 그대로 되돌려 줍니다.",
+          "미리보기가 숨긴 부위까지 포함해 저장한 그대로 의상을 보여 주며, 무기를 의상의 무기 스킨으로 표시할 수도 있습니다.",
+          "단축키 배지에 실제로 지정한 키가 표시됩니다.",
+          "의상을 드래그해 목록에서 위치를 바꿀 수 있습니다."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "착용 중을 클릭하면 같은 의상을 다시 입습니다. 예를 들어 염색을 바꾼 뒤에 쓸 수 있습니다.",
+          "삭제와 교체는 먼저 확인을 요청하고, 너무 빠른 두 번째 클릭은 무시하므로 실수로 의상이 삭제되지 않습니다.",
+          "새로운 옷장 아이콘.",
+          "Stellar 2.31.0 이상이 필요합니다."
+        ],
+        "fixed": [
+          "두 의상의 부위가 같고 숨긴 부위만 다를 때도 착용 중 표시가 올바른 의상에 붙습니다."
+        ],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarWardrobeLoadout.git",
-  "commit": "f187e8c614ce6c64452cb85de9de2dbfe82c95dd",
+  "commit": "5b11fd10bb9af74ef8fd800fc737b73780730dd4",
   "projectPath": ".",
-  "tag": "v1.4.0",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v1.5.0",
+  "capPriorVersionsAt": "2.30.0"
 }
