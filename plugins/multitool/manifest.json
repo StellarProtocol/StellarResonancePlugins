@@ -2,7 +2,7 @@
   "id": "multitool",
   "name": "MultiTool",
   "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, instant NPC dialog, smoother fights by hiding other players' effects, and a screensaver for when you're away.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dll": "Stellar.MultiTool.dll",
   "author": "Stellar",
   "tags": [
@@ -50,7 +50,7 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.28.0",
-  "date": "2026-11-12",
+  "date": "2026-11-17",
   "changelog": {
     "added": [
       "No text animation: NPC conversation text can now appear instantly instead of letter by letter. Find it in Language & Text (the renamed Language Unlock). Off by default.",
@@ -153,7 +153,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMultiToolPlugin.git",
-  "commit": "aeb7679ad5aa7316446a9292b9a8568fcdc43cc2",
+  "commit": "991826cc6e3e3f3ac9231e8c0e21124fe47b0bcf",
   "projectPath": ".",
-  "tag": "v1.1.0"
+  "tag": "v1.2.0"
 }
