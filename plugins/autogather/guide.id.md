@@ -6,12 +6,17 @@ Secara otomatis memanen node sumber daya kehidupan — herba, bijih, kayu, perma
 
 1. Pasang plugin lalu jalankan game dalam mode **Dengan mod**.
 2. Berdirilah di dekat sumber daya yang ingin kamu panen, lalu buka jendela **Kumpul Otomatis** dari overlay Stellar.
-3. Daftar **Jenis Sumber Daya Terdekat** akan terisi sendiri. Klik jenis yang kamu mau — tanda ▶ menandai jenis yang terkunci.
-4. Tekan **Mulai**. Kumpul Otomatis akan berjalan ke tiap node jenis itu dan memanennya, lalu pindah ke node berikutnya. Tekan **Hentikan** kapan saja.
+   Baris di bawah judul menunjukkan apa yang sedang dilakukan, misalnya **Siap · *sumber daya* · 5 di dekat**.
+3. Di bagian **Sumber daya**, klik jenis yang ingin kamu kumpulkan. Tiap baris menunjukkan berapa banyak yang ada di dekat (×5) dan seberapa jauh yang terdekat.
+4. Di bagian **Mode kumpul**, pilih **Normal** atau **Fokus** (Fokus memberi loot lebih langka).
+5. Tekan **Mulai**. Kumpul Otomatis akan berjalan ke tiap node jenis itu dan memanennya, lalu pindah ke node berikutnya. Tekan **Hentikan** kapan saja.
+
+Ia berjalan memutari rintangan dengan sendirinya; jika saat ini tidak ada node jenis yang dipilih yang bisa dijangkau, baris status memberitahumu dan ia segera mencoba lagi.
 
 ## Opsi
 
-- **Mode Fokus** — memakai Fokus untuk hasil panen yang lebih langka dan bernilai tinggi. Sifatnya ketat: begitu Fokus habis, plugin berhenti otomatis alih-alih beralih ke panen biasa.
-- **Tutup otomatis popup hadiah** — menutup popup hadiah harian supaya sesi tanpa pengawasan yang lama tidak terganggu.
+- **Fokus** — memakai Fokus untuk loot yang lebih langka. Pengumpulan berhenti saat Fokus habis. Mode **Normal** tidak memakai Fokus.
+- **Batas Fokus** — di mode Fokus, pengumpulan berhenti setelah Fokus sebanyak ini terpakai sejak kamu menekan Mulai. Geser sampai paling kanan untuk **Tanpa batas**.
+- **Tutup otomatis popup hadiah** (**Aktif** / **Mati**) — menutup popup hadiah harian supaya sesi yang lama tidak terganggu.
 
-Kumpul Otomatis hanya berjalan selagi kamu berada di dunia game, hidup, dan di luar pertarungan.
+Setiap pengaturan punya tombol **?** yang menjelaskannya. Kumpul Otomatis hanya berjalan selagi kamu berada di dunia game, hidup, dan di luar pertarungan.
