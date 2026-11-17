@@ -1,7 +1,8 @@
 # MultiTool
 
 A handful of small quality-of-life tools in one window: mute other players' instruments, auto-accept
-invites from the people you choose, and unlock every language this game client ships.
+invites from the people you choose, unlock every language this game client ships, show NPC dialog
+instantly, hide other players' effects for smoother fights, and turn on a screensaver while you're away.
 
 ![The MultiTool hub](media/hub.png)
 
@@ -49,16 +50,19 @@ Accept invites automatically, but only from the players you list.
   you pick what to accept from them.
 - **By UID**: click **Add player…**, type their UID, press **Look up**, then **Choose this player…**.
 
-## Language Unlock
+## Language & Text
 
 Show every text and voice language this game client contains in the game's
-**Settings › Language**, not just the ones offered in your region.
+**Settings › Language**, not just the ones offered in your region, and make NPC conversation text appear
+instantly.
 
-![Language Unlock](media/language-unlock.png)
+![Language & Text](media/language-text.png)
 
 - **Unlock all text languages** adds every text language to the game's language list.
 - **Unlock extra voice languages** adds the voice languages your client has.
-- Changes take effect after you restart the game. Then pick the language in the game's own settings.
+- Language changes take effect after you restart the game. Then pick the language in the game's own settings.
+- **No text animation** (under **NPC dialog**): NPC conversation lines appear in full right away instead
+  of letter by letter. It works from the next line, no restart needed. Off by default.
 
 ## Performance
 
@@ -88,6 +92,16 @@ Raid and dungeon ground marks always stay visible. Hidden effects are also silen
 
 **Where** picks whether both features work **Everywhere** or only in **Dungeons & raids** (the
 default). Everything starts Off, so turn on what you want.
+
+## Power Saving
+
+Turn on the game's screensaver while you're away. It lowers the frame rate and covers the screen.
+
+![Power Saving](media/power-saving.png)
+
+- **Enter power saving** starts it right away.
+- Your hotkey turns it on and off: **End** by default, changeable in **Settings › Hotkeys**.
+- To leave, press the **Exit** button on the screensaver or your hotkey. It also ends when you log out.
 
 ## Notes
 
