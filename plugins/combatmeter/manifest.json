@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "2.18.0",
+  "version": "3.0.0",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -16,106 +16,234 @@
     {
       "type": "image",
       "file": "media/combat-meter.png",
-      "caption": "Live party DPS/HPS with role colours."
+      "caption": "The meter in Party view: role-coloured rows, the leader tools, and the Pause and Archive buttons in the header."
     },
     {
       "type": "image",
-      "file": "media/skill-breakdown.png",
-      "caption": "Per-skill damage, crit % and uptime."
+      "file": "media/combatmeter-compact.png",
+      "caption": "Compact rows fit each player on one line, so a 20-player raid takes far less space."
+    },
+    {
+      "type": "image",
+      "file": "media/combatmeter-mini.png",
+      "caption": "Mini rows are just the bar with rank, name and numbers, for the smallest meter."
+    },
+    {
+      "type": "image",
+      "file": "media/combatmeter-hub.png",
+      "caption": "The hub on the launcher: show or hide the meter, open Combat History or Settings."
     },
     {
       "type": "image",
       "file": "media/combatmeter-history.png",
-      "caption": "History — damage timeline with navigator and per-source table."
+      "caption": "Combat History: saved runs and their segments, upload status, a damage timeline and a per-player table."
+    },
+    {
+      "type": "image",
+      "file": "media/skill-breakdown.png",
+      "caption": "Skill Breakdown: totals including damage taken, then damage, crit and luck for every skill."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.30.0",
-  "date": "2026-11-12",
+  "minModSystemVersion": "2.33.0",
+  "date": "2026-11-18",
   "changelog": {
-    "added": [],
-    "changed": [
-      "Performance improvements, especially in raids.",
-      "Requires Stellar 2.30.0 or newer."
+    "added": [
+      "Compact and Mini row sizes, set per view, so a raid of 20 takes far less space.",
+      "Row background and Foreground sliders, so you can see more of the game behind the meter.",
+      "A CombatMeter hub on the launcher: show or hide the meter, open Combat History or Settings.",
+      "Icons for every buff and debuff: the skill's icon when an effect comes from a skill, otherwise a category icon. Effects like Physical Immunity can now be tracked.",
+      "A confirmation before clearing, deleting or uploading saved fights.",
+      "Skill Breakdown now shows damage taken, and gives unnamed skills a readable name."
     ],
-    "fixed": [],
-    "removed": []
+    "changed": [
+      "A new look for the meter and every window, matching the other Stellar plugins.",
+      "Settings, Appearance and effect setup are now one Settings window with tabs.",
+      "Pause and Archive are now buttons in the meter header.",
+      "Combat History is wider and shows a loading indicator when you switch DPS/HPS.",
+      "Requires Stellar 2.33.0 or newer."
+    ],
+    "fixed": [
+      "Thai player names on the meter are easy to read."
+    ],
+    "removed": [
+      "The separate Combat History launcher tile. Open it from the hub instead."
+    ]
   },
   "i18n": {
     "ja": {
       "description": "ロールまたはクラスの色分けに対応したリアルタイムパーティDPS/HPSメーター。",
       "captions": [
-        "ロールカラー付きのリアルタイムパーティDPS/HPS。",
-        "スキル別のダメージ、会心率、稼働率。",
-        "履歴 — ナビゲーターとソース別テーブル付きのダメージタイムライン。"
+        "パーティ表示のメーター — ロールカラーの行、リーダー用ツール、ヘッダーの一時停止・アーカイブボタン。",
+        "コンパクト行なら1人1行に収まり、20人のレイドでも場所を大きく取りません。",
+        "ミニ行はバーに順位・名前・数値だけを表示する、いちばん小さなメーターです。",
+        "ランチャーのハブ — メーターの表示/非表示、戦闘履歴や設定を開く。",
+        "戦闘履歴 — 保存したランとセグメント、アップロード状況、ダメージのタイムライン、プレイヤー別テーブル。",
+        "スキル内訳 — 被ダメージを含む合計と、スキルごとのダメージ・会心・幸運。"
       ],
       "changelog": {
+        "added": [
+          "行のサイズに「コンパクト」と「ミニ」を追加しました。表示ごとに設定でき、20人のレイドでも場所を大きく取りません。",
+          "「行の背景」と「前景」のスライダーを追加しました。メーターの後ろのゲーム画面がより見やすくなります。",
+          "ランチャーに CombatMeter のハブを追加しました。メーターの表示/非表示の切り替えや、戦闘履歴・設定を開けます。",
+          "すべてのバフ・デバフにアイコンを表示します。スキルによる効果はそのスキルのアイコン、それ以外はカテゴリのアイコンです。Physical Immunity などの効果も追跡できるようになりました。",
+          "保存した戦闘をクリア・削除・アップロードする前に確認が表示されます。",
+          "スキル内訳に被ダメージが表示され、名前のないスキルにも読みやすい名前が付くようになりました。"
+        ],
         "changed": [
-          "パフォーマンスを改善しました(特にレイド中)。",
-          "Stellar 2.30.0以降が必要です。"
+          "メーターとすべてのウィンドウが、ほかの Stellar プラグインとそろった新しいデザインになりました。",
+          "設定・外観・効果の設定が、タブ付きの1つの設定ウィンドウにまとまりました。",
+          "一時停止とアーカイブがメーターのヘッダーのボタンになりました。",
+          "戦闘履歴のウィンドウが広くなり、DPS/HPS の切り替え時に読み込み中の表示が出るようになりました。",
+          "Stellar 2.33.0以降が必要です。"
+        ],
+        "fixed": [
+          "メーター上のタイ語のプレイヤー名が読みやすくなりました。"
+        ],
+        "removed": [
+          "戦闘履歴専用のランチャータイルを削除しました。ハブから開いてください。"
         ]
       }
     },
     "th": {
       "description": "มิเตอร์ DPS/HPS ของปาร์ตี้แบบเรียลไทม์ พร้อมสีตามบทบาทหรือคลาส",
       "captions": [
-        "DPS/HPS ของปาร์ตี้แบบเรียลไทม์พร้อมสีตามบทบาท",
-        "ดาเมจแยกตามสกิล, คริ % และอัพไทม์",
-        "ประวัติ — ไทม์ไลน์ดาเมจพร้อมตัวนำทางและตารางแยกตามแหล่งที่มา"
+        "มิเตอร์ในมุมมองปาร์ตี้ — แถวสีตามบทบาท เครื่องมือของหัวหน้า และปุ่มหยุดชั่วคราวกับอาร์ไคฟ์ที่ส่วนหัว",
+        "แถวแบบกะทัดรัดแสดงผู้เล่นคนละหนึ่งบรรทัด เรด 20 คนจึงใช้พื้นที่น้อยลงมาก",
+        "แถวแบบมินิเป็นแถบที่มีแค่อันดับ ชื่อ และตัวเลข สำหรับมิเตอร์ที่เล็กที่สุด",
+        "ฮับบนลอนเชอร์ — แสดงหรือซ่อนมิเตอร์ เปิดประวัติการต่อสู้หรือการตั้งค่า",
+        "ประวัติการต่อสู้ — รันที่บันทึกไว้และเซกเมนต์ สถานะการอัปโหลด ไทม์ไลน์ดาเมจ และตารางแยกตามผู้เล่น",
+        "รายละเอียดสกิล — ยอดรวมซึ่งรวมดาเมจที่รับด้วย และดาเมจ คริ และโชคของทุกสกิล"
       ],
       "changelog": {
+        "added": [
+          "ขนาดแถวแบบกะทัดรัดและมินิ ตั้งแยกได้ในแต่ละมุมมอง ทำให้เรด 20 คนใช้พื้นที่น้อยลงมาก",
+          "แถบเลื่อนพื้นหลังแถวและส่วนหน้า ช่วยให้มองเห็นเกมด้านหลังมิเตอร์ได้มากขึ้น",
+          "ฮับ CombatMeter บนลอนเชอร์: แสดงหรือซ่อนมิเตอร์ เปิดประวัติการต่อสู้หรือการตั้งค่า",
+          "ไอคอนสำหรับบัฟและดีบัฟทุกตัว: ใช้ไอคอนของสกิลเมื่อเอฟเฟกต์มาจากสกิล ไม่เช่นนั้นใช้ไอคอนตามหมวดหมู่ ตอนนี้ติดตามเอฟเฟกต์อย่าง Physical Immunity ได้แล้ว",
+          "มีการยืนยันก่อนล้าง ลบ หรืออัปโหลดการต่อสู้ที่บันทึกไว้",
+          "รายละเอียดสกิลแสดงดาเมจที่รับแล้ว และตั้งชื่อที่อ่านเข้าใจได้ให้สกิลที่ไม่มีชื่อ"
+        ],
         "changed": [
-          "ปรับปรุงประสิทธิภาพ โดยเฉพาะในเรด",
-          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
+          "หน้าตาใหม่ของมิเตอร์และทุกหน้าต่าง ให้เข้ากับปลั๊กอิน Stellar อื่น ๆ",
+          "การตั้งค่า รูปลักษณ์ และการตั้งค่าเอฟเฟกต์ รวมเป็นหน้าต่างการตั้งค่าเดียวที่มีแท็บ",
+          "หยุดชั่วคราวและอาร์ไคฟ์กลายเป็นปุ่มบนส่วนหัวของมิเตอร์แล้ว",
+          "ประวัติการต่อสู้กว้างขึ้น และแสดงสถานะกำลังโหลดเมื่อสลับ DPS/HPS",
+          "ต้องใช้ Stellar 2.33.0 ขึ้นไป"
+        ],
+        "fixed": [
+          "ชื่อผู้เล่นภาษาไทยบนมิเตอร์อ่านง่ายแล้ว"
+        ],
+        "removed": [
+          "ไทล์ประวัติการต่อสู้ที่แยกอยู่บนลอนเชอร์ ให้เปิดจากฮับแทน"
         ]
       }
     },
     "id": {
       "description": "Meter DPS/HPS party real-time dengan warna berdasarkan peran atau kelas.",
       "captions": [
-        "DPS/HPS party real-time dengan warna peran.",
-        "Damage per skill, CRIT % dan UPTIME.",
-        "Riwayat — linimasa damage dengan navigator dan tabel per sumber."
+        "Meter di tampilan Party: baris berwarna peran, alat ketua, serta tombol Jeda dan Arsip di header.",
+        "Baris Ringkas memuat tiap pemain dalam satu baris, jadi raid 20 orang memakan jauh lebih sedikit tempat.",
+        "Baris Mini hanya bar berisi peringkat, nama, dan angka, untuk meter paling kecil.",
+        "Hub di launcher: tampilkan atau sembunyikan meter, buka Riwayat Pertempuran atau Pengaturan.",
+        "Riwayat Pertempuran: run tersimpan dan segmennya, status unggahan, linimasa damage, dan tabel per pemain.",
+        "Rincian Skill: total termasuk damage yang diterima, lalu damage, CRIT, dan LUCK tiap skill."
       ],
       "changelog": {
+        "added": [
+          "Ukuran baris Ringkas dan Mini, diatur per tampilan, jadi raid 20 orang memakan jauh lebih sedikit tempat.",
+          "Slider Latar baris dan Latar depan, supaya kamu bisa melihat lebih banyak game di belakang meter.",
+          "Hub CombatMeter di launcher: tampilkan atau sembunyikan meter, buka Riwayat Pertempuran atau Pengaturan.",
+          "Ikon untuk setiap buff dan debuff: ikon skill-nya jika efek berasal dari skill, selain itu ikon kategori. Efek seperti Physical Immunity kini bisa dilacak.",
+          "Konfirmasi sebelum mengosongkan, menghapus, atau mengunggah pertarungan yang tersimpan.",
+          "Rincian Skill kini menampilkan damage yang diterima, dan memberi nama yang mudah dibaca untuk skill tanpa nama."
+        ],
         "changed": [
-          "Peningkatan performa, terutama saat raid.",
-          "Butuh Stellar 2.30.0 atau lebih baru."
+          "Tampilan baru untuk meter dan semua jendela, serasi dengan plugin Stellar lainnya.",
+          "Pengaturan, Tampilan, dan pengaturan efek kini jadi satu jendela Pengaturan dengan tab.",
+          "Jeda dan Arsip kini jadi tombol di header meter.",
+          "Riwayat Pertempuran lebih lebar dan menampilkan indikator memuat saat kamu beralih DPS/HPS.",
+          "Butuh Stellar 2.33.0 atau lebih baru."
+        ],
+        "fixed": [
+          "Nama pemain berhuruf Thai di meter kini mudah dibaca."
+        ],
+        "removed": [
+          "Tile Riwayat Pertempuran terpisah di launcher. Buka dari hub sebagai gantinya."
         ]
       }
     },
     "fil": {
       "description": "Real-time na party DPS/HPS meter na may kulay ayon sa papel o class.",
       "captions": [
-        "Real-time party DPS/HPS na may kulay ayon sa papel.",
-        "Damage kada skill, CRIT % at UPTIME.",
-        "Kasaysayan — timeline ng damage na may navigator at talahanayan kada pinagmulan."
+        "Ang meter sa Party view: mga row na may kulay ayon sa papel, mga tool ng leader, at ang I-pause at I-archive na button sa header.",
+        "Isang linya lang bawat player sa Compact na row, kaya mas kaunti ang espasyong kinukuha ng raid na 20.",
+        "Bar lang ang Mini na row, may rank, pangalan at numero, para sa pinakamaliit na meter.",
+        "Ang hub sa launcher: ipakita o itago ang meter, buksan ang Kasaysayan ng Laban o Mga Setting.",
+        "Kasaysayan ng Laban: mga naka-save na run at segment nila, status ng upload, timeline ng damage at talahanayan kada player.",
+        "Detalye ng Skill: mga kabuuan kasama ang natanggap na damage, at ang damage, CRIT at LUCK ng bawat skill."
       ],
       "changelog": {
+        "added": [
+          "Compact at Mini na laki ng row, nakatakda kada view, kaya mas kaunti ang espasyong kinukuha ng raid na 20.",
+          "Mga slider na Background ng row at Foreground, para mas makita mo ang laro sa likod ng meter.",
+          "Isang CombatMeter hub sa launcher: ipakita o itago ang meter, buksan ang Kasaysayan ng Laban o Mga Setting.",
+          "Mga icon para sa bawat buff at debuff: ang icon ng skill kapag galing sa skill ang effect, kung hindi ay icon ng kategorya. Puwede na ring i-track ang mga effect gaya ng Physical Immunity.",
+          "May kumpirmasyon bago burahin lahat, burahin, o i-upload ang mga naka-save na laban.",
+          "Ipinapakita na ng Detalye ng Skill ang natanggap na damage, at may nababasang pangalan na ang mga skill na walang pangalan."
+        ],
         "changed": [
-          "Mga pagpapabuti sa performance, lalo na sa mga raid.",
-          "Kailangan ng Stellar 2.30.0 o mas bago."
+          "Bagong itsura para sa meter at bawat window, kapareho ng ibang Stellar plugin.",
+          "Pinagsama na sa iisang window ng Mga Setting na may mga tab ang settings, itsura at pag-set up ng effect.",
+          "Mga button na sa header ng meter ang I-pause at I-archive.",
+          "Mas malapad na ang Kasaysayan ng Laban at may loading indicator kapag nagpapalit ka ng DPS/HPS.",
+          "Kailangan ng Stellar 2.33.0 o mas bago."
+        ],
+        "fixed": [
+          "Madali nang basahin ang mga Thai na pangalan ng player sa meter."
+        ],
+        "removed": [
+          "Ang hiwalay na tile ng Kasaysayan ng Laban sa launcher. Buksan na lang ito mula sa hub."
         ]
       }
     },
     "ko": {
       "description": "역할 또는 클래스 색상을 지원하는 실시간 파티 DPS/HPS 미터.",
       "captions": [
-        "역할 색상이 적용된 실시간 파티 DPS/HPS.",
-        "스킬별 피해량, 치명타 %, 유지율.",
-        "기록 — 내비게이터와 출처별 표가 있는 피해량 타임라인."
+        "파티 보기의 미터: 역할 색상 행, 파티장 도구, 헤더의 일시정지·보관 버튼.",
+        "컴팩트 행은 한 사람을 한 줄에 담아 20인 레이드도 훨씬 적은 공간을 차지합니다.",
+        "미니 행은 순위·이름·수치만 있는 막대로, 가장 작은 미터입니다.",
+        "런처의 허브: 미터 표시/숨기기, 전투 기록이나 설정 열기.",
+        "전투 기록: 저장된 공략과 구간, 업로드 상태, 피해량 타임라인, 플레이어별 표.",
+        "스킬별 상세: 받은 피해를 포함한 합계와 스킬별 피해량·치명타·행운."
       ],
       "changelog": {
+        "added": [
+          "컴팩트·미니 행 크기를 추가했습니다. 보기마다 따로 정할 수 있어 20인 레이드도 훨씬 적은 공간을 차지합니다.",
+          "행 배경·전경 슬라이더를 추가해 미터 뒤의 게임 화면이 더 잘 보입니다.",
+          "런처에 CombatMeter 허브를 추가했습니다: 미터 표시/숨기기, 전투 기록이나 설정 열기.",
+          "모든 버프와 디버프에 아이콘이 표시됩니다: 스킬에서 온 효과는 그 스킬의 아이콘, 그 밖에는 분류 아이콘입니다. 이제 Physical Immunity 같은 효과도 추적할 수 있습니다.",
+          "저장된 전투를 모두 지우거나, 삭제하거나, 업로드하기 전에 확인 창이 뜹니다.",
+          "스킬별 상세에 받은 피해가 표시되고, 이름 없는 스킬에도 알아보기 쉬운 이름이 붙습니다."
+        ],
         "changed": [
-          "성능이 개선되었습니다(특히 레이드에서).",
-          "Stellar 2.30.0 이상이 필요합니다."
+          "미터와 모든 창이 다른 Stellar 플러그인과 어울리는 새 디자인으로 바뀌었습니다.",
+          "설정, 모양, 효과 설정이 탭이 있는 하나의 설정 창으로 합쳐졌습니다.",
+          "일시정지와 보관이 미터 헤더의 버튼이 되었습니다.",
+          "전투 기록 창이 넓어졌고, DPS/HPS를 전환할 때 로딩 표시가 나타납니다.",
+          "Stellar 2.33.0 이상이 필요합니다."
+        ],
+        "fixed": [
+          "미터의 태국어 플레이어 이름이 잘 읽힙니다."
+        ],
+        "removed": [
+          "별도의 전투 기록 런처 타일을 없앴습니다. 허브에서 열어 주세요."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "5dba71110381e77cc15122028f1282643c8b397b",
+  "commit": "7f70ac9137e09b83e5bd245daa9acfdc7b41322c",
   "projectPath": ".",
-  "tag": "v2.18.0",
-  "capPriorVersionsAt": "2.29.1"
+  "tag": "v3.0.0"
 }
