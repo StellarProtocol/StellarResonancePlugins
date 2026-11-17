@@ -1,14 +1,36 @@
-# Awtomatikong Pangingisda
+# Auto Pangingisda
 
-Ganap na awtomatiko ang minigame ng pangingisda — mula sa paghahagis hanggang sa paghuli — kaya puwede mo itong iwanang tumatakbo nang walang bantay.
+Ganap na awtomatiko ang minigame ng pangingisda — mula sa paghahagis hanggang sa paghuli — kaya
+puwede mo itong iwanang tumatakbo nang walang bantay.
+
+![Window ng Auto Pangingisda](media/autofishing-running.png)
 
 ## Paano gamitin
 
-1. I-install ang plugin at buksan ang laro sa **May mod**.
-2. Pumunta sa isang lugar ng pangingisda na may nakasuot na baras, at buksan ang window ng Awtomatikong Pangingisda mula sa overlay ng Stellar.
-3. I-enable ito. Ang plugin ang maghahagis, maglalaro ng tension minigame, at mangunguha ng huli nang mag-isa, pagkatapos ay magsisimula ulit.
+1. I-install ang plugin at ilunsad ang laro nang **Modded**.
+2. Pumunta sa pangisdaan nang may suot na baras at buksan ang **Auto Pangingisda** mula sa Stellar menu.
+3. Pindutin ang **Simulan**. Kusang naghahagis ang plugin, nilalaro ang tension minigame, at hinihila
+   ang huli, saka uulit. Pindutin ang **Itigil** (o isara ang window) para huminto.
 
-## Mga Opsyon
+## Ang window
 
-- Naaayos ang **Kontrol ng Tensyon** — i-tune kung gaano ka-agresibo maglaro ang plugin sa reel-in minigame.
-- Ang **Awtomatikong Pagpapalit ng Baras** ay lumilipat sa susunod mong baras para hindi maantala ang session ng baras na gasgas na.
+- **Status line** sa ilalim ng pamagat: *Pumunta sa pangisdaan para magsimula*, *Handa*,
+  *Tumatakbo* kasama ang kasalukuyang hakbang, o *Naka-pause* habang nagsasara ng popup. Malabo ang
+  **Simulan** hangga't wala ka sa pangisdaan.
+- Binibilang ng **Sesyon** ang mga nahuling isda, nakawalang isda, at mga barong nagamit mula nang
+  pindutin mo ang Simulan.
+- May maikling mensahe sa ibaba tuwing may nahuli, nakawala, o napalitan ang baras.
+
+## Mga setting
+
+- **Bitawan sa** — habang hinihila, binibitawan ang baras kapag umabot ang tension bar sa halagang
+  ito para hindi maputol ang linya. Mas mababa, mas ligtas pero mas mabagal. Default 25%.
+- **Hilahin sa** — kapag bumaba ang tensyon sa halagang ito, hinahawakan muli ang baras. Dapat mas
+  mababa sa Bitawan sa. Default 8%.
+- **Kusang palit ng baras** — isinusuot ang pinakamahusay na baras mula sa bag kapag nasira ang sa iyo
+  o wala kang suot. Kapag naka-off, maghihintay ang pangingisda hanggang ikaw mismo ang magsuot.
+- **Isara ang login popup** — isinasara ang mga popup ng pang-araw-araw na login card at gantimpala
+  kapag lumitaw, saka ipagpapatuloy ang pangingisda pagkalipas ng ilang sandali.
+- Pindutin ang **?** sa tabi ng setting para sa maikling paliwanag.
+
+![Tulong](media/autofishing-help.png)
