@@ -2,7 +2,7 @@
   "id": "loadoutswitcher",
   "name": "LoadoutSwitcher",
   "description": "Hotkey switching of saved in-game loadouts (Role Plans), Deep-Slumber bindings per loadout, and one-click copy of the loadout you're wearing into another slot.",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "dll": "Stellar.LoadoutSwitcher.dll",
   "author": "Stellar",
   "tags": [
@@ -12,19 +12,26 @@
   "media": [
     {
       "type": "image",
+      "file": "media/loadoutswitcher-window.png",
+      "caption": "The Loadout Switcher window: restore on/off, your loadouts with their bound factors, and Bind current / Copy here."
+    },
+    {
+      "type": "image",
       "file": "media/loadoutswitcher-hotkeys.png",
       "caption": "Stellar Settings — Hotkeys: the Apply Loadout 1–10 hotkeys (1–8 bound to the keypad here)."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.33.0",
+  "date": "2026-11-18",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "Help is now behind the ? buttons instead of long text in the window."
     ],
     "changed": [
-      "The hotkey that opens the window now names it clearly in Settings."
+      "Redesigned window: a status line at the top, a clear On/Off switch for restoring factors, and tidier loadout rows with Bind current, Copy here and ✕ to remove a binding (needs Stellar 2.33.0).",
+      "Restoring factors on a loadout switch now only runs in Season 3. On any other season it stays off and tells you, and your bindings are kept.",
+      "Copying a loadout now asks “Overwrite … with …?” right in the row, with Overwrite and Cancel buttons."
     ],
     "fixed": [],
     "removed": []
@@ -34,14 +41,17 @@
       "name": "ロードアウトスイッチャー",
       "description": "保存済みのゲーム内ロードアウト（ロールプラン）をホットキーで切り替え、ロードアウトごとにDeep-Slumberをバインドし、今装備しているロードアウトをワンクリックで別のスロットにコピーします。",
       "captions": [
+        "ロードアウトスイッチャーのウィンドウ：復元のオン/オフ、バインドした要素つきのロードアウト一覧、「現在をバインド」/「ここにコピー」。",
         "Stellar 設定 — ホットキー: ロードアウト1〜10を適用のホットキー（ここでは1〜8をテンキーに割り当て済み）。"
       ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+          "ヘルプはウィンドウ内の長い説明文ではなく、? ボタンから見られるようになりました。"
         ],
         "changed": [
-          "ウィンドウを開くホットキーの名前が、設定で分かりやすく表示されるようになりました。"
+          "ウィンドウを刷新：上部にステータス行、要素の復元をはっきり切り替えるオン/オフスイッチ、そして「現在をバインド」「ここにコピー」とバインドを外す ✕ を備えた見やすいロードアウト行（Stellar 2.33.0 が必要）。",
+          "ロードアウト切り替え時の要素の復元は、シーズン3でのみ動作するようになりました。それ以外のシーズンではオフのままでその旨を表示し、バインドは保持されます。",
+          "ロードアウトのコピー時に、行の中で「…を…で上書きしますか？」と確認し、「上書き」と「キャンセル」ボタンが表示されるようになりました。"
         ],
         "fixed": [],
         "removed": []
@@ -50,14 +60,17 @@
     "th": {
       "description": "สลับโหลดเอาต์ในเกมที่บันทึกไว้ (Role Plans) ด้วยปุ่มลัด ผูก Deep-Slumber ต่อโหลดเอาต์แต่ละตัว และคัดลอกโหลดเอาต์ที่คุณสวมอยู่ไปยังช่องอื่นได้ในคลิกเดียว",
       "captions": [
+        "หน้าต่าง Loadout Switcher: เปิด/ปิดการกู้คืน โหลดเอาต์ของคุณพร้อมปัจจัยที่ผูกไว้ และปุ่ม ผูกชุดนี้ / คัดลอกมา",
         "การตั้งค่า Stellar — ปุ่มลัด: ปุ่มลัดใช้โหลดเอาต์ 1–10 (ในภาพนี้ผูก 1–8 ไว้กับคีย์แพด)"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "วิธีใช้ย้ายไปอยู่หลังปุ่ม ? แทนข้อความยาว ๆ ในหน้าต่าง"
         ],
         "changed": [
-          "ชื่อปุ่มลัดที่ใช้เปิดหน้าต่างตอนนี้แสดงอย่างชัดเจนในหน้าตั้งค่าแล้ว"
+          "ออกแบบหน้าต่างใหม่: มีบรรทัดสถานะด้านบน สวิตช์ เปิด/ปิด การกู้คืนปัจจัยที่ชัดเจน และแถวโหลดเอาต์ที่เป็นระเบียบขึ้นพร้อมปุ่ม ผูกชุดนี้ คัดลอกมา และ ✕ สำหรับลบการผูก (ต้องมี Stellar 2.33.0)",
+          "การกู้คืนปัจจัยเมื่อสลับโหลดเอาต์ตอนนี้ทำงานเฉพาะในซีซั่น 3 ในซีซั่นอื่นจะปิดไว้และแจ้งให้คุณทราบ โดยการผูกของคุณยังถูกเก็บไว้",
+          "การคัดลอกโหลดเอาต์ตอนนี้จะถาม “เขียนทับ … ด้วย …?” ในแถวนั้นเลย พร้อมปุ่ม เขียนทับ และ ยกเลิก"
         ],
         "fixed": [],
         "removed": []
@@ -66,14 +79,17 @@
     "id": {
       "description": "Beralih antar loadout tersimpan dengan hotkey (Role Plans), ikatan Deep-Slumber per loadout, dan menyalin loadout yang sedang kamu pakai ke slot lain dengan satu klik.",
       "captions": [
+        "Jendela Loadout Switcher: pemulihan nyala/mati, loadout-mu beserta faktor terikatnya, dan Ikat ini / Salin kemari.",
         "Pengaturan Stellar — Hotkey: hotkey Terapkan Loadout 1–10 (1–8 diikat ke keypad di sini)."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Bantuan kini ada di balik tombol ? alih-alih teks panjang di jendela."
         ],
         "changed": [
-          "Nama hotkey yang membuka jendela ini kini ditampilkan dengan jelas di Pengaturan."
+          "Jendela didesain ulang: baris status di atas, sakelar Nyala/Mati yang jelas untuk memulihkan faktor, dan baris loadout yang lebih rapi dengan Ikat ini, Salin kemari, dan ✕ untuk menghapus ikatan (perlu Stellar 2.33.0).",
+          "Pemulihan faktor saat beralih loadout kini hanya berjalan di Season 3. Di season lain fitur ini tetap mati dan memberi tahu kamu, dan ikatanmu tetap tersimpan.",
+          "Menyalin loadout kini bertanya “Timpa … dengan …?” langsung di barisnya, dengan tombol Timpa dan Batal."
         ],
         "fixed": [],
         "removed": []
@@ -82,14 +98,17 @@
     "fil": {
       "description": "Hotkey switching ng mga naka-save na in-game loadout (Role Plans), Deep-Slumber bindings kada loadout, at one-click na pagkopya ng loadout na suot mo papunta sa ibang slot.",
       "captions": [
+        "Ang window ng Loadout Switcher: bukas/sarado ang restore, ang mga loadout mo kasama ang naka-bind na factors, at I-bind ito / Kopya rito.",
         "Mga Setting ng Stellar — Mga Hotkey: ang mga hotkey na Ilapat ang Loadout 1–10 (1–8 naka-bind sa keypad dito)."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Nasa likod na ng mga ? button ang tulong sa halip na mahabang text sa window."
         ],
         "changed": [
-          "Ang pangalan ng hotkey na nagbubukas ng window ay malinaw na nang ipinapakita sa Settings."
+          "Bagong disenyo ang window: may status line sa itaas, malinaw na Bukas/Sarado na switch para sa pag-restore ng factors, at mas maayos na mga row ng loadout na may I-bind ito, Kopya rito at ✕ para tanggalin ang binding (kailangan ng Stellar 2.33.0).",
+          "Ang pag-restore ng factors kapag naglipat ng loadout ay gumagana na lang sa Season 3. Sa ibang season, naka-off ito at sasabihin sa iyo, at nakatabi pa rin ang bindings mo.",
+          "Kapag kinokopya ang isang loadout, nagtatanong na ito ng “I-overwrite ang … gamit ang …?” mismo sa row, kasama ang mga button na Palitan at I-cancel."
         ],
         "fixed": [],
         "removed": []
@@ -99,14 +118,17 @@
       "name": "로드아웃 전환",
       "description": "저장된 인게임 로드아웃(역할 플랜)을 단축키로 전환하고, 로드아웃별 Deep-Slumber 바인딩을 설정하며, 지금 착용 중인 로드아웃을 다른 슬롯에 원클릭으로 복사합니다.",
       "captions": [
+        "로드아웃 전환 창: 복원 켬/끔, 바인딩된 환영 요소가 있는 로드아웃 목록, 현재 바인드 / 여기에 복사.",
         "Stellar 설정 — 단축키: 로드아웃 1–10 적용 단축키(여기서는 1–8이 키패드에 지정됨)."
       ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "도움말은 이제 창 안의 긴 설명 대신 ? 버튼에서 볼 수 있습니다."
         ],
         "changed": [
-          "창을 여는 단축키 이름이 이제 설정에서 명확하게 표시됩니다."
+          "창을 새로 디자인했습니다: 상단 상태 줄, 환영 요소 복원을 위한 명확한 켬/끔 스위치, 그리고 현재 바인드·여기에 복사·바인딩을 지우는 ✕ 버튼이 있는 깔끔해진 로드아웃 행 (Stellar 2.33.0 필요).",
+          "로드아웃 전환 시 환영 요소 복원은 이제 시즌 3에서만 작동합니다. 다른 시즌에서는 꺼진 상태로 유지되며 이를 알려 주고, 바인딩은 그대로 보존됩니다.",
+          "로드아웃을 복사할 때 이제 해당 행에서 바로 “…을(를) …(으)로 덮어쓰시겠습니까?”라고 묻고, 덮어쓰기와 취소 버튼을 보여 줍니다."
         ],
         "fixed": [],
         "removed": []
@@ -114,8 +136,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarLoadoutSwitcherPlugin.git",
-  "commit": "702fa42ff0c059e20e8a8852b688c645ffcb1035",
+  "commit": "336351d274117bf57ee81713220ed204e172a39f",
   "projectPath": ".",
-  "tag": "v2.9.0",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v2.10.0",
+  "capPriorVersionsAt": "2.32.0"
 }
