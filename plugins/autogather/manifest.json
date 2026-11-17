@@ -2,7 +2,7 @@
   "id": "autogather",
   "name": "Auto Gather",
   "description": "Automatically harvests nearby life-resource nodes — pick a resource type and it walks to and gathers every node of that type, with an optional Focus mode.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dll": "Stellar.AutoGather.dll",
   "author": "Stellar",
   "tags": [
@@ -14,41 +14,57 @@
     {
       "type": "image",
       "file": "media/auto-gather.png",
-      "caption": "Pick a resource type from the nearby list, then press Start."
+      "caption": "Pick a resource from the nearby list, choose Normal or Focus, then press Start."
     },
     {
       "type": "image",
       "file": "media/gathering.png",
-      "caption": "Auto-Gather farming an ore vein — it walks to and harvests every node of the locked type on its own."
+      "caption": "Auto-Gather farming an ore vein — it walks to and harvests every node of the chosen type on its own."
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.30.0",
+  "date": "2026-11-17",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "A redesigned Auto-Gather window in the new Stellar look: the resource list shows how many of each type are nearby and how far away, a Normal/Focus switch, and ? tips that explain each setting.",
+      "A Focus limit slider — a Focus run stops on its own after spending the amount of Focus you choose.",
+      "When no node of the chosen type can be reached right now, the status line tells you and Auto-Gather tries again shortly."
     ],
-    "changed": [],
-    "fixed": [],
+    "changed": [
+      "Sharper icon at every size.",
+      "Requires Stellar 2.30.0 or newer."
+    ],
+    "fixed": [
+      "Gathering no longer stops early or skips reachable nodes in Everfall Forest, Duskdye Woods and Bahamar Highlands — your character now finds its way to nodes it used to give up on, such as Luna Pure Ore."
+    ],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoGather.git",
   "commit": "9b7bccaf133400bfe0fef19ba92cd06afb81b174",
   "projectPath": ".",
   "tag": "v1.1.0",
-  "capPriorVersionsAt": "2.20.0",
+  "capPriorVersionsAt": "2.29.1",
   "i18n": {
     "ja": {
       "name": "自動採取",
       "description": "付近の生活資源の採取ポイントを自動で収穫します — 資源タイプを選ぶと、その種類のポイントまで自動で移動して採取します。集中モードもオプションで使えます。",
       "captions": [
-        "付近のリストから資源タイプを選び、開始を押してください。",
-        "鉱脈を自動で採取する自動採取 — ロックしたタイプのポイントまで自動で移動し、すべて採取します。"
+        "付近のリストから資源を選び、通常か集中を選んで、開始を押してください。",
+        "鉱脈を自動で採取する自動採取 — 選んだ種類のポイントまで自動で移動し、すべて採取します。"
       ],
       "changelog": {
         "added": [
-          "韓国語(한국어)に対応 — Stellar 設定 → テーマ → 言語で「한국어」を選択してください(Stellar 2.21.0 が必要)。"
+          "Stellar の新しいデザインになった自動採取ウィンドウ：資源リストに付近の数と距離を表示、通常／集中の切り替え、各設定を説明する ? ヒント。",
+          "「集中力の上限」スライダー — 集中モードでは、選んだ量の集中力を使うと自動で停止します。",
+          "選んだ種類のポイントに今たどり着けないときは状態表示でお知らせし、少し待ってから再試行します。"
+        ],
+        "changed": [
+          "アイコンがどのサイズでもくっきり表示されるようになりました。",
+          "Stellar 2.30.0 以降が必要です。"
+        ],
+        "fixed": [
+          "雨止まぬ森、花明かりの森、バハマール高原で、採取が途中で止まったり、たどり着けるポイントを飛ばしたりしなくなりました — Luna Pure Ore など、以前はあきらめていたポイントにもキャラクターが道を見つけて向かいます。"
         ]
       }
     },
@@ -56,12 +72,21 @@
       "name": "เก็บเกี่ยวอัตโนมัติ",
       "description": "เก็บเกี่ยวจุดทรัพยากรชีวิตที่อยู่ใกล้เคียงโดยอัตโนมัติ — เลือกประเภททรัพยากรแล้วมันจะเดินไปเก็บทุกจุดของประเภทนั้นให้เอง พร้อมโหมดสมาธิเป็นตัวเลือกเสริม",
       "captions": [
-        "เลือกประเภททรัพยากรจากรายการใกล้เคียง แล้วกดเริ่ม",
-        "เก็บเกี่ยวอัตโนมัติกำลังทำฟาร์มสายแร่ — มันเดินไปเก็บเกี่ยวทุกจุดของประเภทที่ล็อกไว้ให้เองโดยอัตโนมัติ"
+        "เลือกทรัพยากรจากรายการใกล้เคียง เลือกปกติหรือสมาธิ แล้วกดเริ่ม",
+        "เก็บเกี่ยวอัตโนมัติกำลังทำฟาร์มสายแร่ — มันเดินไปเก็บเกี่ยวทุกจุดของประเภทที่เลือกไว้ให้เองโดยอัตโนมัติ"
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ การตั้งค่า Stellar → ธีม → ภาษา (ต้องใช้ Stellar 2.21.0)"
+          "หน้าต่างเก็บเกี่ยวอัตโนมัติโฉมใหม่ในสไตล์ Stellar: รายการทรัพยากรแสดงจำนวนที่อยู่ใกล้และระยะทาง มีตัวสลับปกติ/สมาธิ และปุ่ม ? อธิบายการตั้งค่าแต่ละอย่าง",
+          "แถบเลื่อน “ขีดจำกัดสมาธิ” — การเก็บในโหมดสมาธิจะหยุดเองเมื่อใช้สมาธิครบตามจำนวนที่คุณเลือก",
+          "เมื่อตอนนี้ไปถึงจุดของประเภทที่เลือกไม่ได้ บรรทัดสถานะจะแจ้งให้ทราบ และจะลองใหม่อีกครั้งในไม่ช้า"
+        ],
+        "changed": [
+          "ไอคอนคมชัดขึ้นในทุกขนาด",
+          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
+        ],
+        "fixed": [
+          "ใน Everfall Forest, Duskdye Woods และ Bahamar Highlands การเก็บเกี่ยวจะไม่หยุดกลางคันหรือข้ามจุดที่ไปถึงได้อีกแล้ว — ตัวละครหาทางไปยังจุดที่เคยยอมแพ้ได้แล้ว เช่น Luna Pure Ore"
         ]
       }
     },
@@ -69,12 +94,21 @@
       "name": "Kumpul Otomatis",
       "description": "Secara otomatis memanen node sumber daya kehidupan di sekitar — pilih jenis sumber daya dan plugin akan berjalan ke serta memanen setiap node jenis itu, dengan Mode Fokus opsional.",
       "captions": [
-        "Pilih jenis sumber daya dari daftar terdekat, lalu tekan Mulai.",
-        "Kumpul Otomatis memanen urat bijih — ia berjalan ke dan memanen setiap node dari jenis yang terkunci dengan sendirinya."
+        "Pilih sumber daya dari daftar terdekat, pilih Normal atau Fokus, lalu tekan Mulai.",
+        "Kumpul Otomatis memanen urat bijih — ia berjalan ke dan memanen setiap node dari jenis yang dipilih dengan sendirinya."
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan Stellar → Tema → Bahasa (membutuhkan Stellar 2.21.0)."
+          "Jendela Kumpul Otomatis didesain ulang dengan tampilan Stellar yang baru: daftar sumber daya menampilkan jumlah di dekat dan jaraknya, pilihan Normal/Fokus, dan tips ? yang menjelaskan tiap pengaturan.",
+          "Penggeser “Batas Fokus” — sesi Fokus berhenti sendiri setelah memakai jumlah Fokus yang kamu pilih.",
+          "Jika saat ini tidak ada node dari jenis yang dipilih yang bisa dijangkau, baris status memberitahumu dan Kumpul Otomatis segera mencoba lagi."
+        ],
+        "changed": [
+          "Ikon lebih tajam di semua ukuran.",
+          "Membutuhkan Stellar 2.30.0 atau lebih baru."
+        ],
+        "fixed": [
+          "Di Everfall Forest, Duskdye Woods, dan Bahamar Highlands, pengumpulan tidak lagi berhenti di tengah jalan atau melewatkan node yang bisa dijangkau — karaktermu kini menemukan jalan ke node yang dulu ditinggalkan, seperti Luna Pure Ore."
         ]
       }
     },
@@ -82,12 +116,21 @@
       "name": "Awtomatikong Pag-ani",
       "description": "Awtomatikong inaani ang mga malapit na life-resource node — pumili ng uri ng resource at ito ay lalakad papunta at mag-aani ng bawat node ng uring iyon, may opsyonal na Focus mode.",
       "captions": [
-        "Pumili ng uri ng resource mula sa listahan ng malapit, pagkatapos ay pindutin ang Simulan.",
-        "Ang Awtomatikong Pag-ani ay nagfa-farm ng ugat ng mineral — lumalakad ito papunta at nag-aani ng bawat node ng naka-lock na uri nang mag-isa."
+        "Pumili ng resource mula sa listahan ng malapit, piliin ang Normal o Focus, pagkatapos ay pindutin ang Simulan.",
+        "Ang Awtomatikong Pag-ani ay nagfa-farm ng ugat ng mineral — lumalakad ito papunta at nag-aani ng bawat node ng napiling uri nang mag-isa."
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting ng Stellar → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Bagong disenyo ng window ng Awtomatikong Pag-ani sa bagong itsura ng Stellar: ipinapakita ng listahan ng resource kung ilan ang malapit at gaano kalayo, may pagpipiliang Normal/Focus, at may mga ? na tip na nagpapaliwanag sa bawat setting.",
+          "Slider na “Limit ng Focus” — kusang humihinto ang pag-ani sa Focus pagkatapos magamit ang dami ng Focus na pinili mo.",
+          "Kapag walang maabot na node ng napiling uri sa ngayon, sinasabi ito ng status line at susubukan ulit maya-maya."
+        ],
+        "changed": [
+          "Mas malinaw ang icon sa bawat laki.",
+          "Kailangan ng Stellar 2.30.0 o mas bago."
+        ],
+        "fixed": [
+          "Sa Everfall Forest, Duskdye Woods at Bahamar Highlands, hindi na humihinto nang maaga ang pag-ani o lumalaktaw sa mga node na naaabot — nahahanap na ng karakter mo ang daan papunta sa mga node na dati nitong sinusukuan, gaya ng Luna Pure Ore."
         ]
       }
     },
@@ -95,12 +138,21 @@
       "name": "자동 채집",
       "description": "근처의 생활 자원 채집물을 자동으로 채집합니다 — 자원 종류를 고르면 그 종류의 채집물까지 걸어가 전부 채집합니다. 집중 모드도 선택적으로 사용할 수 있습니다.",
       "captions": [
-        "근처 목록에서 자원 종류를 고른 다음 시작을 누르세요.",
-        "자동 채집이 광맥을 파밍하는 모습 — 고정한 종류의 채집물마다 스스로 걸어가 모두 채집합니다."
+        "근처 목록에서 자원을 고르고 일반 또는 집중을 선택한 다음 시작을 누르세요.",
+        "자동 채집이 광맥을 파밍하는 모습 — 선택한 종류의 채집물마다 스스로 걸어가 모두 채집합니다."
       ],
       "changelog": {
         "added": [
-          "한국어 지원 추가 — Stellar 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "새로운 Stellar 디자인으로 바뀐 자동 채집 창: 자원 목록에 근처 개수와 거리 표시, 일반/집중 전환, 각 설정을 설명하는 ? 도움말.",
+          "“집중력 한도” 슬라이더 — 집중 모드 채집이 선택한 만큼 집중력을 쓰면 자동으로 멈춥니다.",
+          "선택한 종류의 채집물에 지금 갈 수 없으면 상태 줄에 알려 주고 잠시 후 다시 시도합니다."
+        ],
+        "changed": [
+          "모든 크기에서 아이콘이 더 선명해졌습니다.",
+          "Stellar 2.30.0 이상이 필요합니다."
+        ],
+        "fixed": [
+          "Everfall Forest, Duskdye Woods, Bahamar Highlands에서 채집이 도중에 멈추거나 갈 수 있는 채집물을 건너뛰지 않습니다 — 예전에는 포기하던 Luna Pure Ore 같은 채집물까지 캐릭터가 길을 찾아갑니다."
         ]
       }
     }
