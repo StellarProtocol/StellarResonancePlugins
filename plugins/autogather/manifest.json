@@ -41,9 +41,9 @@
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoGather.git",
-  "commit": "9b7bccaf133400bfe0fef19ba92cd06afb81b174",
+  "commit": "b8dccaf5f18f6affb3e0119e0eed92e2c9a4af10",
   "projectPath": ".",
-  "tag": "v1.1.0",
+  "tag": "v1.2.0",
   "capPriorVersionsAt": "2.29.1",
   "i18n": {
     "ja": {
