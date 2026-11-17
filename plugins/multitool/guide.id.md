@@ -1,7 +1,8 @@
 # MultiTool
 
 Beberapa alat kecil yang bikin main lebih nyaman, dalam satu jendela: bisukan instrumen pemain lain, terima undangan
-secara otomatis dari orang yang kamu pilih, dan buka semua bahasa yang ada di klien game ini.
+secara otomatis dari orang yang kamu pilih, buka semua bahasa yang ada di klien game ini, tampilkan dialog NPC
+seketika, pertarungan lebih mulus, dan screensaver saat kamu sedang AFK.
 
 ![Hub MultiTool](media/hub.png)
 
@@ -54,16 +55,18 @@ Terima undangan secara otomatis, tapi hanya dari pemain yang ada di daftarmu.
 - **By UID** (Lewat UID): klik **Add player…** (Tambah pemain), ketik UID-nya, tekan **Look up** (Cari), lalu
   **Choose this player…** (Pilih pemain ini).
 
-## Language Unlock (Buka bahasa)
+## Language & Text (Bahasa & teks)
 
 Tampilkan semua bahasa teks dan suara yang ada di klien game ini di **Pengaturan › Bahasa** milik game, bukan hanya
-yang tersedia di wilayahmu.
+yang tersedia di wilayahmu, dan buat teks percakapan NPC langsung muncul.
 
-![Language Unlock (Buka bahasa)](media/language-unlock.png)
+![Language & Text (Bahasa & teks)](media/language-text.png)
 
 - **Unlock all text languages** (Buka semua bahasa teks) menambahkan semua bahasa teks ke daftar bahasa game.
 - **Unlock extra voice languages** (Buka bahasa suara tambahan) menambahkan bahasa suara yang ada di klienmu.
-- Perubahan berlaku setelah game dimulai ulang. Setelah itu, pilih bahasanya di pengaturan game itu sendiri.
+- Perubahan bahasa berlaku setelah game dimulai ulang. Setelah itu, pilih bahasanya di pengaturan game itu sendiri.
+- **No text animation** (Tanpa animasi teks, di bagian **NPC dialog**): kalimat percakapan NPC langsung muncul
+  utuh, bukan huruf demi huruf. Berlaku mulai kalimat berikutnya, tanpa restart. Mati secara default.
 
 ## Performance (Performa)
 
@@ -87,6 +90,16 @@ Penanda lantai raid dan dungeon selalu terlihat. Efek yang disembunyikan juga ta
 **Party list (Daftar party)**: **Reduce party list updates (Kurangi pembaruan daftar party)** menggambar ulang bar HP dan ikon buff di daftar party paling banyak **10** atau **5** kali per detik. Paling terasa di raid. Bar HP bisa telat sampai 0,1 detik (atau 0,2 detik di 5 / sec), dan ikon buff tetap tampil.
 
 **Where (Di mana)** memilih apakah kedua fitur bekerja **Everywhere (Di mana saja)** atau hanya di **Dungeons & raids (Dungeon dan raid, bawaan)**. Semuanya mulai dalam keadaan Off, jadi nyalakan yang kamu mau.
+
+## Power Saving (Hemat daya)
+
+Nyalakan screensaver game saat kamu sedang AFK. Frame rate diturunkan dan layar ditutupi.
+
+![Power Saving (Hemat daya)](media/power-saving.png)
+
+- **Enter power saving** (Masuk hemat daya) langsung memulainya.
+- Hotkey-mu menyalakan dan mematikannya: **End** secara default, bisa diganti di **Settings › Hotkeys**.
+- Untuk keluar, tekan tombol **Exit** di screensaver atau hotkey-mu. Juga berakhir saat kamu logout.
 
 ## Catatan
 

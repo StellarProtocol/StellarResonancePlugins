@@ -1,7 +1,7 @@
 {
   "id": "multitool",
   "name": "MultiTool",
-  "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, and smoother fights by hiding other players' effects.",
+  "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, instant NPC dialog, smoother fights by hiding other players' effects, and a screensaver for when you're away.",
   "version": "1.1.0",
   "dll": "Stellar.MultiTool.dll",
   "author": "Stellar",
@@ -34,13 +34,18 @@
     },
     {
       "type": "image",
-      "file": "media/language-unlock.png",
-      "caption": "Language Unlock: every text and voice language your client has."
+      "file": "media/language-text.png",
+      "caption": "Language & Text: every text and voice language your client has, plus instant NPC dialog."
     },
     {
       "type": "image",
       "file": "media/performance.png",
       "caption": "Performance: hide other players' effects and lighten the party list for smoother raids."
+    },
+    {
+      "type": "image",
+      "file": "media/power-saving.png",
+      "caption": "Power Saving: the game's screensaver, from the hub or your hotkey."
     }
   ],
   "guide": "guide.md",
@@ -48,107 +53,101 @@
   "date": "2026-11-12",
   "changelog": {
     "added": [
-      "New Performance tool for smoother fights: hide other players' skill effects (with separate switches for their pets, heals and effects on you), and update the party list less often in raids. Raid ground marks always stay visible. Everything starts off."
+      "No text animation: NPC conversation text can now appear instantly instead of letter by letter. Find it in Language & Text (the renamed Language Unlock). Off by default.",
+      "New Power Saving tool: turn on the game's screensaver while you're away to lower the frame rate. Leave with its Exit button or your hotkey (End by default)."
     ],
-    "changed": [
-      "Refreshed look that follows your theme and window opacity."
-    ],
+    "changed": [],
     "fixed": [],
     "removed": []
   },
   "i18n": {
     "ja": {
-      "description": "ちょっと便利な小さなツール集：他のプレイヤーの楽器をミュート、選んだ相手からの招待を自動承認、すべての言語を解放、他のプレイヤーのエフェクトを隠して戦闘を軽く。",
+      "description": "ちょっと便利な小さなツール集：他のプレイヤーの楽器をミュート、選んだ相手からの招待を自動承認、すべての言語を解放、NPCの会話をすぐに表示、他のプレイヤーのエフェクトを隠して戦闘を軽く、離席中のスクリーンセーバー。",
       "captions": [
         "すべてのツールを1つのハブに。各カードに今の状態が表示されます。",
         "Mute Instruments（楽器ミュート）：選んだ演奏者だけ、またはリスト以外の全員をミュート。",
         "Auto-Accept Invites（招待の自動承認）：リストのプレイヤーからのパーティ招待とソーシャル招待を承認。",
         "UIDで、または名刺から直接プレイヤーを追加。",
-        "Language Unlock（言語の解放）：クライアントに入っているすべてのテキスト言語と音声言語。",
-        "Performance（パフォーマンス）：他のプレイヤーのエフェクトを隠し、パーティリストを軽くしてレイドをなめらかに。"
+        "Language & Text（言語とテキスト）：クライアントに入っているすべてのテキスト言語と音声言語、そしてNPCの会話をすぐに表示。",
+        "Performance（パフォーマンス）：他のプレイヤーのエフェクトを隠し、パーティリストを軽くしてレイドをなめらかに。",
+        "Power Saving（省電力）：ゲームのスクリーンセーバーを、ハブまたはホットキーから。"
       ],
       "changelog": {
         "added": [
-          "戦闘を軽くする新ツール「Performance」：他のプレイヤーのスキルエフェクトを隠せます（ペット、回復、自分にかかるエフェクトは個別に切り替え可能）。レイドではパーティリストの更新回数も減らせます。レイドの床マーカーは常に表示されます。最初はすべてOffです。"
-        ],
-        "changed": [
-          "テーマとウィンドウの透明度に合わせた新しい見た目になりました。"
+          "No text animation（テキストアニメーションなし）：NPCの会話文を1文字ずつではなく、すぐに表示できるようになりました。Language & Text（Language Unlock から名前が変わりました）にあります。最初はOffです。",
+          "新ツール Power Saving（省電力）：離席中にゲームのスクリーンセーバーをオンにして、フレームレートを下げます。Exit ボタンかホットキー（初期設定は End）で終了します。"
         ]
       }
     },
     "th": {
-      "description": "เครื่องมือเล็ก ๆ ที่ช่วยให้เล่นสะดวกขึ้น: ปิดเสียงเครื่องดนตรีของผู้เล่นคนอื่น ตอบรับคำเชิญอัตโนมัติจากผู้เล่นที่เลือก ปลดล็อกทุกภาษา และต่อสู้ลื่นขึ้นด้วยการซ่อนเอฟเฟกต์ของผู้เล่นคนอื่น",
+      "description": "เครื่องมือเล็ก ๆ ที่ช่วยให้เล่นสะดวกขึ้น: ปิดเสียงเครื่องดนตรีของผู้เล่นคนอื่น ตอบรับคำเชิญอัตโนมัติจากผู้เล่นที่เลือก ปลดล็อกทุกภาษา แสดงบทสนทนา NPC ทันที ต่อสู้ลื่นขึ้นด้วยการซ่อนเอฟเฟกต์ของผู้เล่นคนอื่น และสกรีนเซฟเวอร์ตอนที่คุณไม่อยู่หน้าจอ",
       "captions": [
         "ทุกเครื่องมือในฮับเดียว การ์ดแต่ละใบแสดงว่ากำลังทำอะไรอยู่ตอนนี้",
         "Mute Instruments (ปิดเสียงเครื่องดนตรี): ปิดเสียงผู้เล่นที่เลือก หรือทุกคนยกเว้นคนในรายชื่อ",
         "Auto-Accept Invites (ตอบรับคำเชิญอัตโนมัติ): คำเชิญปาร์ตี้และคำเชิญโซเชียลจากผู้เล่นในรายชื่อ",
         "เพิ่มผู้เล่นด้วย UID หรือจากนามบัตรของเขาโดยตรง",
-        "Language Unlock (ปลดล็อกภาษา): ทุกภาษาข้อความและภาษาเสียงที่มีในไคลเอนต์ของคุณ",
-        "Performance (ประสิทธิภาพ): ซ่อนเอฟเฟกต์ของผู้เล่นคนอื่นและลดภาระรายชื่อปาร์ตี้ เพื่อให้เรดลื่นขึ้น"
+        "Language & Text (ภาษาและข้อความ): ทุกภาษาข้อความและภาษาเสียงที่มีในไคลเอนต์ของคุณ พร้อมบทสนทนา NPC ที่ขึ้นทันที",
+        "Performance (ประสิทธิภาพ): ซ่อนเอฟเฟกต์ของผู้เล่นคนอื่นและลดภาระรายชื่อปาร์ตี้ เพื่อให้เรดลื่นขึ้น",
+        "Power Saving (ประหยัดพลังงาน): สกรีนเซฟเวอร์ของเกม เปิดได้จากฮับหรือปุ่มลัด"
       ],
       "changelog": {
         "added": [
-          "เครื่องมือใหม่ Performance เพื่อการต่อสู้ที่ลื่นขึ้น: ซ่อนเอฟเฟกต์สกิลของผู้เล่นคนอื่น (แยกสวิตช์สำหรับสัตว์เลี้ยง ฮีล และเอฟเฟกต์ที่ใส่ให้คุณ) และอัปเดตรายชื่อปาร์ตี้น้อยลงในเรด เครื่องหมายบนพื้นในเรดจะแสดงเสมอ ทุกอย่างเริ่มต้นเป็นปิด"
-        ],
-        "changed": [
-          "หน้าตาใหม่ที่เปลี่ยนตามธีมและความทึบของหน้าต่าง"
+          "No text animation (ไม่มีแอนิเมชันข้อความ): ข้อความบทสนทนา NPC ขึ้นมาทันทีได้แล้ว แทนที่จะค่อย ๆ ขึ้นทีละตัวอักษร อยู่ใน Language & Text (ชื่อใหม่ของ Language Unlock) ค่าเริ่มต้นคือปิด",
+          "เครื่องมือใหม่ Power Saving (ประหยัดพลังงาน): เปิดสกรีนเซฟเวอร์ของเกมตอนที่คุณไม่อยู่หน้าจอเพื่อลดเฟรมเรต ออกได้ด้วยปุ่ม Exit หรือปุ่มลัดของคุณ (ค่าเริ่มต้นคือ End)"
         ]
       }
     },
     "id": {
-      "description": "Alat-alat kecil yang bikin main lebih nyaman: bisukan instrumen pemain lain, terima undangan otomatis dari pemain pilihan, buka semua bahasa, dan pertarungan lebih mulus dengan menyembunyikan efek pemain lain.",
+      "description": "Alat-alat kecil yang bikin main lebih nyaman: bisukan instrumen pemain lain, terima undangan otomatis dari pemain pilihan, buka semua bahasa, dialog NPC seketika, pertarungan lebih mulus dengan menyembunyikan efek pemain lain, dan screensaver saat kamu AFK.",
       "captions": [
         "Semua alat dalam satu hub, tiap kartu menunjukkan apa yang sedang dilakukannya.",
         "Mute Instruments (Bisukan instrumen): bisukan pemain pilihan, atau semua orang kecuali daftarmu.",
         "Auto-Accept Invites (Terima undangan otomatis): undangan party dan sosial dari pemain di daftarmu.",
         "Tambahkan pemain lewat UID, atau langsung dari kartu namanya.",
-        "Language Unlock (Buka bahasa): semua bahasa teks dan suara yang ada di klienmu.",
-        "Performance (Performa): sembunyikan efek pemain lain dan ringankan daftar party agar raid lebih mulus."
+        "Language & Text (Bahasa & teks): semua bahasa teks dan suara yang ada di klienmu, plus dialog NPC yang langsung muncul.",
+        "Performance (Performa): sembunyikan efek pemain lain dan ringankan daftar party agar raid lebih mulus.",
+        "Power Saving (Hemat daya): screensaver game, dari hub atau hotkey-mu."
       ],
       "changelog": {
         "added": [
-          "Alat baru Performance untuk pertarungan lebih mulus: sembunyikan efek skill pemain lain (dengan sakelar terpisah untuk pet, heal, dan efek mereka padamu), dan perbarui daftar party lebih jarang di raid. Penanda lantai raid selalu terlihat. Semuanya mulai dalam keadaan mati."
-        ],
-        "changed": [
-          "Tampilan baru yang mengikuti tema dan opasitas jendelamu."
+          "No text animation (Tanpa animasi teks): teks percakapan NPC kini bisa langsung muncul, bukan huruf demi huruf. Ada di Language & Text (nama baru Language Unlock). Mati secara default.",
+          "Alat baru Power Saving (Hemat daya): nyalakan screensaver game saat kamu AFK untuk menurunkan frame rate. Keluar dengan tombol Exit atau hotkey-mu (default End)."
         ]
       }
     },
     "fil": {
-      "description": "Maliliit na tool para gumaan ang laro: i-mute ang mga instrumento ng ibang player, awtomatikong tanggapin ang imbitasyon mula sa mga piniling player, i-unlock ang lahat ng wika, at mas maayos na laban sa pagtatago ng effects ng ibang player.",
+      "description": "Maliliit na tool para gumaan ang laro: i-mute ang mga instrumento ng ibang player, awtomatikong tanggapin ang imbitasyon mula sa mga piniling player, i-unlock ang lahat ng wika, agarang usapan ng NPC, mas maayos na laban sa pagtatago ng effects ng ibang player, at screensaver habang wala ka.",
       "captions": [
         "Lahat ng tool sa iisang hub, ipinapakita ng bawat card kung ano ang ginagawa nito ngayon.",
         "Mute Instruments (I-mute ang mga instrumento): patahimikin ang mga piniling tumutugtog, o lahat maliban sa listahan mo.",
         "Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon): mga imbitasyon sa party at social mula sa mga player sa listahan mo.",
         "Magdagdag ng player gamit ang UID, o diretso mula sa name card niya.",
-        "Language Unlock (Pag-unlock ng wika): lahat ng wika ng text at boses na nasa client mo.",
-        "Performance: itago ang effects ng ibang player at pagaanin ang party list para mas maayos ang raid."
+        "Language & Text (Wika at text): lahat ng wika ng text at boses na nasa client mo, at agarang usapan ng NPC.",
+        "Performance: itago ang effects ng ibang player at pagaanin ang party list para mas maayos ang raid.",
+        "Power Saving (Pagtitipid ng power): ang screensaver ng laro, mula sa hub o sa hotkey mo."
       ],
       "changelog": {
         "added": [
-          "Bagong Performance tool para sa mas maayos na laban: itago ang mga skill effect ng ibang player (may hiwalay na switch para sa pet, heal at effect nila sa iyo), at hindi gaanong madalas na pag-update ng party list sa raid. Laging nakikita ang mga marka sa sahig ng raid. Lahat ay nagsisimulang naka-off."
-        ],
-        "changed": [
-          "Bagong itsura na sumusunod sa theme at window opacity mo."
+          "No text animation (Walang animation ng text): puwede nang lumabas agad ang text ng usapan ng NPC sa halip na isa-isang titik. Nasa Language & Text (ang bagong pangalan ng Language Unlock). Naka-off sa simula.",
+          "Bagong Power Saving tool: buksan ang screensaver ng laro habang wala ka para bumaba ang frame rate. Lumabas gamit ang Exit button o ang hotkey mo (End sa simula)."
         ]
       }
     },
     "ko": {
-      "description": "작고 편리한 도구 모음: 다른 플레이어의 악기 음소거, 고른 플레이어의 초대 자동 수락, 모든 언어 잠금 해제, 다른 플레이어의 이펙트를 숨겨 더 부드러운 전투.",
+      "description": "작고 편리한 도구 모음: 다른 플레이어의 악기 음소거, 고른 플레이어의 초대 자동 수락, 모든 언어 잠금 해제, NPC 대화 즉시 표시, 다른 플레이어의 이펙트를 숨겨 더 부드러운 전투, 자리를 비울 때 화면 보호기.",
       "captions": [
         "모든 도구를 허브 하나에. 각 카드에 지금 작동 상태가 표시됩니다.",
         "Mute Instruments(악기 음소거): 고른 연주자만, 또는 목록을 뺀 모두를 음소거.",
         "Auto-Accept Invites(초대 자동 수락): 목록에 있는 플레이어의 파티 초대와 소셜 초대.",
         "UID로, 또는 명함에서 바로 플레이어 추가.",
-        "Language Unlock(언어 잠금 해제): 클라이언트에 들어 있는 모든 텍스트·음성 언어.",
-        "Performance(성능): 다른 플레이어의 이펙트를 숨기고 파티 목록을 가볍게 해 레이드를 더 부드럽게."
+        "Language & Text(언어와 텍스트): 클라이언트에 들어 있는 모든 텍스트·음성 언어와 NPC 대화 즉시 표시.",
+        "Performance(성능): 다른 플레이어의 이펙트를 숨기고 파티 목록을 가볍게 해 레이드를 더 부드럽게.",
+        "Power Saving(절전): 게임의 화면 보호기를 허브나 단축키로."
       ],
       "changelog": {
         "added": [
-          "더 부드러운 전투를 위한 새 도구 Performance: 다른 플레이어의 스킬 이펙트를 숨길 수 있습니다(펫, 회복, 나에게 건 이펙트는 따로 전환 가능). 레이드에서는 파티 목록 갱신도 줄일 수 있습니다. 레이드 바닥 표식은 항상 보입니다. 처음에는 모두 꺼져 있습니다."
-        ],
-        "changed": [
-          "테마와 창 불투명도를 따르는 새로운 모습."
+          "No text animation(텍스트 애니메이션 끄기): 이제 NPC 대화 텍스트가 한 글자씩이 아니라 바로 표시되게 할 수 있습니다. Language & Text(Language Unlock의 새 이름)에 있습니다. 기본값은 꺼짐입니다.",
+          "새 도구 Power Saving(절전): 자리를 비울 때 게임의 화면 보호기를 켜서 프레임 레이트를 낮춥니다. Exit 버튼이나 단축키(기본값 End)로 끝냅니다."
         ]
       }
     }

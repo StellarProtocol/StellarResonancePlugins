@@ -1,8 +1,8 @@
 # MultiTool
 
 Ilang maliliit na tool para gumaan ang laro, sa iisang window: i-mute ang mga instrumento ng ibang player,
-awtomatikong tanggapin ang mga imbitasyon mula sa mga taong pinili mo, at i-unlock ang lahat ng wikang kasama sa game
-client na ito.
+awtomatikong tanggapin ang mga imbitasyon mula sa mga taong pinili mo, i-unlock ang lahat ng wikang kasama sa game
+client na ito, agad na ipakita ang usapan ng NPC, mas maayos na laban, at screensaver para sa oras na wala ka.
 
 ![MultiTool hub](media/hub.png)
 
@@ -55,19 +55,21 @@ Awtomatikong tanggapin ang mga imbitasyon, pero mula lang sa mga player na nasa 
 - **By UID** (Gamit ang UID): i-click ang **Add player…** (Magdagdag ng player), i-type ang UID niya, pindutin ang
   **Look up** (Hanapin), tapos ang **Choose this player…** (Piliin ang player na ito).
 
-## Language Unlock (Pag-unlock ng wika)
+## Language & Text (Wika at text)
 
 Ipakita ang lahat ng wika ng text at boses na laman ng game client na ito sa **Mga Setting › Wika** ng laro, hindi
-lang ang mga inaalok sa rehiyon mo.
+lang ang mga inaalok sa rehiyon mo, at palabasin agad ang text ng usapan ng NPC.
 
-![Language Unlock (Pag-unlock ng wika)](media/language-unlock.png)
+![Language & Text (Wika at text)](media/language-text.png)
 
 - **Unlock all text languages** (I-unlock lahat ng wika ng text): idinadagdag ang bawat wika ng text sa listahan ng
   wika ng laro.
 - **Unlock extra voice languages** (I-unlock ang dagdag na wika ng boses): idinadagdag ang mga wika ng boses na nasa
   client mo.
-- Magkakabisa ang mga pagbabago pagkatapos mong i-restart ang laro. Saka mo piliin ang wika sa sariling setting ng
-  laro.
+- Magkakabisa ang pagbabago ng wika pagkatapos mong i-restart ang laro. Saka mo piliin ang wika sa sariling setting
+  ng laro.
+- **No text animation** (Walang animation ng text, nasa **NPC dialog**): buo nang lumalabas agad ang bawat linya ng
+  NPC sa halip na isa-isang titik. Gumagana mula sa susunod na linya, hindi kailangang mag-restart. Naka-off sa simula.
 
 ## Performance
 
@@ -91,6 +93,16 @@ Laging nakikita ang mga marka sa sahig ng raid at dungeon. Wala ring tunog ang m
 **Party list**: ang **Reduce party list updates (Bawasan ang update ng party list)** ay nire-redraw ang HP bar at buff icon ng party list nang hanggang **10** o **5** beses lang bawat segundo. Pinakamalaki ang tulong nito sa raid. Puwedeng ma-late ang HP bar nang hanggang 0.1 s (o 0.2 s sa 5 / sec), at lumalabas pa rin ang mga buff icon.
 
 Pinipili ng **Where (Saan)** kung gagana ang dalawang feature **Everywhere (Kahit saan)** o sa **Dungeons & raids (Dungeon at raid lang, default)**. Lahat ay nagsisimulang Off, kaya i-On ang gusto mo.
+
+## Power Saving (Pagtitipid ng power)
+
+Buksan ang screensaver ng laro habang wala ka. Binababa nito ang frame rate at tinatakpan ang screen.
+
+![Power Saving (Pagtitipid ng power)](media/power-saving.png)
+
+- Sinisimulan agad ng **Enter power saving** (Pumasok sa power saving).
+- Binubuksan at isinasara ito ng hotkey mo: **End** sa simula, mapapalitan sa **Settings › Hotkeys**.
+- Para lumabas, pindutin ang **Exit** button sa screensaver o ang hotkey mo. Natatapos din ito kapag nag-log out ka.
 
 ## Mga tala
 
