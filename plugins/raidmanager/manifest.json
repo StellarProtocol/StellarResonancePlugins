@@ -2,7 +2,7 @@
   "id": "raidmanager",
   "name": "Raid Manager",
   "description": "ZDPS-compatible raid coordination HUD — pull countdown, raid warnings, savable and shareable dungeon marker presets, and boss mechanic callouts.",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "dll": "Stellar.RaidManager.dll",
   "author": "Stellar",
   "tags": [
@@ -13,7 +13,7 @@
     {
       "type": "image",
       "file": "media/mechanic-callout-list.png",
-      "caption": "The callout list: each boss mechanic with its countdown and the players it targets."
+      "caption": "The callout list: one compact card where each mechanic drains toward the hit in its colour, with the players it targets underneath."
     },
     {
       "type": "image",
@@ -23,17 +23,27 @@
     {
       "type": "image",
       "file": "media/mechanic-alert.png",
-      "caption": "A big alert banner appears when a mechanic targets you."
+      "caption": "On-me alerts: ringed cards with the mechanic's name and a countdown, up to 3 stacked."
     },
     {
       "type": "image",
       "file": "media/mechanic-callouts-settings.png",
-      "caption": "Mechanic Callouts settings for the list, minimap and alerts."
+      "caption": "Mechanic Callouts settings for the list, minimap and alerts, including Bar opacity."
     },
     {
       "type": "image",
       "file": "media/countdown.png",
-      "caption": "A big on-screen pull countdown started with /ct."
+      "caption": "The countdown card started with /ct: amber in the last 5 seconds, red with a ring in the last 3, then GO!"
+    },
+    {
+      "type": "image",
+      "file": "media/raid-warning.png",
+      "caption": "A raid warning in the Red overlay style."
+    },
+    {
+      "type": "image",
+      "file": "media/countdown-settings.png",
+      "caption": "Countdown & Raid Warning settings, including Replace game countdown and Countdown sounds."
     },
     {
       "type": "image",
@@ -47,19 +57,22 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.30.0",
-  "date": "2026-11-12",
+  "minModSystemVersion": "2.33.0",
+  "date": "2026-11-17",
   "changelog": {
     "added": [
-      "The countdown now shows a sample in the HUD layout editor, so you can place it where you like."
+      "New setting \"Replace game countdown\" (on by default): when your party leader presses the game's own countdown button, you see Raid Manager's countdown card instead of the game's text, in time with the game's beeps. The game's sounds still play. Turn it off to get the game's look back.",
+      "New setting \"Countdown sounds\" (on by default): /ct and Test countdown play the game's countdown beeps and its start sound.",
+      "New setting \"Bar opacity\" for the Mechanic Callouts list (30% by default)."
     ],
     "changed": [
-      "A fresh look for every Raid Manager window. The main window is now three cards that show at a glance what is on, and every setting has a ? that explains it.",
-      "Countdown and raid warning settings have their own window, with buttons to preview both.",
-      "Mark Presets: click a name to rename it, drag presets to reorder them, and deleting a preset now asks you first.",
-      "Mechanic Callouts is no longer in beta.",
-      "Smoother raids: Mechanic Callouts causes less stutter in busy fights.",
-      "Requires framework 2.30.0 or newer."
+      "New countdown look: a card with a COUNTDOWN caption, the seconds left and a bar that drains. It turns amber in the last 5 seconds and red with a ring in the last 3, then shows GO!. Its colours follow your theme, in Small, Medium or Large.",
+      "Raid warnings in the Red overlay style use the same card, with a red ring and the sender's name.",
+      "The Mechanic Callouts list is now one compact card. Each mechanic row drains toward the hit in the mechanic's colour and gets a red ring in the last 3 seconds. Targeted players sit on a line under the mechanic, with YOU first in red. Group headers are easier to read, and timers show whole seconds from 10 s up and one decimal below.",
+      "Electromagnetic Ring (raid): the safe-ring order shows as numbered steps. Finished steps are dimmed and the current step is highlighted, with a countdown to it.",
+      "On-me alerts are now ringed cards with the mechanic's name, what to do and a countdown. Up to 3 stack at once.",
+      "The Mechanic Callouts list background now starts at 70% on new installs.",
+      "Requires framework 2.33.0 or newer."
     ],
     "fixed": [],
     "removed": []
@@ -69,25 +82,30 @@
       "name": "レイドマネージャー",
       "description": "ZDPS互換のレイド調整HUD — プルカウントダウン、レイド警告、保存・共有可能なダンジョンマーカープリセット、ボスギミック通知。",
       "captions": [
-        "通知リスト：各ボスギミックをカウントダウンと対象プレイヤーとともに表示します。",
+        "通知リスト：コンパクトな1枚のカードで、各ギミックがその色で着弾に向かって減っていき、下に対象プレイヤーが表示されます。",
         "ギミックのミニマップ：アリーナ上のパーティーをギミックごとに色分けし、危険エリアも表示します。",
-        "ギミックの対象になると大きなアラートバナーが表示されます。",
-        "通知リスト・ミニマップ・アラートを設定するギミック通知の設定画面。",
-        "/ct で始まる、画面上の大きなプルカウントダウン。",
+        "自分対象アラート：ギミック名とカウントダウンを載せたリング付きのカードが、最大3枚まで重なります。",
+        "通知リスト・ミニマップ・アラートを設定するギミック通知の設定画面（バーの不透明度を含む）。",
+        "/ct で始まるカウントダウンカード：残り5秒で琥珀色、残り3秒でリング付きの赤になり、最後に GO!",
+        "赤い表示スタイルのレイド警告。",
+        "カウントダウン & レイド警告の設定画面（ゲームのカウントダウンを置き換え、カウントダウン音を含む）。",
         "マーカープリセット：ダンジョンマーカーを保存し、戦闘中にステップごとに切り替えます。",
         "レイドマネージャーのウィンドウ：マーカープリセット、ギミック通知、カウントダウン & レイド警告のカードがそれぞれ並んでいます。"
       ],
       "changelog": {
         "added": [
-          "カウントダウンのサンプルが HUD レイアウトエディターに表示されるようになり、好きな位置に配置できます。"
+          "新しい設定「ゲームのカウントダウンを置き換え」（初期状態でオン）：パーティーリーダーがゲーム本来のカウントダウンボタンを押すと、ゲームの文字の代わりにレイドマネージャーのカウントダウンカードが、ゲームのカウント音に合わせて表示されます。ゲームの効果音はそのまま鳴ります。オフにするとゲーム本来の表示に戻ります。",
+          "新しい設定「カウントダウン音」（初期状態でオン）：/ct と「カウントダウンをテスト」で、ゲームのカウント音と開始音が鳴ります。",
+          "ギミック通知リストに新しい設定「バーの不透明度」を追加しました（初期値30%）。"
         ],
         "changed": [
-          "レイドマネージャーのすべてのウィンドウを一新しました。メインウィンドウは3枚のカードになり、何がオンになっているかがひと目でわかります。各設定には説明を表示する ? があります。",
-          "カウントダウンとレイド警告の設定が専用のウィンドウになり、両方をプレビューできるボタンが付きました。",
-          "マーカープリセット：名前をクリックして名前を変更、ドラッグで並べ替えができるようになり、プリセットを削除する前に確認が表示されるようになりました。",
-          "ギミック通知は試験版ではなくなりました。",
-          "レイドがより快適に：混雑した戦闘でのギミック通知によるカクつきを減らしました。",
-          "フレームワーク 2.30.0 以降が必要です。"
+          "カウントダウンの見た目を一新：カウントダウンの見出し、残り秒数、減っていくバーが付いたカードになりました。残り5秒で琥珀色に、残り3秒でリング付きの赤になり、最後に GO! と表示されます。色はテーマに合わせて変わり、サイズは小・中・大から選べます。",
+          "赤い表示スタイルのレイド警告も同じカードになり、赤いリングと送信者の名前が表示されます。",
+          "ギミック通知リストがコンパクトな1枚のカードになりました。各ギミックの行はギミックの色で着弾に向かって減っていき、残り3秒で赤いリングが付きます。対象プレイヤーはギミックの下の行に表示され、「あなた」が赤で先頭に来ます。グループ見出しが読みやすくなり、タイマーは10秒以上は秒単位、10秒未満は小数点以下1桁で表示されます。",
+          "電磁リング（レイド）：安全なリングの順番が番号付きのステップで表示されます。終わったステップは暗く、現在のステップは強調され、そこまでのカウントダウンも表示されます。",
+          "自分対象アラートが、ギミック名、取るべき行動、カウントダウンを載せたリング付きのカードになりました。最大3枚まで同時に重なります。",
+          "新しくインストールした場合、ギミック通知リストの背景の初期値が70%になりました。",
+          "フレームワーク 2.33.0 以降が必要です。"
         ],
         "fixed": [],
         "removed": []
@@ -97,25 +115,30 @@
       "name": "ตัวจัดการเรด",
       "description": "HUD ประสานงานเรดที่เข้ากันได้กับ ZDPS — นับถอยหลังก่อนบุก การแจ้งเตือนเรด พรีเซ็ตมาร์กดันเจี้ยนที่บันทึกและแชร์ได้ และการแจ้งเตือนกลไกของบอส",
       "captions": [
-        "รายการแจ้งเตือน: แสดงกลไกของบอสแต่ละอันพร้อมเวลานับถอยหลังและผู้เล่นที่ถูกเล็ง",
+        "รายการแจ้งเตือน: การ์ดกะทัดรัดใบเดียว แต่ละกลไกจะค่อย ๆ ลดลงจนถึงจังหวะโดนด้วยสีของกลไกนั้น พร้อมผู้เล่นที่ถูกเล็งอยู่ด้านล่าง",
         "มินิแมปกลไกแสดงปาร์ตี้ของคุณบนสนามต่อสู้ แยกสีตามกลไก พร้อมพื้นที่อันตราย",
-        "แบนเนอร์แจ้งเตือนขนาดใหญ่จะปรากฏเมื่อกลไกเล็งมาที่คุณ",
-        "หน้าตั้งค่าแจ้งเตือนกลไก สำหรับรายการ มินิแมป และการแจ้งเตือน",
-        "นับถอยหลังก่อนบุกขนาดใหญ่บนหน้าจอ เริ่มด้วย /ct",
+        "แจ้งเตือนเมื่อโดนตัวเอง: การ์ดมีกรอบพร้อมชื่อกลไกและเวลานับถอยหลัง ซ้อนกันได้สูงสุด 3 ใบ",
+        "หน้าตั้งค่าแจ้งเตือนกลไก สำหรับรายการ มินิแมป และการแจ้งเตือน รวมถึงความทึบของแถบ",
+        "การ์ดนับถอยหลังที่เริ่มด้วย /ct: สีเหลืองอำพันใน 5 วินาทีสุดท้าย สีแดงพร้อมกรอบใน 3 วินาทีสุดท้าย แล้วขึ้น GO!",
+        "แจ้งเตือนเรดในรูปแบบข้อความสีแดง",
+        "หน้าตั้งค่านับถอยหลังและแจ้งเตือนเรด รวมถึงแทนที่การนับถอยหลังของเกมและเสียงนับถอยหลัง",
         "พรีเซ็ตมาร์ก: บันทึกมาร์กเกอร์ดันเจี้ยนแล้วสลับทีละสเต็ประหว่างการต่อสู้",
         "หน้าต่างตัวจัดการเรด: มีการ์ดแยกสำหรับพรีเซ็ตมาร์ก แจ้งเตือนกลไก และนับถอยหลังและแจ้งเตือนเรด"
       ],
       "changelog": {
         "added": [
-          "ตอนนี้การนับถอยหลังจะแสดงตัวอย่างในตัวแก้ไขเลย์เอาต์ HUD คุณจึงวางไว้ตรงไหนก็ได้ตามต้องการ"
+          "การตั้งค่าใหม่ \"แทนที่การนับถอยหลังของเกม\" (เปิดเป็นค่าเริ่มต้น): เมื่อหัวหน้าปาร์ตี้กดปุ่มนับถอยหลังของเกมเอง คุณจะเห็นการ์ดนับถอยหลังของตัวจัดการเรดแทนข้อความของเกม ตรงจังหวะกับเสียงบี๊บของเกม เสียงของเกมยังคงดังตามปกติ ปิดเพื่อกลับไปใช้หน้าตาเดิมของเกม",
+          "การตั้งค่าใหม่ \"เสียงนับถอยหลัง\" (เปิดเป็นค่าเริ่มต้น): /ct และทดสอบนับถอยหลังจะเล่นเสียงบี๊บนับถอยหลังและเสียงเริ่มของเกม",
+          "การตั้งค่าใหม่ \"ความทึบของแถบ\" สำหรับรายการแจ้งเตือนกลไก (ค่าเริ่มต้น 30%)"
         ],
         "changed": [
-          "โฉมใหม่ให้ทุกหน้าต่างของตัวจัดการเรด หน้าต่างหลักตอนนี้เป็นการ์ดสามใบที่บอกได้ทันทีว่าอะไรเปิดอยู่ และทุกการตั้งค่ามีปุ่ม ? ที่อธิบายการทำงาน",
-          "การตั้งค่านับถอยหลังและแจ้งเตือนเรดมีหน้าต่างของตัวเองแล้ว พร้อมปุ่มสำหรับดูตัวอย่างทั้งสองแบบ",
-          "พรีเซ็ตมาร์ก: คลิกชื่อเพื่อเปลี่ยนชื่อ ลากพรีเซ็ตเพื่อจัดลำดับใหม่ และตอนนี้จะถามยืนยันก่อนลบพรีเซ็ต",
-          "แจ้งเตือนกลไกไม่ได้เป็นเวอร์ชันทดลองอีกต่อไป",
-          "เล่นเรดลื่นขึ้น: แจ้งเตือนกลไกทำให้เกมกระตุกน้อยลงในการต่อสู้ที่วุ่นวาย",
-          "ต้องใช้เฟรมเวิร์กเวอร์ชัน 2.30.0 ขึ้นไป"
+          "โฉมใหม่ของการนับถอยหลัง: เป็นการ์ดที่มีหัวข้อนับถอยหลัง ตัวเลขวินาทีที่เหลือ และแถบที่ค่อย ๆ ลดลง จะเปลี่ยนเป็นสีเหลืองอำพันใน 5 วินาทีสุดท้าย และเป็นสีแดงพร้อมกรอบใน 3 วินาทีสุดท้าย แล้วขึ้น GO! สีเปลี่ยนตามธีมของคุณ เลือกขนาดได้ทั้งเล็ก กลาง และใหญ่",
+          "แจ้งเตือนเรดแบบข้อความสีแดงใช้การ์ดแบบเดียวกัน พร้อมกรอบสีแดงและชื่อผู้ส่ง",
+          "รายการแจ้งเตือนกลไกตอนนี้เป็นการ์ดกะทัดรัดใบเดียว แถวของแต่ละกลไกจะค่อย ๆ ลดลงจนถึงจังหวะโดนด้วยสีของกลไกนั้น และมีกรอบสีแดงใน 3 วินาทีสุดท้าย ผู้เล่นที่ถูกเล็งจะอยู่ในบรรทัดใต้ชื่อกลไก โดยมี \"คุณ\" เป็นสีแดงอยู่ก่อนเสมอ หัวข้อกลุ่มอ่านง่ายขึ้น และเวลาแสดงเป็นวินาทีเต็มตั้งแต่ 10 วินาทีขึ้นไป และทศนิยมหนึ่งตำแหน่งเมื่อต่ำกว่านั้น",
+          "วงแม่เหล็กไฟฟ้า (เรด): ลำดับวงที่ปลอดภัยแสดงเป็นขั้นที่มีหมายเลข ขั้นที่ผ่านไปแล้วจะจางลง ขั้นปัจจุบันจะถูกไฮไลต์ พร้อมเวลานับถอยหลังถึงขั้นนั้น",
+          "แจ้งเตือนเมื่อโดนตัวเองตอนนี้เป็นการ์ดมีกรอบ พร้อมชื่อกลไก สิ่งที่ต้องทำ และเวลานับถอยหลัง ซ้อนกันได้สูงสุด 3 ใบพร้อมกัน",
+          "พื้นหลังของรายการแจ้งเตือนกลไกเริ่มต้นที่ 70% สำหรับการติดตั้งใหม่",
+          "ต้องใช้เฟรมเวิร์กเวอร์ชัน 2.33.0 ขึ้นไป"
         ],
         "fixed": [],
         "removed": []
@@ -125,25 +148,30 @@
       "name": "Manajer Raid",
       "description": "HUD koordinasi raid yang kompatibel dengan ZDPS — countdown pull, peringatan raid, preset marker dungeon yang bisa disimpan dan dibagikan, serta panggilan mekanik boss.",
       "captions": [
-        "Daftar panggilan: setiap mekanik boss beserta hitung mundurnya dan pemain yang ditargetkan.",
+        "Daftar panggilan: satu kartu ringkas tempat setiap mekanik menyusut menuju saat kena dengan warnanya, dengan pemain yang ditargetkan di bawahnya.",
         "Minimap mekanik menampilkan party-mu di arena, diwarnai sesuai mekanik, beserta area bahaya.",
-        "Banner peringatan besar muncul saat mekanik menargetkanmu.",
-        "Pengaturan Panggilan Mekanik untuk daftar, minimap, dan peringatan.",
-        "Countdown pull besar di layar yang dimulai dengan /ct.",
+        "Peringatan saat terkena: kartu bercincin dengan nama mekanik dan hitung mundur, hingga 3 bertumpuk.",
+        "Pengaturan Panggilan Mekanik untuk daftar, minimap, dan peringatan, termasuk Opasitas bar.",
+        "Kartu hitung mundur dari /ct: kuning amber di 5 detik terakhir, merah dengan cincin di 3 detik terakhir, lalu GO!",
+        "Peringatan raid dengan gaya Overlay merah.",
+        "Pengaturan Hitung Mundur & Peringatan Raid, termasuk Ganti hitung mundur game dan Suara hitung mundur.",
         "Preset Mark: simpan marker dungeon dan pindah antar langkah selama pertarungan.",
         "Jendela Manajer Raid: satu kartu masing-masing untuk Preset Mark, Panggilan Mekanik, serta Hitung Mundur & Peringatan Raid."
       ],
       "changelog": {
         "added": [
-          "Countdown kini menampilkan contoh di editor tata letak HUD, jadi kamu bisa menaruhnya di mana saja."
+          "Pengaturan baru \"Ganti hitung mundur game\" (aktif secara default): saat ketua party menekan tombol hitung mundur bawaan game, kamu melihat kartu hitung mundur Manajer Raid, bukan teks game, pas dengan bunyi beep game. Suara game tetap berbunyi. Matikan untuk kembali ke tampilan game.",
+          "Pengaturan baru \"Suara hitung mundur\" (aktif secara default): /ct dan Uji hitung mundur memutar bunyi beep hitung mundur dan bunyi mulai dari game.",
+          "Pengaturan baru \"Opasitas bar\" untuk daftar Panggilan Mekanik (default 30%)."
         ],
         "changed": [
-          "Tampilan baru untuk semua jendela Manajer Raid. Jendela utama kini berisi tiga kartu yang langsung menunjukkan apa saja yang aktif, dan setiap pengaturan punya tanda ? yang menjelaskannya.",
-          "Pengaturan hitung mundur dan peringatan raid kini punya jendela sendiri, dengan tombol untuk melihat pratinjau keduanya.",
-          "Preset Mark: klik nama untuk menggantinya, seret preset untuk mengubah urutannya, dan menghapus preset kini meminta konfirmasi dulu.",
-          "Panggilan Mekanik tidak lagi dalam tahap uji coba.",
-          "Raid lebih mulus: Panggilan Mekanik kini lebih jarang membuat game tersendat di pertarungan yang ramai.",
-          "Membutuhkan framework 2.30.0 atau yang lebih baru."
+          "Tampilan hitung mundur baru: kartu dengan judul HITUNG MUNDUR, sisa detik, dan bar yang menyusut. Kartu berubah kuning amber di 5 detik terakhir dan merah dengan cincin di 3 detik terakhir, lalu menampilkan GO!. Warnanya mengikuti tema kamu, dalam ukuran Kecil, Sedang, atau Besar.",
+          "Peringatan raid dengan gaya Overlay merah memakai kartu yang sama, dengan cincin merah dan nama pengirim.",
+          "Daftar Panggilan Mekanik kini satu kartu ringkas. Setiap baris mekanik menyusut menuju saat kena dengan warna mekaniknya dan mendapat cincin merah di 3 detik terakhir. Pemain yang ditargetkan ada di baris di bawah mekanik, dengan KAMU paling depan berwarna merah. Judul grup lebih mudah dibaca, dan timer menampilkan detik bulat dari 10 detik ke atas dan satu angka desimal di bawahnya.",
+          "Cincin Elektromagnetik (raid): urutan cincin aman tampil sebagai langkah bernomor. Langkah yang selesai diredupkan dan langkah saat ini disorot, beserta hitung mundur ke langkah itu.",
+          "Peringatan saat terkena kini berupa kartu bercincin dengan nama mekanik, apa yang harus dilakukan, dan hitung mundur. Hingga 3 kartu bisa bertumpuk sekaligus.",
+          "Latar daftar Panggilan Mekanik kini dimulai dari 70% pada instalasi baru.",
+          "Membutuhkan framework 2.33.0 atau yang lebih baru."
         ],
         "fixed": [],
         "removed": []
@@ -153,25 +181,30 @@
       "name": "Tagapamahala ng Raid",
       "description": "ZDPS-compatible na raid coordination HUD — pull countdown, raid warnings, mga nase-save at mashe-share na dungeon marker preset, at mga tawag ng mekaniko ng boss.",
       "captions": [
-        "Ang listahan ng tawag: bawat mekaniko ng boss kasama ang countdown nito at ang mga player na tinatarget nito.",
+        "Ang listahan ng tawag: isang compact na card kung saan umiikli ang bawat mekaniko papunta sa tama gamit ang kulay nito, kasama sa ilalim ang mga player na tinatarget nito.",
         "Ipinapakita ng minimap ng mekaniko ang party mo sa arena, may kulay ayon sa mekaniko, kasama ang mga mapanganib na lugar.",
-        "May lalabas na malaking banner ng alerto kapag ikaw ang tinarget ng mekaniko.",
-        "Mga setting ng Mga Tawag ng Mekaniko para sa listahan, minimap at mga alerto.",
-        "Malaking pull countdown sa screen na sinisimulan gamit ang /ct.",
+        "Mga alerto kapag ikaw: mga card na may ring, may pangalan ng mekaniko at countdown, hanggang 3 ang nakapatong.",
+        "Mga setting ng Mga Tawag ng Mekaniko para sa listahan, minimap at mga alerto, kasama ang Opacity ng bar.",
+        "Ang countdown card na sinimulan gamit ang /ct: amber sa huling 5 segundo, pula na may ring sa huling 3, at saka GO!",
+        "Isang babala sa raid sa estilong Pulang overlay.",
+        "Mga setting ng Countdown at Babala sa Raid, kasama ang Palitan ang countdown ng laro at Mga tunog ng countdown.",
         "Mga Preset ng Mark: i-save ang mga dungeon marker mo at lumipat sa bawat hakbang habang may laban.",
         "Ang window ng Tagapamahala ng Raid: tig-iisang card para sa Mga Preset ng Mark, Mga Tawag ng Mekaniko, at Countdown at Babala sa Raid."
       ],
       "changelog": {
         "added": [
-          "Nagpapakita na ngayon ng sample ang countdown sa HUD layout editor, kaya mailalagay mo ito kung saan mo gusto."
+          "Bagong setting na \"Palitan ang countdown ng laro\" (naka-on bilang default): kapag pinindot ng party leader mo ang sariling countdown button ng laro, ang countdown card ng Tagapamahala ng Raid ang makikita mo sa halip na ang text ng laro, kasabay ng mga beep ng laro. Tutunog pa rin ang mga tunog ng laro. I-off para maibalik ang itsura ng laro.",
+          "Bagong setting na \"Mga tunog ng countdown\" (naka-on bilang default): pinapatugtog ng /ct at ng Subukan ang countdown ang mga beep ng countdown ng laro at ang tunog ng pagsisimula.",
+          "Bagong setting na \"Opacity ng bar\" para sa listahan ng Mga Tawag ng Mekaniko (30% bilang default)."
         ],
         "changed": [
-          "Bagong itsura para sa bawat window ng Tagapamahala ng Raid. Tatlong card na ang pangunahing window na nagpapakita agad kung ano ang naka-on, at may ? ang bawat setting na nagpapaliwanag dito.",
-          "May sarili nang window ang mga setting ng countdown at babala sa raid, may mga button para i-preview ang dalawa.",
-          "Mga Preset ng Mark: i-click ang pangalan para palitan ito, i-drag ang mga preset para ayusin ang pagkakasunod, at nagtatanong na muna bago burahin ang isang preset.",
-          "Hindi na pang-subok na bersyon ang Mga Tawag ng Mekaniko.",
-          "Mas maayos na raid: mas kaunti na ang pag-lag na dulot ng Mga Tawag ng Mekaniko sa magugulong laban.",
-          "Kailangan ang framework 2.30.0 o mas bago."
+          "Bagong itsura ng countdown: isang card na may caption na COUNTDOWN, ang natitirang segundo at isang bar na umiikli. Nagiging amber ito sa huling 5 segundo at pula na may ring sa huling 3, at saka lalabas ang GO!. Sumusunod ang mga kulay nito sa theme mo, sa laking Maliit, Katamtaman o Malaki.",
+          "Ginagamit din ng mga babala sa raid na nasa estilong Pulang overlay ang parehong card, may pulang ring at pangalan ng nagpadala.",
+          "Isang compact na card na lang ang listahan ng Mga Tawag ng Mekaniko. Umiikli ang bawat row ng mekaniko papunta sa tama gamit ang kulay ng mekaniko at nagkakaroon ng pulang ring sa huling 3 segundo. Nasa linya sa ilalim ng mekaniko ang mga tinatargetang player, at nauuna ang IKAW na kulay pula. Mas madaling basahin ang mga header ng grupo, at buong segundo ang mga timer mula 10 s pataas at may isang decimal kapag mas mababa roon.",
+          "Electromagnetic Ring (raid): ipinapakita ang pagkakasunod ng ligtas na ring bilang mga may-numerong hakbang. Malabo ang mga tapos nang hakbang at naka-highlight ang kasalukuyan, kasama ang countdown papunta rito.",
+          "Mga card na may ring na ang mga alerto kapag ikaw, may pangalan ng mekaniko, ang dapat mong gawin at isang countdown. Hanggang 3 ang puwedeng magpatong nang sabay.",
+          "Nagsisimula na sa 70% ang background ng listahan ng Mga Tawag ng Mekaniko sa mga bagong install.",
+          "Kailangan ang framework 2.33.0 o mas bago."
         ],
         "fixed": [],
         "removed": []
@@ -181,25 +214,30 @@
       "name": "레이드 매니저",
       "description": "ZDPS 호환 레이드 조율 HUD — 풀 카운트다운, 레이드 경고, 저장 및 공유 가능한 던전 표식 프리셋, 보스 기믹 알림.",
       "captions": [
-        "알림 목록: 각 보스 기믹을 카운트다운 및 대상 플레이어와 함께 표시합니다.",
+        "알림 목록: 하나의 간결한 카드로, 각 기믹이 자기 색으로 적중 시점을 향해 줄어들고 아래에 대상 플레이어가 표시됩니다.",
         "기믹 미니맵은 전장 위의 파티원을 기믹별 색으로 표시하고 위험 지역도 보여 줍니다.",
-        "기믹이 나를 대상으로 하면 큰 경고 배너가 표시됩니다.",
-        "목록, 미니맵, 경고를 설정하는 기믹 알림 설정 화면.",
-        "/ct로 시작하는 화면 위의 큰 풀 카운트다운.",
+        "내 대상 경고: 기믹 이름과 카운트다운이 담긴 테두리 카드가 최대 3장까지 쌓입니다.",
+        "목록, 미니맵, 경고를 설정하는 기믹 알림 설정 화면(바 불투명도 포함).",
+        "/ct로 시작하는 카운트다운 카드: 마지막 5초는 호박색, 마지막 3초는 테두리가 있는 빨간색, 그리고 GO!",
+        "빨간 오버레이 방식의 레이드 경고.",
+        "카운트다운 & 레이드 경고 설정 화면(게임 카운트다운 대체, 카운트다운 효과음 포함).",
         "표식 프리셋: 던전 표식을 저장하고 전투 중 단계별로 전환합니다.",
         "레이드 매니저 창: 표식 프리셋, 기믹 알림, 카운트다운 & 레이드 경고 카드가 각각 하나씩 있습니다."
       ],
       "changelog": {
         "added": [
-          "이제 HUD 레이아웃 편집기에 카운트다운 샘플이 표시되어, 원하는 위치에 놓을 수 있습니다."
+          "새 설정 \"게임 카운트다운 대체\"(기본값 켜짐): 파티장이 게임 자체 카운트다운 버튼을 누르면 게임 글자 대신 레이드 매니저의 카운트다운 카드가 게임 효과음에 맞춰 표시됩니다. 게임 효과음은 그대로 재생됩니다. 끄면 게임 자체 표시로 돌아갑니다.",
+          "새 설정 \"카운트다운 효과음\"(기본값 켜짐): /ct와 카운트다운 테스트에서 게임의 카운트다운 효과음과 시작 효과음을 재생합니다.",
+          "기믹 알림 목록에 새 설정 \"바 불투명도\"가 추가되었습니다(기본 30%)."
         ],
         "changed": [
-          "레이드 매니저의 모든 창이 새롭게 바뀌었습니다. 메인 창은 이제 세 장의 카드로 무엇이 켜져 있는지 한눈에 보여 주며, 모든 설정에 설명을 보여 주는 ?가 있습니다.",
-          "카운트다운과 레이드 경고 설정이 전용 창으로 분리되었고, 둘 다 미리 볼 수 있는 버튼이 생겼습니다.",
-          "표식 프리셋: 이름을 클릭해 이름을 바꾸고, 프리셋을 끌어서 순서를 바꿀 수 있으며, 이제 프리셋을 삭제하기 전에 확인을 묻습니다.",
-          "기믹 알림이 더 이상 시험 기능이 아닙니다.",
-          "더 매끄러운 레이드: 복잡한 전투에서 기믹 알림 때문에 생기던 끊김이 줄었습니다.",
-          "프레임워크 2.30.0 이상이 필요합니다."
+          "새로운 카운트다운 모양: 카운트다운 제목, 남은 초, 줄어드는 바가 있는 카드입니다. 마지막 5초는 호박색, 마지막 3초는 테두리가 있는 빨간색으로 바뀌고, 끝나면 GO!가 표시됩니다. 색은 테마를 따르며 작게, 보통, 크게 중에서 고를 수 있습니다.",
+          "빨간 오버레이 방식의 레이드 경고도 같은 카드를 사용하며, 빨간 테두리와 보낸 사람 이름이 표시됩니다.",
+          "기믹 알림 목록이 하나의 간결한 카드가 되었습니다. 각 기믹 줄은 기믹 색으로 적중 시점을 향해 줄어들고 마지막 3초에는 빨간 테두리가 생깁니다. 대상 플레이어는 기믹 아래 줄에 표시되며 \"나\"가 빨간색으로 맨 앞에 옵니다. 그룹 제목이 더 읽기 쉬워졌고, 타이머는 10초 이상은 초 단위, 그 아래는 소수점 한 자리로 표시합니다.",
+          "전자기 링(레이드): 안전한 링 순서가 번호가 매겨진 단계로 표시됩니다. 끝난 단계는 흐리게, 현재 단계는 강조되며 그 단계까지의 카운트다운도 보여 줍니다.",
+          "내 대상 경고가 기믹 이름, 해야 할 행동, 카운트다운이 담긴 테두리 카드로 바뀌었습니다. 최대 3장까지 동시에 쌓입니다.",
+          "새로 설치하면 기믹 알림 목록의 배경 기본값이 70%로 시작합니다.",
+          "프레임워크 2.33.0 이상이 필요합니다."
         ],
         "fixed": [],
         "removed": []
@@ -207,8 +245,8 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarRaidManagerPlugin.git",
-  "commit": "d84db2ebd20fd3de135dee4a26e06fa490aaa6e6",
+  "commit": "8ad88763f1d694a66480456ea17daf9ee2dd5500",
   "projectPath": ".",
-  "tag": "v2.8.0",
-  "capPriorVersionsAt": "2.29.1"
+  "tag": "v2.9.0",
+  "capPriorVersionsAt": "2.32.0"
 }

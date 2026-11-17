@@ -13,23 +13,36 @@ Setiap pengaturan punya tanda **?** di sebelahnya yang menjelaskan fungsinya.
 ## Hitung Mundur & Peringatan Raid
 
 1. Instal plugin lalu jalankan game dalam mode **Dengan mod**.
-2. Ketik `/ct <seconds>` di chat untuk memulai countdown pull besar di layar (berubah merah di
-   5 detik terakhir). `/ct stop` membatalkannya.
+2. Ketik `/ct <seconds>` di chat untuk memulai countdown pull. Countdown tampil sebagai kartu: judul
+   **HITUNG MUNDUR**, sisa detik, dan bar yang menyusut. Kartu berubah kuning amber di 5 detik terakhir,
+   merah dengan cincin di 3 detik terakhir, lalu menampilkan **GO!**. Warnanya mengikuti tema kamu.
+   `/ct stop` membatalkannya.
 3. Ketik `/rw <message>` untuk menampilkan peringatan raid ke semua orang yang menjalankan plugin
    ini.
 
 ![Countdown](media/countdown.png)
 
+Saat ketua party menekan tombol hitung mundur bawaan game, kamu melihat kartu yang sama, bukan teks
+game, pas dengan bunyi beep game.
+
 Buka **Hitung Mundur & Peringatan Raid** untuk mengaturnya:
+
+![Countdown & Raid Warning settings](media/countdown-settings.png)
 
 - Nyalakan atau matikan **Perintah hitung mundur** dan **Peringatan raid**, lalu pilih chat mana
   yang didengarkan (**Party**, **Guild**, **Lokal**).
-- Pilih **Ukuran** countdown.
+- **Ganti hitung mundur game** (aktif secara default) — menampilkan kartu ini saat ketua party memulai
+  hitung mundur bawaan game. Suara game tetap berbunyi. Matikan untuk kembali ke tampilan game.
+- **Suara hitung mundur** (aktif secara default) — `/ct` dan **Uji hitung mundur** memutar bunyi beep
+  hitung mundur dan bunyi mulai dari game.
+- Pilih **Ukuran** countdown: **Kecil**, **Sedang**, atau **Besar**.
 - **Gaya** — **Notifikasi game** (default) menampilkan `/rw` sebagai banner notifikasi bawaan game
-  beserta suaranya; **Overlay merah** memakai teks merah besar dari plugin, dengan **Ukuran overlay**
-  tersendiri.
+  beserta suaranya; **Overlay merah** menampilkannya di kartu yang sama dengan cincin merah dan nama
+  pengirim (**PERINGATAN RAID · Pemain**), dengan **Ukuran overlay** tersendiri.
 - **Uji hitung mundur** dan **Uji peringatan raid** menampilkan pratinjau keduanya tanpa mengirim
   apa pun ke chat.
+
+![Raid warning](media/raid-warning.png)
 
 Pindahkan countdown ke mana saja di editor tata letak HUD — contohnya muncul di sana selama kamu
 mengedit.
@@ -92,9 +105,14 @@ besar saat kamu yang kena. Buka dari kartu **Panggilan Mekanik**:
 
 Di luar konten ini, panggilan tetap kosong.
 
-**Daftar Panggilan** — setiap mekanik beserta hitung mundurnya dan pemain yang ditargetkan. Pilih
-urutannya (**Urutan kemunculan**, **Paling mendesak dulu**, atau **Urutan tabel**), ukuran teks, dan
-opasitas latar belakang.
+**Daftar Panggilan** — satu kartu ringkas. Setiap baris mekanik menyusut menuju saat kena dengan warna
+mekaniknya, dan mendapat cincin merah di 3 detik terakhir. Pemain yang ditargetkan ada di baris di bawah
+mekanik, dengan **KAMU** paling depan berwarna merah. Timer menampilkan detik bulat dari 10 detik ke atas,
+dan satu angka desimal di bawahnya. Di raid, urutan cincin elektromagnetik tampil sebagai langkah
+bernomor: langkah yang selesai diredupkan dan langkah saat ini disorot, beserta hitung mundur ke langkah itu.
+
+Pengaturan: urutan (**Urutan kemunculan**, **Paling mendesak dulu**, atau **Urutan tabel**), ukuran teks,
+**Latar** (default 70%), dan **Opasitas bar** untuk bar yang menyusut (default 30%).
 
 ![Callout list](media/mechanic-callout-list.png)
 
@@ -106,14 +124,15 @@ Opsional di pengaturan minimap: kerucut kamera yang menunjukkan arah pandanganmu
 
 ![Minimap](media/mechanic-minimap.png)
 
-**Peringatan saat terkena** — banner besar saat mekanik menargetkanmu, dan **PINDAH** saat kamu berdiri di
-petak bahaya. Pada fase cincin di raid, peringatan memberi tahu cincin mana yang harus kamu tuju. Suara
-bersifat opsional dengan volume tersendiri; gunakan **Uji peringatan** untuk pratinjau. (Nonaktif secara
-default.)
+**Peringatan saat terkena** — kartu bercincin saat mekanik menargetkanmu: nama mekanik, apa yang harus
+dilakukan, dan hitung mundur. Hingga 3 kartu bertumpuk jika beberapa mekanik mengenaimu sekaligus.
+**MENJAUH** muncul saat kamu berdiri di petak bahaya, dan pada fase cincin di raid, peringatan memberi tahu
+cincin mana yang harus kamu tuju. Suara bersifat opsional dengan volume tersendiri; gunakan
+**Uji peringatan** untuk pratinjau. (Nonaktif secara default.)
 
-![Alert banner](media/mechanic-alert.png)
+![On-me alerts](media/mechanic-alert.png)
 
-Pindahkan daftar, minimap, dan banner ke mana saja di editor tata letak HUD.
+Pindahkan daftar, minimap, dan peringatan ke mana saja di editor tata letak HUD.
 
 ## Catatan
 
