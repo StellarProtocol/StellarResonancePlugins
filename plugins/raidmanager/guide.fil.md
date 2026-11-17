@@ -14,23 +14,37 @@ May **?** sa tabi ng bawat setting na nagpapaliwanag kung ano ang ginagawa nito.
 ## Countdown at Babala sa Raid
 
 1. I-install ang plugin at buksan ang laro sa mode na **May mod**.
-2. I-type ang `/ct <seconds>` sa chat para magsimula ng malaking on-screen pull countdown
-   (magiging pula sa huling 5 segundo). Kinakansela ito ng `/ct stop`.
+2. I-type ang `/ct <seconds>` sa chat para magsimula ng pull countdown. Lalabas ito bilang card: may
+   caption na **COUNTDOWN**, ang natitirang segundo at isang bar na umiikli. Nagiging amber ito sa huling
+   5 segundo, pula na may ring sa huling 3, at saka lalabas ang **GO!**. Sumusunod ang mga kulay nito sa
+   theme mo. Kinakansela ito ng `/ct stop`.
 3. I-type ang `/rw <message>` para mag-flash ng raid-warning callout sa lahat ng gumagamit ng
    plugin.
 
 ![Countdown](media/countdown.png)
 
+Kapag pinindot ng party leader mo ang sariling countdown button ng laro, ang parehong card ang makikita
+mo sa halip na ang text ng laro, kasabay ng mga beep ng laro.
+
 Buksan ang **Countdown at Babala sa Raid** para i-set up ang mga ito:
+
+![Countdown & Raid Warning settings](media/countdown-settings.png)
 
 - I-on o i-off ang **Command ng countdown** at **Babala sa raid**, at piliin kung saang mga chat
   sila makikinig (**Party**, **Guild**, **Lokal**).
-- Piliin ang **Laki** ng countdown.
+- **Palitan ang countdown ng laro** (naka-on bilang default) — ipinapakita ang card na ito kapag
+  sinimulan ng party leader ang sariling countdown ng laro. Tutunog pa rin ang mga tunog ng laro.
+  I-off para maibalik ang itsura ng laro.
+- **Mga tunog ng countdown** (naka-on bilang default) — pinapatugtog ng `/ct` at ng
+  **Subukan ang countdown** ang mga beep ng countdown ng laro at ang tunog ng pagsisimula.
+- Piliin ang **Laki** ng countdown: **Maliit**, **Katamtaman** o **Malaki**.
 - **Estilo** — ipinapakita ng **Abiso ng laro** (default) ang `/rw` bilang sariling notice banner
-  ng laro kasama ang tunog nito; ginagamit ng **Pulang overlay** ang malaking pulang teksto ng
-  plugin, may sarili itong **Laki ng overlay**.
+  ng laro kasama ang tunog nito; ipinapakita naman ito ng **Pulang overlay** sa parehong card na may
+  pulang ring at pangalan ng nagpadala (**BABALA SA RAID · Player**), may sarili itong **Laki ng overlay**.
 - Ang **Subukan ang countdown** at **Subukan ang babala sa raid** ay nagpe-preview ng dalawa nang
   walang ipinapadala sa chat.
+
+![Raid warning](media/raid-warning.png)
 
 Ilipat ang countdown kahit saan sa HUD layout editor — may sample na lalabas doon habang nag-e-edit ka.
 
@@ -94,9 +108,16 @@ alerto kapag ikaw ang target. Buksan ito mula sa card na **Mga Tawag ng Mekaniko
 
 Sa labas ng mga ito, mananatiling walang laman ang mga tawag.
 
-**Listahan ng Tawag** — bawat mekaniko kasama ang countdown nito at ang mga player na tinatarget nito.
-Piliin ang pagkakasunod (**Ayon sa pagdating**, **Pinakamadalian muna** o **Ayon sa talahanayan**), ang
-laki ng teksto at ang opacity ng background.
+**Listahan ng Tawag** — isang compact na card. Umiikli ang bawat row ng mekaniko papunta sa tama gamit
+ang kulay ng mekaniko, at may pulang ring sa huling 3 segundo. Nasa linya sa ilalim ng mekaniko ang mga
+player na tinatarget nito, at nauuna ang **IKAW** na kulay pula. Buong segundo ang mga timer mula 10 s
+pataas, at may isang decimal kapag mas mababa roon. Sa raid, ipinapakita ang pagkakasunod ng
+electromagnetic ring bilang mga may-numerong hakbang: malabo ang mga tapos nang hakbang at naka-highlight
+ang kasalukuyan, kasama ang countdown papunta rito.
+
+Mga setting: ang pagkakasunod (**Ayon sa pagdating**, **Pinakamadalian muna** o **Ayon sa talahanayan**),
+ang laki ng teksto, **Background** (70% bilang default) at **Opacity ng bar** para sa mga umiikling bar
+(30% bilang default).
 
 ![Callout list](media/mechanic-callout-list.png)
 
@@ -109,14 +130,15 @@ Opsyonal sa mga setting ng minimap: camera cone na nagpapakita kung saan ka naka
 
 ![Minimap](media/mechanic-minimap.png)
 
-**Alerto kapag ikaw** — malaking banner kapag ikaw ang tinarget ng mekaniko, at **UMALIS** kapag
-nakatayo ka sa mapanganib na tile. Sa mga ring phase ng raid, sinasabi nito kung saang ring ka dapat
-lumipat. Opsyonal ang tunog at may sarili itong lakas; gamitin ang **Subukan ang alerto** para
-i-preview. (Naka-off bilang default.)
+**Alerto kapag ikaw** — isang card na may ring kapag ikaw ang tinarget ng mekaniko: ang pangalan ng
+mekaniko, ang dapat mong gawin at isang countdown. Hanggang 3 ang magpapatong kapag sabay-sabay kang
+tinarget ng ilang mekaniko. Lalabas ang **UMALIS** kapag nakatayo ka sa mapanganib na tile, at sa mga ring
+phase ng raid, sinasabi nito kung saang ring ka dapat lumipat. Opsyonal ang tunog at may sarili itong
+lakas; gamitin ang **Subukan ang alerto** para i-preview. (Naka-off bilang default.)
 
-![Alert banner](media/mechanic-alert.png)
+![On-me alerts](media/mechanic-alert.png)
 
-Ilipat ang listahan, minimap at banner kahit saan sa HUD layout editor.
+Ilipat ang listahan, minimap at mga alerto kahit saan sa HUD layout editor.
 
 ## Mga Paalala
 
