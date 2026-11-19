@@ -36,9 +36,9 @@
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoGather.git",
-  "commit": "4882d1414f29ddbe31f3ea1e41fb5b9ec68abab6",
+  "commit": "07c2446e04092fbcabe4cd2053bd227e0cb4c253",
   "projectPath": ".",
-  "tag": "v1.2.0",
+  "tag": "v1.2.1",
   "i18n": {
     "ja": {
       "name": "自動採取",
