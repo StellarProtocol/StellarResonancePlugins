@@ -2,7 +2,7 @@
   "id": "autogather",
   "name": "Auto Gather",
   "description": "Automatically harvests nearby life-resource nodes — pick a resource type and it walks to and gathers every node of that type, with an optional Focus mode.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dll": "Stellar.AutoGather.dll",
   "author": "Stellar",
   "tags": [
@@ -24,27 +24,21 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-17",
+  "date": "2026-11-19",
   "changelog": {
     "added": [
-      "A redesigned Auto-Gather window in the new Stellar look: the resource list shows how many of each type are nearby and how far away, a Normal/Focus switch, and ? tips that explain each setting.",
-      "A Focus limit slider — a Focus run stops on its own after spending the amount of Focus you choose.",
-      "When no node of the chosen type can be reached right now, the status line tells you and Auto-Gather tries again shortly."
+      "Auto-Gather now works in Montegnor Valley. Nodes it can't walk to, such as those on top of cliffs or down in a canyon, are skipped."
     ],
     "changed": [
-      "Sharper icon at every size.",
-      "Requires Stellar 2.30.0 or newer."
+      "Updated for Season 4: walking routes follow the changed terrain in the areas Auto-Gather already supported."
     ],
-    "fixed": [
-      "Gathering no longer stops early or skips reachable nodes in Everfall Forest, Duskdye Woods and Bahamar Highlands — your character now finds its way to nodes it used to give up on, such as Luna Pure Ore."
-    ],
+    "fixed": [],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoGather.git",
-  "commit": "4882d1414f29ddbe31f3ea1e41fb5b9ec68abab6",
+  "commit": "07c2446e04092fbcabe4cd2053bd227e0cb4c253",
   "projectPath": ".",
-  "tag": "v1.2.0",
-  "capPriorVersionsAt": "2.29.1",
+  "tag": "v1.2.1",
   "i18n": {
     "ja": {
       "name": "自動採取",
@@ -55,17 +49,12 @@
       ],
       "changelog": {
         "added": [
-          "Stellar の新しいデザインになった自動採取ウィンドウ：資源リストに付近の数と距離を表示、通常／集中の切り替え、各設定を説明する ? ヒント。",
-          "「集中力の上限」スライダー — 集中モードでは、選んだ量の集中力を使うと自動で停止します。",
-          "選んだ種類のポイントに今たどり着けないときは状態表示でお知らせし、少し待ってから再試行します。"
+          "モンテノール渓谷で自動採取が使えるようになりました。崖の上や渓谷の底など、歩いてたどり着けないポイントは飛ばします。"
         ],
         "changed": [
-          "アイコンがどのサイズでもくっきり表示されるようになりました。",
-          "Stellar 2.30.0 以降が必要です。"
+          "シーズン4に対応：これまで対応していたエリアの地形変更に合わせて、移動ルートを更新しました。"
         ],
-        "fixed": [
-          "雨止まぬ森、花明かりの森、バハマール高原で、採取が途中で止まったり、たどり着けるポイントを飛ばしたりしなくなりました — Luna Pure Ore など、以前はあきらめていたポイントにもキャラクターが道を見つけて向かいます。"
-        ]
+        "fixed": []
       }
     },
     "th": {
@@ -77,17 +66,12 @@
       ],
       "changelog": {
         "added": [
-          "หน้าต่างเก็บเกี่ยวอัตโนมัติโฉมใหม่ในสไตล์ Stellar: รายการทรัพยากรแสดงจำนวนที่อยู่ใกล้และระยะทาง มีตัวสลับปกติ/สมาธิ และปุ่ม ? อธิบายการตั้งค่าแต่ละอย่าง",
-          "แถบเลื่อน “ขีดจำกัดสมาธิ” — การเก็บในโหมดสมาธิจะหยุดเองเมื่อใช้สมาธิครบตามจำนวนที่คุณเลือก",
-          "เมื่อตอนนี้ไปถึงจุดของประเภทที่เลือกไม่ได้ บรรทัดสถานะจะแจ้งให้ทราบ และจะลองใหม่อีกครั้งในไม่ช้า"
+          "เก็บเกี่ยวอัตโนมัติใช้งานได้แล้วใน Montegnor Valley — จุดที่เดินไปไม่ถึง เช่น บนหน้าผาหรือก้นหุบเขา จะถูกข้ามไป"
         ],
         "changed": [
-          "ไอคอนคมชัดขึ้นในทุกขนาด",
-          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
+          "รองรับซีซัน 4: อัปเดตเส้นทางเดินให้ตรงกับภูมิประเทศที่เปลี่ยนไปในพื้นที่ที่รองรับอยู่แล้ว"
         ],
-        "fixed": [
-          "ใน Everfall Forest, Duskdye Woods และ Bahamar Highlands การเก็บเกี่ยวจะไม่หยุดกลางคันหรือข้ามจุดที่ไปถึงได้อีกแล้ว — ตัวละครหาทางไปยังจุดที่เคยยอมแพ้ได้แล้ว เช่น Luna Pure Ore"
-        ]
+        "fixed": []
       }
     },
     "id": {
@@ -99,17 +83,12 @@
       ],
       "changelog": {
         "added": [
-          "Jendela Kumpul Otomatis didesain ulang dengan tampilan Stellar yang baru: daftar sumber daya menampilkan jumlah di dekat dan jaraknya, pilihan Normal/Fokus, dan tips ? yang menjelaskan tiap pengaturan.",
-          "Penggeser “Batas Fokus” — sesi Fokus berhenti sendiri setelah memakai jumlah Fokus yang kamu pilih.",
-          "Jika saat ini tidak ada node dari jenis yang dipilih yang bisa dijangkau, baris status memberitahumu dan Kumpul Otomatis segera mencoba lagi."
+          "Kumpul Otomatis kini berfungsi di Lembah Montenor. Titik yang tidak bisa dicapai dengan berjalan, misalnya di atas tebing atau di dasar ngarai, akan dilewati."
         ],
         "changed": [
-          "Ikon lebih tajam di semua ukuran.",
-          "Membutuhkan Stellar 2.30.0 atau lebih baru."
+          "Diperbarui untuk Season 4: rute berjalan mengikuti perubahan medan di area yang sudah didukung sebelumnya."
         ],
-        "fixed": [
-          "Di Everfall Forest, Duskdye Woods, dan Bahamar Highlands, pengumpulan tidak lagi berhenti di tengah jalan atau melewatkan node yang bisa dijangkau — karaktermu kini menemukan jalan ke node yang dulu ditinggalkan, seperti Luna Pure Ore."
-        ]
+        "fixed": []
       }
     },
     "fil": {
@@ -121,17 +100,12 @@
       ],
       "changelog": {
         "added": [
-          "Bagong disenyo ng window ng Awtomatikong Pag-ani sa bagong itsura ng Stellar: ipinapakita ng listahan ng resource kung ilan ang malapit at gaano kalayo, may pagpipiliang Normal/Focus, at may mga ? na tip na nagpapaliwanag sa bawat setting.",
-          "Slider na “Limit ng Focus” — kusang humihinto ang pag-ani sa Focus pagkatapos magamit ang dami ng Focus na pinili mo.",
-          "Kapag walang maabot na node ng napiling uri sa ngayon, sinasabi ito ng status line at susubukan ulit maya-maya."
+          "Gumagana na ang Awtomatikong Pag-ani sa Montegnor Valley. Nilalaktawan ang mga node na hindi malalakaran, gaya ng nasa ibabaw ng bangin o nasa ilalim ng kanyon."
         ],
         "changed": [
-          "Mas malinaw ang icon sa bawat laki.",
-          "Kailangan ng Stellar 2.30.0 o mas bago."
+          "Para sa Season 4: sinusundan na ng mga ruta ng paglalakad ang nagbagong lupain sa mga lugar na dati nang sinusuportahan."
         ],
-        "fixed": [
-          "Sa Everfall Forest, Duskdye Woods at Bahamar Highlands, hindi na humihinto nang maaga ang pag-ani o lumalaktaw sa mga node na naaabot — nahahanap na ng karakter mo ang daan papunta sa mga node na dati nitong sinusukuan, gaya ng Luna Pure Ore."
-        ]
+        "fixed": []
       }
     },
     "ko": {
@@ -143,17 +117,12 @@
       ],
       "changelog": {
         "added": [
-          "새로운 Stellar 디자인으로 바뀐 자동 채집 창: 자원 목록에 근처 개수와 거리 표시, 일반/집중 전환, 각 설정을 설명하는 ? 도움말.",
-          "“집중력 한도” 슬라이더 — 집중 모드 채집이 선택한 만큼 집중력을 쓰면 자동으로 멈춥니다.",
-          "선택한 종류의 채집물에 지금 갈 수 없으면 상태 줄에 알려 주고 잠시 후 다시 시도합니다."
+          "몽테놀 계곡에서 자동 채집을 사용할 수 있습니다. 절벽 위나 협곡 아래처럼 걸어서 갈 수 없는 지점은 건너뜁니다."
         ],
         "changed": [
-          "모든 크기에서 아이콘이 더 선명해졌습니다.",
-          "Stellar 2.30.0 이상이 필요합니다."
+          "시즌 4 대응: 기존에 지원하던 지역의 지형 변화에 맞춰 이동 경로를 업데이트했습니다."
         ],
-        "fixed": [
-          "Everfall Forest, Duskdye Woods, Bahamar Highlands에서 채집이 도중에 멈추거나 갈 수 있는 채집물을 건너뛰지 않습니다 — 예전에는 포기하던 Luna Pure Ore 같은 채집물까지 캐릭터가 길을 찾아갑니다."
-        ]
+        "fixed": []
       }
     }
   }
