@@ -20,7 +20,7 @@
     {
       "type": "image",
       "file": "media/target-overlays.png",
-      "caption": "Target overlays in a boss fight — HP + break gauge, the effect list (★ = your own), threat/aggro %, and the cast bar."
+      "caption": "Target overlays — the boss-style target bar with portrait, HP and break gauge, the effect list (★ = your own), boss skill timers, cast bar and threat %."
     },
     {
       "type": "image",
@@ -67,7 +67,7 @@
     "ja": {
       "description": "カスタマイズ可能なターゲットHUD：バフ / デバフ、ヘイト / アグロ、ボススキルタイマー、リアルタイムの詠唱バー、そして近くのモンスター一覧。",
       "captions": [
-        "ボス戦でのターゲットオーバーレイ — HP+ブレイクゲージ、効果一覧（★=自分の効果）、ヘイト/アグロ％、詠唱バー。",
+        "ターゲットオーバーレイ — ポートレート付きのボス風ターゲットバー（HP+ブレイクゲージ）、効果一覧（★=自分の効果）、ボススキルタイマー、詠唱バー、ヘイト％。",
         "近くのモンスター — 周囲の敵をランクと距離順に表示。クリックでロックオン（南京錠＝ロック中、青＝現在のターゲット）。",
         "設定 — オーバーレイごとにオン/オフスイッチ付きのセクションがあり、すべてのオプションに ? ヘルプボタンがあります。",
         "効果を選択 — 検索付きのデバフ / バフタブ。★はおすすめの効果。"
@@ -98,7 +98,7 @@
     "th": {
       "description": "HUD เป้าหมายที่ปรับแต่งได้: บัฟ / ดีบัฟ ความเกลียดชัง / อักโกร ตัวจับเวลาสกิลบอส แถบร่ายเวทแบบเรียลไทม์ และรายการมอนสเตอร์ใกล้เคียง",
       "captions": [
-        "โอเวอร์เลย์เป้าหมายระหว่างต่อสู้บอส — พลังชีวิต + เกจเบรก รายการเอฟเฟกต์ (★ = ของคุณเอง) % ความเกลียดชัง / อักโกร และแถบร่ายเวท",
+        "โอเวอร์เลย์เป้าหมาย — แถบเป้าหมายสไตล์บอสพร้อมภาพประจำตัว พลังชีวิตและเกจเบรก รายการเอฟเฟกต์ (★ = ของคุณเอง) ตัวจับเวลาสกิลบอส แถบร่ายเวท และ % ความเกลียดชัง",
         "มอนสเตอร์ใกล้เคียง — ศัตรูรอบตัวคุณเรียงตามระดับและระยะห่าง คลิกเพื่อล็อกเป้า (แม่กุญแจ = ล็อกอยู่, สีน้ำเงิน = เป้าหมายปัจจุบัน)",
         "การตั้งค่า — โอเวอร์เลย์แต่ละตัวมีส่วนของตัวเองพร้อมสวิตช์เปิด/ปิด และทุกตัวเลือกมีปุ่มวิธีใช้ ?",
         "เลือกเอฟเฟกต์ — แท็บดีบัฟและบัฟพร้อมช่องค้นหา ★ คือเอฟเฟกต์ที่แนะนำ"
@@ -129,7 +129,7 @@
     "id": {
       "description": "HUD target yang dapat disesuaikan: buff/debuff, ancaman/aggro, pengatur waktu skill bos, cast bar langsung, dan daftar monster terdekat.",
       "captions": [
-        "Overlay target saat pertarungan bos — HP + gauge break, daftar efek (★ = milikmu sendiri), % ancaman/aggro, dan cast bar.",
+        "Overlay target — bar target bergaya bos dengan potret, HP dan gauge break, daftar efek (★ = milikmu sendiri), pengatur waktu skill bos, cast bar, dan % ancaman.",
         "Monster Terdekat — musuh di sekitarmu berdasarkan rank dan jarak; klik salah satu untuk mengunci (gembok = terkunci, biru = target saat ini).",
         "Pengaturan — satu bagian per overlay dengan sakelar aktif/mati sendiri, dan tombol bantuan ? di setiap opsi.",
         "Pilih efek — tab Debuff dan Buff dengan pencarian; ★ menandai efek yang direkomendasikan."
@@ -160,7 +160,7 @@
     "fil": {
       "description": "Nako-customize na target HUD: buffs/debuffs, threat/aggro, mga timer ng skill ng boss, live na cast bar, at listahan ng mga malapit na monster.",
       "captions": [
-        "Mga target overlay sa isang labanan sa boss — HP + break gauge, listahan ng epekto (★ = sarili mo), % threat/aggro, at ang cast bar.",
+        "Mga target overlay — boss-style na target bar na may portrait, HP at break gauge, listahan ng epekto (★ = sarili mo), mga timer ng skill ng boss, cast bar at % threat.",
         "Mga Malapit na Monster — mga kalaban sa paligid mo ayon sa rank at distansya; i-click ang isa para mag-lock on (padlock = naka-lock, asul = kasalukuyang target).",
         "Settings — isang seksyon bawat overlay na may sariling on/off na switch, at ? na help button sa bawat opsyon.",
         "Pumili ng epekto — mga tab na Debuffs at Buffs na may search; ang ★ ay mga rekomendadong epekto."
@@ -191,7 +191,7 @@
     "ko": {
       "description": "커스터마이즈 가능한 대상 HUD: 버프/디버프, 어그로, 보스 스킬 타이머, 실시간 시전 바, 주변 몬스터 목록.",
       "captions": [
-        "보스 전투 중 대상 오버레이 — HP + 브레이크 게이지, 효과 목록(★ = 내 효과), 어그로 %, 시전 바.",
+        "대상 오버레이 — 초상화가 있는 보스 스타일 대상 바(HP + 브레이크 게이지), 효과 목록(★ = 내 효과), 보스 스킬 타이머, 시전 바, 어그로 %.",
         "주변 몬스터 — 주변의 적을 등급과 거리순으로 표시. 클릭하면 타겟 고정(자물쇠 = 고정됨, 파란색 = 현재 대상).",
         "설정 — 오버레이마다 켬/끔 스위치가 있는 섹션, 모든 옵션에 ? 도움말 버튼.",
         "효과 선택 — 검색 기능이 있는 디버프/버프 탭. ★는 추천 효과."
