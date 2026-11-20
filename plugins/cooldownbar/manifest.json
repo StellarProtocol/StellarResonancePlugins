@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Tracks your skill cooldowns, debuffs and buffs — on one bar, or as separate tiles you place anywhere on screen.",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -29,28 +29,13 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-12",
+  "date": "2026-11-20",
   "changelog": {
-    "added": [
-      "New “Placed” display mode: every effect you tick becomes its own small tile you can put anywhere on screen. A tile shows only while its effect is active. Move the tiles in the HUD layout editor, where all of them show. Up to 30 effects.",
-      "Tile sizes for Placed mode: 75 %, 100 %, 125 %, 150 % or 200 % for all tiles, or a different size for any single tile.",
-      "New “Hide when empty” option for the bar (off by default): the bar disappears while nothing is active and comes back with the next cooldown or effect."
-    ],
-    "changed": [
-      "New look: rounded icons on coloured cards — cyan for skill cooldowns, red for debuffs, green for buffs — with a fill bar, the time left and a small stack or charge count.",
-      "The bar sits on a rounded panel that follows your theme. The Background slider sets how solid it is.",
-      "Clearer Settings: Skills / Debuffs / Buffs chips with counts, Only ticked / All except ticked chips, search with a clear button, Untick all with a confirm step and ? help. Ticking something flashes the row and confirms it at the bottom.",
-      "Settings now opens centred on the bar.",
-      "Time left shows in seconds up to 99 s, then in minutes (e.g. “8m”), then in hours. Stacks show up to 99, then “99+”.",
-      "Requires Stellar 2.30.0 or newer."
-    ],
+    "added": [],
+    "changed": [],
     "fixed": [
-      "Some effects ticked in older versions didn't show on the bar. They now show, and your ticks are kept.",
-      "The counts in Settings always match the ticks you see.",
-      "Cooldowns sped up by haste now count down smoothly at the right speed and never jump back up.",
-      "The bar no longer causes stutter in busy fights.",
-      "Less hitching when you enter the world.",
-      "Fixed the ping display sometimes getting stuck at 0 ms and towns staying at night."
+      "Season 4 potion and food buffs now show on the bar. A ticked Potion or Cuisine group now also covers buffs the game adds to it later, and your saved choices update on their own.",
+      "Buff names updated for Season 4."
     ],
     "removed": []
   },
@@ -63,26 +48,11 @@
         "HUD レイアウトエディターでの個別配置 — チェックした効果がそれぞれタイルになり、ドラッグで好きな場所に置けます。"
       ],
       "changelog": {
-        "added": [
-          "新しい表示方法「個別配置」：チェックした効果がそれぞれ小さなタイルになり、画面の好きな場所に置けます。タイルはその効果が有効な間だけ表示されます。タイルは HUD レイアウトエディターで動かせます（エディターではすべてのタイルが表示されます）。最大 30 個。",
-          "個別配置のタイルサイズ：全タイル共通で 75%・100%・125%・150%・200% から選べ、タイルごとに別のサイズにもできます。",
-          "バーの新オプション「空のときは隠す」（初期設定はオフ）：何も有効でない間はバーが消え、次のクールダウンや効果で再び表示されます。"
-        ],
-        "changed": [
-          "新しい見た目：色付きカードの上に角丸アイコン（スキルのクールダウンは水色、デバフは赤、バフは緑）、フィルバー、残り時間、小さなスタック / チャージ数を表示します。",
-          "バーはテーマに合わせた角丸パネルの上に表示されます。「背景」スライダーで不透明度を調整できます。",
-          "設定が分かりやすくなりました：件数付きのスキル / デバフ / バフ チップ、「チェックしたものだけ / チェック以外すべて」チップ、クリアボタン付きの検索、確認付きの「すべて外す」、? ヘルプ。チェックすると行が光り、下部に確認が表示されます。",
-          "設定はバーの中央に開くようになりました。",
-          "残り時間は 99 秒までは秒、その後は分（例：「8m」）、さらに長いと時間で表示します。スタック数は 99 まで表示し、それ以上は「99+」になります。",
-          "Stellar 2.30.0 以降が必要です。"
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "以前のバージョンでチェックした一部の効果がバーに表示されなかった問題を修正しました。チェックはそのまま引き継がれます。",
-          "設定の件数が、表示されているチェックと常に一致するようになりました。",
-          "ヘイストで短くなったクールダウンが正しい速さでなめらかにカウントダウンし、逆戻りしなくなりました。",
-          "混雑した戦闘でバーが原因のカクつきが起きなくなりました。",
-          "ワールドに入るときのカクつきを軽減しました。",
-          "Ping 表示が 0 ms のまま止まり、街が夜のままになることがある問題を修正しました。"
+          "シーズン4のポーションと料理のバフがバーに表示されるようになりました。ポーションや料理のグループにチェックを入れておくと、あとでゲームに追加されるバフも対象になります。保存済みの設定は自動で更新されます。",
+          "バフ名をシーズン4に合わせて更新しました。"
         ]
       }
     },
@@ -94,26 +64,11 @@
         "โหมดวางแยกในตัวแก้ไขเลย์เอาต์ HUD — เอฟเฟกต์ที่ติ๊กไว้แต่ละตัวเป็นไทล์ของตัวเอง ลากไปวางตรงไหนก็ได้"
       ],
       "changelog": {
-        "added": [
-          "โหมดแสดงผลใหม่ “วางแยก”: เอฟเฟกต์ที่ติ๊กไว้แต่ละตัวจะกลายเป็นไทล์เล็ก ๆ ของตัวเองที่วางไว้ตรงไหนบนจอก็ได้ ไทล์จะแสดงเฉพาะตอนที่เอฟเฟกต์นั้นทำงานอยู่ ย้ายไทล์ได้ในตัวแก้ไขเลย์เอาต์ HUD ซึ่งจะแสดงไทล์ทั้งหมด สูงสุด 30 เอฟเฟกต์",
-          "ขนาดไทล์สำหรับโหมดวางแยก: 75%, 100%, 125%, 150% หรือ 200% สำหรับทุกไทล์ หรือกำหนดขนาดแยกให้ไทล์ใดไทล์หนึ่งก็ได้",
-          "ตัวเลือกใหม่ “ซ่อนเมื่อว่าง” สำหรับแถบ (ปิดไว้เป็นค่าเริ่มต้น): แถบจะหายไประหว่างที่ไม่มีอะไรทำงานอยู่ และกลับมาเมื่อมีคูลดาวน์หรือเอฟเฟกต์ถัดไป"
-        ],
-        "changed": [
-          "หน้าตาใหม่: ไอคอนขอบมนบนการ์ดสี — ฟ้าสำหรับคูลดาวน์สกิล แดงสำหรับดีบัฟ เขียวสำหรับบัฟ — พร้อมแถบเติม เวลาที่เหลือ และตัวเลขสแตกหรือชาร์จเล็ก ๆ",
-          "แถบอยู่บนแผงขอบมนที่เปลี่ยนตามธีม แถบเลื่อน “พื้นหลัง” ใช้ปรับความทึบ",
-          "การตั้งค่าเข้าใจง่ายขึ้น: ชิปสกิล / ดีบัฟ / บัฟพร้อมจำนวน ชิป “เฉพาะที่ติ๊กไว้ / ทั้งหมด ยกเว้นที่ติ๊ก” ช่องค้นหาพร้อมปุ่มล้าง “ล้างทั้งหมด” ที่ต้องยืนยันก่อน และความช่วยเหลือ ? เมื่อติ๊กอะไร แถวนั้นจะกะพริบและมีข้อความยืนยันด้านล่าง",
-          "การตั้งค่าจะเปิดขึ้นตรงกลางแถบแล้ว",
-          "เวลาที่เหลือแสดงเป็นวินาทีถึง 99 วิ จากนั้นเป็นนาที (เช่น “8m”) แล้วเป็นชั่วโมง จำนวนสแตกแสดงถึง 99 จากนั้นเป็น “99+”",
-          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "เอฟเฟกต์บางตัวที่ติ๊กไว้ในเวอร์ชันเก่าไม่แสดงบนแถบ ตอนนี้แสดงแล้ว และสิ่งที่ติ๊กไว้ยังอยู่ครบ",
-          "จำนวนในการตั้งค่าตรงกับสิ่งที่ติ๊กไว้เสมอ",
-          "คูลดาวน์ที่เร็วขึ้นจากความเร่ง (Haste) นับถอยหลังอย่างลื่นไหลด้วยความเร็วที่ถูกต้อง และไม่กระโดดย้อนกลับอีก",
-          "แถบไม่ทำให้เกมกระตุกในการต่อสู้ที่วุ่นวายอีกต่อไป",
-          "กระตุกน้อยลงตอนเข้าสู่โลก",
-          "แก้ไขกรณีที่ค่าปิงค้างอยู่ที่ 0 ms และเมืองเป็นกลางคืนตลอด"
+          "บัฟยาและอาหารของซีซัน 4 แสดงบนแถบแล้ว กลุ่ม Potion หรือ Cuisine ที่ติ๊กไว้จะครอบคลุมบัฟที่เกมเพิ่มเข้ามาภายหลังด้วย และการตั้งค่าที่บันทึกไว้จะอัปเดตเอง",
+          "อัปเดตชื่อบัฟสำหรับซีซัน 4"
         ]
       }
     },
@@ -125,26 +80,11 @@
         "Mode Terpisah di editor tata letak HUD — setiap efek yang dicentang jadi tile sendiri; seret masing-masing ke tempat yang kamu mau."
       ],
       "changelog": {
-        "added": [
-          "Mode tampilan baru “Terpisah”: setiap efek yang kamu centang jadi tile kecil sendiri yang bisa ditaruh di mana saja di layar. Tile hanya muncul selama efeknya aktif. Pindahkan tile di editor tata letak HUD, tempat semua tile ditampilkan. Maksimal 30 efek.",
-          "Ukuran tile untuk mode Terpisah: 75%, 100%, 125%, 150%, atau 200% untuk semua tile, atau ukuran berbeda untuk satu tile tertentu.",
-          "Opsi baru “Sembunyikan saat kosong” untuk bilah (mati secara bawaan): bilah menghilang selama tidak ada yang aktif dan muncul lagi saat cooldown atau efek berikutnya."
-        ],
-        "changed": [
-          "Tampilan baru: ikon bersudut bulat di atas kartu berwarna — sian untuk cooldown skill, merah untuk debuff, hijau untuk buff — dengan bilah isi, sisa waktu, dan angka stack atau charge kecil.",
-          "Bilah berada di panel bersudut bulat yang mengikuti temamu. Slider Latar mengatur seberapa pekat panelnya.",
-          "Pengaturan lebih jelas: chip Skill / Debuff / Buff dengan jumlah, chip Hanya yang dicentang / Selain yang dicentang, pencarian dengan tombol hapus, Hapus centang dengan langkah konfirmasi, dan bantuan ?. Saat kamu mencentang sesuatu, barisnya berkedip dan ada konfirmasi di bagian bawah.",
-          "Pengaturan sekarang terbuka di tengah bilah.",
-          "Sisa waktu ditampilkan dalam detik sampai 99 dtk, lalu menit (mis. “8m”), lalu jam. Stack ditampilkan sampai 99, lalu “99+”.",
-          "Butuh Stellar 2.30.0 atau lebih baru."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "Beberapa efek yang dicentang di versi lama tidak muncul di bilah. Sekarang muncul, dan centanganmu tetap tersimpan.",
-          "Jumlah di Pengaturan selalu sesuai dengan centang yang kamu lihat.",
-          "Cooldown yang dipercepat oleh haste kini menghitung mundur dengan mulus pada kecepatan yang benar dan tidak pernah melompat mundur.",
-          "Bilah tidak lagi menyebabkan patah-patah saat pertarungan ramai.",
-          "Lebih sedikit tersendat saat masuk ke dunia.",
-          "Memperbaiki tampilan ping yang kadang macet di 0 ms dan kota yang tetap malam."
+          "Buff ramuan dan makanan Season 4 kini muncul di bar. Grup Potion atau Cuisine yang dicentang kini juga mencakup buff yang ditambahkan game nanti, dan pilihan yang tersimpan diperbarui dengan sendirinya.",
+          "Nama buff diperbarui untuk Season 4."
         ]
       }
     },
@@ -156,26 +96,11 @@
         "Nakahiwalay na mode sa HUD layout editor — bawat napiling effect ay may sariling tile; i-drag ang bawat isa kung saan mo gusto."
       ],
       "changelog": {
-        "added": [
-          "Bagong display mode na “Nakahiwalay”: bawat effect na pinili mo ay nagiging sariling maliit na tile na puwede mong ilagay kahit saan sa screen. Lumalabas lang ang tile habang aktibo ang effect nito. Ilipat ang mga tile sa HUD layout editor, kung saan lumalabas silang lahat. Hanggang 30 effect.",
-          "Mga laki ng tile para sa Nakahiwalay na mode: 75%, 100%, 125%, 150% o 200% para sa lahat ng tile, o ibang laki para sa isang tile lang.",
-          "Bagong opsyon na “Itago kung walang laman” para sa bar (naka-off bilang default): nawawala ang bar habang walang aktibo at bumabalik sa susunod na cooldown o effect."
-        ],
-        "changed": [
-          "Bagong itsura: mga bilugang icon sa may-kulay na card — cyan para sa cooldown ng skill, pula para sa debuff, berde para sa buff — may fill bar, natitirang oras at maliit na bilang ng stack o charge.",
-          "Nakapatong ang bar sa isang bilugang panel na sumusunod sa iyong theme. Ang Background slider ang nagtatakda kung gaano ito kasolido.",
-          "Mas malinaw na Mga setting: mga chip ng Skills / Debuffs / Buffs na may bilang, mga chip na Mga napili lang / Lahat maliban sa napili, paghahanap na may clear button, Alisin lahat na may kumpirmasyon, at ? na tulong. Kapag may pinili ka, kumikislap ang row at may kumpirmasyon sa ibaba.",
-          "Bumubukas na ngayon ang Mga setting sa gitna ng bar.",
-          "Ang natitirang oras ay nasa segundo hanggang 99 s, tapos minuto (hal. “8m”), tapos oras. Ang stack ay hanggang 99, tapos “99+”.",
-          "Kailangan ng Stellar 2.30.0 o mas bago."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "May ilang effect na pinili sa mga lumang bersyon na hindi lumalabas sa bar. Lumalabas na sila ngayon, at nananatili ang mga pinili mo.",
-          "Laging tugma ang mga bilang sa Mga setting sa mga piniling nakikita mo.",
-          "Ang mga cooldown na pinabilis ng haste ay maayos nang nagka-countdown sa tamang bilis at hindi na tumatalon pabalik.",
-          "Hindi na nagdudulot ng stutter ang bar sa magugulong laban.",
-          "Mas kaunting hitching pagpasok sa world.",
-          "Naayos ang ping display na minsan ay naiipit sa 0 ms at ang mga bayan na nananatiling gabi."
+          "Lumalabas na sa bar ang mga potion at food buff ng Season 4. Kasama na rin sa naka-tick na Potion o Cuisine group ang mga buff na idadagdag ng laro sa susunod, at kusang naa-update ang mga naka-save mong pinili.",
+          "Na-update ang mga pangalan ng buff para sa Season 4."
         ]
       }
     },
@@ -188,33 +113,17 @@
         "HUD 레이아웃 편집기의 개별 배치 — 체크한 효과마다 자기 타일이 생기며, 원하는 곳으로 끌어다 놓을 수 있습니다."
       ],
       "changelog": {
-        "added": [
-          "새 표시 방식 “개별 배치”: 체크한 효과마다 작은 타일이 하나씩 생겨 화면 어디에나 둘 수 있습니다. 타일은 해당 효과가 활성인 동안에만 표시됩니다. 타일은 HUD 레이아웃 편집기에서 옮기며, 편집기에서는 모든 타일이 표시됩니다. 최대 30개.",
-          "개별 배치 타일 크기: 모든 타일에 75%, 100%, 125%, 150%, 200% 중 하나를 적용하거나, 타일마다 크기를 따로 지정할 수 있습니다.",
-          "바의 새 옵션 “비어 있으면 숨기기”(기본값 꺼짐): 활성인 것이 없는 동안 바가 사라지고, 다음 쿨타임이나 효과가 생기면 다시 나타납니다."
-        ],
-        "changed": [
-          "새로운 디자인: 색깔 카드 위의 둥근 아이콘 — 스킬 쿨타임은 청록, 디버프는 빨강, 버프는 초록 — 과 채움 바, 남은 시간, 작은 스택/충전 수.",
-          "바가 테마를 따르는 둥근 패널 위에 표시됩니다. 배경 슬라이더로 불투명도를 조절합니다.",
-          "더 알기 쉬운 설정: 개수가 표시되는 스킬 / 디버프 / 버프 칩, “체크한 것만 / 체크한 것 빼고 모두” 칩, 지우기 버튼이 있는 검색, 확인 단계가 있는 “모두 해제”, ? 도움말. 무언가를 체크하면 해당 줄이 반짝이고 아래쪽에 확인 문구가 나옵니다.",
-          "설정이 이제 바의 가운데에서 열립니다.",
-          "남은 시간은 99초까지 초로, 그다음은 분(예: “8m”), 그다음은 시간으로 표시됩니다. 스택은 99까지 표시되고 그 이상은 “99+”입니다.",
-          "Stellar 2.30.0 이상이 필요합니다."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "이전 버전에서 체크한 일부 효과가 바에 표시되지 않던 문제를 고쳤습니다. 체크한 항목은 그대로 유지됩니다.",
-          "설정의 개수가 보이는 체크 항목과 항상 일치합니다.",
-          "가속(헤이스트)으로 빨라진 쿨타임이 올바른 속도로 부드럽게 줄어들며, 더 이상 거꾸로 튀지 않습니다.",
-          "붐비는 전투에서 바 때문에 끊기는 현상이 더 이상 없습니다.",
-          "월드에 들어갈 때 버벅임이 줄었습니다.",
-          "핑 표시가 0 ms에서 멈추고 마을이 계속 밤으로 남는 경우를 고쳤습니다."
+          "시즌 4 물약·요리 버프가 바에 표시됩니다. 물약 또는 요리 그룹을 체크해 두면 나중에 게임에 추가되는 버프도 함께 적용되며, 저장된 설정은 자동으로 갱신됩니다.",
+          "버프 이름을 시즌 4에 맞게 갱신했습니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "5b857dc23c22e49d513cf54454bb62df6237dfe6",
+  "commit": "505c7da6a43852738ee6823c46912c1dd895b32b",
   "projectPath": ".",
-  "tag": "v2.4.0",
-  "capPriorVersionsAt": "2.29.1"
+  "tag": "v2.4.1"
 }
