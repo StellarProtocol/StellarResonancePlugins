@@ -10,10 +10,10 @@ folder dengan karakter non-Inggris.
 
 1. Instal plugin lalu jalankan game dalam mode **Dengan mod**, kemudian masuk ke dunia.
 2. Buka jendela **Gambar Profil Kustom** dari overlay Stellar.
-3. **Pilih gambar** yang ingin kamu terapkan ke Avatar atau Kartu Nama-mu. Jendela pemilih file PNG
+3. Tekan **Pilih…** lalu pilih gambar yang ingin kamu terapkan ke Avatar atau Kartu Nama-mu. Jendela pemilih file PNG
    bawaan akan terbuka — jika tidak terlihat, mungkin tersembunyi di belakang jendela game: tekan
    **Alt+Tab** untuk membawanya ke depan, atau jalankan game dalam mode **Borderless / Windowed**.
-4. Tekan **Buat Avatar/Kartu Nama** — status akan menampilkan **Siap**.
+4. Tekan **Terapkan** — status akan menampilkan **Siap**.
 5. Di dalam game, gunakan **tiket Avatar / Kartu Nama** dari inventarismu, atau pergi ke
    **perangkat pengubah Avatar / Kartu Nama milik guild**.
 6. **Ambil bidikan tanpa mengatur apa pun.** Pratinjau akan menampilkan gambar yang akan diunggah.
@@ -30,3 +30,5 @@ Satu gambar yang dipilih melayani keduanya: plugin secara otomatis menerapkannya
 Dengan mendekati ukuran ini, kamu menghindari game yang mengubah skala atau memotong gambarmu.
 Pratinjau di dalam jendela mungkin tidak sepenuhnya cocok dengan hasil akhir — periksa pratinjau
 dalam game sebelum kamu mengonfirmasi.
+
+Jendela menampilkan ukuran gambarmu dan menandai apakah bentuknya cocok untuk avatar atau kartu nama.

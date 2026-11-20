@@ -2,7 +2,7 @@
   "id": "customprofleimage",
   "name": "Custom Profile Image",
   "description": "Upload a custom PNG as your in-game avatar or namecard, bypassing the in-game camera requirement.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "dll": "Stellar.CustomProfleImage.dll",
   "author": "Stellar",
   "tags": [
@@ -17,14 +17,18 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.21.0",
-  "date": "2026-10-09",
+  "minModSystemVersion": "2.33.0",
+  "date": "2026-11-20",
   "changelog": {
     "added": [
-      "Korean (한국어) language support — pick 한국어 under Settings → Themes → Language (needs Stellar 2.21.0)."
+      "A new, clearer window: your picture, its size, and whether it fits an avatar or a namecard are shown next to a step guide that follows your progress."
     ],
-    "changed": [],
-    "fixed": [],
+    "changed": [
+      "Needs Stellar 2.33.0 or newer."
+    ],
+    "fixed": [
+      "The window no longer says the upload failed when your picture was actually applied."
+    ],
     "removed": []
   },
   "i18n": {
@@ -36,10 +40,14 @@
       ],
       "changelog": {
         "added": [
-          "韓国語（한국어）対応 — 設定 → テーマ → 言語で 한국어 を選択します（Stellar 2.21.0 が必要）。"
+          "ウィンドウを一新しました。画像とそのサイズ、アバター／ネームカードに合うかどうかが、進み具合に合わせて表示される手順ガイドと並んで表示されます。"
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Stellar 2.33.0 以降が必要です。"
+        ],
+        "fixed": [
+          "画像が実際には適用されているのに「アップロード失敗」と表示されることがなくなりました。"
+        ],
         "removed": []
       }
     },
@@ -51,10 +59,14 @@
       ],
       "changelog": {
         "added": [
-          "รองรับภาษาเกาหลี (한국어) — เลือก 한국어 ได้ที่ ตั้งค่า → ธีม → ภาษา (ต้องมี Stellar 2.21.0)"
+          "หน้าต่างใหม่ที่ชัดเจนขึ้น: แสดงรูปของคุณ ขนาดรูป และบอกว่าเหมาะกับรูปโปรไฟล์หรือนามบัตรหรือไม่ พร้อมคู่มือขั้นตอนที่แสดงว่าคุณทำถึงขั้นไหนแล้ว"
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "ต้องใช้ Stellar 2.33.0 ขึ้นไป"
+        ],
+        "fixed": [
+          "หน้าต่างไม่แสดงว่าอัปโหลดล้มเหลวอีกต่อไป เมื่อรูปของคุณถูกนำไปใช้จริงแล้ว"
+        ],
         "removed": []
       }
     },
@@ -66,10 +78,14 @@
       ],
       "changelog": {
         "added": [
-          "Dukungan bahasa Korea (한국어) — pilih 한국어 di Pengaturan → Tema → Bahasa (perlu Stellar 2.21.0)."
+          "Jendela baru yang lebih jelas: gambarmu, ukurannya, dan apakah cocok untuk avatar atau kartu nama ditampilkan di samping panduan langkah yang mengikuti kemajuanmu."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Memerlukan Stellar 2.33.0 atau lebih baru."
+        ],
+        "fixed": [
+          "Jendela tidak lagi menyatakan unggahan gagal padahal gambarmu sudah benar-benar diterapkan."
+        ],
         "removed": []
       }
     },
@@ -81,10 +97,14 @@
       ],
       "changelog": {
         "added": [
-          "Suporta sa wikang Korean (한국어) — piliin ang 한국어 sa ilalim ng Mga Setting → Tema → Wika (kailangan ng Stellar 2.21.0)."
+          "Bagong mas malinaw na window: ipinapakita ang larawan mo, ang laki nito, at kung bagay ito sa avatar o namecard, katabi ng gabay sa mga hakbang na sumusunod sa progreso mo."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Kailangan ng Stellar 2.33.0 o mas bago."
+        ],
+        "fixed": [
+          "Hindi na sinasabi ng window na pumalya ang upload kahit nailapat na talaga ang larawan mo."
+        ],
         "removed": []
       }
     },
@@ -96,17 +116,21 @@
       ],
       "changelog": {
         "added": [
-          "한국어 언어 지원 — 설정 → 테마 → 언어에서 한국어를 선택하세요 (Stellar 2.21.0 필요)."
+          "더 알기 쉬운 새 창: 이미지와 크기, 아바타나 명함에 맞는지가 진행 상황을 따라가는 단계 안내와 함께 표시됩니다."
         ],
-        "changed": [],
-        "fixed": [],
+        "changed": [
+          "Stellar 2.33.0 이상이 필요합니다."
+        ],
+        "fixed": [
+          "이미지가 실제로 적용되었는데도 업로드 실패로 표시되던 문제를 수정했습니다."
+        ],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellaCustomProfileImagePlugin.git",
-  "commit": "1a17a79407ce611e2ffb6bea3a71455b1425ed48",
+  "commit": "40dceec15c3ee710bdff62e9ab8f2a58296d1805",
   "projectPath": ".",
-  "tag": "v2.3.0",
-  "capPriorVersionsAt": "2.20.0"
+  "tag": "v2.4.0",
+  "capPriorVersionsAt": "2.32.0"
 }
