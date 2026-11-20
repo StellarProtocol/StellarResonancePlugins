@@ -2,7 +2,7 @@
   "id": "combatmeter",
   "name": "CombatMeter",
   "description": "Real-time party DPS/HPS meter with role or class colours.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "dll": "Stellar.CombatMeter.dll",
   "author": "Stellar",
   "tags": [
@@ -46,29 +46,14 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.33.0",
-  "date": "2026-11-18",
+  "date": "2026-11-20",
   "changelog": {
-    "added": [
-      "Compact and Mini row sizes, set per view, so a raid of 20 takes far less space.",
-      "Row background and Foreground sliders, so you can see more of the game behind the meter.",
-      "A CombatMeter hub on the launcher: show or hide the meter, open Combat History or Settings.",
-      "Icons for every buff and debuff: the skill's icon when an effect comes from a skill, otherwise a category icon. Effects like Physical Immunity can now be tracked.",
-      "A confirmation before clearing, deleting or uploading saved fights.",
-      "Skill Breakdown now shows damage taken, and gives unnamed skills a readable name."
-    ],
-    "changed": [
-      "A new look for the meter and every window, matching the other Stellar plugins.",
-      "Settings, Appearance and effect setup are now one Settings window with tabs.",
-      "Pause and Archive are now buttons in the meter header.",
-      "Combat History is wider and shows a loading indicator when you switch DPS/HPS.",
-      "Requires Stellar 2.33.0 or newer."
-    ],
+    "added": [],
+    "changed": [],
     "fixed": [
-      "Thai player names on the meter are easy to read."
+      "Season 4 potion and food buffs now show in the party Buffs slots. A ticked Potion or Cuisine group now also covers buffs the game adds to it later, and your saved choices update on their own."
     ],
-    "removed": [
-      "The separate Combat History launcher tile. Open it from the hub instead."
-    ]
+    "removed": []
   },
   "i18n": {
     "ja": {
@@ -82,26 +67,10 @@
         "スキル内訳 — 被ダメージを含む合計と、スキルごとのダメージ・会心・幸運。"
       ],
       "changelog": {
-        "added": [
-          "行のサイズに「コンパクト」と「ミニ」を追加しました。表示ごとに設定でき、20人のレイドでも場所を大きく取りません。",
-          "「行の背景」と「前景」のスライダーを追加しました。メーターの後ろのゲーム画面がより見やすくなります。",
-          "ランチャーに CombatMeter のハブを追加しました。メーターの表示/非表示の切り替えや、戦闘履歴・設定を開けます。",
-          "すべてのバフ・デバフにアイコンを表示します。スキルによる効果はそのスキルのアイコン、それ以外はカテゴリのアイコンです。Physical Immunity などの効果も追跡できるようになりました。",
-          "保存した戦闘をクリア・削除・アップロードする前に確認が表示されます。",
-          "スキル内訳に被ダメージが表示され、名前のないスキルにも読みやすい名前が付くようになりました。"
-        ],
-        "changed": [
-          "メーターとすべてのウィンドウが、ほかの Stellar プラグインとそろった新しいデザインになりました。",
-          "設定・外観・効果の設定が、タブ付きの1つの設定ウィンドウにまとまりました。",
-          "一時停止とアーカイブがメーターのヘッダーのボタンになりました。",
-          "戦闘履歴のウィンドウが広くなり、DPS/HPS の切り替え時に読み込み中の表示が出るようになりました。",
-          "Stellar 2.33.0以降が必要です。"
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "メーター上のタイ語のプレイヤー名が読みやすくなりました。"
-        ],
-        "removed": [
-          "戦闘履歴専用のランチャータイルを削除しました。ハブから開いてください。"
+          "シーズン4のポーションと料理のバフが、パーティーのバフ枠に表示されるようになりました。ポーションや料理のグループにチェックを入れておくと、あとでゲームに追加されるバフも対象になります。保存済みの設定は自動で更新されます。"
         ]
       }
     },
@@ -116,26 +85,10 @@
         "รายละเอียดสกิล — ยอดรวมซึ่งรวมดาเมจที่รับด้วย และดาเมจ คริ และโชคของทุกสกิล"
       ],
       "changelog": {
-        "added": [
-          "ขนาดแถวแบบกะทัดรัดและมินิ ตั้งแยกได้ในแต่ละมุมมอง ทำให้เรด 20 คนใช้พื้นที่น้อยลงมาก",
-          "แถบเลื่อนพื้นหลังแถวและส่วนหน้า ช่วยให้มองเห็นเกมด้านหลังมิเตอร์ได้มากขึ้น",
-          "ฮับ CombatMeter บนลอนเชอร์: แสดงหรือซ่อนมิเตอร์ เปิดประวัติการต่อสู้หรือการตั้งค่า",
-          "ไอคอนสำหรับบัฟและดีบัฟทุกตัว: ใช้ไอคอนของสกิลเมื่อเอฟเฟกต์มาจากสกิล ไม่เช่นนั้นใช้ไอคอนตามหมวดหมู่ ตอนนี้ติดตามเอฟเฟกต์อย่าง Physical Immunity ได้แล้ว",
-          "มีการยืนยันก่อนล้าง ลบ หรืออัปโหลดการต่อสู้ที่บันทึกไว้",
-          "รายละเอียดสกิลแสดงดาเมจที่รับแล้ว และตั้งชื่อที่อ่านเข้าใจได้ให้สกิลที่ไม่มีชื่อ"
-        ],
-        "changed": [
-          "หน้าตาใหม่ของมิเตอร์และทุกหน้าต่าง ให้เข้ากับปลั๊กอิน Stellar อื่น ๆ",
-          "การตั้งค่า รูปลักษณ์ และการตั้งค่าเอฟเฟกต์ รวมเป็นหน้าต่างการตั้งค่าเดียวที่มีแท็บ",
-          "หยุดชั่วคราวและอาร์ไคฟ์กลายเป็นปุ่มบนส่วนหัวของมิเตอร์แล้ว",
-          "ประวัติการต่อสู้กว้างขึ้น และแสดงสถานะกำลังโหลดเมื่อสลับ DPS/HPS",
-          "ต้องใช้ Stellar 2.33.0 ขึ้นไป"
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "ชื่อผู้เล่นภาษาไทยบนมิเตอร์อ่านง่ายแล้ว"
-        ],
-        "removed": [
-          "ไทล์ประวัติการต่อสู้ที่แยกอยู่บนลอนเชอร์ ให้เปิดจากฮับแทน"
+          "บัฟยาและอาหารของซีซัน 4 แสดงในช่องบัฟของปาร์ตี้แล้ว กลุ่ม Potion หรือ Cuisine ที่ติ๊กไว้จะครอบคลุมบัฟที่เกมเพิ่มเข้ามาภายหลังด้วย และการตั้งค่าที่บันทึกไว้จะอัปเดตเอง"
         ]
       }
     },
@@ -150,26 +103,10 @@
         "Rincian Skill: total termasuk damage yang diterima, lalu damage, CRIT, dan LUCK tiap skill."
       ],
       "changelog": {
-        "added": [
-          "Ukuran baris Ringkas dan Mini, diatur per tampilan, jadi raid 20 orang memakan jauh lebih sedikit tempat.",
-          "Slider Latar baris dan Latar depan, supaya kamu bisa melihat lebih banyak game di belakang meter.",
-          "Hub CombatMeter di launcher: tampilkan atau sembunyikan meter, buka Riwayat Pertempuran atau Pengaturan.",
-          "Ikon untuk setiap buff dan debuff: ikon skill-nya jika efek berasal dari skill, selain itu ikon kategori. Efek seperti Physical Immunity kini bisa dilacak.",
-          "Konfirmasi sebelum mengosongkan, menghapus, atau mengunggah pertarungan yang tersimpan.",
-          "Rincian Skill kini menampilkan damage yang diterima, dan memberi nama yang mudah dibaca untuk skill tanpa nama."
-        ],
-        "changed": [
-          "Tampilan baru untuk meter dan semua jendela, serasi dengan plugin Stellar lainnya.",
-          "Pengaturan, Tampilan, dan pengaturan efek kini jadi satu jendela Pengaturan dengan tab.",
-          "Jeda dan Arsip kini jadi tombol di header meter.",
-          "Riwayat Pertempuran lebih lebar dan menampilkan indikator memuat saat kamu beralih DPS/HPS.",
-          "Butuh Stellar 2.33.0 atau lebih baru."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "Nama pemain berhuruf Thai di meter kini mudah dibaca."
-        ],
-        "removed": [
-          "Tile Riwayat Pertempuran terpisah di launcher. Buka dari hub sebagai gantinya."
+          "Buff ramuan dan makanan Season 4 kini muncul di slot Buff party. Grup Potion atau Cuisine yang dicentang kini juga mencakup buff yang ditambahkan game nanti, dan pilihan yang tersimpan diperbarui dengan sendirinya."
         ]
       }
     },
@@ -184,26 +121,10 @@
         "Detalye ng Skill: mga kabuuan kasama ang natanggap na damage, at ang damage, CRIT at LUCK ng bawat skill."
       ],
       "changelog": {
-        "added": [
-          "Compact at Mini na laki ng row, nakatakda kada view, kaya mas kaunti ang espasyong kinukuha ng raid na 20.",
-          "Mga slider na Background ng row at Foreground, para mas makita mo ang laro sa likod ng meter.",
-          "Isang CombatMeter hub sa launcher: ipakita o itago ang meter, buksan ang Kasaysayan ng Laban o Mga Setting.",
-          "Mga icon para sa bawat buff at debuff: ang icon ng skill kapag galing sa skill ang effect, kung hindi ay icon ng kategorya. Puwede na ring i-track ang mga effect gaya ng Physical Immunity.",
-          "May kumpirmasyon bago burahin lahat, burahin, o i-upload ang mga naka-save na laban.",
-          "Ipinapakita na ng Detalye ng Skill ang natanggap na damage, at may nababasang pangalan na ang mga skill na walang pangalan."
-        ],
-        "changed": [
-          "Bagong itsura para sa meter at bawat window, kapareho ng ibang Stellar plugin.",
-          "Pinagsama na sa iisang window ng Mga Setting na may mga tab ang settings, itsura at pag-set up ng effect.",
-          "Mga button na sa header ng meter ang I-pause at I-archive.",
-          "Mas malapad na ang Kasaysayan ng Laban at may loading indicator kapag nagpapalit ka ng DPS/HPS.",
-          "Kailangan ng Stellar 2.33.0 o mas bago."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "Madali nang basahin ang mga Thai na pangalan ng player sa meter."
-        ],
-        "removed": [
-          "Ang hiwalay na tile ng Kasaysayan ng Laban sa launcher. Buksan na lang ito mula sa hub."
+          "Lumalabas na sa party Buffs slots ang mga potion at food buff ng Season 4. Kasama na rin sa naka-tick na Potion o Cuisine group ang mga buff na idadagdag ng laro sa susunod, at kusang naa-update ang mga naka-save mong pinili."
         ]
       }
     },
@@ -218,32 +139,16 @@
         "스킬별 상세: 받은 피해를 포함한 합계와 스킬별 피해량·치명타·행운."
       ],
       "changelog": {
-        "added": [
-          "컴팩트·미니 행 크기를 추가했습니다. 보기마다 따로 정할 수 있어 20인 레이드도 훨씬 적은 공간을 차지합니다.",
-          "행 배경·전경 슬라이더를 추가해 미터 뒤의 게임 화면이 더 잘 보입니다.",
-          "런처에 CombatMeter 허브를 추가했습니다: 미터 표시/숨기기, 전투 기록이나 설정 열기.",
-          "모든 버프와 디버프에 아이콘이 표시됩니다: 스킬에서 온 효과는 그 스킬의 아이콘, 그 밖에는 분류 아이콘입니다. 이제 Physical Immunity 같은 효과도 추적할 수 있습니다.",
-          "저장된 전투를 모두 지우거나, 삭제하거나, 업로드하기 전에 확인 창이 뜹니다.",
-          "스킬별 상세에 받은 피해가 표시되고, 이름 없는 스킬에도 알아보기 쉬운 이름이 붙습니다."
-        ],
-        "changed": [
-          "미터와 모든 창이 다른 Stellar 플러그인과 어울리는 새 디자인으로 바뀌었습니다.",
-          "설정, 모양, 효과 설정이 탭이 있는 하나의 설정 창으로 합쳐졌습니다.",
-          "일시정지와 보관이 미터 헤더의 버튼이 되었습니다.",
-          "전투 기록 창이 넓어졌고, DPS/HPS를 전환할 때 로딩 표시가 나타납니다.",
-          "Stellar 2.33.0 이상이 필요합니다."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "미터의 태국어 플레이어 이름이 잘 읽힙니다."
-        ],
-        "removed": [
-          "별도의 전투 기록 런처 타일을 없앴습니다. 허브에서 열어 주세요."
+          "시즌 4 물약·요리 버프가 파티 버프 칸에 표시됩니다. 물약 또는 요리 그룹을 체크해 두면 나중에 게임에 추가되는 버프도 함께 적용되며, 저장된 설정은 자동으로 갱신됩니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarCombatMeterPlugin.git",
-  "commit": "7f70ac9137e09b83e5bd245daa9acfdc7b41322c",
+  "commit": "affe4459eb93847a9110b1b1336b2de0b1cce144",
   "projectPath": ".",
-  "tag": "v3.0.0"
+  "tag": "v3.0.1"
 }
