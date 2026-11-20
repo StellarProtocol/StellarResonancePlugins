@@ -16,10 +16,13 @@ overlay yang rapi dan bisa diseret.
 
 ## Overlay
 
-- **HUD Target** — **HP** target, **shield**-nya ("armor"), serta **gauge break / stagger** bos,
-  plus nama, rank, dan jarak.
-- **Efek Target** — buff dan debuff pada target, masing-masing dengan ikon dan sisa waktunya.
-  Efekmu sendiri ditandai dengan **★**.
+- **HUD Target** — bar bergaya bos dengan **potret** monster (siluet jika tidak ada), namanya
+  dengan tag **BOS** / **ELIT**, jaraknya, bar **HP** dengan jejak yang menunjukkan damage terbaru,
+  **shield**-nya ("armor") dengan jumlahnya di samping HP, dan **gauge break / stagger** — biru
+  saat berkurang, dan emas bertuliskan **HANCUR** dengan hitung mundur saat target ter-break.
+- **Efek Target** — jendela tersendiri berisi daftar buff dan debuff pada target, masing-masing
+  dengan ikon dan sisa waktunya. Efekmu sendiri ditandai dengan **★**. **Klik sebuah baris** untuk
+  melihat deskripsi efek tersebut.
 - **Ancaman / Aggro** — siapa yang menjadi fokus bos dan **% ancaman** setiap pemain; barismu
   sendiri akan disorot.
 - **Pengatur Waktu Skill Bos** — **hitung mundur** langsung ke skill berbahaya bos, agar kamu bisa
@@ -32,8 +35,9 @@ overlay yang rapi dan bisa diseret.
 
 ![Nearby Monsters list with a locked target](media/nearby-monsters.png)
 
-Setiap baris menampilkan nama dan HP monster di dalam bilah yang diwarnai sesuai rank (**merah**
-bos, **oranye** elit, **hijau** biasa), dengan jaraknya di sebelah kanan.
+Setiap baris menampilkan tag **BOSS** / **ELITE** (untuk bos dan elit), lalu nama dan HP asli
+monster di dalam bilah yang diwarnai sesuai rank (**merah** bos, **oranye** elit, **hijau** biasa),
+dengan jaraknya di sebelah kanan.
 
 - **Klik sebuah baris untuk mengunci monster itu** — sama seperti kunci target dengan tombol kunci
   bawaan game. Klik baris itu lagi untuk melepaskannya.
@@ -49,17 +53,20 @@ bos, **oranye** elit, **hijau** biasa), dengan jaraknya di sebelah kanan.
 ![Target Lens settings](media/settings.png)
 
 Setiap overlay punya bagiannya sendiri dengan sakelar **Aktif / Mati** di judulnya. Setiap opsi
-punya tombol **?** yang menjelaskan fungsinya. Opsi yang sedang tidak berlaku — misalnya ukuran
-daftar saat efek ditampilkan sebagai tile Klasik — akan berwarna abu-abu, bukan menghilang.
+punya tombol **?** yang menjelaskan fungsinya. Opsi yang sedang tidak berlaku — misalnya opsi
+**Buff / Debuff** saat overlay itu dimatikan — akan berwarna abu-abu, bukan menghilang.
 
-Di **Buff / Debuff → Tampilan** kamu bisa memilih cara efek ditampilkan:
+Di **HUD Target**:
 
-- **Klasik** — tile ringkas di dalam HUD Target.
-- **Daftar** — jendela terpisah yang bisa diubah ukurannya, dengan satu baris per efek (ikon,
-  nama, dan waktu).
-- **Mati** — menyembunyikan tampilan efek sepenuhnya.
+- **Ukuran** — bar bos **Ramping**, **Sedang**, atau **Besar**.
+- **Teks break** — apa yang ditampilkan label gauge break. **%**: seberapa penuh gauge-nya.
+  **Nilai**: poin gauge saat ini / maksimum. **Keduanya**: % di kanan dan poinnya tertulis di atas
+  gauge (pada ukuran **Ramping** gauge terlalu tipis, jadi **Keduanya** tampil seperti **Nilai**).
 
-Di **Tampilkan**, pilih efek mana yang muncul:
+Setiap overlay lainnya punya slider **Ukuran** dan slider **Opasitas latar** (seberapa pekat pelat
+gelap dan cincin emasnya; 0% menyembunyikannya).
+
+Di **Buff / Debuff → Tampilkan**, pilih efek mana yang muncul:
 
 - **Dari saya** — efekmu sendiri (ditandai ★).
 - **Dari orang lain** — efek dari pemain lain.
@@ -90,8 +97,10 @@ Klik **Pilih efek…** untuk memilih persis buff dan debuff mana yang muncul.
   melepaskannya. Terlepas otomatis saat target mati. Ini hanya mengubah apa yang ditampilkan
   overlay — untuk mengunci target di dalam game, klik baris monster di **Monster Terdekat**.
 - **Ukuran tiap overlay** — daftar efek, daftar ancaman/aggro, cast bar, pengatur waktu skill bos,
-  dan daftar monster terdekat masing-masing punya slider ukuran sendiri, dan kamu bisa
-  menyembunyikan judul overlay mana pun.
+  dan daftar monster terdekat masing-masing punya slider ukuran dan opasitas latar sendiri, dan
+  kamu bisa menyembunyikan judul overlay mana pun.
+- **Atur overlay tanpa bertarung** — saat mengedit tata letak, overlay menampilkan baris contoh,
+  jadi kamu bisa memindahkan dan mengubah ukurannya sebelum punya target.
 - Semuanya opsional — aktifkan atau nonaktifkan overlay mana pun dari bagiannya di pengaturan.
 - Gunakan **"Atur ulang semua HUD"** di launcher untuk mengembalikan semua overlay ke posisi
   bawaannya.

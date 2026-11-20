@@ -15,10 +15,14 @@ the boss's next deadly skill, its cast bar, and the monsters around you — as c
 
 ## The overlays
 
-- **Target HUD** — the target's **HP**, its **shield** ("armor"), and the boss **break / stagger
-  gauge**, plus name, rank and distance.
-- **Target Effects** — the buffs and debuffs on the target, each with its icon and remaining time.
-  Your own effects are marked with a **★**.
+- **Target HUD** — a boss-style bar with the monster's **portrait** (a silhouette when it has
+  none), its name with a **BOSS** / **ELITE** tag, its distance, the **HP** bar with a trail that
+  shows recent damage, the **shield** ("armor") with its amount next to HP, and the **break /
+  stagger gauge** — blue while it drains, gold **BROKEN** with a countdown when the target is
+  broken.
+- **Target Effects** — its own window listing the buffs and debuffs on the target, each with its
+  icon and remaining time. Your own effects are marked with a **★**. **Click a row** to see the
+  effect's description.
 - **Threat / Aggro** — who the boss is focused on and each player's **threat %**; your own row is
   highlighted.
 - **Boss Skill Timers** — a live **countdown** to the boss's dangerous skills, so you can react in
@@ -30,8 +34,8 @@ the boss's next deadly skill, its cast bar, and the monsters around you — as c
 
 ![Nearby Monsters list with a locked target](media/nearby-monsters.png)
 
-Each row shows the monster's name and HP inside a bar coloured by rank (**red** boss, **orange**
-elite, **green** normal), with its distance on the right.
+Each row shows a **BOSS** / **ELITE** tag (for bosses and elites), then the monster's name and its
+real HP inside a bar coloured by rank (**red** boss, **orange** elite, **green** normal), with its distance on the right.
 
 - **Click a row to lock on to that monster** — the same lock-on as the game's own lock key. Click
   the row again to release it.
@@ -46,16 +50,21 @@ elite, **green** normal), with its distance on the right.
 ![Target Lens settings](media/settings.png)
 
 Each overlay has its own section with an **On / Off** switch in its header. Every option has a
-**?** button that explains what it does. Options that don't apply right now — for example the list
-size while effects are shown as Classic tiles — are greyed out instead of disappearing.
+**?** button that explains what it does. Options that don't apply right now — for example the
+**Buffs / Debuffs** options while that overlay is switched off — are greyed out instead of
+disappearing.
 
-Under **Buffs / Debuffs → Display** you choose how effects are shown:
+Under **Target HUD**:
 
-- **Classic** — compact tiles inside the Target HUD.
-- **List** — a separate, resizable window with a row per effect (icon, name, and time).
-- **Off** — hide the effect display entirely.
+- **Size** — **Slim**, **Medium** or **Large** boss bar.
+- **Break text** — what the break gauge label shows. **%**: how full the gauge is. **Value**: the
+  gauge's current / max points. **Both**: the % on the right and the points written on the gauge
+  (at **Slim** the gauge is too thin, so **Both** shows like **Value**).
 
-Under **Show**, pick which effects appear:
+Every other overlay has a **Size** slider and a **Background opacity** slider (how solid its dark
+plate and gold ring are; 0% hides them).
+
+Under **Buffs / Debuffs → Show**, pick which effects appear:
 
 - **Applied by me** — your own effects (marked ★).
 - **Applied by others** — effects from other players.
@@ -84,7 +93,10 @@ Click **Select effects…** to choose exactly which buffs and debuffs appear.
   the target dies. This only changes what the overlays show — to lock on in the game itself, click
   the monster's row in **Nearby Monsters**.
 - **Size each overlay** — the effect list, threat/aggro list, cast bar, boss skill timers and nearby
-  monster list each have their own size slider, and you can hide any overlay's title.
+  monster list each have their own size and background opacity sliders, and you can hide any
+  overlay's title.
+- **Place overlays without a fight** — in layout edit, the overlays show sample rows, so you can
+  move and size them before you have a target.
 - Everything is optional — switch any overlay on or off from its section in the settings.
 - Use the launcher's **"reset all HUD"** to return every overlay to its default position.
 - Localized in **English, Japanese, Thai, Indonesian, Filipino and Korean** — it follows the
