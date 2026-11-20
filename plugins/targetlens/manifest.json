@@ -2,7 +2,7 @@
   "id": "targetlens",
   "name": "Target Lens",
   "description": "Customizable target HUD: buffs/debuffs, threat/aggro, boss skill timers, a live cast bar and a nearby monster list.",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "dll": "Stellar.TargetLens.dll",
   "author": "Stellar",
   "tags": [
@@ -39,21 +39,29 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.30.0",
-  "date": "2026-11-12",
+  "minModSystemVersion": "2.34.0",
+  "date": "2026-11-20",
   "changelog": {
     "added": [
-      "Nearby Monsters: a new list of the enemies around you, bosses and elites first. Click a monster to lock on to it — the locked one shows a padlock, and your current target is highlighted in blue.",
-      "Option to list only the monsters close enough to lock on to. The distance for your class is shown in metres."
+      "Break text: the break gauge label can show a percentage, the actual points, or both.",
+      "Monsters without a portrait now show a monster silhouette instead of an empty circle.",
+      "Click an effect in the Effects list to see its description."
     ],
     "changed": [
-      "Redesigned settings: each overlay has its own section with an on/off switch, every option has a ? help button, and options that don't apply are greyed out instead of disappearing.",
-      "Redesigned Select effects window: separate Debuffs and Buffs tabs, a search box on each, and Untick all.",
-      "Less stutter the first time the effect list appears in a fight.",
-      "Requires Stellar 2.30.0 or newer."
+      "New look: the target bar is now a decorated boss-style bar with a portrait, a trail that shows recent damage, a striped shield with the shield amount next to HP, and a break gauge. Choose Slim, Medium or Large.",
+      "Threat, Cast bar, Boss skills, Effects and Nearby now share the same navy and gold style, and each has its own background opacity slider.",
+      "Boss skill timers turn red in their last 3 seconds.",
+      "Nearby shows BOSS and ELITE tags and each monster's real HP.",
+      "Effect names and descriptions now come from the game's own text, and the download is much smaller.",
+      "Effects without an icon now show a buff or debuff placeholder icon.",
+      "Requires Stellar 2.34.0 or newer."
     ],
-    "fixed": [],
-    "removed": []
+    "fixed": [
+      "In layout edit, the Effects and Threat windows always show sample rows, even while you have a target."
+    ],
+    "removed": [
+      "The Classic effects style (icons under the bar) is removed. Effects now always show in their own list window, and players who used Classic switch to it automatically."
+    ]
   },
   "i18n": {
     "ja": {
@@ -66,17 +74,25 @@
       ],
       "changelog": {
         "added": [
-          "近くのモンスター：周囲の敵を一覧表示する新機能。ボスとエリートが先頭に並びます。モンスターをクリックするとロックオンでき、ロック中のモンスターには南京錠が、現在のターゲットは青でハイライトされます。",
-          "ロックオンできる距離にいるモンスターだけを表示するオプション。クラスごとの距離がメートル単位で表示されます。"
+          "ブレイク表示：ブレイクゲージのラベルに、割合・実際のポイント・その両方のいずれかを表示できます。",
+          "ポートレートのないモンスターは、空の円ではなくモンスターのシルエットを表示するようになりました。",
+          "効果一覧で効果をクリックすると、その説明を確認できます。"
         ],
         "changed": [
-          "設定を一新：オーバーレイごとにオン/オフスイッチ付きのセクションを用意し、すべてのオプションに ? ヘルプボタンを追加。適用されないオプションは消えずにグレー表示になります。",
-          "「効果を選択」ウィンドウを一新：デバフとバフのタブを分け、それぞれに検索ボックスと「すべて外す」を追加。",
-          "戦闘で効果一覧が初めて表示されるときのカクつきを軽減しました。",
-          "Stellar 2.30.0 以降が必要です。"
+          "新デザイン：ターゲットバーが、ポートレート、直近のダメージを示す残像、HPの横にシールド量が出る縞模様のシールド、ブレイクゲージを備えた装飾付きのボス風バーになりました。スリム・ふつう・大きいから選べます。",
+          "ヘイト、詠唱バー、ボススキル、効果、周辺が同じネイビーとゴールドのスタイルになり、それぞれに背景の不透明度スライダーが付きました。",
+          "ボススキルタイマーは残り3秒になると赤くなります。",
+          "近くのモンスターに BOSS / ELITE タグと、各モンスターの実際のHPが表示されます。",
+          "効果の名前と説明がゲーム本来のテキストで表示されるようになり、ダウンロードサイズも大幅に小さくなりました。",
+          "アイコンのない効果には、バフまたはデバフの代わりのアイコンが表示されるようになりました。",
+          "Stellar 2.34.0 以降が必要です。"
         ],
-        "fixed": [],
-        "removed": []
+        "fixed": [
+          "レイアウト編集中は、ターゲットがいるときでも、効果とヘイトのウィンドウに常にサンプル行が表示されます。"
+        ],
+        "removed": [
+          "クラシックの効果表示（バーの下のアイコン）を削除しました。効果は常に専用の一覧ウィンドウに表示され、クラシックを使っていた方は自動的にこちらに切り替わります。"
+        ]
       }
     },
     "th": {
@@ -89,17 +105,25 @@
       ],
       "changelog": {
         "added": [
-          "มอนสเตอร์ใกล้เคียง: รายการใหม่ของศัตรูรอบตัวคุณ โดยบอสและอีลิทจะอยู่ก่อน คลิกที่มอนสเตอร์เพื่อล็อกเป้า — ตัวที่ล็อกอยู่จะแสดงแม่กุญแจ และเป้าหมายปัจจุบันจะถูกไฮไลต์เป็นสีน้ำเงิน",
-          "ตัวเลือกให้แสดงเฉพาะมอนสเตอร์ที่อยู่ใกล้พอจะล็อกเป้าได้ ระยะของคลาสคุณจะแสดงเป็นเมตร"
+          "ข้อความเบรก: ป้ายของเกจเบรกแสดงได้เป็นเปอร์เซ็นต์ ค่าแต้มจริง หรือทั้งสองอย่าง",
+          "มอนสเตอร์ที่ไม่มีภาพประจำตัวจะแสดงภาพเงามอนสเตอร์แทนวงกลมว่างเปล่า",
+          "คลิกเอฟเฟกต์ในรายการเอฟเฟกต์เพื่อดูคำอธิบาย"
         ],
         "changed": [
-          "ออกแบบการตั้งค่าใหม่: โอเวอร์เลย์แต่ละตัวมีส่วนของตัวเองพร้อมสวิตช์เปิด/ปิด ทุกตัวเลือกมีปุ่มวิธีใช้ ? และตัวเลือกที่ใช้ไม่ได้จะเป็นสีเทาแทนที่จะหายไป",
-          "ออกแบบหน้าต่างเลือกเอฟเฟกต์ใหม่: แยกแท็บดีบัฟและบัฟ มีช่องค้นหาในแต่ละแท็บ และปุ่มล้างทั้งหมด",
-          "กระตุกน้อยลงเมื่อรายการเอฟเฟกต์ปรากฏครั้งแรกในการต่อสู้",
-          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
+          "โฉมใหม่: แถบเป้าหมายกลายเป็นแถบสไตล์บอสที่ตกแต่งอย่างสวยงาม พร้อมภาพประจำตัว แถบร่องรอยที่แสดงความเสียหายล่าสุด โล่ลายทางพร้อมค่าโล่ข้าง HP และเกจเบรก เลือกได้ทั้ง บาง กลาง หรือ ใหญ่",
+          "ความเกลียดชัง แถบร่ายเวท สกิลบอส เอฟเฟกต์ และใกล้เคียง ใช้สไตล์สีกรมท่าและทองแบบเดียวกันแล้ว และแต่ละตัวมีสไลเดอร์ความทึบพื้นหลังของตัวเอง",
+          "ตัวจับเวลาสกิลบอสจะเปลี่ยนเป็นสีแดงใน 3 วินาทีสุดท้าย",
+          "มอนสเตอร์ใกล้เคียงแสดงป้าย BOSS และ ELITE พร้อม HP จริงของมอนสเตอร์แต่ละตัว",
+          "ชื่อและคำอธิบายเอฟเฟกต์ใช้ข้อความของเกมเองแล้ว และไฟล์ดาวน์โหลดเล็กลงมาก",
+          "เอฟเฟกต์ที่ไม่มีไอคอนจะแสดงไอคอนแทนแบบบัฟหรือดีบัฟ",
+          "ต้องใช้ Stellar 2.34.0 ขึ้นไป"
         ],
-        "fixed": [],
-        "removed": []
+        "fixed": [
+          "ในโหมดแก้ไขเลย์เอาต์ หน้าต่างเอฟเฟกต์และความเกลียดชังจะแสดงแถวตัวอย่างเสมอ แม้ขณะที่คุณมีเป้าหมายอยู่"
+        ],
+        "removed": [
+          "นำรูปแบบเอฟเฟกต์แบบคลาสสิก (ไอคอนใต้แถบ) ออกแล้ว ตอนนี้เอฟเฟกต์จะแสดงในหน้าต่างรายการของตัวเองเสมอ และผู้เล่นที่เคยใช้แบบคลาสสิกจะถูกเปลี่ยนให้อัตโนมัติ"
+        ]
       }
     },
     "id": {
@@ -112,17 +136,25 @@
       ],
       "changelog": {
         "added": [
-          "Monster Terdekat: daftar baru musuh di sekitarmu, bos dan elit lebih dulu. Klik monster untuk menguncinya — monster yang terkunci menampilkan gembok, dan target saat ini disorot biru.",
-          "Opsi untuk menampilkan hanya monster yang cukup dekat untuk dikunci. Jarak untuk class-mu ditampilkan dalam meter."
+          "Teks break: label gauge break bisa menampilkan persentase, poin sebenarnya, atau keduanya.",
+          "Monster tanpa potret kini menampilkan siluet monster, bukan lingkaran kosong.",
+          "Klik efek di daftar Efek untuk melihat deskripsinya."
         ],
         "changed": [
-          "Pengaturan didesain ulang: setiap overlay punya bagiannya sendiri dengan sakelar aktif/mati, setiap opsi punya tombol bantuan ?, dan opsi yang tidak berlaku berwarna abu-abu alih-alih menghilang.",
-          "Jendela Pilih efek didesain ulang: tab Debuff dan Buff terpisah, kotak pencarian di masing-masing, dan Hapus centang.",
-          "Lebih sedikit patah-patah saat daftar efek pertama kali muncul dalam pertarungan.",
-          "Memerlukan Stellar 2.30.0 atau lebih baru."
+          "Tampilan baru: bar target kini berupa bar bergaya bos yang dihias, dengan potret, jejak yang menunjukkan damage terbaru, perisai bergaris dengan jumlah perisai di samping HP, dan gauge break. Pilih Ramping, Sedang, atau Besar.",
+          "Ancaman, Bilah Cast, Skill bos, Efek, dan Terdekat kini memakai gaya navy dan emas yang sama, dan masing-masing punya slider opasitas latar sendiri.",
+          "Pengatur waktu skill bos berubah merah pada 3 detik terakhirnya.",
+          "Monster Terdekat menampilkan tag BOSS dan ELITE serta HP asli setiap monster.",
+          "Nama dan deskripsi efek kini memakai teks bawaan game, dan ukuran unduhan jauh lebih kecil.",
+          "Efek tanpa ikon kini menampilkan ikon pengganti buff atau debuff.",
+          "Memerlukan Stellar 2.34.0 atau lebih baru."
         ],
-        "fixed": [],
-        "removed": []
+        "fixed": [
+          "Saat mengedit tata letak, jendela Efek dan Ancaman selalu menampilkan baris contoh, bahkan saat kamu sedang punya target."
+        ],
+        "removed": [
+          "Gaya efek Klasik (ikon di bawah bar) dihapus. Efek kini selalu tampil di jendela daftarnya sendiri, dan pemain yang memakai Klasik otomatis dialihkan ke sana."
+        ]
       }
     },
     "fil": {
@@ -135,17 +167,25 @@
       ],
       "changelog": {
         "added": [
-          "Mga Malapit na Monster: bagong listahan ng mga kalaban sa paligid mo, nauuna ang mga boss at elite. I-click ang isang monster para mag-lock on dito — may padlock ang naka-lock, at naka-highlight sa asul ang kasalukuyan mong target.",
-          "Opsyon na ilista lang ang mga monster na sapat ang lapit para ma-lock on. Ipinapakita sa metro ang distansya para sa class mo."
+          "Teksto ng break: puwedeng ipakita ng label ng break gauge ang porsyento, ang aktwal na puntos, o pareho.",
+          "Ang mga monster na walang portrait ay nagpapakita na ng silhouette ng monster sa halip na bakanteng bilog.",
+          "I-click ang isang epekto sa listahan ng Mga Epekto para makita ang paglalarawan nito."
         ],
         "changed": [
-          "Bagong disenyo ng settings: may sariling seksyon at on/off na switch ang bawat overlay, may ? na help button ang bawat opsyon, at nagiging kulay-abo ang mga opsyong hindi naaangkop sa halip na mawala.",
-          "Bagong disenyo ng window na Pumili ng epekto: hiwalay na tab para sa Debuffs at Buffs, may search box ang bawat isa, at Alisin lahat.",
-          "Mas kaunting pag-stutter sa unang paglabas ng listahan ng epekto sa isang laban.",
-          "Kailangan ng Stellar 2.30.0 o mas bago."
+          "Bagong itsura: ang target bar ay isa nang dekoradong boss-style na bar na may portrait, trail na nagpapakita ng kamakailang damage, guhit-guhit na shield na may halaga ng shield sa tabi ng HP, at break gauge. Pumili ng Payat, Katamtaman o Malaki.",
+          "Iisa na ang navy at gold na istilo ng Threat, Cast Bar, Mga skill ng boss, Mga Epekto at Malapit, at bawat isa ay may sariling slider ng opacity ng background.",
+          "Nagiging pula ang mga timer ng skill ng boss sa huling 3 segundo nito.",
+          "Ipinapakita ng Mga Malapit na Monster ang tag na BOSS at ELITE at ang totoong HP ng bawat monster.",
+          "Galing na sa sariling teksto ng laro ang mga pangalan at paglalarawan ng epekto, at mas maliit na ang download.",
+          "Ang mga epektong walang icon ay nagpapakita na ng placeholder na icon ng buff o debuff.",
+          "Kailangan ng Stellar 2.34.0 o mas bago."
         ],
-        "fixed": [],
-        "removed": []
+        "fixed": [
+          "Sa pag-edit ng layout, laging may sample na row ang mga window ng Mga Epekto at Threat, kahit may target ka."
+        ],
+        "removed": [
+          "Tinanggal na ang Classic na istilo ng epekto (mga icon sa ilalim ng bar). Laging nasa sariling listahang window na ang mga epekto, at awtomatikong lilipat dito ang mga player na gumagamit ng Classic."
+        ]
       }
     },
     "ko": {
@@ -158,23 +198,31 @@
       ],
       "changelog": {
         "added": [
-          "주변 몬스터: 주변의 적을 보여주는 새 목록으로, 보스와 정예가 먼저 표시됩니다. 몬스터를 클릭하면 타겟 고정되며, 고정된 몬스터에는 자물쇠가 표시되고 현재 대상은 파란색으로 강조됩니다.",
-          "타겟 고정이 가능한 거리 안의 몬스터만 표시하는 옵션. 내 클래스의 거리가 미터 단위로 표시됩니다."
+          "브레이크 표시: 브레이크 게이지 라벨에 퍼센트, 실제 수치, 또는 둘 다를 표시할 수 있습니다.",
+          "초상화가 없는 몬스터는 이제 빈 원 대신 몬스터 실루엣이 표시됩니다.",
+          "효과 목록에서 효과를 클릭하면 설명을 볼 수 있습니다."
         ],
         "changed": [
-          "설정 디자인 변경: 오버레이마다 켬/끔 스위치가 있는 섹션이 생겼고, 모든 옵션에 ? 도움말 버튼이 있으며, 적용되지 않는 옵션은 사라지지 않고 회색으로 표시됩니다.",
-          "효과 선택 창 디자인 변경: 디버프와 버프 탭이 분리되고, 탭마다 검색창과 모두 해제 버튼이 있습니다.",
-          "전투에서 효과 목록이 처음 나타날 때의 끊김이 줄었습니다.",
-          "Stellar 2.30.0 이상이 필요합니다."
+          "새로운 디자인: 대상 바가 초상화, 최근 피해를 보여주는 잔상, HP 옆에 보호막 수치가 표시되는 줄무늬 보호막, 브레이크 게이지를 갖춘 장식된 보스 스타일 바로 바뀌었습니다. 슬림, 보통, 크게 중에서 고를 수 있습니다.",
+          "어그로, 시전 바, 보스 스킬, 효과, 주변이 같은 네이비·골드 스타일로 통일되었고, 각각 배경 불투명도 슬라이더가 있습니다.",
+          "보스 스킬 타이머가 마지막 3초에 빨간색으로 바뀝니다.",
+          "주변 몬스터에 BOSS와 ELITE 태그, 그리고 각 몬스터의 실제 HP가 표시됩니다.",
+          "효과 이름과 설명이 이제 게임 자체의 텍스트로 표시되며, 다운로드 크기가 훨씬 작아졌습니다.",
+          "아이콘이 없는 효과에는 버프 또는 디버프 대체 아이콘이 표시됩니다.",
+          "Stellar 2.34.0 이상이 필요합니다."
         ],
-        "fixed": [],
-        "removed": []
+        "fixed": [
+          "레이아웃 편집 중에는 대상이 있을 때도 효과 창과 어그로 창에 항상 예시 줄이 표시됩니다."
+        ],
+        "removed": [
+          "클래식 효과 스타일(바 아래 아이콘)이 제거되었습니다. 이제 효과는 항상 별도의 목록 창에 표시되며, 클래식을 쓰던 플레이어는 자동으로 전환됩니다."
+        ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarTargetLensPlugin.git",
-  "commit": "1a82ab970ad282ea1e03d42bc2b6436c85c4bda5",
+  "commit": "65c1d06616d151a9a996d8d688245b3ae9428547",
   "projectPath": ".",
-  "tag": "v1.3.0",
-  "capPriorVersionsAt": "2.29.1"
+  "tag": "v2.0.0",
+  "capPriorVersionsAt": "2.33.0"
 }

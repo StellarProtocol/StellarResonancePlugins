@@ -17,10 +17,14 @@ nito, at ang mga monster sa paligid mo — bilang malinis na overlay na pwedeng 
 
 ## Ang mga overlay
 
-- **HUD ng Target** — ang **HP**, **shield** ("armor"), at **break / stagger gauge** ng boss na
-  target, kasama ang pangalan, rank, at distansya.
-- **Mga Epekto ng Target** — ang mga buff at debuff sa target, bawat isa may icon at natitirang
-  oras. Minamarkahan ng **★** ang sarili mong mga epekto.
+- **HUD ng Target** — isang boss-style na bar na may **portrait** ng monster (silhouette kapag
+  wala), ang pangalan nito na may tag na **BOSS** / **ELITE**, ang distansya, ang **HP** bar na may
+  trail na nagpapakita ng kamakailang damage, ang **shield** ("armor") na may halaga nito sa tabi
+  ng HP, at ang **break / stagger gauge** — asul habang bumababa, at gintong **BASAG** na may
+  countdown kapag na-break ang target.
+- **Mga Epekto ng Target** — sariling window na naglilista ng mga buff at debuff sa target, bawat
+  isa may icon at natitirang oras. Minamarkahan ng **★** ang sarili mong mga epekto. **I-click ang
+  isang row** para makita ang paglalarawan ng epektong iyon.
 - **Threat / Aggro** — kung sino ang tinututukan ng boss at ang **% threat** ng bawat player; ang
   sarili mong row ay naka-highlight.
 - **Mga Timer ng Skill ng Boss** — isang live na **countdown** papunta sa mapanganib na skill ng
@@ -34,8 +38,9 @@ nito, at ang mga monster sa paligid mo — bilang malinis na overlay na pwedeng 
 
 ![Nearby Monsters list with a locked target](media/nearby-monsters.png)
 
-Ipinapakita ng bawat row ang pangalan at HP ng monster sa loob ng bar na may kulay ayon sa rank
-(**pula** boss, **orange** elite, **berde** normal), at ang distansya nito sa kanan.
+Ipinapakita ng bawat row ang tag na **BOSS** / **ELITE** (para sa boss at elite), tapos ang
+pangalan at totoong HP ng monster sa loob ng bar na may kulay ayon sa rank (**pula** boss,
+**orange** elite, **berde** normal), at ang distansya nito sa kanan.
 
 - **I-click ang isang row para mag-lock on sa monster na iyon** — kapareho ng lock-on ng sariling
   lock key ng laro. I-click ulit ang row para i-release ito.
@@ -52,17 +57,21 @@ Ipinapakita ng bawat row ang pangalan at HP ng monster sa loob ng bar na may kul
 
 May sariling seksyon ang bawat overlay na may **On / Off** na switch sa header nito. Bawat opsyon
 ay may **?** na button na nagpapaliwanag kung ano ang ginagawa nito. Ang mga opsyon na hindi
-naaangkop sa ngayon — halimbawa, ang laki ng listahan habang ipinapakita ang mga epekto bilang
-Classic na tiles — ay nagiging kulay-abo sa halip na mawala.
+naaangkop sa ngayon — halimbawa, ang mga opsyon ng **Buff / Debuff** habang naka-off ang overlay
+na iyon — ay nagiging kulay-abo sa halip na mawala.
 
-Sa ilalim ng **Buff / Debuff → Display** mapipili mo kung paano ipapakita ang mga epekto:
+Sa ilalim ng **HUD ng Target**:
 
-- **Classic** — compact na tiles sa loob ng HUD ng Target.
-- **Listahan** — hiwalay na window na puwedeng baguhin ang laki, may isang row bawat epekto (icon,
-  pangalan, at oras).
-- **Off** — itinatago nang buo ang display ng epekto.
+- **Laki** — **Payat**, **Katamtaman** o **Malaki** na boss bar.
+- **Teksto ng break** — kung ano ang ipinapakita ng label ng break gauge. **%**: kung gaano kapuno
+  ang gauge. **Halaga**: ang kasalukuyan / max na puntos ng gauge. **Pareho**: ang % sa kanan at
+  ang puntos na nakasulat sa gauge (sa **Payat**, masyadong manipis ang gauge kaya parang
+  **Halaga** ang ipinapakita ng **Pareho**).
 
-Sa ilalim ng **Ipakita**, piliin kung aling mga epekto ang lalabas:
+Ang bawat iba pang overlay ay may slider na **Laki** at slider na **Opacity ng background** (kung
+gaano kakapal ang madilim na plate at gintong singsing nito; itinatago ito ng 0%).
+
+Sa ilalim ng **Buff / Debuff → Ipakita**, piliin kung aling mga epekto ang lalabas:
 
 - **Inilagay ko** — ang sarili mong mga epekto (may markang ★).
 - **Inilagay ng iba** — mga epekto mula sa ibang players.
@@ -94,8 +103,10 @@ lalabas.
   lang nito ang ipinapakita ng mga overlay — para mag-lock on mismo sa laro, i-click ang row ng
   monster sa **Mga Malapit na Monster**.
 - **Laki ng bawat overlay** — ang listahan ng epekto, listahan ng threat/aggro, cast bar, mga timer
-  ng skill ng boss, at listahan ng mga malapit na monster ay may sarili-sariling slider ng laki, at
-  puwede mong itago ang title ng kahit anong overlay.
+  ng skill ng boss, at listahan ng mga malapit na monster ay may sarili-sariling slider ng laki at
+  opacity ng background, at puwede mong itago ang title ng kahit anong overlay.
+- **Ilagay ang mga overlay nang walang laban** — sa pag-edit ng layout, may sample na row ang mga
+  overlay, kaya puwede mo silang ilipat at baguhin ang laki bago ka magkaroon ng target.
 - Opsyonal ang lahat — i-on o i-off ang kahit anong overlay mula sa seksyon nito sa settings.
 - Gamitin ang **"I-reset lahat ng HUD"** ng launcher para ibalik ang bawat overlay sa default nitong
   posisyon.
