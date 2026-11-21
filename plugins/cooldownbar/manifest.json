@@ -2,7 +2,7 @@
   "id": "cooldownbar",
   "name": "CooldownBar",
   "description": "Tracks your skill cooldowns, debuffs and buffs — on one bar, or as separate tiles you place anywhere on screen.",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "dll": "Stellar.CooldownBar.dll",
   "author": "Stellar",
   "tags": [
@@ -29,13 +29,13 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "changelog": {
     "added": [],
     "changed": [],
     "fixed": [
-      "Season 4 potion and food buffs now show on the bar. A ticked Potion or Cuisine group now also covers buffs the game adds to it later, and your saved choices update on their own.",
-      "Buff names updated for Season 4."
+      "Hidden buffs such as Physical Immunity have their names again and can be found in Settings. In 2.4.1 many of them showed the same Chinese placeholder name.",
+      "Ticking one of those hidden buffs no longer also tracks every other hidden buff."
     ],
     "removed": []
   },
@@ -51,8 +51,8 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "シーズン4のポーションと料理のバフがバーに表示されるようになりました。ポーションや料理のグループにチェックを入れておくと、あとでゲームに追加されるバフも対象になります。保存済みの設定は自動で更新されます。",
-          "バフ名をシーズン4に合わせて更新しました。"
+          "Physical Immunity などの非表示バフに名前が戻り、設定で検索できるようになりました。2.4.1 では多くが同じ中国語の仮の名前で表示されていました。",
+          "非表示バフの1つにチェックを入れても、ほかの非表示バフがすべて追跡されることはなくなりました。"
         ]
       }
     },
@@ -67,8 +67,8 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "บัฟยาและอาหารของซีซัน 4 แสดงบนแถบแล้ว กลุ่ม Potion หรือ Cuisine ที่ติ๊กไว้จะครอบคลุมบัฟที่เกมเพิ่มเข้ามาภายหลังด้วย และการตั้งค่าที่บันทึกไว้จะอัปเดตเอง",
-          "อัปเดตชื่อบัฟสำหรับซีซัน 4"
+          "บัฟที่ซ่อนอยู่ เช่น Physical Immunity กลับมามีชื่อแล้ว และค้นหาได้ในการตั้งค่า ใน 2.4.1 หลายรายการแสดงเป็นชื่อชั่วคราวภาษาจีนชื่อเดียวกันหมด",
+          "การติ๊กบัฟที่ซ่อนอยู่หนึ่งรายการ จะไม่ติดตามบัฟที่ซ่อนอยู่อื่น ๆ ทั้งหมดไปด้วยอีกต่อไป"
         ]
       }
     },
@@ -83,8 +83,8 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "Buff ramuan dan makanan Season 4 kini muncul di bar. Grup Potion atau Cuisine yang dicentang kini juga mencakup buff yang ditambahkan game nanti, dan pilihan yang tersimpan diperbarui dengan sendirinya.",
-          "Nama buff diperbarui untuk Season 4."
+          "Buff tersembunyi seperti Physical Immunity kembali punya nama dan bisa dicari di Pengaturan. Di 2.4.1 banyak yang tampil dengan nama sementara berbahasa Mandarin yang sama.",
+          "Mencentang salah satu buff tersembunyi tidak lagi ikut melacak semua buff tersembunyi lainnya."
         ]
       }
     },
@@ -99,8 +99,8 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "Lumalabas na sa bar ang mga potion at food buff ng Season 4. Kasama na rin sa naka-tick na Potion o Cuisine group ang mga buff na idadagdag ng laro sa susunod, at kusang naa-update ang mga naka-save mong pinili.",
-          "Na-update ang mga pangalan ng buff para sa Season 4."
+          "May pangalan na ulit ang mga nakatagong buff gaya ng Physical Immunity at mahahanap na sa Settings. Sa 2.4.1, marami sa mga ito ang lumabas na may iisang pansamantalang pangalang Chinese.",
+          "Kapag nilagyan ng check ang isang nakatagong buff, hindi na rin nasusubaybayan ang lahat ng iba pang nakatagong buff."
         ]
       }
     },
@@ -116,14 +116,14 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "시즌 4 물약·요리 버프가 바에 표시됩니다. 물약 또는 요리 그룹을 체크해 두면 나중에 게임에 추가되는 버프도 함께 적용되며, 저장된 설정은 자동으로 갱신됩니다.",
-          "버프 이름을 시즌 4에 맞게 갱신했습니다."
+          "Physical Immunity 같은 숨겨진 버프의 이름이 다시 표시되고 설정에서 검색할 수 있습니다. 2.4.1에서는 상당수가 같은 중국어 임시 이름으로 표시되었습니다.",
+          "숨겨진 버프 하나를 체크해도 다른 숨겨진 버프가 모두 함께 추적되지 않습니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarCooldownBarPlugin.git",
-  "commit": "505c7da6a43852738ee6823c46912c1dd895b32b",
+  "commit": "a4bc5d3ef00f0cf809e5b953979b730cf3ae7393",
   "projectPath": ".",
-  "tag": "v2.4.1"
+  "tag": "v2.4.2"
 }
