@@ -34,6 +34,7 @@ kasama ang switch na **Armas: On / Off**, ang HP bar nila (may shield) at ang mg
 - **Mga Skill** — Battle Imagine at mga skill.
 - **Aparador** — bawat piraso ng kasuotan kasama ang mga dye slot nito, may numero gaya sa dye screen ng
   laro (ang **Default** ay walang dye). **I-click ang kulay** para kopyahin ang color code nito.
+  Kinokopya ng **Kopyahin ang code** ang buong outfit bilang share code: i-paste ito sa Fashion share box ng laro para isukat.
 - **Lokasyon** — kung nasaan ang player sa mapa. **I-drag** para mag-pan, **mouse wheel** para mag-zoom,
   at **Buong mapa** at **I-focus** para lumipat ng view.
 - **Party** — ang party ng player. **I-click ang miyembro** para siyasatin siya.

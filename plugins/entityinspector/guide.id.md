@@ -33,6 +33,7 @@ dengan saklar **Senjata: On / Off**, bar HP (dengan shield), dan imagine milikny
 - **Skill** — Battle Imagine dan skill.
 - **Lemari** — setiap bagian kostum dengan slot pewarnanya, bernomor seperti di layar pewarna game
   (**Bawaan** berarti belum diwarnai). **Klik warna** untuk menyalin kode warnanya.
+  **Salin kode pakaian** menyalin seluruh pakaian sebagai kode bagikan: tempel di kotak bagikan Fashion di game untuk mencobanya.
 - **Lokasi** — posisi pemain di peta. **Seret** untuk menggeser, **roda mouse** untuk zoom, **Peta penuh**
   dan **Fokus** untuk berpindah tampilan.
 - **Party** — party pemain. **Klik anggota** untuk memeriksanya.
