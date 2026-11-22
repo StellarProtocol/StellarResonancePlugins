@@ -19,6 +19,11 @@
     },
     {
       "type": "image",
+      "file": "media/npc.png",
+      "caption": "NPC tab: use an NPC's services from anywhere, search them, and pin your favourites."
+    },
+    {
+      "type": "image",
       "file": "media/confirm.png",
       "caption": "Dungeon Confirm: a small entry check with your party's ready state, affixes and a countdown."
     },
@@ -33,10 +38,16 @@
   "date": "2026-11-12",
   "changelog": {
     "added": [
-      "First release: Dungeon Hub, one window for every dungeon, raid, World Boss and activity, and Dungeon Confirm, a small window in place of the game's full-screen entry confirm."
+      "NPC tab: use NPC services from anywhere, without walking to them. Open shops, crafting, Factor Exchange and more with one click, search NPCs by name or service, and pin your favourites to the top."
     ],
-    "changed": [],
-    "fixed": [],
+    "changed": [
+      "World Boss, Stimen Vaults and Guild Hunt are now together in one Boss & Hunt tab.",
+      "Your mouse cursor stays free while the hub is open."
+    ],
+    "fixed": [
+      "Activities with nothing to play this season, such as Slumberdream Valley, now say \"Not this season\" instead of looking open.",
+      "Filipino: the \"Rewards left\" tile now reads \"Natitirang premyo\"."
+    ],
     "removed": []
   },
   "i18n": {
@@ -45,12 +56,20 @@
       "description": "すべてのダンジョンを1つのウィンドウに。ダンジョンと難易度を選んで、ソロで入場、マッチング開始、またはパーティーで入場できます。ゲームの全画面の入場確認も、誰が準備完了かがわかる小さなウィンドウに置き換えます。",
       "captions": [
         "すべてのダンジョン・レイド・アクティビティを1つのウィンドウに。ダンジョン、難易度、参加方法を選ぶだけ。",
+        "NPCタブ：どこからでもNPCのサービスを利用。検索やお気に入りのピン留めもできます。",
         "入場確認：パーティーの準備状況、特性、カウントダウンが見える小さな確認ウィンドウ。",
         "設定：入場確認ウィンドウのオン・オフ、プレビュー、サウンドの選択。"
       ],
       "changelog": {
         "added": [
-          "初回リリース：すべてのダンジョン・レイド・ワールドボス・アクティビティを1つにまとめたダンジョンハブと、ゲームの全画面の入場確認の代わりに表示される小さなウィンドウ「入場確認」。"
+          "NPCタブ：NPCのところまで歩かなくても、どこからでもサービスを利用できます。ショップや製作などをワンクリックで開き、名前やサービスでNPCを検索し、よく使うNPCを上にピン留めできます。"
+        ],
+        "changed": [
+          "ワールドボスと討伐コンテンツが1つの「ボス・討伐」タブにまとまりました。",
+          "ハブを開いている間は、マウスカーソルが自由に動かせます。"
+        ],
+        "fixed": [
+          "今シーズンに遊べる内容がないアクティビティは、開いているように見えず「今シーズンなし」と表示されるようになりました。"
         ]
       }
     },
@@ -59,12 +78,20 @@
       "description": "ทุกดันเจี้ยนในหน้าต่างเดียว: เลือกดันเจี้ยนและความยาก แล้วเข้าแบบเดี่ยว เริ่มจับคู่ หรือเข้ากับปาร์ตี้ของคุณ และยังเปลี่ยนหน้าจอยืนยันเข้าดันเจี้ยนแบบเต็มจอของเกมเป็นหน้าต่างเล็กที่บอกว่าใครพร้อมแล้ว",
       "captions": [
         "ทุกดันเจี้ยน เรด และกิจกรรมในหน้าต่างเดียว: เลือกดันเจี้ยน ความยาก และวิธีเข้าร่วม",
+        "แท็บ NPC: ใช้บริการของ NPC ได้จากทุกที่ ค้นหา และปักหมุด NPC ที่ชอบได้",
         "ยืนยันเข้าดันเจี้ยน: หน้าต่างยืนยันขนาดเล็กที่แสดงความพร้อมของปาร์ตี้ คุณสมบัติพิเศษ และการนับถอยหลัง",
         "การตั้งค่า: เปิดหรือปิดหน้าต่างยืนยัน ดูตัวอย่าง และเลือกเสียง"
       ],
       "changelog": {
         "added": [
-          "เปิดตัวครั้งแรก: ศูนย์ดันเจี้ยน หน้าต่างเดียวสำหรับทุกดันเจี้ยน เรด เวิลด์บอส และกิจกรรม พร้อมหน้าต่างยืนยันเข้าดันเจี้ยนขนาดเล็กแทนหน้าจอยืนยันแบบเต็มจอของเกม"
+          "แท็บ NPC: ใช้บริการของ NPC ได้จากทุกที่โดยไม่ต้องเดินไปหา เปิดร้านค้า การคราฟต์ และอื่น ๆ ได้ในคลิกเดียว ค้นหา NPC จากชื่อหรือบริการ และปักหมุด NPC ที่ใช้บ่อยไว้ด้านบน"
+        ],
+        "changed": [
+          "เวิลด์บอสและกิจกรรมล่ามารวมอยู่ในแท็บ \"บอส & ล่า\" แท็บเดียวแล้ว",
+          "เคอร์เซอร์เมาส์เคลื่อนที่ได้อิสระขณะเปิดศูนย์ดันเจี้ยน"
+        ],
+        "fixed": [
+          "กิจกรรมที่ไม่มีเนื้อหาให้เล่นในซีซันนี้จะแสดง \"ไม่มีในซีซันนี้\" แทนที่จะดูเหมือนเปิดอยู่"
         ]
       }
     },
@@ -73,12 +100,20 @@
       "description": "Semua dungeon dalam satu jendela: pilih dungeon dan tingkat kesulitan, lalu masuk Solo, mulai Cari Tim, atau masuk bersama party Anda. Juga mengganti layar konfirmasi masuk layar penuh dari game dengan jendela kecil yang menunjukkan siapa yang sudah siap.",
       "captions": [
         "Semua dungeon, raid, dan aktivitas dalam satu jendela: pilih dungeon, tingkat kesulitan, dan cara masuk.",
+        "Tab NPC: gunakan layanan NPC dari mana saja, cari NPC, dan sematkan favorit Anda.",
         "Konfirmasi Dungeon: jendela konfirmasi kecil dengan status siap party, afiks, dan hitung mundur.",
         "Pengaturan: aktifkan atau matikan jendela konfirmasi, lihat pratinjaunya, dan pilih suaranya."
       ],
       "changelog": {
         "added": [
-          "Rilis pertama: Pusat Dungeon, satu jendela untuk semua dungeon, raid, World Boss, dan aktivitas, serta Konfirmasi Dungeon, jendela kecil sebagai ganti layar konfirmasi masuk layar penuh dari game."
+          "Tab NPC: gunakan layanan NPC dari mana saja tanpa harus berjalan ke sana. Buka toko, crafting, dan lainnya dengan satu klik, cari NPC berdasarkan nama atau layanan, dan sematkan NPC favorit di bagian atas."
+        ],
+        "changed": [
+          "World Boss dan aktivitas perburuan kini ada dalam satu tab Bos & Perburuan.",
+          "Kursor mouse tetap bebas selama hub terbuka."
+        ],
+        "fixed": [
+          "Aktivitas yang tidak punya konten musim ini kini bertuliskan \"Tidak ada musim ini\" alih-alih terlihat terbuka."
         ]
       }
     },
@@ -87,12 +122,21 @@
       "description": "Lahat ng dungeon sa iisang window: pumili ng dungeon at hirap, saka pumasok nang Solo, mag-Match, o pumasok kasama ang party mo. Pinapalitan din nito ang full-screen na entry confirm ng laro ng maliit na window na nagpapakita kung sino ang handa na.",
       "captions": [
         "Lahat ng dungeon, raid at activity sa iisang window: pumili ng dungeon, hirap at kung paano papasok.",
+        "NPC tab: gamitin ang mga serbisyo ng NPC kahit saan, hanapin sila, at i-pin ang mga paborito mo.",
         "Kumpirmasyon sa Dungeon: maliit na entry check na nagpapakita kung sino sa party ang handa na, ang mga affix at ang countdown.",
         "Settings: i-on o i-off ang confirm window, i-preview ito, at pumili ng mga tunog."
       ],
       "changelog": {
         "added": [
-          "Unang release: Dungeon Hub, iisang window para sa lahat ng dungeon, raid, World Boss at activity, at Kumpirmasyon sa Dungeon, maliit na window kapalit ng full-screen na entry confirm ng laro."
+          "NPC tab: gamitin ang mga serbisyo ng NPC kahit saan, nang hindi na lumalapit sa kanila. Buksan ang mga shop, crafting at iba pa sa isang click, hanapin ang NPC ayon sa pangalan o serbisyo, at i-pin ang mga paborito mo sa itaas."
+        ],
+        "changed": [
+          "Magkakasama na ang World Boss at mga hunt sa iisang tab na Boss at Pangangaso.",
+          "Malaya ang mouse cursor mo habang nakabukas ang hub."
+        ],
+        "fixed": [
+          "Ang mga activity na walang malalaro ngayong season ay may nakasulat na ngayong \"Wala ngayong season\" sa halip na mukhang bukas.",
+          "Ang \"Rewards left\" tile ay \"Natitirang premyo\" na ngayon."
         ]
       }
     },
@@ -101,12 +145,20 @@
       "description": "모든 던전을 창 하나에. 던전과 난이도를 고른 뒤 솔로로 입장하거나, 매칭을 시작하거나, 파티와 함께 입장하세요. 게임의 전체 화면 입장 확인도 누가 준비됐는지 보여 주는 작은 창으로 바꿉니다.",
       "captions": [
         "모든 던전, 레이드, 활동을 창 하나에. 던전, 난이도, 참가 방법만 고르면 됩니다.",
+        "NPC 탭: 어디서든 NPC 서비스를 이용하고, 검색하고, 자주 쓰는 NPC를 고정하세요.",
         "입장 확인: 파티의 준비 상태, 특성, 카운트다운이 보이는 작은 입장 확인 창.",
         "설정: 입장 확인 창 켜기/끄기, 미리보기, 사운드 선택."
       ],
       "changelog": {
         "added": [
-          "첫 출시: 모든 던전, 레이드, 월드 보스, 활동을 창 하나에 모은 던전 허브와, 게임의 전체 화면 입장 확인 대신 뜨는 작은 창 입장 확인."
+          "NPC 탭: NPC에게 걸어가지 않아도 어디서든 서비스를 이용할 수 있습니다. 상점, 제작 등을 클릭 한 번으로 열고, 이름이나 서비스로 NPC를 검색하고, 자주 쓰는 NPC를 맨 위에 고정할 수 있습니다."
+        ],
+        "changed": [
+          "월드 보스와 토벌 콘텐츠가 하나의 \"보스 & 토벌\" 탭으로 합쳐졌습니다.",
+          "허브가 열려 있는 동안 마우스 커서를 자유롭게 움직일 수 있습니다."
+        ],
+        "fixed": [
+          "이번 시즌에 즐길 내용이 없는 활동은 열려 있는 것처럼 보이지 않고 \"이번 시즌 없음\"으로 표시됩니다."
         ]
       }
     }
