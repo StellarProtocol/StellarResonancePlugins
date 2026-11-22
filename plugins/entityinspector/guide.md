@@ -33,6 +33,7 @@ On the left, the **portrait** shows the player in 3D (**drag** to turn, **mouse 
 - **Skills** — Battle Imagines and skills.
 - **Wardrobe** — every outfit piece with its dye slots, numbered like the game's dye screen
   (**Default** means undyed). **Click a colour** to copy its colour code.
+  **Copy outfit code** copies the whole outfit as a share code: paste it into the game's Fashion share box to try it on.
 - **Location** — where the player is on the map. **Drag** to pan, **mouse wheel** to zoom, **Full map**
   and **Focus** to move around.
 - **Party** — the player's party. **Click a member** to inspect them.
