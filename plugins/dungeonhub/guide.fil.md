@@ -20,7 +20,7 @@ ginamit.
 
 ## Pagpili ng dungeon
 
-May limang tab ang hub: **Mga Dungeon**, **Raid**, **World Boss**, **Pangangaso** at **Iba pa**.
+May limang tab ang hub: **Mga Dungeon**, **Raid**, **Boss at Pangangaso**, **Iba pa** at **NPC**.
 
 **Mga Dungeon**
 
@@ -41,7 +41,7 @@ May limang tab ang hub: **Mga Dungeon**, **Raid**, **World Boss**, **Pangangaso*
 - **Inirerekomenda**: ang score na inirerekomenda ng laro para sa hirap na ito.
 - **Iyong score**: berde kapag naabot mo ang rekomendasyon, dilaw kapag kulang pa.
 - **Unang clear**: kung naghihintay pa ang premyo ng unang clear (**Handang kunin**) o **Nakuha na**.
-- **Premyo**: ilang beses ka pang may makukuhang premyo. Kahit 0 na, puwede ka pa ring pumasok, wala ka lang
+- **Natitirang premyo**: ilang beses ka pang may makukuhang premyo. Kahit 0 na, puwede ka pa ring pumasok, wala ka lang
   makukuhang premyo.
 
 ## Paano pumasok
@@ -57,16 +57,34 @@ Kulay-abo ang button kapag hindi ito magagamit ngayon, at sinasabi ng linya sa i
 "wala sa party" o "kailangan ng 3+ sa party (may 1 ka) - gamitin ang Match". Sa isang party, ang leader lang ang
 puwedeng magsimula ng pagpasok o ng Match.
 
-## World Boss, Pangangaso at Iba pa
+## Boss at Pangangaso at Iba pa
 
-- **World Boss**: ang boss ngayong linggo, natitirang premyo mo, kung bukas ang event at kailan ito susunod na
-  bubukas. **Match** lang ang puwede sa World Boss.
-- **Pangangaso**: ang lingguhang hunt at ang **Guild Hunt**. Puwedeng pasukin ang Guild Hunt mula rito (Normal o
-  Mahirap, **Solo** o **Party**) habang bukas ito at nasa guild ka.
+- **Boss at Pangangaso**:
+  - **World Boss Crusade**: ang boss ngayong linggo, natitirang premyo mo, kung bukas ang event at kailan ito
+    susunod na bubukas. **Match** lang ang puwede sa World Boss.
+  - **Stimen Vaults**, ang lingguhang hunt.
+  - **Guild Hunt**: puwedeng pasukin mula rito (Normal o Mahirap, **Solo** o **Party**) habang bukas ito at nasa
+    guild ka.
 - **Iba pa**: nauuna ang **Bureau Commissions**. Tanggapin ang daily quest, tingnan ang mga event ngayon at kung ilan
   na ang natapos, at direktang **Pumasok** sa isang event. Dadalhin ka ng **Pumunta sa board** sa board ng Pioneer
   Bureau.
 - May button na **Buksan** ang iba pang activity na magbubukas ng sariling page nito sa laro.
+- Ang activity na walang malalaro ngayong season (halimbawa ang Slumberdream Valley) ay kulay-abo at may nakasulat
+  na **Wala ngayong season**. Kusa itong babalik kapag idinagdag ulit ito ng isang season.
+
+## NPC
+
+![Tab ng NPC](media/npc.png)
+
+Gamitin ang mga serbisyo ng isang NPC kahit saan, nang hindi naglalakad papunta sa kanila.
+
+- Pumili ng NPC sa kaliwa. May sariling button na **Buksan** ang bawat serbisyo nila sa kanan.
+- Ang **Maghanap ng NPC…** sa itaas ay naghahanap ng NPC ayon sa pangalan o sa ginagawa nila (halimbawa "Gear").
+  Binubura ng **✕** ang paghahanap.
+- Inilalagay ng **I-pin** ang isang NPC sa grupong **NAKA-PIN** sa itaas ng listahan, may markang ★. Pindutin ang
+  **Naka-pin** para i-unpin. Nase-save ang mga pin mo.
+- Lumalabas lang ang mga serbisyo mula sa isang limited-time event habang tumatakbo ang event. Kapag hindi magagamit
+  ngayon ang isang serbisyo, may mensaheng magsasabi kung bakit.
 
 ## Kumpirmasyon sa Dungeon
 
@@ -125,4 +143,5 @@ Parehong walang naka-bind na key sa simula. Mag-assign ng key sa **Settings ng S
 ## Mga Paalala
 
 - Bumubukas lang ang Dungeon Hub habang nasa mundo ka ng laro, at nagsasara ang mga window nito kapag nag-log out ka.
+- Habang bukas ang hub, malaya ang mouse cursor mo, kaya puwede kang mag-click nang hindi pumipindot ng key.
 - Kapag hindi maipakita ng maliit na window ang isang entry request, lalabas gaya ng dati ang confirm screen ng laro.

@@ -20,7 +20,7 @@ di tab yang terakhir Anda pakai.
 
 ## Memilih dungeon
 
-Ada lima tab: **Dungeon**, **Raid**, **World Boss**, **Perburuan**, dan **Lainnya**.
+Ada lima tab: **Dungeon**, **Raid**, **Bos & Perburuan**, **Lainnya**, dan **NPC**.
 
 **Dungeon**
 
@@ -56,15 +56,33 @@ Tombol menjadi abu-abu kalau saat ini tidak bisa dipakai, dan baris di bawahnya 
 "tidak dalam party" atau "butuh 3+ anggota party (ada 1) - gunakan Cari Tim". Dalam party, hanya ketua yang bisa
 memulai masuk atau Cari Tim.
 
-## World Boss, Perburuan, dan Lainnya
+## Bos & Perburuan dan Lainnya
 
-- **World Boss**: boss minggu ini, sisa hadiah Anda, apakah event sedang buka, dan kapan buka berikutnya. World
-  Boss hanya bisa lewat **Cari Tim**.
-- **Perburuan**: perburuan mingguan dan **Perburuan Guild**. Perburuan Guild bisa dimasuki dari sini (Normal atau
-  Sulit, **Solo** atau **Party**) selama sedang buka dan Anda punya guild.
+- **Bos & Perburuan**:
+  - **World Boss Crusade**: boss minggu ini, sisa hadiah Anda, apakah event sedang buka, dan kapan buka
+    berikutnya. World Boss hanya bisa lewat **Cari Tim**.
+  - **Stimen Vaults**, perburuan mingguan.
+  - **Perburuan Guild**: bisa dimasuki dari sini (Normal atau Sulit, **Solo** atau **Party**) selama sedang buka
+    dan Anda punya guild.
 - **Lainnya**: yang pertama adalah **Komisi Biro**. Ambil misi hariannya, lihat event hari ini dan berapa yang sudah
   selesai, lalu **Masuk** ke event secara langsung. **Pergi ke papan** membawa Anda ke papan Biro Perintis.
 - Aktivitas lainnya punya tombol **Buka** yang membuka halaman aktivitas itu di game.
+- Aktivitas yang tidak punya konten musim ini (misalnya Slumberdream Valley) menjadi abu-abu dan bertuliskan
+  **Tidak ada musim ini**. Aktivitas itu kembali dengan sendirinya saat sebuah musim menambahkannya lagi.
+
+## NPC
+
+![Tab NPC](media/npc.png)
+
+Pakai layanan NPC dari mana saja, tanpa perlu berjalan ke tempatnya.
+
+- Pilih NPC di kiri. Setiap layanannya punya tombol **Buka** sendiri di kanan.
+- **Cari NPC…** di bagian atas menemukan NPC berdasarkan nama atau perannya (misalnya "Gear"). **✕** menghapus
+  pencarian.
+- **Sematkan** memasukkan NPC ke grup **DISEMATKAN** di bagian atas daftar, ditandai ★. Tekan **Disematkan** untuk
+  melepasnya. Sematan Anda tersimpan.
+- Layanan dari event terbatas hanya muncul selama event berlangsung. Kalau sebuah layanan tidak bisa dipakai saat
+  ini, pesan akan menjelaskan alasannya.
 
 ## Konfirmasi Dungeon
 
@@ -122,4 +140,5 @@ Keduanya belum diikat ke tombol. Atur tombolnya di **Pengaturan Stellar → Hotk
 ## Catatan
 
 - Pusat Dungeon hanya bisa dibuka saat Anda berada di dunia game, dan jendelanya tertutup saat Anda logout.
+- Selama Pusat Dungeon terbuka, kursor mouse tetap bebas, jadi Anda bisa mengklik tanpa menahan tombol apa pun.
 - Kalau jendela kecil tidak bisa menampilkan permintaan masuk, layar konfirmasi game muncul seperti biasa.

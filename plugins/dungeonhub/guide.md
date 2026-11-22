@@ -20,7 +20,7 @@ tab you used last.
 
 ## Choosing a dungeon
 
-The hub has five tabs: **Dungeons**, **Raid**, **World Boss**, **Hunt** and **Other**.
+The hub has five tabs: **Dungeons**, **Raid**, **Boss & Hunt**, **Other** and **NPC**.
 
 **Dungeons**
 
@@ -55,15 +55,33 @@ A button is greyed out when it can't be used right now, and the line under it sa
 "not in a party" or "needs 3+ in the party (you have 1) - use Match". In a party, only the leader can start
 an entry or a match.
 
-## World Boss, Hunt and Other
+## Boss & Hunt and Other
 
-- **World Boss**: this week's boss, your rewards left, whether the event is open and when it opens next.
-  World Boss is **Match** only.
-- **Hunt**: the weekly hunt and **Guild Hunt**. Guild Hunt can be entered from here (Normal or Hard,
-  **Solo** or **Party**) while it is open and you're in a guild.
+- **Boss & Hunt**:
+  - **World Boss Crusade**: this week's boss, your rewards left, whether the event is open and when it opens
+    next. World Boss is **Match** only.
+  - **Stimen Vaults**, the weekly hunt.
+  - **Guild Hunt**: can be entered from here (Normal or Hard, **Solo** or **Party**) while it is open and
+    you're in a guild.
 - **Other**: **Bureau Commissions** comes first. Accept the daily quest, see today's events and how many are
   done, and **Enter** an event directly. **Go to the board** takes you to the Pioneer Bureau board.
 - The remaining activities have an **Open** button that takes you to the game's own page for them.
+- An activity with nothing to play this season (for example Slumberdream Valley) is greyed out and says
+  **Not this season**. It comes back by itself when a season adds it again.
+
+## NPC
+
+![NPC tab](media/npc.png)
+
+Use an NPC's services from anywhere, without walking to them.
+
+- Pick an NPC on the left. Each of their services has its own **Open** button on the right.
+- **Search NPC…** at the top finds an NPC by name or by what they do (for example "Gear"). **✕** clears the
+  search.
+- **Pin** puts an NPC in a **PINNED** group at the top of the list, marked with a ★. Press **Pinned** to
+  unpin. Your pins are saved.
+- Services from a limited-time event only show while the event is running. If a service can't be used right
+  now, a message tells you why.
 
 ## Dungeon Confirm
 
@@ -120,4 +138,5 @@ Both start unbound. Assign a key in **Stellar Settings → Hotkeys**:
 ## Notes
 
 - Dungeon Hub opens only while you're in the world, and its windows close when you log out.
+- While the hub is open, your mouse cursor stays free, so you can click around without holding a key.
 - If the small window can't show an entry request, the game's own confirm screen appears as usual.
