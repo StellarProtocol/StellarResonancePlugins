@@ -2,7 +2,7 @@
   "id": "dungeonhub",
   "name": "Dungeon Hub",
   "description": "Every dungeon in one window: pick a dungeon and a difficulty, then go in Solo, start a Match or enter with your Party. Also swaps the game's full-screen entry confirm for a small window that shows who is ready.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dll": "Stellar.DungeonHub.dll",
   "author": "Stellar",
   "tags": [
@@ -35,7 +35,7 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-12",
+  "date": "2026-11-22",
   "changelog": {
     "added": [
       "NPC tab: use NPC services from anywhere, without walking to them. Open shops, crafting, Factor Exchange and more with one click, search NPCs by name or service, and pin your favourites to the top."
@@ -164,7 +164,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarDungeonHubPlugin.git",
-  "commit": "f0f2c0969521ef82621dcbbf853158feefffdabe",
+  "commit": "d443b4c6db8f5521f1fdf66d29c3627f79d8b086",
   "projectPath": ".",
-  "tag": "v1.0.0"
+  "tag": "v1.1.0"
 }
