@@ -101,6 +101,9 @@ dungeon, raid at kapag may nahanap na match.
 - **Kumpirmahin** at **Tanggihan** sa ibaba. Kapag may nahanap na match, magtatanong pa ulit ang Tanggihan
   (**Tanggihan?**) para hindi mo ito mapindot nang hindi sinasadya. Kung ikaw ang leader na nagsimula ng pagpasok,
   **Kanselahin** ang lalabas sa halip.
+- **Dukutin** (para sa party leader lang, hindi sa match): tumatanggap para sa bawat miyembrong hindi pa
+  **Handa**, kaya papasok sila kahit hindi nila pinindot ang Kumpirmahin. Puwede mo itong pindutin ulit hanggang
+  magsara ang confirm.
 - Kapag handa na ang lahat, magsasara ang window at papasok ka. Kapag may tumanggi o naubos ang oras, sasabihin ng
   window kung sino, saka ito kusang magsasara.
 - Laging nasa ibabaw ng iba mong Stellar window ang window na ito, kaya hindi ito natatakpan ng mga iyon.

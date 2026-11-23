@@ -38,15 +38,13 @@
   "date": "2026-11-22",
   "changelog": {
     "added": [
-      "NPC tab: use NPC services from anywhere, without walking to them. Open shops, crafting, Factor Exchange and more with one click, search NPCs by name or service, and pin your favourites to the top."
+      "Dungeon Confirm: party leaders get a Kidnap button. It accepts for everyone who isn't ready yet, so the party gets in without waiting on them. You can press it again until the confirm closes."
     ],
     "changed": [
-      "World Boss, Stimen Vaults and Guild Hunt are now together in one Boss & Hunt tab.",
-      "Your mouse cursor stays free while the hub is open."
+      "Lists in the hub no longer have a length limit, so every NPC and activity shows up."
     ],
     "fixed": [
-      "Activities with nothing to play this season, such as Slumberdream Valley, now say \"Not this season\" instead of looking open.",
-      "Filipino: the \"Rewards left\" tile now reads \"Natitirang premyo\"."
+      "Pictures in the hub's lists now show straight away when you scroll or reopen the hub, instead of popping in."
     ],
     "removed": []
   },
@@ -62,14 +60,13 @@
       ],
       "changelog": {
         "added": [
-          "NPCタブ：NPCのところまで歩かなくても、どこからでもサービスを利用できます。ショップや製作などをワンクリックで開き、名前やサービスでNPCを検索し、よく使うNPCを上にピン留めできます。"
+          "入場確認：パーティーリーダーに「誘拐」ボタンが追加されました。まだ準備完了していないメンバー全員の代わりに承諾するので、待たずにパーティーで入場できます。確認画面が閉じるまで何度でも押せます。"
         ],
         "changed": [
-          "ワールドボスと討伐コンテンツが1つの「ボス・討伐」タブにまとまりました。",
-          "ハブを開いている間は、マウスカーソルが自由に動かせます。"
+          "ハブのリストに件数の上限がなくなり、すべてのNPCとアクティビティが表示されます。"
         ],
         "fixed": [
-          "今シーズンに遊べる内容がないアクティビティは、開いているように見えず「今シーズンなし」と表示されるようになりました。"
+          "ハブのリストの画像が、スクロールしたときやハブを開き直したときに遅れて出ず、すぐに表示されるようになりました。"
         ]
       }
     },
@@ -84,14 +81,13 @@
       ],
       "changelog": {
         "added": [
-          "แท็บ NPC: ใช้บริการของ NPC ได้จากทุกที่โดยไม่ต้องเดินไปหา เปิดร้านค้า การคราฟต์ และอื่น ๆ ได้ในคลิกเดียว ค้นหา NPC จากชื่อหรือบริการ และปักหมุด NPC ที่ใช้บ่อยไว้ด้านบน"
+          "ยืนยันเข้าดันเจี้ยน: หัวหน้าปาร์ตี้มีปุ่ม \"ลักพาตัว\" แล้ว ปุ่มนี้กดยอมรับแทนทุกคนที่ยังไม่พร้อม ปาร์ตี้จึงเข้าได้โดยไม่ต้องรอ กดซ้ำได้จนกว่าหน้าต่างยืนยันจะปิด"
         ],
         "changed": [
-          "เวิลด์บอสและกิจกรรมล่ามารวมอยู่ในแท็บ \"บอส & ล่า\" แท็บเดียวแล้ว",
-          "เคอร์เซอร์เมาส์เคลื่อนที่ได้อิสระขณะเปิดศูนย์ดันเจี้ยน"
+          "รายการในศูนย์ดันเจี้ยนไม่มีจำกัดจำนวนแล้ว NPC และกิจกรรมทั้งหมดจึงแสดงครบ"
         ],
         "fixed": [
-          "กิจกรรมที่ไม่มีเนื้อหาให้เล่นในซีซันนี้จะแสดง \"ไม่มีในซีซันนี้\" แทนที่จะดูเหมือนเปิดอยู่"
+          "รูปภาพในรายการแสดงทันทีเมื่อเลื่อนหรือเปิดศูนย์ดันเจี้ยนอีกครั้ง ไม่โผล่ขึ้นมาทีหลังแล้ว"
         ]
       }
     },
@@ -106,14 +102,13 @@
       ],
       "changelog": {
         "added": [
-          "Tab NPC: gunakan layanan NPC dari mana saja tanpa harus berjalan ke sana. Buka toko, crafting, dan lainnya dengan satu klik, cari NPC berdasarkan nama atau layanan, dan sematkan NPC favorit di bagian atas."
+          "Konfirmasi Dungeon: ketua party kini punya tombol Culik. Tombol ini menerima atas nama semua anggota yang belum siap, jadi party bisa masuk tanpa menunggu mereka. Bisa ditekan lagi sampai konfirmasi ditutup."
         ],
         "changed": [
-          "World Boss dan aktivitas perburuan kini ada dalam satu tab Bos & Perburuan.",
-          "Kursor mouse tetap bebas selama hub terbuka."
+          "Daftar di hub kini tidak punya batas jumlah, jadi semua NPC dan aktivitas tampil."
         ],
         "fixed": [
-          "Aktivitas yang tidak punya konten musim ini kini bertuliskan \"Tidak ada musim ini\" alih-alih terlihat terbuka."
+          "Gambar di daftar hub kini langsung tampil saat menggulir atau membuka hub lagi, tidak muncul belakangan."
         ]
       }
     },
@@ -128,15 +123,13 @@
       ],
       "changelog": {
         "added": [
-          "NPC tab: gamitin ang mga serbisyo ng NPC kahit saan, nang hindi na lumalapit sa kanila. Buksan ang mga shop, crafting at iba pa sa isang click, hanapin ang NPC ayon sa pangalan o serbisyo, at i-pin ang mga paborito mo sa itaas."
+          "Kumpirmasyon sa Dungeon: may button na Dukutin na ang mga party leader. Tumatanggap ito para sa lahat ng hindi pa handa, kaya makakapasok ang party nang hindi na naghihintay. Puwede mo itong pindutin ulit hanggang magsara ang confirm."
         ],
         "changed": [
-          "Magkakasama na ang World Boss at mga hunt sa iisang tab na Boss at Pangangaso.",
-          "Malaya ang mouse cursor mo habang nakabukas ang hub."
+          "Wala nang limitasyon sa haba ang mga listahan sa hub, kaya lumalabas na ang lahat ng NPC at activity."
         ],
         "fixed": [
-          "Ang mga activity na walang malalaro ngayong season ay may nakasulat na ngayong \"Wala ngayong season\" sa halip na mukhang bukas.",
-          "Ang \"Rewards left\" tile ay \"Natitirang premyo\" na ngayon."
+          "Agad nang lumalabas ang mga larawan sa mga listahan ng hub kapag nag-scroll ka o binuksan ulit ang hub, sa halip na sumulpot nang huli."
         ]
       }
     },
@@ -151,14 +144,13 @@
       ],
       "changelog": {
         "added": [
-          "NPC 탭: NPC에게 걸어가지 않아도 어디서든 서비스를 이용할 수 있습니다. 상점, 제작 등을 클릭 한 번으로 열고, 이름이나 서비스로 NPC를 검색하고, 자주 쓰는 NPC를 맨 위에 고정할 수 있습니다."
+          "입장 확인: 파티장에게 \"납치\" 버튼이 생겼습니다. 아직 준비하지 않은 파티원 모두를 대신해 수락하므로 기다리지 않고 입장할 수 있습니다. 확인 창이 닫힐 때까지 다시 누를 수 있습니다."
         ],
         "changed": [
-          "월드 보스와 토벌 콘텐츠가 하나의 \"보스 & 토벌\" 탭으로 합쳐졌습니다.",
-          "허브가 열려 있는 동안 마우스 커서를 자유롭게 움직일 수 있습니다."
+          "허브 목록에 개수 제한이 없어져 모든 NPC와 활동이 표시됩니다."
         ],
         "fixed": [
-          "이번 시즌에 즐길 내용이 없는 활동은 열려 있는 것처럼 보이지 않고 \"이번 시즌 없음\"으로 표시됩니다."
+          "허브 목록의 그림이 스크롤하거나 허브를 다시 열 때 늦게 뜨지 않고 바로 표시됩니다."
         ]
       }
     }

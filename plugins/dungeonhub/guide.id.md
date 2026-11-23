@@ -98,6 +98,8 @@ saat tim ditemukan.
   **Siap**, **Menunggu…**, atau **Menolak**. Baris Anda sendiri diberi garis tepi.
 - **Konfirmasi** dan **Tolak** di bagian bawah. Saat tim ditemukan, Tolak bertanya sekali lagi (**Tolak?**) supaya
   tidak terpencet tanpa sengaja. Kalau Anda ketua yang memulai masuk, yang muncul adalah **Batalkan**.
+- **Culik** (hanya ketua party, tidak saat tim ditemukan): menerima atas nama setiap anggota yang belum **Siap**,
+  jadi mereka ikut masuk tanpa menekan Konfirmasi. Bisa ditekan lagi sampai konfirmasi ditutup.
 - Saat semua sudah siap, jendela tertutup dan Anda masuk. Kalau ada yang menolak atau waktu habis, jendela
   menyebutkan siapa, lalu tertutup sendiri.
 - Jendela ini selalu berada di atas jendela Stellar lainnya, jadi tidak pernah tertutup olehnya.

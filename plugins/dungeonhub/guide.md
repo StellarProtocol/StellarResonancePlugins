@@ -96,6 +96,8 @@ to confirm. Dungeon Hub shows a small window instead. It works for 5-player dung
   **Ready**, **Waiting…** or **Declined**. Your own row is outlined.
 - **Confirm** and **Decline** at the bottom. For a match found, Decline asks once more (**Decline?**) so you
   can't press it by accident. If you started the entry as leader, you get **Cancel Entry** instead.
+- **Kidnap** (party leader only, not for a match found): accepts on behalf of every member who isn't
+  **Ready** yet, so they come in without pressing Confirm. You can press it again until the confirm closes.
 - When everyone is ready, the window closes and you go in. If someone declines or time runs out, the window
   says who, then closes on its own.
 - The window stays on top of your other Stellar windows, so it is never hidden behind them.
