@@ -40,9 +40,7 @@
     "added": [
       "Dungeon Confirm: party leaders get a Kidnap button. It accepts for everyone who isn't ready yet, so the party gets in without waiting on them. You can press it again until the confirm closes."
     ],
-    "changed": [
-      "Lists in the hub no longer have a length limit, so every NPC and activity shows up."
-    ],
+    "changed": [],
     "fixed": [
       "Pictures in the hub's lists now show straight away when you scroll or reopen the hub, instead of popping in."
     ],
@@ -62,9 +60,7 @@
         "added": [
           "入場確認：パーティーリーダーに「誘拐」ボタンが追加されました。まだ準備完了していないメンバー全員の代わりに承諾するので、待たずにパーティーで入場できます。確認画面が閉じるまで何度でも押せます。"
         ],
-        "changed": [
-          "ハブのリストに件数の上限がなくなり、すべてのNPCとアクティビティが表示されます。"
-        ],
+        "changed": [],
         "fixed": [
           "ハブのリストの画像が、スクロールしたときやハブを開き直したときに遅れて出ず、すぐに表示されるようになりました。"
         ]
@@ -83,9 +79,7 @@
         "added": [
           "ยืนยันเข้าดันเจี้ยน: หัวหน้าปาร์ตี้มีปุ่ม \"ลักพาตัว\" แล้ว ปุ่มนี้กดยอมรับแทนทุกคนที่ยังไม่พร้อม ปาร์ตี้จึงเข้าได้โดยไม่ต้องรอ กดซ้ำได้จนกว่าหน้าต่างยืนยันจะปิด"
         ],
-        "changed": [
-          "รายการในศูนย์ดันเจี้ยนไม่มีจำกัดจำนวนแล้ว NPC และกิจกรรมทั้งหมดจึงแสดงครบ"
-        ],
+        "changed": [],
         "fixed": [
           "รูปภาพในรายการแสดงทันทีเมื่อเลื่อนหรือเปิดศูนย์ดันเจี้ยนอีกครั้ง ไม่โผล่ขึ้นมาทีหลังแล้ว"
         ]
@@ -104,9 +98,7 @@
         "added": [
           "Konfirmasi Dungeon: ketua party kini punya tombol Culik. Tombol ini menerima atas nama semua anggota yang belum siap, jadi party bisa masuk tanpa menunggu mereka. Bisa ditekan lagi sampai konfirmasi ditutup."
         ],
-        "changed": [
-          "Daftar di hub kini tidak punya batas jumlah, jadi semua NPC dan aktivitas tampil."
-        ],
+        "changed": [],
         "fixed": [
           "Gambar di daftar hub kini langsung tampil saat menggulir atau membuka hub lagi, tidak muncul belakangan."
         ]
@@ -125,9 +117,7 @@
         "added": [
           "Kumpirmasyon sa Dungeon: may button na Dukutin na ang mga party leader. Tumatanggap ito para sa lahat ng hindi pa handa, kaya makakapasok ang party nang hindi na naghihintay. Puwede mo itong pindutin ulit hanggang magsara ang confirm."
         ],
-        "changed": [
-          "Wala nang limitasyon sa haba ang mga listahan sa hub, kaya lumalabas na ang lahat ng NPC at activity."
-        ],
+        "changed": [],
         "fixed": [
           "Agad nang lumalabas ang mga larawan sa mga listahan ng hub kapag nag-scroll ka o binuksan ulit ang hub, sa halip na sumulpot nang huli."
         ]
@@ -146,9 +136,7 @@
         "added": [
           "입장 확인: 파티장에게 \"납치\" 버튼이 생겼습니다. 아직 준비하지 않은 파티원 모두를 대신해 수락하므로 기다리지 않고 입장할 수 있습니다. 확인 창이 닫힐 때까지 다시 누를 수 있습니다."
         ],
-        "changed": [
-          "허브 목록에 개수 제한이 없어져 모든 NPC와 활동이 표시됩니다."
-        ],
+        "changed": [],
         "fixed": [
           "허브 목록의 그림이 스크롤하거나 허브를 다시 열 때 늦게 뜨지 않고 바로 표시됩니다."
         ]
