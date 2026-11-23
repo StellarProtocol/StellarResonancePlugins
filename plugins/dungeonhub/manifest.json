@@ -2,7 +2,7 @@
   "id": "dungeonhub",
   "name": "Dungeon Hub",
   "description": "Every dungeon in one window: pick a dungeon and a difficulty, then go in Solo, start a Match or enter with your Party. Also swaps the game's full-screen entry confirm for a small window that shows who is ready.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dll": "Stellar.DungeonHub.dll",
   "author": "Stellar",
   "tags": [
@@ -35,7 +35,7 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "changelog": {
     "added": [
       "Dungeon Confirm: party leaders get a Kidnap button. It accepts for everyone who isn't ready yet, so the party gets in without waiting on them. You can press it again until the confirm closes."
@@ -156,7 +156,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarDungeonHubPlugin.git",
-  "commit": "d443b4c6db8f5521f1fdf66d29c3627f79d8b086",
+  "commit": "601fb0e0c6c2d68037af1a21045f04f878b3ce24",
   "projectPath": ".",
-  "tag": "v1.1.0"
+  "tag": "v1.2.0"
 }
