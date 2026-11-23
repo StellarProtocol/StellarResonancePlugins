@@ -6,7 +6,7 @@ Ang chat ng laro sa isang window na puwede mong ilipat, i-resize at iwanang buka
 
 ## Pagsisimula
 
-1. I-install ang plugin at i-launch ang laro nang **May mod** (kailangan ng Stellar 2.27.1 o mas bago).
+1. I-install ang plugin at i-launch ang laro nang **May mod** (kailangan ng Stellar 2.35.0 o mas bago).
 2. Pindutin ang **F12** o buksan ang ChatTools mula sa Stellar menu.
 3. I-drag ang title bar para ilipat ang window, at ang kanang-ibabang sulok para i-resize ito.
 
@@ -19,6 +19,18 @@ May sariling tab ang Lahat, Mundo, Kasalukuyan, Party, Guild, Bulong at Sistema,
 Mag-type sa box sa ibaba at pindutin ang **Enter** o **Ipadala**. Ang button sa kaliwa ang pumipili ng channel. Ipinapadala ng Enter ang mensahe nang isang beses at ibinabalik ang keyboard sa laro.
 
 ![Pagpili ng channel na padadalhan](media/chattools-send-to.png)
+
+## Mga lokasyon at link
+
+**Ibahagi ang lokasyon mo:** pindutin ang pin button sa tabi ng message box. Ipinapakita ng strip sa itaas ng box kung nasaan ka; pindutin ang **Ipadala** at lalabas ang mensahe mo na may link ng lokasyon. I-click ang ✕ sa strip para alisin ito. Gumagana sa bawat channel, pero hindi sa mga dungeon.
+
+![Pagbabahagi ng lokasyon mo](media/chattools-share-location.png)
+
+**Mga ibinahaging lokasyon:** lumalabas bilang link na may pin ang lokasyong ibinahagi ng iba. I-click ito para markahan ang lugar sa mapa mo. I-hover ang kahit anong link para makita kung ano ito.
+
+![Ibinahaging lokasyon sa mapa](media/chattools-location-map.png)
+
+Lumalabas din sa chat ang mga link ng item, player, imbitasyon sa bahay at loot roll, at nasa kulay ng kalidad nito ang bawat item. Lumalabas ang mga voice message na may mic icon, haba at transcript.
 
 ## Mga sticker at emoji
 

@@ -2,7 +2,7 @@
   "id": "chattools",
   "name": "ChatTools",
   "description": "The game's chat in a window you can keep open anywhere: channel tabs, stickers, whispers and translation.",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "dll": "Stellar.ChatTools.dll",
   "author": "Stellar",
   "tags": [
@@ -14,6 +14,16 @@
       "type": "image",
       "file": "media/chattools.png",
       "caption": "Channel tabs and chat bubbles with player avatars and stickers."
+    },
+    {
+      "type": "image",
+      "file": "media/chattools-share-location.png",
+      "caption": "Press the pin button to attach your location, then Send."
+    },
+    {
+      "type": "image",
+      "file": "media/chattools-location-map.png",
+      "caption": "Click a shared location to mark it on your map."
     },
     {
       "type": "image",
@@ -62,21 +72,19 @@
     }
   ],
   "guide": "guide.md",
-  "minModSystemVersion": "2.30.0",
-  "date": "2026-11-12",
+  "minModSystemVersion": "2.35.0",
+  "date": "2026-11-23",
   "changelog": {
     "added": [
-      "A redesigned Settings window: two clear columns, ON/OFF switches and a \"?\" help button on every setting."
+      "Shared locations in chat show as a link with a pin. Click one to mark that spot on your map.",
+      "Share your own location: press the pin button next to the message box, then Send. Works on every channel, but not in dungeons.",
+      "Item, player, home-invite and loot-roll links now show in chat instead of being hidden. Items show in their quality colour.",
+      "Voice messages show with a mic icon, their length and the transcript."
     ],
     "changed": [
-      "Clearing whisper history now asks you to confirm with Delete or Cancel.",
-      "Warning and status colours (send failed, \"online\" in the friend picker, the character counters) now follow your theme.",
-      "Send and Add look pressed in while you can't use them."
+      "Hover a link to see what it is."
     ],
-    "fixed": [
-      "Pressing Enter with text in the box sometimes didn't send the message, especially over remote play or streaming. It now always sends once and gives the keyboard back to the game.",
-      "The chat window no longer freezes the game the first time you open it."
-    ],
+    "fixed": [],
     "removed": []
   },
   "i18n": {
@@ -84,6 +92,8 @@
       "description": "ゲームのチャットを、どこにでも開いておけるウィンドウで。チャンネルタブ、スタンプ、ウィスパー、翻訳に対応。",
       "captions": [
         "チャンネルタブと、プレイヤーのアバター付き吹き出し・スタンプ。",
+        "ピンボタンで自分の位置を添付して、送信。",
+        "共有された位置をクリックすると、マップにマークされます。",
         "ウィスパーは相手ごとに1つの会話にまとまります。",
         "お気に入りも使えるスタンプ・絵文字ピッカー。",
         "メッセージを翻訳。自分のメッセージも送信前に翻訳できます。",
@@ -96,16 +106,13 @@
       ],
       "changelog": {
         "added": [
-          "設定ウィンドウを一新しました。見やすい2列のレイアウト、ON/OFFスイッチ、すべての設定に「?」ヘルプボタンが付きました。"
+          "チャットで共有された位置情報が、ピン付きのリンクで表示されるようになりました。クリックすると、その場所をマップにマークします。",
+          "自分の位置を共有できるようになりました。入力欄の横のピンボタンを押してから送信します。すべてのチャンネルで使えますが、ダンジョン内では使えません。",
+          "アイテム・プレイヤー・ホーム招待・戦利品ロールのリンクが、隠されずにチャットに表示されるようになりました。アイテムは品質の色で表示されます。",
+          "ボイスメッセージが、マイクアイコン・長さ・文字起こし付きで表示されるようになりました。"
         ],
         "changed": [
-          "個人チャット履歴を消去するときは、「削除」か「キャンセル」で確認するようになりました。",
-          "警告・状態の色（送信失敗、フレンド選択の「オンライン」、文字数カウンター）がテーマの色に合わせて変わるようになりました。",
-          "送信・追加ボタンは、使えないあいだ押し込まれた見た目になります。"
-        ],
-        "fixed": [
-          "入力欄に文字がある状態でEnterを押しても、メッセージが送信されないことがありました（特にリモートプレイやストリーミング時）。今は必ず1回送信され、キーボード操作はゲームに戻ります。",
-          "チャットウィンドウを初めて開いたときに、ゲームが一瞬止まらなくなりました。"
+          "リンクにカーソルを合わせると、何のリンクかが表示されます。"
         ]
       }
     },
@@ -113,6 +120,8 @@
       "description": "แชทของเกมในหน้าต่างที่เปิดค้างไว้ตรงไหนก็ได้ พร้อมแท็บแชนเนล สติกเกอร์ กระซิบ และการแปล",
       "captions": [
         "แท็บแชนเนลและกรอบข้อความแชท พร้อมรูปโปรไฟล์ผู้เล่นและสติกเกอร์",
+        "กดปุ่มหมุดเพื่อแนบตำแหน่งของคุณ แล้วกด ส่ง",
+        "คลิกตำแหน่งที่แชร์เพื่อปักบนแผนที่",
         "กระซิบแยกเป็นบทสนทนาละหนึ่งคน",
         "ตัวเลือกสติกเกอร์และอีโมจิ พร้อมรายการโปรดของคุณ",
         "แปลข้อความได้ รวมถึงข้อความของคุณเองก่อนส่ง",
@@ -125,16 +134,13 @@
       ],
       "changelog": {
         "added": [
-          "หน้าต่างตั้งค่าโฉมใหม่: แบ่งเป็นสองคอลัมน์ชัดเจน มีสวิตช์ เปิด/ปิด และปุ่มช่วยเหลือ \"?\" ในทุกการตั้งค่า"
+          "ตำแหน่งที่แชร์ในแชทจะแสดงเป็นลิงก์พร้อมหมุด คลิกเพื่อปักจุดนั้นบนแผนที่ของคุณ",
+          "แชร์ตำแหน่งของคุณเองได้: กดปุ่มหมุดข้างช่องพิมพ์ข้อความ แล้วกด ส่ง ใช้ได้ทุกแชนเนล ยกเว้นในดันเจี้ยน",
+          "ลิงก์ไอเทม ผู้เล่น คำเชิญเข้าบ้าน และการทอยของดรอป แสดงในแชทแล้ว ไม่ถูกซ่อนอีกต่อไป ไอเทมแสดงเป็นสีตามระดับคุณภาพ",
+          "ข้อความเสียงแสดงพร้อมไอคอนไมค์ ความยาว และข้อความถอดเสียง"
         ],
         "changed": [
-          "การล้างประวัติกระซิบจะถามยืนยันด้วยปุ่ม ลบ หรือ ยกเลิก",
-          "สีเตือนและสีสถานะ (ส่งไม่สำเร็จ, \"ออนไลน์\" ในตัวเลือกเพื่อน, ตัวนับตัวอักษร) เปลี่ยนตามธีมของคุณแล้ว",
-          "ปุ่มส่งและปุ่มเพิ่มจะดูเหมือนถูกกดลงไปในขณะที่ยังใช้ไม่ได้"
-        ],
-        "fixed": [
-          "บางครั้งกด Enter ตอนมีข้อความในช่องแล้วข้อความไม่ถูกส่ง โดยเฉพาะตอนเล่นผ่านรีโมตหรือสตรีมมิง ตอนนี้จะส่งครั้งเดียวทุกครั้ง แล้วคืนคีย์บอร์ดให้เกม",
-          "หน้าต่างแชทไม่ทำให้เกมค้างอีกแล้วตอนเปิดครั้งแรก"
+          "ชี้เมาส์ที่ลิงก์เพื่อดูว่าเป็นลิงก์อะไร"
         ]
       }
     },
@@ -142,6 +148,8 @@
       "description": "Chat game dalam jendela yang bisa kamu biarkan terbuka di mana saja: tab kanal, stiker, bisikan, dan terjemahan.",
       "captions": [
         "Tab kanal dan gelembung chat dengan avatar pemain serta stiker.",
+        "Tekan tombol pin untuk melampirkan lokasimu, lalu Kirim.",
+        "Klik lokasi yang dibagikan untuk menandainya di peta.",
         "Satu percakapan bisikan untuk tiap orang.",
         "Pemilih stiker dan emoji, lengkap dengan favoritmu.",
         "Terjemahkan pesan, termasuk pesanmu sendiri sebelum dikirim.",
@@ -154,16 +162,13 @@
       ],
       "changelog": {
         "added": [
-          "Jendela Pengaturan yang didesain ulang: dua kolom yang rapi, sakelar AKTIF/MATI, dan tombol bantuan \"?\" di setiap pengaturan."
+          "Lokasi yang dibagikan di chat tampil sebagai tautan dengan pin. Klik untuk menandai tempat itu di petamu.",
+          "Bagikan lokasimu sendiri: tekan tombol pin di samping kotak pesan, lalu Kirim. Bisa di semua kanal, kecuali di dungeon.",
+          "Tautan item, pemain, undangan rumah, dan roll jarahan kini tampil di chat, tidak lagi disembunyikan. Item tampil dengan warna kualitasnya.",
+          "Pesan suara tampil dengan ikon mikrofon, durasi, dan transkripnya."
         ],
         "changed": [
-          "Menghapus riwayat bisikan kini meminta konfirmasi dengan Hapus atau Batal.",
-          "Warna peringatan dan status (gagal kirim, \"online\" di pemilih teman, penghitung karakter) kini mengikuti temamu.",
-          "Tombol Kirim dan Tambah terlihat tertekan saat belum bisa dipakai."
-        ],
-        "fixed": [
-          "Menekan Enter saat ada teks di kotak kadang tidak mengirim pesan, terutama saat main jarak jauh atau streaming. Kini pesan selalu terkirim sekali dan keyboard kembali ke game.",
-          "Jendela chat tidak lagi membuat game tersendat saat pertama kali dibuka."
+          "Arahkan kursor ke tautan untuk melihat isinya."
         ]
       }
     },
@@ -171,6 +176,8 @@
       "description": "Ang chat ng laro sa isang window na puwede mong iwanang bukas kahit saan: mga channel tab, sticker, bulong at pagsasalin.",
       "captions": [
         "Mga channel tab at chat bubble na may avatar ng player at mga sticker.",
+        "Pindutin ang pin button para ilakip ang lokasyon mo, tapos Ipadala.",
+        "I-click ang ibinahaging lokasyon para markahan ito sa mapa.",
         "Isang usapan sa bulong para sa bawat tao.",
         "Sticker at emoji picker na may mga paborito mo.",
         "Isalin ang mga mensahe, pati ang sarili mo bago ipadala.",
@@ -183,16 +190,13 @@
       ],
       "changelog": {
         "added": [
-          "Bagong disenyo ng Settings window: dalawang malinaw na column, ON/OFF na switch at \"?\" na help button sa bawat setting."
+          "Lumalabas na bilang link na may pin ang mga lokasyong ibinahagi sa chat. I-click ito para markahan ang lugar sa mapa mo.",
+          "Ibahagi ang sarili mong lokasyon: pindutin ang pin button sa tabi ng message box, tapos Ipadala. Gumagana sa bawat channel, pero hindi sa mga dungeon.",
+          "Lumalabas na sa chat ang mga link ng item, player, imbitasyon sa bahay at loot roll sa halip na nakatago. Nasa kulay ng kalidad nito ang bawat item.",
+          "Lumalabas ang mga voice message na may mic icon, haba at transcript."
         ],
         "changed": [
-          "Kapag binura ang whisper history, magtatanong muna ito gamit ang Burahin o Kanselahin.",
-          "Sumusunod na sa theme mo ang mga kulay ng babala at status (hindi naipadala, \"online\" sa friend picker, ang bilang ng character).",
-          "Mukhang nakabaon ang Send at Add habang hindi pa magagamit."
-        ],
-        "fixed": [
-          "Minsan hindi naipapadala ang mensahe kapag pinindot ang Enter na may text sa kahon, lalo na sa remote play o streaming. Ngayon, laging isang beses itong naipapadala at bumabalik ang keyboard sa laro.",
-          "Hindi na natitigilan ang laro sa unang pagbukas ng chat window."
+          "I-hover ang isang link para makita kung ano ito."
         ]
       }
     },
@@ -201,6 +205,8 @@
       "description": "게임 채팅을 어디서든 열어둘 수 있는 창으로. 채널 탭, 스티커, 귓속말, 번역을 지원합니다.",
       "captions": [
         "채널 탭과, 플레이어 아바타·스티커가 표시되는 말풍선.",
+        "핀 버튼으로 내 위치를 첨부하고 보내기.",
+        "공유된 위치를 클릭하면 지도에 표시됩니다.",
         "귓속말은 상대별로 대화 하나로 묶입니다.",
         "즐겨찾기를 지원하는 스티커·이모지 선택창.",
         "메시지 번역. 내 메시지도 보내기 전에 번역할 수 있습니다.",
@@ -213,23 +219,20 @@
       ],
       "changelog": {
         "added": [
-          "설정 창을 새로 디자인했습니다. 깔끔한 2열 구성, 켬/끔 스위치, 모든 설정에 \"?\" 도움말 버튼이 생겼습니다."
+          "채팅에 공유된 위치가 핀이 붙은 링크로 표시됩니다. 클릭하면 그 위치를 지도에 표시합니다.",
+          "내 위치 공유: 입력창 옆의 핀 버튼을 누른 뒤 보내기를 누르세요. 모든 채널에서 쓸 수 있지만 던전에서는 쓸 수 없습니다.",
+          "아이템, 플레이어, 집 초대, 전리품 주사위 링크가 숨겨지지 않고 채팅에 표시됩니다. 아이템은 등급 색상으로 표시됩니다.",
+          "음성 메시지가 마이크 아이콘, 길이, 받아쓰기 텍스트와 함께 표시됩니다."
         ],
         "changed": [
-          "귓속말 기록을 지울 때 삭제 또는 취소로 한 번 더 확인합니다.",
-          "경고·상태 색상(전송 실패, 친구 선택의 \"온라인\", 글자 수 표시)이 테마 색상을 따릅니다.",
-          "보내기·추가 버튼은 사용할 수 없을 때 눌린 모양으로 표시됩니다."
-        ],
-        "fixed": [
-          "입력창에 글자가 있을 때 Enter를 눌러도 메시지가 전송되지 않는 경우가 있었습니다(특히 원격 플레이나 스트리밍). 이제 항상 한 번 전송되고 키보드는 게임으로 돌아갑니다.",
-          "채팅 창을 처음 열 때 게임이 멈칫하지 않습니다."
+          "링크에 마우스를 올리면 무엇인지 보여 줍니다."
         ]
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarChatToolsPlugin.git",
-  "commit": "83e698754c7e47b487f8e6c113053b90720faf76",
+  "commit": "475e46090bdfa4ef6ab1f98f62de634b0db457ba",
   "projectPath": ".",
-  "tag": "v3.3.0",
-  "capPriorVersionsAt": "2.29.1"
+  "tag": "v3.4.0",
+  "capPriorVersionsAt": "2.34.0"
 }
