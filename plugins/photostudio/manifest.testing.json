@@ -1,0 +1,99 @@
+{
+  "version": "2.0.0-rc.1",
+  "date": "2026-11-24",
+  "commit": "342f55d5aaf87f42f5de16d300cb90b55bb0b197",
+  "tag": "v2.0.0-rc.1",
+  "minModSystemVersion": "2.35.0",
+  "changelog": {
+    "added": [
+      "A new look for Photo Studio (testing): one panel with seven sections down the left side: Capture, Hide, Camera, Pose, Lights, Look and ReShade.",
+      "Your saved looks sit in a bar at the top of the Look section. Step through them with ‹ ›, or save the current one.",
+      "A Keys button at the bottom of the panel lists the free camera's keys."
+    ],
+    "changed": [
+      "Some settings moved: field of view is in Camera › Lens, photo quality is in Capture, time of day is in Camera › Scene, and posing has its own Pose section.",
+      "Closing Photo Studio or deleting a look now asks you to confirm in a small window. Esc closes the Keys and More pop-ups.",
+      "The panel opens at its new size and position the first time. Move it again if you had placed it somewhere else.",
+      "Needs Stellar 2.35.0."
+    ],
+    "fixed": [],
+    "removed": []
+  },
+  "i18n": {
+    "ja": {
+      "changelog": {
+        "added": [
+          "フォトスタジオの新しいデザイン(テスト版): 左側に7つのセクション(撮影、非表示、カメラ、ポーズ、ライト、ルック、ReShade)が並ぶ1つのパネルになりました。",
+          "保存したルックはルックセクション上部のバーに並びます。‹ › で切り替えたり、今の状態を保存したりできます。",
+          "パネル下部の「キー」ボタンで、フリーカメラのキー一覧を表示できます。"
+        ],
+        "changed": [
+          "一部の設定の場所が変わりました: 視野角は「カメラ › レンズ」、写真の品質は「撮影」、時刻は「カメラ › シーン」にあり、ポーズは専用の「ポーズ」セクションになりました。",
+          "フォトスタジオを閉じるときやルックを削除するときは、小さなウィンドウで確認するようになりました。Esc で「キー」と「その他」のポップアップを閉じられます。",
+          "初回はパネルが新しいサイズと位置で開きます。別の場所に置いていた場合は、もう一度移動してください。",
+          "Stellar 2.35.0 が必要です。"
+        ]
+      }
+    },
+    "th": {
+      "changelog": {
+        "added": [
+          "หน้าตาใหม่ของสตูดิโอภาพถ่าย (รุ่นทดสอบ): รวมเป็นแผงเดียวที่มี 7 หมวดเรียงทางซ้าย ได้แก่ ถ่ายภาพ ซ่อน กล้อง ท่าทาง แสงไฟ โทนภาพ และ ReShade",
+          "โทนภาพที่บันทึกไว้จะอยู่ในแถบด้านบนของหมวดโทนภาพ กด ‹ › เพื่อเลื่อนดู หรือบันทึกโทนภาพปัจจุบัน",
+          "ปุ่ม ปุ่มลัด ที่ด้านล่างของแผงจะแสดงปุ่มทั้งหมดของกล้องอิสระ"
+        ],
+        "changed": [
+          "การตั้งค่าบางอย่างย้ายที่: มุมมอง (FOV) อยู่ใน กล้อง › เลนส์ คุณภาพอยู่ใน ถ่ายภาพ เวลาในเกมอยู่ใน กล้อง › ฉาก และท่าทางมีหมวด ท่าทาง ของตัวเอง",
+          "เมื่อปิดสตูดิโอภาพถ่ายหรือลบโทนภาพ จะมีหน้าต่างเล็กๆ ถามยืนยันก่อน และกด Esc เพื่อปิดป๊อปอัป ปุ่มลัด และ เพิ่มเติม ได้",
+          "ครั้งแรกแผงจะเปิดในขนาดและตำแหน่งใหม่ ถ้าเคยวางไว้ที่อื่น ให้ย้ายอีกครั้ง",
+          "ต้องใช้ Stellar 2.35.0"
+        ]
+      }
+    },
+    "id": {
+      "changelog": {
+        "added": [
+          "Tampilan baru Studio Foto (uji coba): satu panel dengan tujuh bagian di sisi kiri: Tangkap, Sembunyi, Kamera, Gaya, Cahaya, Tampilan dan ReShade.",
+          "Tampilan yang kamu simpan ada di bilah atas bagian Tampilan. Gulir dengan ‹ ›, atau simpan yang sekarang.",
+          "Tombol Tombol di bawah panel menampilkan semua tombol kamera bebas."
+        ],
+        "changed": [
+          "Beberapa pengaturan pindah: sudut pandang ada di Kamera › Lensa, kualitas foto di Tangkap, waktu di Kamera › Adegan, dan pose punya bagian Gaya sendiri.",
+          "Menutup Studio Foto atau menghapus tampilan sekarang meminta konfirmasi di jendela kecil. Esc menutup pop-up Tombol dan Lainnya.",
+          "Pertama kali, panel terbuka dengan ukuran dan posisi barunya. Pindahkan lagi kalau sebelumnya kamu menaruhnya di tempat lain.",
+          "Butuh Stellar 2.35.0."
+        ]
+      }
+    },
+    "fil": {
+      "changelog": {
+        "added": [
+          "Bagong itsura ng Photo Studio (testing): isang panel na may pitong seksyon sa kaliwa: Kuha, Itago, Kamera, Postura, Ilaw, Itsura at ReShade.",
+          "Nasa bar sa itaas ng seksyong Itsura ang mga naka-save mong look. Lumipat sa mga ito gamit ang ‹ ›, o i-save ang kasalukuyan.",
+          "Ipinapakita ng button na Mga key sa ibaba ng panel ang lahat ng key ng free camera."
+        ],
+        "changed": [
+          "May mga setting na lumipat: ang field of view ay nasa Kamera › Lente, ang kalidad ng litrato ay nasa Kuha, ang oras ay nasa Kamera › Eksena, at may sariling seksyong Postura na ang pag-pose.",
+          "Kapag isinara ang Photo Studio o nagbura ng look, magtatanong muna ito sa isang maliit na window. Isinasara ng Esc ang mga pop-up na Mga key at Iba pa.",
+          "Sa unang bukas, lalabas ang panel sa bago nitong laki at puwesto. Ilipat itong muli kung inilagay mo ito sa ibang lugar dati.",
+          "Kailangan ng Stellar 2.35.0."
+        ]
+      }
+    },
+    "ko": {
+      "changelog": {
+        "added": [
+          "포토 스튜디오의 새로운 디자인(테스트): 왼쪽에 7개 섹션(촬영, 숨김, 카메라, 포즈, 조명, 룩, ReShade)이 있는 하나의 패널로 바뀌었습니다.",
+          "저장한 룩은 룩 섹션 위쪽 바에 있습니다. ‹ › 로 넘겨 보거나 현재 상태를 저장할 수 있습니다.",
+          "패널 아래쪽의 단축키 버튼으로 자유 카메라의 키 목록을 볼 수 있습니다."
+        ],
+        "changed": [
+          "일부 설정의 위치가 바뀌었습니다: 시야각은 카메라 › 렌즈, 사진 품질은 촬영, 시간대는 카메라 › 씬에 있고, 포즈는 별도의 포즈 섹션이 생겼습니다.",
+          "포토 스튜디오를 닫거나 룩을 삭제할 때 작은 창에서 확인을 묻습니다. Esc 로 단축키와 더 보기 팝업을 닫을 수 있습니다.",
+          "처음에는 패널이 새로운 크기와 위치로 열립니다. 다른 곳에 두었다면 다시 옮겨 주세요.",
+          "Stellar 2.35.0 이 필요합니다."
+        ]
+      }
+    }
+  }
+}
