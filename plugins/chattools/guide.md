@@ -6,7 +6,7 @@ The game's chat in a window you can move, resize and keep open anywhere, with ch
 
 ## Getting started
 
-1. Install the plugin and launch the game **Modded** (needs Stellar 2.27.1 or newer).
+1. Install the plugin and launch the game **Modded** (needs Stellar 2.35.0 or newer).
 2. Press **F12** or open ChatTools from the Stellar menu.
 3. Drag the title bar to move the window, and the bottom-right corner to resize it.
 
@@ -19,6 +19,18 @@ All, World, Current, Party, Guild, Whisper and System each have a tab, and a dot
 Type in the box at the bottom and press **Enter** or **Send**. The button on the left picks the channel. Enter sends your message once and gives the keyboard back to the game.
 
 ![Send-to channel picker](media/chattools-send-to.png)
+
+## Locations and links
+
+**Share your location:** press the pin button next to the message box. A strip above the box shows where you are; press **Send** and your message goes out with a location link. Click ✕ on the strip to remove it. Works on every channel, but not in dungeons.
+
+![Sharing your location](media/chattools-share-location.png)
+
+**Shared locations:** a location someone shares shows as a link with a pin. Click it to mark that spot on your map. Hover any link to see what it is.
+
+![A shared location on the map](media/chattools-location-map.png)
+
+Item, player, home-invite and loot-roll links show in chat too, with items in their quality colour. Voice messages show a mic icon, their length and the transcript.
 
 ## Stickers and emoji
 

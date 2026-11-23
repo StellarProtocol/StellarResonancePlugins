@@ -6,7 +6,7 @@ Chat game dalam jendela yang bisa kamu pindahkan, ubah ukurannya, dan biarkan te
 
 ## Memulai
 
-1. Pasang plugin-nya lalu jalankan game dalam mode **Dengan mod** (butuh Stellar 2.27.1 atau yang lebih baru).
+1. Pasang plugin-nya lalu jalankan game dalam mode **Dengan mod** (butuh Stellar 2.35.0 atau yang lebih baru).
 2. Tekan **F12** atau buka ChatTools dari menu Stellar.
 3. Seret bilah judul untuk memindahkan jendela, dan sudut kanan bawah untuk mengubah ukurannya.
 
@@ -19,6 +19,18 @@ Semua, Dunia, Sekitar, Party, Guild, Bisikan, dan Sistem masing-masing punya tab
 Ketik di kolom bagian bawah lalu tekan **Enter** atau **Kirim**. Tombol di sebelah kiri untuk memilih kanal. Enter mengirim pesanmu sekali dan mengembalikan keyboard ke game.
 
 ![Pemilih kanal tujuan](media/chattools-send-to.png)
+
+## Lokasi dan tautan
+
+**Bagikan lokasimu:** tekan tombol pin di samping kotak pesan. Sebuah strip di atas kotak menunjukkan posisimu; tekan **Kirim** dan pesanmu terkirim dengan tautan lokasi. Klik ✕ di strip untuk menghapusnya. Bisa di semua kanal, kecuali di dungeon.
+
+![Membagikan lokasimu](media/chattools-share-location.png)
+
+**Lokasi yang dibagikan:** lokasi yang dibagikan orang lain tampil sebagai tautan dengan pin. Klik untuk menandai tempat itu di petamu. Arahkan kursor ke tautan mana pun untuk melihat isinya.
+
+![Lokasi yang dibagikan di peta](media/chattools-location-map.png)
+
+Tautan item, pemain, undangan rumah, dan roll jarahan juga tampil di chat, dengan item dalam warna kualitasnya. Pesan suara tampil dengan ikon mikrofon, durasi, dan transkripnya.
 
 ## Stiker dan emoji
 
