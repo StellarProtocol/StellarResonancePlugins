@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read          # untrusted plugin source is built here — least privilege, no secrets
+                              # (one exception: atlas's own build key, allow-listed per plugin in the build step)
     steps:
       - name: Checkout plugins
         uses: actions/checkout@v4
@@ -43,6 +44,9 @@ jobs:
       # verified to resolve to that commit (provenance) but is never built from on its own.
       - name: Build + stage each plugin from its pinned source (sandboxed)
         shell: bash
+        env:
+          # Read ONLY by the atlas branch below; never passed to any other plugin's container. Empty on PR runs.
+          ATLAS_CLIENT_KEY: ${{ github.event_name != 'pull_request' && secrets.ATLAS_CLIENT_KEY || '' }}
         run: |
           fail=0
           python tools/build-registry.py --targets > /tmp/targets.tsv
@@ -63,8 +67,19 @@ jobs:
               tagsha="$(git -C "$work" rev-list -n1 "$tag" 2>/dev/null || true)"
               [ "$tagsha" = "$commit" ] || { echo "::error::$tgt tag '$tag' resolves to '$tagsha', not the pinned commit '$commit'"; fail=1; continue; }
             fi
+            # Per-plugin build key (allow-list, ONE plugin → ONE secret). Only `atlas` gets ATLAS_CLIENT_KEY, only on a
+            # non-PR run (PR builds compile without it = offline-only DLL, never published), and only into ITS OWN
+            # container as the MSBuild property `AtlasClientKey` (an env var MSBuild reads as $(AtlasClientKey)). Other
+            # plugins' containers never see it. The key ends up inside the public DLL by design (it only slows casual
+            # bots; the server also rate-limits + uses per-install tokens), so it is a deterrent, not a true secret.
+            keyenv=()
+            if [ "$id" = "atlas" ] && [ "$GITHUB_EVENT_NAME" != "pull_request" ]; then
+              [ -n "$ATLAS_CLIENT_KEY" ] || { echo "::error::$tgt needs the ATLAS_CLIENT_KEY repo secret to publish (refusing a keyless build)"; fail=1; continue; }
+              keyenv=(-e "AtlasClientKey=$ATLAS_CLIENT_KEY")
+            fi
             docker run --rm \
               -v "$work":/src:ro -v "$out":/out -w /w \
+              "${keyenv[@]}" \
               mcr.microsoft.com/dotnet/sdk:8.0 \
               bash -c "cp -a /src/. /w/ && dotnet build '$path' -c Release --nologo -o /out -p:StellarChannel=$channel" \
               || { echo "::error::sandboxed build failed for $tgt @ $commit"; fail=1; continue; }
