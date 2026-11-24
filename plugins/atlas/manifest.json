@@ -1,0 +1,130 @@
+{
+  "id": "atlas",
+  "name": "Atlas",
+  "description": "A shared map of chests, collectibles and the magical creatures of Asteria Plains. Atlas lists the nearest ones around you with their distance, puts the game's own guide marker on the one you pick, and draws them on your big map and minimap. While Atlas runs, what you find and where (chests, resources, magical creatures) is shared with the Atlas server so the map stays complete for everyone. No names, UIDs or chat are sent. To stop sharing, turn Atlas off in the launcher.",
+  "version": "1.0.0",
+  "dll": "Stellar.Atlas.dll",
+  "author": "Stellar",
+  "tags": [
+    "quality-of-life",
+    "map",
+    "exploration",
+    "chests"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "file": "media/window.png",
+      "caption": "Choose what to show, see the magical creatures, and get the nearest chests and collectibles with their distance. Click a row to be guided there."
+    },
+    {
+      "type": "image",
+      "file": "media/map.png",
+      "caption": "Atlas chests and magical creatures on the game's big map."
+    }
+  ],
+  "guide": "guide.md",
+  "minModSystemVersion": "2.33.0",
+  "date": "2026-11-24",
+  "changelog": {
+    "added": [
+      "First release: a shared map of chests and collectibles. See the nearest ones around you with their distance, and click one to put the game's guide marker on it.",
+      "The points you turn on are drawn on the game's big map and minimap.",
+      "Magical creatures of Asteria Plains: see which lines they're alive on, their spot, HP and next spawn, and get guided to them, even from another map."
+    ],
+    "changed": [],
+    "fixed": [],
+    "removed": []
+  },
+  "i18n": {
+    "ja": {
+      "name": "アトラス",
+      "description": "宝箱・収集品、そしてAsteria Plainsの魔法生物をまとめた共有マップです。近くにあるものを距離つきで一覧にし、選んだ場所にゲーム本来の案内マーカーを立て、大きな地図とミニマップにも表示します。アトラスの動作中は、見つけた物とその場所（宝箱・資源・魔法生物）がアトラスのサーバーと共有され、みんなのマップが完全に保たれます。名前、UID、チャットは送信されません。共有をやめるには、ランチャーでアトラスをオフにしてください。",
+      "captions": [
+        "表示する種類を選び、魔法生物の状況と、近くの宝箱・収集品を距離つきで確認。行をクリックするとそこへ案内します。",
+        "ゲームの大きな地図に表示されたアトラスの宝箱と魔法生物。"
+      ],
+      "changelog": {
+        "added": [
+          "初リリース：宝箱と収集品の共有マップ。近くにあるものを距離つきで表示し、クリックするとゲームの案内マーカーがそこに立ちます。",
+          "オンにした地点は、ゲームの大きな地図とミニマップにも表示されます。",
+          "Asteria Plainsの魔法生物：どのラインに出現しているか、場所、HP、次の出現時刻がわかり、別のマップからでもそこへ案内できます。"
+        ],
+        "changed": [],
+        "fixed": []
+      }
+    },
+    "th": {
+      "name": "แอตลาส",
+      "description": "แผนที่ที่แชร์ร่วมกันของหีบ ของสะสม และสัตว์เวทมนตร์แห่ง Asteria Plains แอตลาสแสดงรายการที่อยู่ใกล้คุณที่สุดพร้อมระยะทาง วางเครื่องหมายนำทางของเกมไว้ที่จุดที่คุณเลือก และแสดงบนแผนที่ใหญ่กับมินิแมปด้วย ขณะที่แอตลาสทำงาน สิ่งที่คุณพบและตำแหน่งของมัน (หีบ ทรัพยากร สัตว์เวทมนตร์) จะถูกแชร์กับเซิร์ฟเวอร์แอตลาส เพื่อให้แผนที่ครบถ้วนสำหรับทุกคน ไม่มีการส่งชื่อ UID หรือแชท หากต้องการหยุดแชร์ ให้ปิดแอตลาสในลันเชอร์",
+      "captions": [
+        "เลือกสิ่งที่จะแสดง ดูสัตว์เวทมนตร์ และหีบกับของสะสมที่ใกล้ที่สุดพร้อมระยะทาง คลิกแถวเพื่อนำทางไปที่นั่น",
+        "หีบและสัตว์เวทมนตร์ของแอตลาสบนแผนที่ใหญ่ของเกม"
+      ],
+      "changelog": {
+        "added": [
+          "เปิดตัวครั้งแรก: แผนที่ที่แชร์ร่วมกันของหีบและของสะสม ดูรายการที่ใกล้คุณที่สุดพร้อมระยะทาง แล้วคลิกเพื่อวางเครื่องหมายนำทางของเกมไว้ที่นั่น",
+          "จุดที่คุณเปิดไว้จะแสดงบนแผนที่ใหญ่และมินิแมปของเกมด้วย",
+          "สัตว์เวทมนตร์แห่ง Asteria Plains: ดูว่าอยู่ในไลน์ไหน ตำแหน่ง HP และเวลาเกิดครั้งถัดไป แล้วให้นำทางไปหาได้ แม้อยู่คนละแผนที่"
+        ],
+        "changed": [],
+        "fixed": []
+      }
+    },
+    "id": {
+      "name": "Atlas",
+      "description": "Peta bersama untuk peti, koleksi, dan makhluk ajaib Asteria Plains. Atlas menampilkan yang terdekat di sekitarmu beserta jaraknya, memasang penanda panduan milik game di titik yang kamu pilih, dan menampilkannya di peta besar serta minimap. Selama Atlas berjalan, temuanmu dan lokasinya (peti, sumber daya, makhluk ajaib) dibagikan ke server Atlas agar peta tetap lengkap untuk semua. Nama, UID, dan chat tidak pernah dikirim. Untuk berhenti berbagi, matikan Atlas di launcher.",
+      "captions": [
+        "Pilih apa yang ditampilkan, lihat makhluk ajaib, serta peti dan koleksi terdekat beserta jaraknya. Klik baris untuk dipandu ke sana.",
+        "Peti dan makhluk ajaib Atlas di peta besar game."
+      ],
+      "changelog": {
+        "added": [
+          "Rilis pertama: peta bersama untuk peti dan koleksi. Lihat yang terdekat di sekitarmu beserta jaraknya, lalu klik untuk memasang penanda panduan game di sana.",
+          "Titik yang kamu nyalakan juga muncul di peta besar dan minimap game.",
+          "Makhluk ajaib Asteria Plains: lihat di line mana mereka ada, lokasinya, HP, dan waktu muncul berikutnya, lalu dipandu ke sana, bahkan dari peta lain."
+        ],
+        "changed": [],
+        "fixed": []
+      }
+    },
+    "fil": {
+      "name": "Atlas",
+      "description": "Isang shared na mapa ng mga chest, koleksiyon at ng mga mahiwagang nilalang ng Asteria Plains. Inililista ng Atlas ang mga pinakamalapit sa iyo kasama ang layo, nilalagyan ng sariling guide marker ng laro ang pipiliin mo, at ipinapakita ang mga ito sa malaking mapa at minimap. Habang tumatakbo ang Atlas, ibinabahagi sa Atlas server ang mga nahahanap mo at kung saan (mga chest, resource, mahiwagang nilalang) para manatiling kumpleto ang mapa para sa lahat. Walang pangalan, UID o chat na ipinapadala. Para tumigil sa pagbabahagi, i-off ang Atlas sa launcher.",
+      "captions": [
+        "Piliin ang ipapakita, tingnan ang mga mahiwagang nilalang, at ang mga pinakamalapit na chest at koleksiyon kasama ang layo. I-click ang row para gabayan ka roon.",
+        "Mga chest at mahiwagang nilalang ng Atlas sa malaking mapa ng laro."
+      ],
+      "changelog": {
+        "added": [
+          "Unang release: isang shared na mapa ng mga chest at koleksiyon. Makita ang mga pinakamalapit sa iyo kasama ang layo, at i-click ang isa para lagyan ito ng guide marker ng laro.",
+          "Lumalabas din sa malaking mapa at minimap ng laro ang mga point na in-on mo.",
+          "Mga mahiwagang nilalang ng Asteria Plains: makita kung saang mga line sila buhay, ang puwesto, HP at susunod na spawn, at magpagabay papunta sa kanila, kahit galing ka sa ibang mapa."
+        ],
+        "changed": [],
+        "fixed": []
+      }
+    },
+    "ko": {
+      "name": "아틀라스",
+      "description": "상자, 수집품, 그리고 Asteria Plains의 마법 생물을 담은 공유 지도입니다. 내 주변에서 가장 가까운 곳을 거리와 함께 보여 주고, 고른 곳에 게임의 길 안내 표시를 띄우며, 큰 지도와 미니맵에도 표시합니다. 아틀라스가 켜져 있는 동안 발견한 것과 그 위치(상자, 자원, 마법 생물)가 아틀라스 서버와 공유되어 모두의 지도가 완전하게 유지됩니다. 이름, UID, 채팅은 전송되지 않습니다. 공유를 멈추려면 런처에서 아틀라스를 끄세요.",
+      "captions": [
+        "표시할 종류를 고르고, 마법 생물과 가장 가까운 상자·수집품을 거리와 함께 확인하세요. 행을 클릭하면 그곳으로 안내합니다.",
+        "게임의 큰 지도에 표시된 아틀라스의 상자와 마법 생물."
+      ],
+      "changelog": {
+        "added": [
+          "첫 출시: 상자와 수집품의 공유 지도. 내 주변에서 가장 가까운 곳을 거리와 함께 보고, 클릭하면 게임의 길 안내 표시가 그곳에 뜹니다.",
+          "켜 둔 지점은 게임의 큰 지도와 미니맵에도 표시됩니다.",
+          "Asteria Plains의 마법 생물: 어느 라인에 출현 중인지, 위치, HP, 다음 출현 시각을 확인하고, 다른 지도에서도 그곳으로 안내받을 수 있습니다."
+        ],
+        "changed": [],
+        "fixed": []
+      }
+    }
+  },
+  "repository": "https://github.com/StellarProtocol/StellarAtlasPlugin.git",
+  "commit": "1c70f33215b5a5df8f5bea8088700784f1b497c3",
+  "projectPath": ".",
+  "tag": "v1.0.0"
+}
