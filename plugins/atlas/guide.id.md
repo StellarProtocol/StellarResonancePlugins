@@ -44,6 +44,9 @@ Peti yang kamu buka hilang dari daftar, hanya untuk karakter itu. Peti yang kamu
 hilang sendiri begitu kamu berdiri di dekat titiknya dan tidak ada apa-apa di sana. Kalau game menampilkannya lagi di
 sana, peti itu kembali ke daftar. Catatan ini disimpan di PC-mu saja dan tidak pernah dibagikan.
 
+Buku yang sudah kamu baca juga hilang dari daftar, hanya untuk karakter itu, termasuk buku yang kamu baca sebelum
+memasang Atlas. Atlas memakai catatan game sendiri tentang buku yang sudah dibaca karakter itu.
+
 Kalau di suatu peta belum ada yang diketahui, daftarnya akan memberi tahu. Peti yang kamu temukan ditambahkan untuk
 semua orang.
 
@@ -53,7 +56,7 @@ Atlas menampilkan lima makhluk ajaib Asteria Plains: **Golden Nappo**, **Silver 
 **Lovely Boarlet**, dan **Breezy Boarlet**. Nyalakan salah satunya di **TAMPILKAN**, dan panel **MAKHLUK AJAIB**
 muncul di atas **TERDEKAT** dengan satu baris per makhluk:
 
-- **Di line kamu** atau **Line 7** / **Line 2 · 6 · 9**: line tempat ia ada (line kamu lebih dulu), dengan lokasi,
+- **Di line kamu** atau **Line 7** / **Di 3 line**: line tempat ia ada (line kamu lebih dulu), dengan lokasi,
   HP, dan jaraknya.
 - **Terlihat**: sedang terlihat saat ini, dengan posisi tepat dan HP-nya (dan **sedang dilawan** kalau ada yang
   sedang melawannya).
