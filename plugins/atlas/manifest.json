@@ -2,7 +2,7 @@
   "id": "atlas",
   "name": "Atlas",
   "description": "A shared map of chests, collectibles and the magical creatures of Asteria Plains. Atlas lists the nearest ones around you with their distance, puts the game's own guide marker on the one you pick, and draws them on your big map and minimap. While Atlas runs, what you find and where (chests, resources, magical creatures) is shared with the Atlas server so the map stays complete for everyone. No names, UIDs or chat are sent. To stop sharing, turn Atlas off in the launcher.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dll": "Stellar.Atlas.dll",
   "author": "Stellar",
   "tags": [
@@ -25,15 +25,18 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.33.0",
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "changelog": {
-    "added": [
-      "First release: a shared map of chests and collectibles. See the nearest ones around you with their distance, and click one to put the game's guide marker on it.",
-      "The points you turn on are drawn on the game's big map and minimap.",
-      "Magical creatures of Asteria Plains: see which lines they're alive on, their spot, HP and next spawn, and get guided to them, even from another map."
+    "added": [],
+    "changed": [
+      "A magical creature alive on several other lines now shows how many lines (\"On 3 lines\"). Click it to see the full list."
     ],
-    "changed": [],
-    "fixed": [],
+    "fixed": [
+      "Books you have read now leave your list, including books you read before installing Atlas.",
+      "A book right in front of you now shows as seen live, instead of only from the map data.",
+      "Books that are still there no longer disappear from the list.",
+      "Clicking one of two points close together (like posters on the same board) no longer highlights both."
+    ],
     "removed": []
   },
   "i18n": {
@@ -45,13 +48,17 @@
         "ゲームの大きな地図に表示されたアトラスの宝箱と魔法生物。"
       ],
       "changelog": {
-        "added": [
-          "初リリース：宝箱と収集品の共有マップ。近くにあるものを距離つきで表示し、クリックするとゲームの案内マーカーがそこに立ちます。",
-          "オンにした地点は、ゲームの大きな地図とミニマップにも表示されます。",
-          "Asteria Plainsの魔法生物：どのラインに出現しているか、場所、HP、次の出現時刻がわかり、別のマップからでもそこへ案内できます。"
+        "added": [],
+        "changed": [
+          "複数のほかのラインに出現中の魔法生物は、ライン数（「3ライン」）で表示されるようになりました。クリックすると全ラインの一覧が見られます。"
         ],
-        "changed": [],
-        "fixed": []
+        "fixed": [
+          "読んだ本が一覧から消えるようになりました。アトラスを入れる前に読んだ本も消えます。",
+          "目の前にある本が、マップデータではなく目視確認として表示されるようになりました。",
+          "まだそこにある本が、一覧から消えてしまう問題を修正しました。",
+          "近くにある2つの地点（同じ掲示板の貼り紙など）の片方をクリックすると、両方が選択表示される問題を修正しました。"
+        ],
+        "removed": []
       }
     },
     "th": {
@@ -62,13 +69,17 @@
         "หีบและสัตว์เวทมนตร์ของแอตลาสบนแผนที่ใหญ่ของเกม"
       ],
       "changelog": {
-        "added": [
-          "เปิดตัวครั้งแรก: แผนที่ที่แชร์ร่วมกันของหีบและของสะสม ดูรายการที่ใกล้คุณที่สุดพร้อมระยะทาง แล้วคลิกเพื่อวางเครื่องหมายนำทางของเกมไว้ที่นั่น",
-          "จุดที่คุณเปิดไว้จะแสดงบนแผนที่ใหญ่และมินิแมปของเกมด้วย",
-          "สัตว์เวทมนตร์แห่ง Asteria Plains: ดูว่าอยู่ในไลน์ไหน ตำแหน่ง HP และเวลาเกิดครั้งถัดไป แล้วให้นำทางไปหาได้ แม้อยู่คนละแผนที่"
+        "added": [],
+        "changed": [
+          "สัตว์เวทมนตร์ที่อยู่ในไลน์อื่นหลายไลน์ ตอนนี้แสดงเป็นจำนวนไลน์ (\"3 ไลน์\") คลิกเพื่อดูรายการทั้งหมด"
         ],
-        "changed": [],
-        "fixed": []
+        "fixed": [
+          "หนังสือที่คุณอ่านแล้วจะหายจากรายการ รวมถึงหนังสือที่อ่านก่อนติดตั้งแอตลาส",
+          "หนังสือที่อยู่ตรงหน้าคุณจะแสดงเป็นเห็นจริง แทนที่จะมาจากข้อมูลแผนที่เท่านั้น",
+          "หนังสือที่ยังอยู่จะไม่หายไปจากรายการอีกแล้ว",
+          "การคลิกจุดหนึ่งในสองจุดที่อยู่ใกล้กัน (เช่น ประกาศบนบอร์ดเดียวกัน) จะไม่ไฮไลต์ทั้งสองจุดอีกแล้ว"
+        ],
+        "removed": []
       }
     },
     "id": {
@@ -79,13 +90,17 @@
         "Peti dan makhluk ajaib Atlas di peta besar game."
       ],
       "changelog": {
-        "added": [
-          "Rilis pertama: peta bersama untuk peti dan koleksi. Lihat yang terdekat di sekitarmu beserta jaraknya, lalu klik untuk memasang penanda panduan game di sana.",
-          "Titik yang kamu nyalakan juga muncul di peta besar dan minimap game.",
-          "Makhluk ajaib Asteria Plains: lihat di line mana mereka ada, lokasinya, HP, dan waktu muncul berikutnya, lalu dipandu ke sana, bahkan dari peta lain."
+        "added": [],
+        "changed": [
+          "Makhluk ajaib yang ada di beberapa line lain kini menampilkan jumlah line-nya (\"Di 3 line\"). Klik untuk melihat daftar lengkapnya."
         ],
-        "changed": [],
-        "fixed": []
+        "fixed": [
+          "Buku yang sudah kamu baca kini hilang dari daftar, termasuk buku yang kamu baca sebelum memasang Atlas.",
+          "Buku tepat di depanmu kini tampil sebagai terlihat, bukan hanya dari data peta.",
+          "Buku yang masih ada tidak lagi hilang dari daftar.",
+          "Mengklik salah satu dari dua titik yang berdekatan (seperti selebaran di papan yang sama) tidak lagi menyorot keduanya."
+        ],
+        "removed": []
       }
     },
     "fil": {
@@ -96,13 +111,17 @@
         "Mga chest at mahiwagang nilalang ng Atlas sa malaking mapa ng laro."
       ],
       "changelog": {
-        "added": [
-          "Unang release: isang shared na mapa ng mga chest at koleksiyon. Makita ang mga pinakamalapit sa iyo kasama ang layo, at i-click ang isa para lagyan ito ng guide marker ng laro.",
-          "Lumalabas din sa malaking mapa at minimap ng laro ang mga point na in-on mo.",
-          "Mga mahiwagang nilalang ng Asteria Plains: makita kung saang mga line sila buhay, ang puwesto, HP at susunod na spawn, at magpagabay papunta sa kanila, kahit galing ka sa ibang mapa."
+        "added": [],
+        "changed": [
+          "Ang mahiwagang nilalang na buhay sa ilang ibang line ay ipinapakita na ngayon kung ilang line (\"Nasa 3 na line\"). I-click ito para makita ang buong listahan."
         ],
-        "changed": [],
-        "fixed": []
+        "fixed": [
+          "Nawawala na sa listahan ang mga librong nabasa mo na, pati ang mga nabasa mo bago mo in-install ang Atlas.",
+          "Ang librong nasa harap mo ay ipinapakita na bilang nakita mismo, hindi lang mula sa data ng mapa.",
+          "Hindi na nawawala sa listahan ang mga librong naroon pa.",
+          "Ang pag-click sa isa sa dalawang magkalapit na point (gaya ng mga poster sa iisang board) ay hindi na nagha-highlight sa dalawa."
+        ],
+        "removed": []
       }
     },
     "ko": {
@@ -113,18 +132,22 @@
         "게임의 큰 지도에 표시된 아틀라스의 상자와 마법 생물."
       ],
       "changelog": {
-        "added": [
-          "첫 출시: 상자와 수집품의 공유 지도. 내 주변에서 가장 가까운 곳을 거리와 함께 보고, 클릭하면 게임의 길 안내 표시가 그곳에 뜹니다.",
-          "켜 둔 지점은 게임의 큰 지도와 미니맵에도 표시됩니다.",
-          "Asteria Plains의 마법 생물: 어느 라인에 출현 중인지, 위치, HP, 다음 출현 시각을 확인하고, 다른 지도에서도 그곳으로 안내받을 수 있습니다."
+        "added": [],
+        "changed": [
+          "다른 여러 라인에 출현 중인 마법 생물은 이제 라인 수(\"3개 라인\")로 표시됩니다. 클릭하면 전체 목록을 볼 수 있습니다."
         ],
-        "changed": [],
-        "fixed": []
+        "fixed": [
+          "읽은 책이 목록에서 사라집니다. 아틀라스를 설치하기 전에 읽은 책도 마찬가지입니다.",
+          "바로 앞에 있는 책이 지도 데이터가 아니라 직접 확인으로 표시됩니다.",
+          "아직 그 자리에 있는 책이 목록에서 사라지던 문제를 고쳤습니다.",
+          "가까이 있는 두 지점(같은 게시판의 벽보 등) 중 하나를 클릭하면 둘 다 선택 표시되던 문제를 고쳤습니다."
+        ],
+        "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarAtlasPlugin.git",
-  "commit": "1c70f33215b5a5df8f5bea8088700784f1b497c3",
+  "commit": "9c7177b64c488c07b4f3271460790f7c14816830",
   "projectPath": ".",
-  "tag": "v1.0.0"
+  "tag": "v1.0.1"
 }

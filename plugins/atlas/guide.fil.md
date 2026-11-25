@@ -44,6 +44,9 @@ Nawawala sa listahan ang mga chest na nabuksan mo, para lang sa character na iyo
 mo in-install ang Atlas ay kusang mawawala kapag tumayo ka malapit sa puwesto at walang naroon. Kapag ipinakita ulit
 ito roon ng laro, babalik ito. Sa PC mo lang ito naka-save at hindi kailanman ibinabahagi.
 
+Nawawala rin sa listahan ang mga librong nabasa mo na, para lang sa character na iyon, pati ang mga nabasa mo bago
+mo in-install ang Atlas. Tinitingnan ng Atlas ang sariling record ng laro ng mga librong nabasa ng character na iyon.
+
 Kapag wala pang alam sa isang mapa, sasabihin ito ng listahan. Idinadagdag para sa lahat ang mga chest na mahahanap mo.
 
 ## Mga mahiwagang nilalang
@@ -52,7 +55,7 @@ Ipinapakita ng Atlas ang limang mahiwagang nilalang ng Asteria Plains: **Golden 
 Boarlet**, **Lovely Boarlet** at **Breezy Boarlet**. I-on ang alinman sa kanila sa **IPAKITA**, at lalabas ang panel
 na **MGA MAHIWAGANG NILALANG** sa itaas ng **PINAKAMALAPIT**, isang row kada nilalang:
 
-- **Nasa line mo** o **Line 7** / **Mga line 2 · 6 · 9**: ang mga line kung saan ito buhay (nauuna ang sa iyo),
+- **Nasa line mo** o **Line 7** / **Nasa 3 na line**: ang mga line kung saan ito buhay (nauuna ang sa iyo),
   kasama ang puwesto, HP at layo.
 - **Nakita mismo**: nakikita mo ito ngayon, kasama ang eksaktong puwesto at HP (at **nilalabanan** kapag may
   lumalaban dito).

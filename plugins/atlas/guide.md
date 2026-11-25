@@ -42,6 +42,9 @@ Chests you open leave your list, only for that character. Chests you opened befo
 by themselves once you stand near the spot and nothing is there. If the game shows one there again, it comes back.
 This is kept on your PC and is never shared.
 
+Books you have read leave your list too, only for that character, including books you read before you installed
+Atlas. Atlas checks the game's own record of the books that character has read.
+
 When nothing is known yet on a map, the list says so. The chests you find are added for everyone.
 
 ## Magical creatures
@@ -50,7 +53,7 @@ Atlas follows the five magical creatures of Asteria Plains: **Golden Nappo**, **
 **Lovely Boarlet** and **Breezy Boarlet**. Turn any of them on in **SHOW**, and the **MAGICAL CREATURES** panel
 appears above **NEAREST** with one row per creature:
 
-- **On your line** or **Line 7** / **Lines 2 · 6 · 9**: the lines it is alive on (yours first), with its spot, HP
+- **On your line** or **Line 7** / **On 3 lines**: the lines it is alive on (yours first), with its spot, HP
   and distance.
 - **Seen live**: it is in view right now, with its exact position and HP (and **fighting** while someone is
   fighting it).
