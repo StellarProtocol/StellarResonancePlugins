@@ -2,7 +2,7 @@
   "id": "atlas",
   "name": "Atlas",
   "description": "A shared map of chests, collectibles and the magical creatures of Asteria Plains. Atlas lists the nearest ones around you with their distance, puts the game's own guide marker on the one you pick, and draws them on your big map and minimap. While Atlas runs, what you find and where (chests, resources, magical creatures) is shared with the Atlas server so the map stays complete for everyone. No names, UIDs or chat are sent. To stop sharing, turn Atlas off in the launcher.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dll": "Stellar.Atlas.dll",
   "author": "Stellar",
   "tags": [
@@ -25,7 +25,7 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.33.0",
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "changelog": {
     "added": [],
     "changed": [
@@ -147,7 +147,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarAtlasPlugin.git",
-  "commit": "1c70f33215b5a5df8f5bea8088700784f1b497c3",
+  "commit": "9c7177b64c488c07b4f3271460790f7c14816830",
   "projectPath": ".",
-  "tag": "v1.0.0"
+  "tag": "v1.0.1"
 }
