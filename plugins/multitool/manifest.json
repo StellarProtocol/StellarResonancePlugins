@@ -25,12 +25,12 @@
     {
       "type": "image",
       "file": "media/auto-accept.png",
-      "caption": "Auto-Accept Invites: party and social invites from the players you list."
+      "caption": "Auto-Accept Invites: Off, Listed or Everyone for party, social and leader requests."
     },
     {
       "type": "image",
       "file": "media/add-player.png",
-      "caption": "Add a player by UID, or straight from their name card."
+      "caption": "Add a player by name or UID, or straight from their name card."
     },
     {
       "type": "image",
@@ -52,10 +52,16 @@
   "minModSystemVersion": "2.28.0",
   "date": "2026-11-26",
   "changelog": {
-    "added": [],
-    "changed": [],
+    "added": [
+      "Auto-Accept: each kind of invite now has three choices: Off, Listed (only players on your list) or Everyone.",
+      "Auto-Accept: new Party leader requests. When a party member asks to take over as leader, it can be accepted automatically, with its own Leader switch per player.",
+      "Add player… now finds players by name as well as by UID."
+    ],
+    "changed": [
+      "Requests to join your party now follow the Party choice, so the separate \"Accept all party requests\" switch is gone. Your settings carry over."
+    ],
     "fixed": [
-      "With MultiTool installed, My Party and dungeon party screens could stay stuck on \"Loading\". They now open normally."
+      "The game's invite card no longer stays on screen after Auto-Accept has accepted it."
     ],
     "removed": []
   },
@@ -65,17 +71,23 @@
       "captions": [
         "すべてのツールを1つのハブに。各カードに今の状態が表示されます。",
         "Mute Instruments（楽器ミュート）：選んだ演奏者だけ、またはリスト以外の全員をミュート。",
-        "Auto-Accept Invites（招待の自動承認）：リストのプレイヤーからのパーティ招待とソーシャル招待を承認。",
-        "UIDで、または名刺から直接プレイヤーを追加。",
+        "Auto-Accept Invites（招待の自動承認）：パーティ、ソーシャル、リーダー申請をそれぞれ Off／Listed／Everyone で設定。",
+        "名前かUIDで、または名刺から直接プレイヤーを追加。",
         "Language & Text（言語とテキスト）：クライアントに入っているすべてのテキスト言語と音声言語、そしてNPCの会話をすぐに表示。",
         "Performance（パフォーマンス）：他のプレイヤーのエフェクトを隠し、パーティリストを軽くしてレイドをなめらかに。",
         "Power Saving（省電力）：ゲームのスクリーンセーバーを、ハブまたはホットキーから。"
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
+        "added": [
+          "Auto-Accept：招待の種類ごとに、Off、Listed（リストのプレイヤーだけ）、Everyone（誰でも）の3つから選べるようになりました。",
+          "Auto-Accept：新しく Party leader requests（リーダー申請）に対応。パーティメンバーからのリーダー交代の申請を自動で承認できます。プレイヤーごとに Leader スイッチがあります。",
+          "Add player…（プレイヤーを追加）で、UIDだけでなく名前でも探せるようになりました。"
+        ],
+        "changed": [
+          "パーティへの参加申請は Party の設定に従うようになり、「Accept all party requests」スイッチはなくなりました。今の設定はそのまま引き継がれます。"
+        ],
         "fixed": [
-          "MultiTool を入れていると、マイパーティやダンジョンのパーティ画面が「Loading」のまま進まないことがありました。今は普通に開きます。"
+          "Auto-Accept が承認したあとも、ゲームの招待カードが画面に残ることがなくなりました。"
         ],
         "removed": []
       }
@@ -85,17 +97,23 @@
       "captions": [
         "ทุกเครื่องมือในฮับเดียว การ์ดแต่ละใบแสดงว่ากำลังทำอะไรอยู่ตอนนี้",
         "Mute Instruments (ปิดเสียงเครื่องดนตรี): ปิดเสียงผู้เล่นที่เลือก หรือทุกคนยกเว้นคนในรายชื่อ",
-        "Auto-Accept Invites (ตอบรับคำเชิญอัตโนมัติ): คำเชิญปาร์ตี้และคำเชิญโซเชียลจากผู้เล่นในรายชื่อ",
-        "เพิ่มผู้เล่นด้วย UID หรือจากนามบัตรของเขาโดยตรง",
+        "Auto-Accept Invites (ตอบรับคำเชิญอัตโนมัติ): เลือก Off, Listed หรือ Everyone ให้คำเชิญปาร์ตี้ โซเชียล และคำขอเป็นหัวหน้า",
+        "เพิ่มผู้เล่นด้วยชื่อหรือ UID หรือจากนามบัตรของเขาโดยตรง",
         "Language & Text (ภาษาและข้อความ): ทุกภาษาข้อความและภาษาเสียงที่มีในไคลเอนต์ของคุณ พร้อมบทสนทนา NPC ที่ขึ้นทันที",
         "Performance (ประสิทธิภาพ): ซ่อนเอฟเฟกต์ของผู้เล่นคนอื่นและลดภาระรายชื่อปาร์ตี้ เพื่อให้เรดลื่นขึ้น",
         "Power Saving (ประหยัดพลังงาน): สกรีนเซฟเวอร์ของเกม เปิดได้จากฮับหรือปุ่มลัด"
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
+        "added": [
+          "Auto-Accept: คำเชิญแต่ละประเภทเลือกได้ 3 แบบแล้ว: Off, Listed (เฉพาะผู้เล่นในรายชื่อ) หรือ Everyone (ทุกคน)",
+          "Auto-Accept: เพิ่ม Party leader requests (คำขอเป็นหัวหน้าปาร์ตี้) เมื่อสมาชิกขอรับตำแหน่งหัวหน้า ตอบรับให้อัตโนมัติได้ และมีสวิตช์ Leader แยกสำหรับผู้เล่นแต่ละคน",
+          "Add player… (เพิ่มผู้เล่น) ค้นหาผู้เล่นด้วยชื่อได้แล้ว นอกเหนือจาก UID"
+        ],
+        "changed": [
+          "คำขอเข้าร่วมปาร์ตี้ของคุณตอนนี้ใช้ตัวเลือก Party จึงไม่มีสวิตช์ \"Accept all party requests\" แยกอีกต่อไป การตั้งค่าเดิมของคุณยังอยู่ครบ"
+        ],
         "fixed": [
-          "เมื่อติดตั้ง MultiTool หน้า My Party และหน้าปาร์ตี้ของดันเจี้ยนอาจค้างอยู่ที่ \"Loading\" ตอนนี้เปิดได้ตามปกติแล้ว"
+          "การ์ดคำเชิญของเกมไม่ค้างบนหน้าจออีกต่อไปหลังจาก Auto-Accept ตอบรับแล้ว"
         ],
         "removed": []
       }
@@ -105,17 +123,23 @@
       "captions": [
         "Semua alat dalam satu hub, tiap kartu menunjukkan apa yang sedang dilakukannya.",
         "Mute Instruments (Bisukan instrumen): bisukan pemain pilihan, atau semua orang kecuali daftarmu.",
-        "Auto-Accept Invites (Terima undangan otomatis): undangan party dan sosial dari pemain di daftarmu.",
-        "Tambahkan pemain lewat UID, atau langsung dari kartu namanya.",
+        "Auto-Accept Invites (Terima undangan otomatis): Off, Listed atau Everyone untuk undangan party, sosial dan permintaan jadi pemimpin.",
+        "Tambah pemain lewat nama atau UID, atau langsung dari kartu namanya.",
         "Language & Text (Bahasa & teks): semua bahasa teks dan suara yang ada di klienmu, plus dialog NPC yang langsung muncul.",
         "Performance (Performa): sembunyikan efek pemain lain dan ringankan daftar party agar raid lebih mulus.",
         "Power Saving (Hemat daya): screensaver game, dari hub atau hotkey-mu."
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
+        "added": [
+          "Auto-Accept: tiap jenis undangan kini punya tiga pilihan: Off, Listed (hanya pemain di daftar) atau Everyone (siapa pun).",
+          "Auto-Accept: baru, Party leader requests (permintaan jadi pemimpin). Saat anggota party meminta mengambil alih posisi pemimpin, permintaan itu bisa diterima otomatis, dengan sakelar Leader sendiri untuk tiap pemain.",
+          "Add player… (Tambah pemain) kini bisa mencari pemain lewat nama, selain lewat UID."
+        ],
+        "changed": [
+          "Permintaan bergabung ke party-mu kini mengikuti pilihan Party, jadi sakelar terpisah \"Accept all party requests\" sudah tidak ada. Pengaturanmu tetap terbawa."
+        ],
         "fixed": [
-          "Saat MultiTool terpasang, layar My Party dan layar party dungeon bisa tertahan di \"Loading\". Sekarang terbuka dengan normal."
+          "Kartu undangan game tidak lagi tertinggal di layar setelah Auto-Accept menerimanya."
         ],
         "removed": []
       }
@@ -125,17 +149,23 @@
       "captions": [
         "Lahat ng tool sa iisang hub, ipinapakita ng bawat card kung ano ang ginagawa nito ngayon.",
         "Mute Instruments (I-mute ang mga instrumento): patahimikin ang mga piniling tumutugtog, o lahat maliban sa listahan mo.",
-        "Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon): mga imbitasyon sa party at social mula sa mga player sa listahan mo.",
-        "Magdagdag ng player gamit ang UID, o diretso mula sa name card niya.",
+        "Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon): Off, Listed o Everyone para sa party, social at mga request na maging leader.",
+        "Magdagdag ng player gamit ang pangalan o UID, o diretso mula sa name card niya.",
         "Language & Text (Wika at text): lahat ng wika ng text at boses na nasa client mo, at agarang usapan ng NPC.",
         "Performance: itago ang effects ng ibang player at pagaanin ang party list para mas maayos ang raid.",
         "Power Saving (Pagtitipid ng power): ang screensaver ng laro, mula sa hub o sa hotkey mo."
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
+        "added": [
+          "Auto-Accept: may tatlong pagpipilian na ang bawat uri ng imbitasyon: Off, Listed (mga player lang sa listahan mo) o Everyone (kahit sino).",
+          "Auto-Accept: bago, ang Party leader requests. Kapag humiling ang isang miyembro na siya na ang maging leader, puwede itong awtomatikong tanggapin, na may sariling Leader switch ang bawat player.",
+          "Nakakahanap na ang Add player… ng mga player gamit ang pangalan, bukod sa UID."
+        ],
+        "changed": [
+          "Sumusunod na sa Party na pagpipilian ang mga request na sumali sa party mo, kaya wala na ang hiwalay na \"Accept all party requests\" na switch. Dala pa rin ang mga setting mo."
+        ],
         "fixed": [
-          "Kapag naka-install ang MultiTool, puwedeng maipit sa \"Loading\" ang My Party at ang party screen ng dungeon. Normal na itong bumubukas ngayon."
+          "Hindi na naiiwan sa screen ang invite card ng laro matapos itong tanggapin ng Auto-Accept."
         ],
         "removed": []
       }
@@ -145,17 +175,23 @@
       "captions": [
         "모든 도구를 허브 하나에. 각 카드에 지금 작동 상태가 표시됩니다.",
         "Mute Instruments(악기 음소거): 고른 연주자만, 또는 목록을 뺀 모두를 음소거.",
-        "Auto-Accept Invites(초대 자동 수락): 목록에 있는 플레이어의 파티 초대와 소셜 초대.",
-        "UID로, 또는 명함에서 바로 플레이어 추가.",
+        "Auto-Accept Invites(초대 자동 수락): 파티, 소셜, 파티장 신청마다 Off, Listed, Everyone 중 선택.",
+        "이름이나 UID로, 또는 명함에서 바로 플레이어 추가.",
         "Language & Text(언어와 텍스트): 클라이언트에 들어 있는 모든 텍스트·음성 언어와 NPC 대화 즉시 표시.",
         "Performance(성능): 다른 플레이어의 이펙트를 숨기고 파티 목록을 가볍게 해 레이드를 더 부드럽게.",
         "Power Saving(절전): 게임의 화면 보호기를 허브나 단축키로."
       ],
       "changelog": {
-        "added": [],
-        "changed": [],
+        "added": [
+          "Auto-Accept: 초대 종류마다 Off, Listed(목록의 플레이어만), Everyone(누구든) 세 가지 중에서 고를 수 있습니다.",
+          "Auto-Accept: 새로 Party leader requests(파티장 신청)를 지원합니다. 파티원이 파티장을 넘겨 달라고 하면 자동으로 수락할 수 있고, 플레이어마다 Leader 스위치가 있습니다.",
+          "Add player…(플레이어 추가)에서 UID뿐 아니라 이름으로도 플레이어를 찾을 수 있습니다."
+        ],
+        "changed": [
+          "내 파티 참가 신청은 이제 Party 설정을 따르므로, 따로 있던 \"Accept all party requests\" 스위치는 없어졌습니다. 기존 설정은 그대로 이어집니다."
+        ],
         "fixed": [
-          "MultiTool을 설치하면 내 파티와 던전 파티 화면이 \"Loading\"에서 멈출 수 있었습니다. 이제 정상적으로 열립니다."
+          "Auto-Accept가 수락한 뒤에도 게임의 초대 카드가 화면에 남던 문제를 고쳤습니다."
         ],
         "removed": []
       }

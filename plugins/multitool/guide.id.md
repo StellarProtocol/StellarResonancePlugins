@@ -33,17 +33,15 @@ dekatmu lagi.
 
 ## Auto-Accept Invites (Terima undangan otomatis)
 
-Terima undangan secara otomatis, tapi hanya dari pemain yang ada di daftarmu.
+Terima undangan dan permintaan secara otomatis. Tiap jenis punya tiga pilihan: **Off** (kamu jawab sendiri), **Listed** (hanya dari pemain di daftar) dan **Everyone** (dari siapa pun).
 
 ![Auto-Accept Invites (Terima undangan otomatis)](media/auto-accept.png)
 
-- **Accept all party requests** (Terima semua permintaan party): menyetujui setiap permintaan bergabung ke party-mu,
-  dari siapa pun.
-- **Party invites** (Undangan party): terima undangan party dari pemain di daftar.
-- **Social invites** (Undangan sosial): terima ajakan emote bersama dan ajakan naik tunggangan bersama dari pemain di
-  daftar.
-- Tiap pemain di daftar punya sakelar **Party** dan **Social** (Sosial) sendiri. Hapus pemain dengan **✕** di
-  barisnya, atau kosongkan daftar dengan **Clear all** (Hapus semua).
+- **Party**: undangan party, dan permintaan bergabung ke party-mu.
+- **Social** (Sosial): ajakan emote bersama dan ajakan naik tunggangan bersama.
+- **Party leader requests** (Permintaan jadi pemimpin): anggota party meminta mengambil alih posisi pemimpin saat kamu yang memimpin.
+- Tiap pemain di daftar punya sakelar **Party**, **Social** dan **Leader** sendiri, yang dipakai saat jenis itu diatur ke **Listed**. Hapus pemain dengan **✕** di barisnya, atau kosongkan daftar dengan **Clear all** (Hapus semua).
+- Setelah diterima, kartu undangan game tertutup sendiri.
 
 ### Menambahkan pemain
 
@@ -51,9 +49,8 @@ Terima undangan secara otomatis, tapi hanya dari pemain yang ada di daftarmu.
 
 - **From the name card** (Dari kartu nama): buka kartu nama pemain mana pun (klik nama atau avatarnya) lalu tekan
   **Auto-Accept** di deretan tombol kartu itu. Pemain itu masuk ke daftarmu, dan jendela kecil terbuka untuk memilih
-  apa saja yang diterima darinya.
-- **By UID** (Lewat UID): klik **Add player…** (Tambah pemain), ketik UID-nya, tekan **Look up** (Cari), lalu
-  **Choose this player…** (Pilih pemain ini).
+  apa saja yang diterima darinya. Semua sakelar mulai dalam keadaan mati.
+- **Lewat nama atau UID**: klik **Add player…** (Tambah pemain), ketik sebagian nama atau UID, lalu tekan **Search** (Cari). Nama bisa sama, jadi cek UID-nya sebelum menekan **Add** (Tambah). Game membatasi seberapa sering kamu bisa mencari, jadi tunggu beberapa detik di antara pencarian.
 
 ## Language & Text (Bahasa & teks)
 

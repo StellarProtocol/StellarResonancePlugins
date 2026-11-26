@@ -33,17 +33,15 @@ tumugtog siya malapit sa iyo.
 
 ## Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon)
 
-Awtomatikong tanggapin ang mga imbitasyon, pero mula lang sa mga player na nasa listahan mo.
+Awtomatikong tanggapin ang mga imbitasyon at request. May tatlong pagpipilian ang bawat uri: **Off** (ikaw ang sasagot), **Listed** (mula lang sa mga player sa listahan) at **Everyone** (mula kahit kanino).
 
 ![Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon)](media/auto-accept.png)
 
-- **Accept all party requests** (Tanggapin lahat ng party request): inaaprubahan ang bawat request na sumali sa
-  party mo, mula kahit kanino.
-- **Party invites** (Mga imbitasyon sa party): tinatanggap ang mga imbitasyon sa party mula sa mga player sa listahan.
-- **Social invites** (Mga social na imbitasyon): tinatanggap ang mga imbitasyon sa co-op emote at sa pagsakay nang
-  magkasama mula sa mga player sa listahan.
-- May sariling **Party** at **Social** na switch ang bawat player sa listahan. Alisin ang isang player gamit ang **✕**
-  sa row niya, o burahin ang buong listahan gamit ang **Clear all** (Burahin lahat).
+- **Party**: mga imbitasyon sa party, at mga request na sumali sa party mo.
+- **Social**: mga imbitasyon sa co-op emote at sa pagsakay nang magkasama.
+- **Party leader requests** (Mga request na maging leader): humihiling ang isang miyembro na siya na ang maging leader habang ikaw ang leader.
+- May sariling **Party**, **Social** at **Leader** na switch ang bawat player sa listahan, na ginagamit kapag **Listed** ang napili para sa uring iyon. Alisin ang isang player gamit ang **✕** sa row niya, o burahin ang buong listahan gamit ang **Clear all** (Burahin lahat).
+- Kapag natanggap na, kusang nagsasara ang invite card ng laro.
 
 ### Pagdagdag ng player
 
@@ -51,9 +49,8 @@ Awtomatikong tanggapin ang mga imbitasyon, pero mula lang sa mga player na nasa 
 
 - **From the name card** (Mula sa name card): buksan ang name card ng kahit sinong player (i-click ang pangalan o
   avatar niya) at pindutin ang **Auto-Accept** sa hanay ng mga button ng card. Madadagdag siya sa listahan mo at
-  magbubukas ang isang maliit na window kung saan pipiliin mo kung ano ang tatanggapin mula sa kanya.
-- **By UID** (Gamit ang UID): i-click ang **Add player…** (Magdagdag ng player), i-type ang UID niya, pindutin ang
-  **Look up** (Hanapin), tapos ang **Choose this player…** (Piliin ang player na ito).
+  magbubukas ang isang maliit na window kung saan pipiliin mo kung ano ang tatanggapin mula sa kanya. Naka-off ang lahat ng switch sa simula.
+- **Gamit ang pangalan o UID**: i-click ang **Add player…** (Magdagdag ng player), i-type ang bahagi ng pangalan o ang UID, at pindutin ang **Search** (Hanapin). Puwedeng magkapareho ang mga pangalan, kaya tingnan muna ang UID bago pindutin ang **Add** (Idagdag). Nililimitahan ng laro kung gaano kadalas ka makakapaghanap, kaya maghintay ng ilang segundo sa pagitan.
 
 ## Language & Text (Wika at text)
 
