@@ -2,7 +2,7 @@
   "id": "multitool",
   "name": "MultiTool",
   "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, instant NPC dialog, smoother fights by hiding other players' effects, and a screensaver for when you're away.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "dll": "Stellar.MultiTool.dll",
   "author": "Stellar",
   "tags": [
@@ -50,14 +50,13 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.28.0",
-  "date": "2026-11-17",
+  "date": "2026-11-26",
   "changelog": {
-    "added": [
-      "No text animation: NPC conversation text can now appear instantly instead of letter by letter. Find it in Language & Text (the renamed Language Unlock). Off by default.",
-      "New Power Saving tool: turn on the game's screensaver while you're away to lower the frame rate. Leave with its Exit button or your hotkey (End by default)."
-    ],
+    "added": [],
     "changed": [],
-    "fixed": [],
+    "fixed": [
+      "With MultiTool installed, My Party and dungeon party screens could stay stuck on \"Loading\". They now open normally."
+    ],
     "removed": []
   },
   "i18n": {
@@ -73,10 +72,12 @@
         "Power Saving（省電力）：ゲームのスクリーンセーバーを、ハブまたはホットキーから。"
       ],
       "changelog": {
-        "added": [
-          "No text animation（テキストアニメーションなし）：NPCの会話文を1文字ずつではなく、すぐに表示できるようになりました。Language & Text（Language Unlock から名前が変わりました）にあります。最初はOffです。",
-          "新ツール Power Saving（省電力）：離席中にゲームのスクリーンセーバーをオンにして、フレームレートを下げます。Exit ボタンかホットキー（初期設定は End）で終了します。"
-        ]
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "MultiTool を入れていると、マイパーティやダンジョンのパーティ画面が「Loading」のまま進まないことがありました。今は普通に開きます。"
+        ],
+        "removed": []
       }
     },
     "th": {
@@ -91,10 +92,12 @@
         "Power Saving (ประหยัดพลังงาน): สกรีนเซฟเวอร์ของเกม เปิดได้จากฮับหรือปุ่มลัด"
       ],
       "changelog": {
-        "added": [
-          "No text animation (ไม่มีแอนิเมชันข้อความ): ข้อความบทสนทนา NPC ขึ้นมาทันทีได้แล้ว แทนที่จะค่อย ๆ ขึ้นทีละตัวอักษร อยู่ใน Language & Text (ชื่อใหม่ของ Language Unlock) ค่าเริ่มต้นคือปิด",
-          "เครื่องมือใหม่ Power Saving (ประหยัดพลังงาน): เปิดสกรีนเซฟเวอร์ของเกมตอนที่คุณไม่อยู่หน้าจอเพื่อลดเฟรมเรต ออกได้ด้วยปุ่ม Exit หรือปุ่มลัดของคุณ (ค่าเริ่มต้นคือ End)"
-        ]
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "เมื่อติดตั้ง MultiTool หน้า My Party และหน้าปาร์ตี้ของดันเจี้ยนอาจค้างอยู่ที่ \"Loading\" ตอนนี้เปิดได้ตามปกติแล้ว"
+        ],
+        "removed": []
       }
     },
     "id": {
@@ -109,10 +112,12 @@
         "Power Saving (Hemat daya): screensaver game, dari hub atau hotkey-mu."
       ],
       "changelog": {
-        "added": [
-          "No text animation (Tanpa animasi teks): teks percakapan NPC kini bisa langsung muncul, bukan huruf demi huruf. Ada di Language & Text (nama baru Language Unlock). Mati secara default.",
-          "Alat baru Power Saving (Hemat daya): nyalakan screensaver game saat kamu AFK untuk menurunkan frame rate. Keluar dengan tombol Exit atau hotkey-mu (default End)."
-        ]
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "Saat MultiTool terpasang, layar My Party dan layar party dungeon bisa tertahan di \"Loading\". Sekarang terbuka dengan normal."
+        ],
+        "removed": []
       }
     },
     "fil": {
@@ -127,10 +132,12 @@
         "Power Saving (Pagtitipid ng power): ang screensaver ng laro, mula sa hub o sa hotkey mo."
       ],
       "changelog": {
-        "added": [
-          "No text animation (Walang animation ng text): puwede nang lumabas agad ang text ng usapan ng NPC sa halip na isa-isang titik. Nasa Language & Text (ang bagong pangalan ng Language Unlock). Naka-off sa simula.",
-          "Bagong Power Saving tool: buksan ang screensaver ng laro habang wala ka para bumaba ang frame rate. Lumabas gamit ang Exit button o ang hotkey mo (End sa simula)."
-        ]
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "Kapag naka-install ang MultiTool, puwedeng maipit sa \"Loading\" ang My Party at ang party screen ng dungeon. Normal na itong bumubukas ngayon."
+        ],
+        "removed": []
       }
     },
     "ko": {
@@ -145,15 +152,17 @@
         "Power Saving(절전): 게임의 화면 보호기를 허브나 단축키로."
       ],
       "changelog": {
-        "added": [
-          "No text animation(텍스트 애니메이션 끄기): 이제 NPC 대화 텍스트가 한 글자씩이 아니라 바로 표시되게 할 수 있습니다. Language & Text(Language Unlock의 새 이름)에 있습니다. 기본값은 꺼짐입니다.",
-          "새 도구 Power Saving(절전): 자리를 비울 때 게임의 화면 보호기를 켜서 프레임 레이트를 낮춥니다. Exit 버튼이나 단축키(기본값 End)로 끝냅니다."
-        ]
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "MultiTool을 설치하면 내 파티와 던전 파티 화면이 \"Loading\"에서 멈출 수 있었습니다. 이제 정상적으로 열립니다."
+        ],
+        "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMultiToolPlugin.git",
-  "commit": "991826cc6e3e3f3ac9231e8c0e21124fe47b0bcf",
+  "commit": "54ae8ccf7e73140718ae2947805ce228d684141f",
   "projectPath": ".",
-  "tag": "v1.2.0"
+  "tag": "v1.2.1"
 }
