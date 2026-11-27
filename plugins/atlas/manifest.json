@@ -2,7 +2,7 @@
   "id": "atlas",
   "name": "Atlas",
   "description": "A shared map of chests, collectibles and the magical creatures of Asteria Plains. Atlas lists the nearest ones around you with their distance, puts the game's own guide marker on the one you pick, and draws them on your big map and minimap. While Atlas runs, what you find and where (chests, resources, magical creatures) is shared with the Atlas server so the map stays complete for everyone. No names, UIDs or chat are sent. To stop sharing, turn Atlas off in the launcher.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "dll": "Stellar.Atlas.dll",
   "author": "Stellar",
   "tags": [
@@ -25,13 +25,12 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.33.0",
-  "date": "2026-11-25",
+  "date": "2026-11-28",
   "changelog": {
     "added": [],
     "changed": [],
     "fixed": [
-      "Looking at another area on the big map no longer files the chests and gathering points around you under that area. This put some points in the wrong place on the shared map, like a chest out at sea. Those points have been removed.",
-      "Chests that Atlas had wrongly hidden as \"not here\" come back. Atlas hides the ones that are really missing again once you stand near them."
+      "Magical creatures on the big map and minimap, like the Silver Nappo, show their face again. Some of them showed a grey placeholder icon instead."
     ],
     "removed": []
   },
@@ -47,8 +46,7 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "大きな地図でほかのエリアを見ている間に、周りの宝箱や採集ポイントがそのエリアのものとして登録されてしまう問題を修正しました。これにより共有マップで一部の地点が海の上など誤った場所に表示されていました。該当する地点は削除済みです。",
-          "「ここにはない」として誤って非表示になっていた宝箱が再び表示されます。本当にない宝箱は、近くに立つと再び非表示になります。"
+          "大きな地図とミニマップで、Silver Nappoなどの魔法生物の顔アイコンが再び表示されます。一部がグレーの仮アイコンで表示されていました。"
         ],
         "removed": []
       }
@@ -64,8 +62,7 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "การดูพื้นที่อื่นบนแผนที่ใหญ่จะไม่ทำให้หีบและจุดเก็บของรอบตัวคุณถูกบันทึกเป็นของพื้นที่นั้นอีกต่อไป ปัญหานี้ทำให้บางจุดบนแผนที่ที่แชร์ร่วมกันไปอยู่ผิดที่ เช่น หีบกลางทะเล จุดเหล่านั้นถูกลบออกแล้ว",
-          "หีบที่แอตลาสซ่อนผิดพลาดว่า \"ไม่มีที่นี่\" จะกลับมาแสดง หีบที่ไม่มีอยู่จริงจะถูกซ่อนอีกครั้งเมื่อคุณยืนอยู่ใกล้ๆ"
+          "สัตว์เวทมนตร์บนแผนที่ใหญ่และมินิแมป เช่น Silver Nappo จะแสดงหน้าของมันอีกครั้ง ก่อนหน้านี้บางตัวแสดงเป็นไอคอนสีเทาแทน"
         ],
         "removed": []
       }
@@ -81,8 +78,7 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "Melihat area lain di peta besar tidak lagi mencatat peti dan titik kumpul di sekitarmu sebagai milik area itu. Masalah ini membuat beberapa titik di peta bersama muncul di tempat yang salah, seperti peti di tengah laut. Titik-titik itu sudah dihapus.",
-          "Peti yang keliru disembunyikan Atlas sebagai \"tidak ada di sini\" muncul kembali. Peti yang memang tidak ada akan disembunyikan lagi saat kamu berdiri di dekatnya."
+          "Makhluk ajaib di peta besar dan minimap, seperti Silver Nappo, kembali menampilkan wajahnya. Sebelumnya beberapa di antaranya tampil sebagai ikon abu-abu."
         ],
         "removed": []
       }
@@ -98,8 +94,7 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "Ang pagtingin sa ibang lugar sa malaking mapa ay hindi na nagtatala ng mga chest at gathering point sa paligid mo bilang bahagi ng lugar na iyon. Dahil dito, may ilang point sa shared map na napunta sa maling lugar, gaya ng chest sa gitna ng dagat. Natanggal na ang mga point na iyon.",
-          "Babalik ang mga chest na maling naitago ng Atlas bilang \"wala rito\". Muling maitatago ang mga talagang wala kapag tumayo ka malapit sa kanila."
+          "Muling lumalabas ang mukha ng mga mahiwagang nilalang sa malaking mapa at minimap, gaya ng Silver Nappo. Dati, kulay-abong placeholder icon ang lumalabas sa ilan sa kanila."
         ],
         "removed": []
       }
@@ -115,15 +110,14 @@
         "added": [],
         "changed": [],
         "fixed": [
-          "큰 지도에서 다른 지역을 보는 동안 주변의 상자와 채집 지점이 그 지역의 것으로 기록되던 문제를 수정했습니다. 이 때문에 공유 지도에서 일부 지점이 바다 한가운데처럼 잘못된 위치에 표시되었습니다. 해당 지점은 삭제되었습니다.",
-          "\"여기에 없음\"으로 잘못 숨겨졌던 상자가 다시 표시됩니다. 실제로 없는 상자는 근처에 서 있으면 다시 숨겨집니다."
+          "큰 지도와 미니맵에서 Silver Nappo 같은 마법 생물의 얼굴이 다시 표시됩니다. 일부는 회색 임시 아이콘으로 표시되고 있었습니다."
         ],
         "removed": []
       }
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarAtlasPlugin.git",
-  "commit": "03f0d9af23efe7fd518f73a92d3f7146370d5998",
+  "commit": "992b3d27607a0305b2cac99c3faeaef1e7998480",
   "projectPath": ".",
-  "tag": "v1.0.2"
+  "tag": "v1.0.3"
 }
