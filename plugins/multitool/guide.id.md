@@ -2,7 +2,7 @@
 
 Beberapa alat kecil yang bikin main lebih nyaman, dalam satu jendela: bisukan instrumen pemain lain, terima undangan
 secara otomatis dari orang yang kamu pilih, buka semua bahasa yang ada di klien game ini, tampilkan dialog NPC
-seketika, pertarungan lebih mulus, dan screensaver saat kamu sedang AFK.
+seketika, pertarungan lebih mulus, screensaver saat kamu sedang AFK, serta merapikan beberapa layar bawaan game.
 
 ![Hub MultiTool](media/hub.png)
 
@@ -97,6 +97,22 @@ Nyalakan screensaver game saat kamu sedang AFK. Frame rate diturunkan dan layar 
 - **Enter power saving** (Masuk hemat daya) langsung memulainya.
 - Hotkey-mu menyalakan dan mematikannya: **End** secara default, bisa diganti di **Settings › Hotkeys**.
 - Untuk keluar, tekan tombol **Exit** di screensaver atau hotkey-mu. Juga berakhir saat kamu logout.
+
+## Game UI Tweaks (Penyesuaian UI game)
+
+Perbaikan kecil untuk layar bawaan game. Masing-masing punya sakelar sendiri, dan keduanya **Off** secara default.
+
+![Game UI Tweaks (Penyesuaian UI game)](media/game-ui-tweaks.png)
+
+- **Monthly card reward › Close it automatically** (Tutup otomatis hadiah kartu bulanan): hadiah harian
+  kartu bulanan sebenarnya sudah diberikan saat kamu login. Opsi ini menutup popup hadiahnya untukmu dan
+  menandainya sudah dilihat, jadi tidak muncul lagi.
+- **Wardrobe › Merge clothes and accessory tabs** (Gabungkan tab pakaian dan aksesori): Wardrobe
+  menampilkan slot pakaian dan slot aksesori berdampingan dalam satu tab, jadi kamu tidak perlu ganti tab.
+  Slot aksesori tetap memperbesar ke kepala seperti sebelumnya, dan karaktermu berada di tengah ruang yang
+  tersisa. Tab skin senjata tidak berubah. Berlaku saat kamu membuka Wardrobe berikutnya.
+
+![Wardrobe dengan tab yang digabung](media/wardrobe-merge.png)
 
 ## Catatan
 

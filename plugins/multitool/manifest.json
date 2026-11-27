@@ -1,7 +1,7 @@
 {
   "id": "multitool",
   "name": "MultiTool",
-  "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, instant NPC dialog, smoother fights by hiding other players' effects, and a screensaver for when you're away.",
+  "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, instant NPC dialog, smoother fights by hiding other players' effects, a screensaver for when you're away, and tweaks for the game's own screens: auto-close the monthly card reward popup and a two-column Wardrobe.",
   "version": "1.3.0",
   "dll": "Stellar.MultiTool.dll",
   "author": "Stellar",
@@ -46,6 +46,16 @@
       "type": "image",
       "file": "media/power-saving.png",
       "caption": "Power Saving: the game's screensaver, from the hub or your hotkey."
+    },
+    {
+      "type": "image",
+      "file": "media/game-ui-tweaks.png",
+      "caption": "Game UI Tweaks: small fixes for the game's own screens, each with its own switch."
+    },
+    {
+      "type": "image",
+      "file": "media/wardrobe-merge.png",
+      "caption": "Wardrobe with clothes and accessories side by side in one tab."
     }
   ],
   "guide": "guide.md",
@@ -55,7 +65,9 @@
     "added": [
       "Auto-Accept: each kind of invite now has three choices: Off, Listed (only players on your list) or Everyone.",
       "Auto-Accept: new Party leader requests. When a party member asks to take over as leader, it can be accepted automatically, with its own Leader switch per player.",
-      "Add player… now finds players by name as well as by UID."
+      "Add player… now finds players by name as well as by UID.",
+      "New Game UI Tweaks card: automatically close the monthly card's daily reward popup and mark it as seen, so it doesn't come back.",
+      "Game UI Tweaks: show clothes and accessories side by side in one Wardrobe tab."
     ],
     "changed": [
       "Requests to join your party now follow the Party choice, so the separate \"Accept all party requests\" switch is gone. Your settings carry over."
@@ -67,7 +79,7 @@
   },
   "i18n": {
     "ja": {
-      "description": "ちょっと便利な小さなツール集：他のプレイヤーの楽器をミュート、選んだ相手からの招待を自動承認、すべての言語を解放、NPCの会話をすぐに表示、他のプレイヤーのエフェクトを隠して戦闘を軽く、離席中のスクリーンセーバー。",
+      "description": "ちょっと便利な小さなツール集：他のプレイヤーの楽器をミュート、選んだ相手からの招待を自動承認、すべての言語を解放、NPCの会話をすぐに表示、他のプレイヤーのエフェクトを隠して戦闘を軽く、離席中のスクリーンセーバー、そしてゲーム画面の調整（マンスリーカード報酬ポップアップの自動クローズ、2列表示のワードローブ）。",
       "captions": [
         "すべてのツールを1つのハブに。各カードに今の状態が表示されます。",
         "Mute Instruments（楽器ミュート）：選んだ演奏者だけ、またはリスト以外の全員をミュート。",
@@ -75,13 +87,17 @@
         "名前かUIDで、または名刺から直接プレイヤーを追加。",
         "Language & Text（言語とテキスト）：クライアントに入っているすべてのテキスト言語と音声言語、そしてNPCの会話をすぐに表示。",
         "Performance（パフォーマンス）：他のプレイヤーのエフェクトを隠し、パーティリストを軽くしてレイドをなめらかに。",
-        "Power Saving（省電力）：ゲームのスクリーンセーバーを、ハブまたはホットキーから。"
+        "Power Saving（省電力）：ゲームのスクリーンセーバーを、ハブまたはホットキーから。",
+        "Game UI Tweaks（ゲームUIの調整）：ゲーム本来の画面をちょっと直す機能。それぞれにスイッチがあります。",
+        "服とアクセサリーを1つのタブに並べて表示したワードローブ。"
       ],
       "changelog": {
         "added": [
           "Auto-Accept：招待の種類ごとに、Off、Listed（リストのプレイヤーだけ）、Everyone（誰でも）の3つから選べるようになりました。",
           "Auto-Accept：新しく Party leader requests（リーダー申請）に対応。パーティメンバーからのリーダー交代の申請を自動で承認できます。プレイヤーごとに Leader スイッチがあります。",
-          "Add player…（プレイヤーを追加）で、UIDだけでなく名前でも探せるようになりました。"
+          "Add player…（プレイヤーを追加）で、UIDだけでなく名前でも探せるようになりました。",
+          "新しい Game UI Tweaks（ゲームUIの調整）カード：マンスリーカードの毎日の報酬ポップアップを自動で閉じて確認済みにするので、再び表示されません。",
+          "Game UI Tweaks：ワードローブの1つのタブに、服とアクセサリーを並べて表示できます。"
         ],
         "changed": [
           "パーティへの参加申請は Party の設定に従うようになり、「Accept all party requests」スイッチはなくなりました。今の設定はそのまま引き継がれます。"
@@ -93,7 +109,7 @@
       }
     },
     "th": {
-      "description": "เครื่องมือเล็ก ๆ ที่ช่วยให้เล่นสะดวกขึ้น: ปิดเสียงเครื่องดนตรีของผู้เล่นคนอื่น ตอบรับคำเชิญอัตโนมัติจากผู้เล่นที่เลือก ปลดล็อกทุกภาษา แสดงบทสนทนา NPC ทันที ต่อสู้ลื่นขึ้นด้วยการซ่อนเอฟเฟกต์ของผู้เล่นคนอื่น และสกรีนเซฟเวอร์ตอนที่คุณไม่อยู่หน้าจอ",
+      "description": "เครื่องมือเล็ก ๆ ที่ช่วยให้เล่นสะดวกขึ้น: ปิดเสียงเครื่องดนตรีของผู้เล่นคนอื่น ตอบรับคำเชิญอัตโนมัติจากผู้เล่นที่เลือก ปลดล็อกทุกภาษา แสดงบทสนทนา NPC ทันที ต่อสู้ลื่นขึ้นด้วยการซ่อนเอฟเฟกต์ของผู้เล่นคนอื่น สกรีนเซฟเวอร์ตอนที่คุณไม่อยู่หน้าจอ และการปรับหน้าจอของเกมเอง: ปิดป๊อปอัปรางวัลบัตรรายเดือนอัตโนมัติ และตู้เสื้อผ้าแบบสองคอลัมน์",
       "captions": [
         "ทุกเครื่องมือในฮับเดียว การ์ดแต่ละใบแสดงว่ากำลังทำอะไรอยู่ตอนนี้",
         "Mute Instruments (ปิดเสียงเครื่องดนตรี): ปิดเสียงผู้เล่นที่เลือก หรือทุกคนยกเว้นคนในรายชื่อ",
@@ -101,13 +117,17 @@
         "เพิ่มผู้เล่นด้วยชื่อหรือ UID หรือจากนามบัตรของเขาโดยตรง",
         "Language & Text (ภาษาและข้อความ): ทุกภาษาข้อความและภาษาเสียงที่มีในไคลเอนต์ของคุณ พร้อมบทสนทนา NPC ที่ขึ้นทันที",
         "Performance (ประสิทธิภาพ): ซ่อนเอฟเฟกต์ของผู้เล่นคนอื่นและลดภาระรายชื่อปาร์ตี้ เพื่อให้เรดลื่นขึ้น",
-        "Power Saving (ประหยัดพลังงาน): สกรีนเซฟเวอร์ของเกม เปิดได้จากฮับหรือปุ่มลัด"
+        "Power Saving (ประหยัดพลังงาน): สกรีนเซฟเวอร์ของเกม เปิดได้จากฮับหรือปุ่มลัด",
+        "Game UI Tweaks (ปรับแต่ง UI ของเกม): แก้จุดเล็ก ๆ บนหน้าจอของเกมเอง แต่ละอย่างมีสวิตช์ของตัวเอง",
+        "ตู้เสื้อผ้าที่แสดงชุดและเครื่องประดับเคียงข้างกันในแท็บเดียว"
       ],
       "changelog": {
         "added": [
           "Auto-Accept: คำเชิญแต่ละประเภทเลือกได้ 3 แบบแล้ว: Off, Listed (เฉพาะผู้เล่นในรายชื่อ) หรือ Everyone (ทุกคน)",
           "Auto-Accept: เพิ่ม Party leader requests (คำขอเป็นหัวหน้าปาร์ตี้) เมื่อสมาชิกขอรับตำแหน่งหัวหน้า ตอบรับให้อัตโนมัติได้ และมีสวิตช์ Leader แยกสำหรับผู้เล่นแต่ละคน",
-          "Add player… (เพิ่มผู้เล่น) ค้นหาผู้เล่นด้วยชื่อได้แล้ว นอกเหนือจาก UID"
+          "Add player… (เพิ่มผู้เล่น) ค้นหาผู้เล่นด้วยชื่อได้แล้ว นอกเหนือจาก UID",
+          "การ์ดใหม่ Game UI Tweaks (ปรับแต่ง UI ของเกม): ปิดป๊อปอัปรางวัลรายวันของบัตรรายเดือนให้อัตโนมัติและทำเครื่องหมายว่าดูแล้ว จึงไม่เด้งขึ้นมาอีก",
+          "Game UI Tweaks: แสดงชุดและเครื่องประดับเคียงข้างกันในแท็บเดียวของตู้เสื้อผ้า"
         ],
         "changed": [
           "คำขอเข้าร่วมปาร์ตี้ของคุณตอนนี้ใช้ตัวเลือก Party จึงไม่มีสวิตช์ \"Accept all party requests\" แยกอีกต่อไป การตั้งค่าเดิมของคุณยังอยู่ครบ"
@@ -119,7 +139,7 @@
       }
     },
     "id": {
-      "description": "Alat-alat kecil yang bikin main lebih nyaman: bisukan instrumen pemain lain, terima undangan otomatis dari pemain pilihan, buka semua bahasa, dialog NPC seketika, pertarungan lebih mulus dengan menyembunyikan efek pemain lain, dan screensaver saat kamu AFK.",
+      "description": "Alat-alat kecil yang bikin main lebih nyaman: bisukan instrumen pemain lain, terima undangan otomatis dari pemain pilihan, buka semua bahasa, dialog NPC seketika, pertarungan lebih mulus dengan menyembunyikan efek pemain lain, screensaver saat kamu AFK, serta penyesuaian untuk layar bawaan game: popup hadiah kartu bulanan tertutup otomatis dan Wardrobe dua kolom.",
       "captions": [
         "Semua alat dalam satu hub, tiap kartu menunjukkan apa yang sedang dilakukannya.",
         "Mute Instruments (Bisukan instrumen): bisukan pemain pilihan, atau semua orang kecuali daftarmu.",
@@ -127,13 +147,17 @@
         "Tambah pemain lewat nama atau UID, atau langsung dari kartu namanya.",
         "Language & Text (Bahasa & teks): semua bahasa teks dan suara yang ada di klienmu, plus dialog NPC yang langsung muncul.",
         "Performance (Performa): sembunyikan efek pemain lain dan ringankan daftar party agar raid lebih mulus.",
-        "Power Saving (Hemat daya): screensaver game, dari hub atau hotkey-mu."
+        "Power Saving (Hemat daya): screensaver game, dari hub atau hotkey-mu.",
+        "Game UI Tweaks (Penyesuaian UI game): perbaikan kecil untuk layar bawaan game, masing-masing dengan sakelarnya sendiri.",
+        "Wardrobe dengan pakaian dan aksesori berdampingan dalam satu tab."
       ],
       "changelog": {
         "added": [
           "Auto-Accept: tiap jenis undangan kini punya tiga pilihan: Off, Listed (hanya pemain di daftar) atau Everyone (siapa pun).",
           "Auto-Accept: baru, Party leader requests (permintaan jadi pemimpin). Saat anggota party meminta mengambil alih posisi pemimpin, permintaan itu bisa diterima otomatis, dengan sakelar Leader sendiri untuk tiap pemain.",
-          "Add player… (Tambah pemain) kini bisa mencari pemain lewat nama, selain lewat UID."
+          "Add player… (Tambah pemain) kini bisa mencari pemain lewat nama, selain lewat UID.",
+          "Kartu baru Game UI Tweaks (Penyesuaian UI game): popup hadiah harian kartu bulanan ditutup otomatis dan ditandai sudah dilihat, jadi tidak muncul lagi.",
+          "Game UI Tweaks: tampilkan pakaian dan aksesori berdampingan dalam satu tab Wardrobe."
         ],
         "changed": [
           "Permintaan bergabung ke party-mu kini mengikuti pilihan Party, jadi sakelar terpisah \"Accept all party requests\" sudah tidak ada. Pengaturanmu tetap terbawa."
@@ -145,7 +169,7 @@
       }
     },
     "fil": {
-      "description": "Maliliit na tool para gumaan ang laro: i-mute ang mga instrumento ng ibang player, awtomatikong tanggapin ang imbitasyon mula sa mga piniling player, i-unlock ang lahat ng wika, agarang usapan ng NPC, mas maayos na laban sa pagtatago ng effects ng ibang player, at screensaver habang wala ka.",
+      "description": "Maliliit na tool para gumaan ang laro: i-mute ang mga instrumento ng ibang player, awtomatikong tanggapin ang imbitasyon mula sa mga piniling player, i-unlock ang lahat ng wika, agarang usapan ng NPC, mas maayos na laban sa pagtatago ng effects ng ibang player, screensaver habang wala ka, at mga tweak para sa sariling mga screen ng laro: awtomatikong pagsara ng reward popup ng monthly card at Wardrobe na dalawang column.",
       "captions": [
         "Lahat ng tool sa iisang hub, ipinapakita ng bawat card kung ano ang ginagawa nito ngayon.",
         "Mute Instruments (I-mute ang mga instrumento): patahimikin ang mga piniling tumutugtog, o lahat maliban sa listahan mo.",
@@ -153,13 +177,17 @@
         "Magdagdag ng player gamit ang pangalan o UID, o diretso mula sa name card niya.",
         "Language & Text (Wika at text): lahat ng wika ng text at boses na nasa client mo, at agarang usapan ng NPC.",
         "Performance: itago ang effects ng ibang player at pagaanin ang party list para mas maayos ang raid.",
-        "Power Saving (Pagtitipid ng power): ang screensaver ng laro, mula sa hub o sa hotkey mo."
+        "Power Saving (Pagtitipid ng power): ang screensaver ng laro, mula sa hub o sa hotkey mo.",
+        "Game UI Tweaks (Mga tweak sa UI ng laro): maliliit na ayos para sa sariling mga screen ng laro, bawat isa may sariling switch.",
+        "Wardrobe na magkatabi ang damit at accessories sa iisang tab."
       ],
       "changelog": {
         "added": [
           "Auto-Accept: may tatlong pagpipilian na ang bawat uri ng imbitasyon: Off, Listed (mga player lang sa listahan mo) o Everyone (kahit sino).",
           "Auto-Accept: bago, ang Party leader requests. Kapag humiling ang isang miyembro na siya na ang maging leader, puwede itong awtomatikong tanggapin, na may sariling Leader switch ang bawat player.",
-          "Nakakahanap na ang Add player… ng mga player gamit ang pangalan, bukod sa UID."
+          "Nakakahanap na ang Add player… ng mga player gamit ang pangalan, bukod sa UID.",
+          "Bagong Game UI Tweaks (Mga tweak sa UI ng laro) card: awtomatikong isinasara ang daily reward popup ng monthly card at minamarkahan itong nakita na, kaya hindi na ito bumabalik.",
+          "Game UI Tweaks: ipakita nang magkatabi ang damit at accessories sa iisang tab ng Wardrobe."
         ],
         "changed": [
           "Sumusunod na sa Party na pagpipilian ang mga request na sumali sa party mo, kaya wala na ang hiwalay na \"Accept all party requests\" na switch. Dala pa rin ang mga setting mo."
@@ -171,7 +199,7 @@
       }
     },
     "ko": {
-      "description": "작고 편리한 도구 모음: 다른 플레이어의 악기 음소거, 고른 플레이어의 초대 자동 수락, 모든 언어 잠금 해제, NPC 대화 즉시 표시, 다른 플레이어의 이펙트를 숨겨 더 부드러운 전투, 자리를 비울 때 화면 보호기.",
+      "description": "작고 편리한 도구 모음: 다른 플레이어의 악기 음소거, 고른 플레이어의 초대 자동 수락, 모든 언어 잠금 해제, NPC 대화 즉시 표시, 다른 플레이어의 이펙트를 숨겨 더 부드러운 전투, 자리를 비울 때 화면 보호기, 그리고 게임 자체 화면 조정: 월정액 카드 보상 팝업 자동 닫기와 2열 옷장.",
       "captions": [
         "모든 도구를 허브 하나에. 각 카드에 지금 작동 상태가 표시됩니다.",
         "Mute Instruments(악기 음소거): 고른 연주자만, 또는 목록을 뺀 모두를 음소거.",
@@ -179,13 +207,17 @@
         "이름이나 UID로, 또는 명함에서 바로 플레이어 추가.",
         "Language & Text(언어와 텍스트): 클라이언트에 들어 있는 모든 텍스트·음성 언어와 NPC 대화 즉시 표시.",
         "Performance(성능): 다른 플레이어의 이펙트를 숨기고 파티 목록을 가볍게 해 레이드를 더 부드럽게.",
-        "Power Saving(절전): 게임의 화면 보호기를 허브나 단축키로."
+        "Power Saving(절전): 게임의 화면 보호기를 허브나 단축키로.",
+        "Game UI Tweaks(게임 UI 조정): 게임 자체 화면을 조금씩 고치는 기능. 각각 스위치가 따로 있습니다.",
+        "옷과 액세서리를 한 탭에 나란히 보여 주는 옷장."
       ],
       "changelog": {
         "added": [
           "Auto-Accept: 초대 종류마다 Off, Listed(목록의 플레이어만), Everyone(누구든) 세 가지 중에서 고를 수 있습니다.",
           "Auto-Accept: 새로 Party leader requests(파티장 신청)를 지원합니다. 파티원이 파티장을 넘겨 달라고 하면 자동으로 수락할 수 있고, 플레이어마다 Leader 스위치가 있습니다.",
-          "Add player…(플레이어 추가)에서 UID뿐 아니라 이름으로도 플레이어를 찾을 수 있습니다."
+          "Add player…(플레이어 추가)에서 UID뿐 아니라 이름으로도 플레이어를 찾을 수 있습니다.",
+          "새로운 Game UI Tweaks(게임 UI 조정) 카드: 월정액 카드의 일일 보상 팝업을 자동으로 닫고 확인한 것으로 표시해, 다시 뜨지 않습니다.",
+          "Game UI Tweaks: 옷장의 한 탭에서 옷과 액세서리를 나란히 보여 줍니다."
         ],
         "changed": [
           "내 파티 참가 신청은 이제 Party 설정을 따르므로, 따로 있던 \"Accept all party requests\" 스위치는 없어졌습니다. 기존 설정은 그대로 이어집니다."
@@ -198,7 +230,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMultiToolPlugin.git",
-  "commit": "b205e628a095d08afcb9016532d26634f878e3ad",
+  "commit": "6770831471d0463f52424502d56df50723440f08",
   "projectPath": ".",
   "tag": "v1.3.0"
 }

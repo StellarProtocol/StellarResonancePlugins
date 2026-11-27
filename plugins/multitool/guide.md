@@ -2,7 +2,7 @@
 
 A handful of small quality-of-life tools in one window: mute other players' instruments, auto-accept
 invites from the people you choose, unlock every language this game client ships, show NPC dialog
-instantly, hide other players' effects for smoother fights, and turn on a screensaver while you're away.
+instantly, hide other players' effects for smoother fights, turn on a screensaver while you're away, and tidy up a few of the game's own screens.
 
 ![The MultiTool hub](media/hub.png)
 
@@ -102,6 +102,21 @@ Turn on the game's screensaver while you're away. It lowers the frame rate and c
 - **Enter power saving** starts it right away.
 - Your hotkey turns it on and off: **End** by default, changeable in **Settings › Hotkeys**.
 - To leave, press the **Exit** button on the screensaver or your hotkey. It also ends when you log out.
+
+## Game UI Tweaks
+
+Small fixes for the game's own screens. Each one has its own switch, and both are **Off** by default.
+
+![Game UI Tweaks](media/game-ui-tweaks.png)
+
+- **Monthly card reward › Close it automatically**: the monthly card's daily reward is already given
+  when you log in. This closes the reward popup for you and marks it as seen, so it doesn't come back.
+- **Wardrobe › Merge clothes and accessory tabs**: the Wardrobe shows the clothes slots and the accessory
+  slots side by side in one tab, so you don't have to switch tabs. Accessory slots still zoom in on the
+  head like before, and your character stays centred in the space that's left. The weapon skin tab is
+  unchanged. This applies the next time you open the Wardrobe.
+
+![Wardrobe with merged tabs](media/wardrobe-merge.png)
 
 ## Notes
 

@@ -2,7 +2,7 @@
 
 Ilang maliliit na tool para gumaan ang laro, sa iisang window: i-mute ang mga instrumento ng ibang player,
 awtomatikong tanggapin ang mga imbitasyon mula sa mga taong pinili mo, i-unlock ang lahat ng wikang kasama sa game
-client na ito, agad na ipakita ang usapan ng NPC, mas maayos na laban, at screensaver para sa oras na wala ka.
+client na ito, agad na ipakita ang usapan ng NPC, mas maayos na laban, screensaver para sa oras na wala ka, at pag-aayos sa ilang sariling screen ng laro.
 
 ![MultiTool hub](media/hub.png)
 
@@ -100,6 +100,23 @@ Buksan ang screensaver ng laro habang wala ka. Binababa nito ang frame rate at t
 - Sinisimulan agad ng **Enter power saving** (Pumasok sa power saving).
 - Binubuksan at isinasara ito ng hotkey mo: **End** sa simula, mapapalitan sa **Settings › Hotkeys**.
 - Para lumabas, pindutin ang **Exit** button sa screensaver o ang hotkey mo. Natatapos din ito kapag nag-log out ka.
+
+## Game UI Tweaks (Mga tweak sa UI ng laro)
+
+Maliliit na ayos para sa sariling mga screen ng laro. May sariling switch ang bawat isa, at parehong **Off** sa simula.
+
+![Game UI Tweaks (Mga tweak sa UI ng laro)](media/game-ui-tweaks.png)
+
+- **Monthly card reward › Close it automatically** (Awtomatikong isara ang reward ng monthly card):
+  naibigay na ang daily reward ng monthly card pagka-log in mo. Isinasara nito ang reward popup para sa
+  iyo at minamarkahan itong nakita na, kaya hindi na ito bumabalik.
+- **Wardrobe › Merge clothes and accessory tabs** (Pagsamahin ang tab ng damit at accessories):
+  ipinapakita ng Wardrobe nang magkatabi ang mga slot ng damit at ng accessories sa iisang tab, kaya hindi
+  mo na kailangang magpalit ng tab. Naka-zoom pa rin sa ulo ang mga slot ng accessories gaya ng dati, at
+  nasa gitna ng natitirang espasyo ang character mo. Walang pagbabago sa tab ng weapon skin. Magkakabisa ito
+  sa susunod na pagbukas mo ng Wardrobe.
+
+![Wardrobe na pinagsama ang mga tab](media/wardrobe-merge.png)
 
 ## Mga tala
 
