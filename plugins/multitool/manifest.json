@@ -2,7 +2,7 @@
   "id": "multitool",
   "name": "MultiTool",
   "description": "Small quality-of-life tools: mute other players' instruments, auto-accept invites from chosen players, unlock every language, instant NPC dialog, smoother fights by hiding other players' effects, and a screensaver for when you're away.",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "dll": "Stellar.MultiTool.dll",
   "author": "Stellar",
   "tags": [
@@ -50,7 +50,7 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.28.0",
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "changelog": {
     "added": [
       "Auto-Accept: each kind of invite now has three choices: Off, Listed (only players on your list) or Everyone.",
@@ -198,7 +198,7 @@
     }
   },
   "repository": "https://github.com/StellarProtocol/StellarMultiToolPlugin.git",
-  "commit": "54ae8ccf7e73140718ae2947805ce228d684141f",
+  "commit": "b205e628a095d08afcb9016532d26634f878e3ad",
   "projectPath": ".",
-  "tag": "v1.2.1"
+  "tag": "v1.3.0"
 }
