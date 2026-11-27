@@ -2,7 +2,7 @@
 
 A handful of small quality-of-life tools in one window: mute other players' instruments, auto-accept
 invites from the people you choose, unlock every language this game client ships, show NPC dialog
-instantly, hide other players' effects for smoother fights, and turn on a screensaver while you're away.
+instantly, hide other players' effects for smoother fights, turn on a screensaver while you're away, and tidy up a few of the game's own screens.
 
 ![The MultiTool hub](media/hub.png)
 
@@ -31,15 +31,15 @@ Your list is kept between sessions, so a player you muted stays muted the next t
 
 ## Auto-Accept Invites
 
-Accept invites automatically, but only from the players you list.
+Accept invites and requests automatically. Each kind has three choices: **Off** (you answer it yourself), **Listed** (only from players on your list) and **Everyone**.
 
 ![Auto-Accept Invites](media/auto-accept.png)
 
-- **Accept all party requests** approves every request to join your party, from anyone.
-- **Party invites**: accept party invites from listed players.
-- **Social invites**: accept co-op emotes and ride-together invites from listed players.
-- Each player on the list has their own **Party** and **Social** switches. Remove a player with the
-  **✕** on their row, or empty the list with **Clear all**.
+- **Party**: party invites, and requests to join your party.
+- **Social**: co-op emotes and ride-together invites.
+- **Party leader requests**: a party member asks to take over as leader while you lead.
+- Each player on the list has their own **Party**, **Social** and **Leader** switches, used when that kind is set to **Listed**. Remove a player with the **✕** on their row, or empty the list with **Clear all**.
+- Once something is accepted, the game's invite card closes by itself.
 
 ### Adding a player
 
@@ -47,8 +47,8 @@ Accept invites automatically, but only from the players you list.
 
 - **From the name card**: open any player's name card (click their name or avatar) and press
   **Auto-Accept** in the card's button row. They're added to your list and a small window opens where
-  you pick what to accept from them.
-- **By UID**: click **Add player…**, type their UID, press **Look up**, then **Choose this player…**.
+  you pick what to accept from them. Every switch starts off.
+- **By name or UID**: click **Add player…**, type part of a name or a UID and press **Search**. Names can repeat, so check the UID before you press **Add**. The game limits how often you can search, so wait a few seconds between searches.
 
 ## Language & Text
 
@@ -102,6 +102,21 @@ Turn on the game's screensaver while you're away. It lowers the frame rate and c
 - **Enter power saving** starts it right away.
 - Your hotkey turns it on and off: **End** by default, changeable in **Settings › Hotkeys**.
 - To leave, press the **Exit** button on the screensaver or your hotkey. It also ends when you log out.
+
+## Game UI Tweaks
+
+Small fixes for the game's own screens. Each one has its own switch, and both are **Off** by default.
+
+![Game UI Tweaks](media/game-ui-tweaks.png)
+
+- **Monthly card reward › Close it automatically**: the monthly card's daily reward is already given
+  when you log in. This closes the reward popup for you and marks it as seen, so it doesn't come back.
+- **Wardrobe › Merge clothes and accessory tabs**: the Wardrobe shows the clothes slots and the accessory
+  slots side by side in one tab, so you don't have to switch tabs. Accessory slots still zoom in on the
+  head like before, and your character stays centred in the space that's left. The weapon skin tab is
+  unchanged. This applies the next time you open the Wardrobe.
+
+![Wardrobe with merged tabs](media/wardrobe-merge.png)
 
 ## Notes
 

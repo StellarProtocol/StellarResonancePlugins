@@ -2,7 +2,7 @@
 
 Beberapa alat kecil yang bikin main lebih nyaman, dalam satu jendela: bisukan instrumen pemain lain, terima undangan
 secara otomatis dari orang yang kamu pilih, buka semua bahasa yang ada di klien game ini, tampilkan dialog NPC
-seketika, pertarungan lebih mulus, dan screensaver saat kamu sedang AFK.
+seketika, pertarungan lebih mulus, screensaver saat kamu sedang AFK, serta merapikan beberapa layar bawaan game.
 
 ![Hub MultiTool](media/hub.png)
 
@@ -33,17 +33,15 @@ dekatmu lagi.
 
 ## Auto-Accept Invites (Terima undangan otomatis)
 
-Terima undangan secara otomatis, tapi hanya dari pemain yang ada di daftarmu.
+Terima undangan dan permintaan secara otomatis. Tiap jenis punya tiga pilihan: **Off** (kamu jawab sendiri), **Listed** (hanya dari pemain di daftar) dan **Everyone** (dari siapa pun).
 
 ![Auto-Accept Invites (Terima undangan otomatis)](media/auto-accept.png)
 
-- **Accept all party requests** (Terima semua permintaan party): menyetujui setiap permintaan bergabung ke party-mu,
-  dari siapa pun.
-- **Party invites** (Undangan party): terima undangan party dari pemain di daftar.
-- **Social invites** (Undangan sosial): terima ajakan emote bersama dan ajakan naik tunggangan bersama dari pemain di
-  daftar.
-- Tiap pemain di daftar punya sakelar **Party** dan **Social** (Sosial) sendiri. Hapus pemain dengan **✕** di
-  barisnya, atau kosongkan daftar dengan **Clear all** (Hapus semua).
+- **Party**: undangan party, dan permintaan bergabung ke party-mu.
+- **Social** (Sosial): ajakan emote bersama dan ajakan naik tunggangan bersama.
+- **Party leader requests** (Permintaan jadi pemimpin): anggota party meminta mengambil alih posisi pemimpin saat kamu yang memimpin.
+- Tiap pemain di daftar punya sakelar **Party**, **Social** dan **Leader** sendiri, yang dipakai saat jenis itu diatur ke **Listed**. Hapus pemain dengan **✕** di barisnya, atau kosongkan daftar dengan **Clear all** (Hapus semua).
+- Setelah diterima, kartu undangan game tertutup sendiri.
 
 ### Menambahkan pemain
 
@@ -51,9 +49,8 @@ Terima undangan secara otomatis, tapi hanya dari pemain yang ada di daftarmu.
 
 - **From the name card** (Dari kartu nama): buka kartu nama pemain mana pun (klik nama atau avatarnya) lalu tekan
   **Auto-Accept** di deretan tombol kartu itu. Pemain itu masuk ke daftarmu, dan jendela kecil terbuka untuk memilih
-  apa saja yang diterima darinya.
-- **By UID** (Lewat UID): klik **Add player…** (Tambah pemain), ketik UID-nya, tekan **Look up** (Cari), lalu
-  **Choose this player…** (Pilih pemain ini).
+  apa saja yang diterima darinya. Semua sakelar mulai dalam keadaan mati.
+- **Lewat nama atau UID**: klik **Add player…** (Tambah pemain), ketik sebagian nama atau UID, lalu tekan **Search** (Cari). Nama bisa sama, jadi cek UID-nya sebelum menekan **Add** (Tambah). Game membatasi seberapa sering kamu bisa mencari, jadi tunggu beberapa detik di antara pencarian.
 
 ## Language & Text (Bahasa & teks)
 
@@ -100,6 +97,22 @@ Nyalakan screensaver game saat kamu sedang AFK. Frame rate diturunkan dan layar 
 - **Enter power saving** (Masuk hemat daya) langsung memulainya.
 - Hotkey-mu menyalakan dan mematikannya: **End** secara default, bisa diganti di **Settings › Hotkeys**.
 - Untuk keluar, tekan tombol **Exit** di screensaver atau hotkey-mu. Juga berakhir saat kamu logout.
+
+## Game UI Tweaks (Penyesuaian UI game)
+
+Perbaikan kecil untuk layar bawaan game. Masing-masing punya sakelar sendiri, dan keduanya **Off** secara default.
+
+![Game UI Tweaks (Penyesuaian UI game)](media/game-ui-tweaks.png)
+
+- **Monthly card reward › Close it automatically** (Tutup otomatis hadiah kartu bulanan): hadiah harian
+  kartu bulanan sebenarnya sudah diberikan saat kamu login. Opsi ini menutup popup hadiahnya untukmu dan
+  menandainya sudah dilihat, jadi tidak muncul lagi.
+- **Wardrobe › Merge clothes and accessory tabs** (Gabungkan tab pakaian dan aksesori): Wardrobe
+  menampilkan slot pakaian dan slot aksesori berdampingan dalam satu tab, jadi kamu tidak perlu ganti tab.
+  Slot aksesori tetap memperbesar ke kepala seperti sebelumnya, dan karaktermu berada di tengah ruang yang
+  tersisa. Tab skin senjata tidak berubah. Berlaku saat kamu membuka Wardrobe berikutnya.
+
+![Wardrobe dengan tab yang digabung](media/wardrobe-merge.png)
 
 ## Catatan
 

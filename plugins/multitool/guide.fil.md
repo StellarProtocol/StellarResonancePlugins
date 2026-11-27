@@ -2,7 +2,7 @@
 
 Ilang maliliit na tool para gumaan ang laro, sa iisang window: i-mute ang mga instrumento ng ibang player,
 awtomatikong tanggapin ang mga imbitasyon mula sa mga taong pinili mo, i-unlock ang lahat ng wikang kasama sa game
-client na ito, agad na ipakita ang usapan ng NPC, mas maayos na laban, at screensaver para sa oras na wala ka.
+client na ito, agad na ipakita ang usapan ng NPC, mas maayos na laban, screensaver para sa oras na wala ka, at pag-aayos sa ilang sariling screen ng laro.
 
 ![MultiTool hub](media/hub.png)
 
@@ -33,17 +33,15 @@ tumugtog siya malapit sa iyo.
 
 ## Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon)
 
-Awtomatikong tanggapin ang mga imbitasyon, pero mula lang sa mga player na nasa listahan mo.
+Awtomatikong tanggapin ang mga imbitasyon at request. May tatlong pagpipilian ang bawat uri: **Off** (ikaw ang sasagot), **Listed** (mula lang sa mga player sa listahan) at **Everyone** (mula kahit kanino).
 
 ![Auto-Accept Invites (Awtomatikong pagtanggap ng imbitasyon)](media/auto-accept.png)
 
-- **Accept all party requests** (Tanggapin lahat ng party request): inaaprubahan ang bawat request na sumali sa
-  party mo, mula kahit kanino.
-- **Party invites** (Mga imbitasyon sa party): tinatanggap ang mga imbitasyon sa party mula sa mga player sa listahan.
-- **Social invites** (Mga social na imbitasyon): tinatanggap ang mga imbitasyon sa co-op emote at sa pagsakay nang
-  magkasama mula sa mga player sa listahan.
-- May sariling **Party** at **Social** na switch ang bawat player sa listahan. Alisin ang isang player gamit ang **✕**
-  sa row niya, o burahin ang buong listahan gamit ang **Clear all** (Burahin lahat).
+- **Party**: mga imbitasyon sa party, at mga request na sumali sa party mo.
+- **Social**: mga imbitasyon sa co-op emote at sa pagsakay nang magkasama.
+- **Party leader requests** (Mga request na maging leader): humihiling ang isang miyembro na siya na ang maging leader habang ikaw ang leader.
+- May sariling **Party**, **Social** at **Leader** na switch ang bawat player sa listahan, na ginagamit kapag **Listed** ang napili para sa uring iyon. Alisin ang isang player gamit ang **✕** sa row niya, o burahin ang buong listahan gamit ang **Clear all** (Burahin lahat).
+- Kapag natanggap na, kusang nagsasara ang invite card ng laro.
 
 ### Pagdagdag ng player
 
@@ -51,9 +49,8 @@ Awtomatikong tanggapin ang mga imbitasyon, pero mula lang sa mga player na nasa 
 
 - **From the name card** (Mula sa name card): buksan ang name card ng kahit sinong player (i-click ang pangalan o
   avatar niya) at pindutin ang **Auto-Accept** sa hanay ng mga button ng card. Madadagdag siya sa listahan mo at
-  magbubukas ang isang maliit na window kung saan pipiliin mo kung ano ang tatanggapin mula sa kanya.
-- **By UID** (Gamit ang UID): i-click ang **Add player…** (Magdagdag ng player), i-type ang UID niya, pindutin ang
-  **Look up** (Hanapin), tapos ang **Choose this player…** (Piliin ang player na ito).
+  magbubukas ang isang maliit na window kung saan pipiliin mo kung ano ang tatanggapin mula sa kanya. Naka-off ang lahat ng switch sa simula.
+- **Gamit ang pangalan o UID**: i-click ang **Add player…** (Magdagdag ng player), i-type ang bahagi ng pangalan o ang UID, at pindutin ang **Search** (Hanapin). Puwedeng magkapareho ang mga pangalan, kaya tingnan muna ang UID bago pindutin ang **Add** (Idagdag). Nililimitahan ng laro kung gaano kadalas ka makakapaghanap, kaya maghintay ng ilang segundo sa pagitan.
 
 ## Language & Text (Wika at text)
 
@@ -103,6 +100,23 @@ Buksan ang screensaver ng laro habang wala ka. Binababa nito ang frame rate at t
 - Sinisimulan agad ng **Enter power saving** (Pumasok sa power saving).
 - Binubuksan at isinasara ito ng hotkey mo: **End** sa simula, mapapalitan sa **Settings › Hotkeys**.
 - Para lumabas, pindutin ang **Exit** button sa screensaver o ang hotkey mo. Natatapos din ito kapag nag-log out ka.
+
+## Game UI Tweaks (Mga tweak sa UI ng laro)
+
+Maliliit na ayos para sa sariling mga screen ng laro. May sariling switch ang bawat isa, at parehong **Off** sa simula.
+
+![Game UI Tweaks (Mga tweak sa UI ng laro)](media/game-ui-tweaks.png)
+
+- **Monthly card reward › Close it automatically** (Awtomatikong isara ang reward ng monthly card):
+  naibigay na ang daily reward ng monthly card pagka-log in mo. Isinasara nito ang reward popup para sa
+  iyo at minamarkahan itong nakita na, kaya hindi na ito bumabalik.
+- **Wardrobe › Merge clothes and accessory tabs** (Pagsamahin ang tab ng damit at accessories):
+  ipinapakita ng Wardrobe nang magkatabi ang mga slot ng damit at ng accessories sa iisang tab, kaya hindi
+  mo na kailangang magpalit ng tab. Naka-zoom pa rin sa ulo ang mga slot ng accessories gaya ng dati, at
+  nasa gitna ng natitirang espasyo ang character mo. Walang pagbabago sa tab ng weapon skin. Magkakabisa ito
+  sa susunod na pagbukas mo ng Wardrobe.
+
+![Wardrobe na pinagsama ang mga tab](media/wardrobe-merge.png)
 
 ## Mga tala
 
