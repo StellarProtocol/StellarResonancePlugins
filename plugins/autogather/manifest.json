@@ -2,7 +2,7 @@
   "id": "autogather",
   "name": "Auto Gather",
   "description": "Automatically harvests nearby life-resource nodes — pick a resource type and it walks to and gathers every node of that type, with an optional Focus mode.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "dll": "Stellar.AutoGather.dll",
   "author": "Stellar",
   "tags": [
@@ -24,21 +24,19 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-19",
+  "date": "2026-11-27",
   "changelog": {
-    "added": [
-      "Auto-Gather now works in Montegnor Valley. Nodes it can't walk to, such as those on top of cliffs or down in a canyon, are skipped."
+    "added": [],
+    "changed": [],
+    "fixed": [
+      "When Auto Gather closes the daily monthly card popup for you, it no longer shows up again the next time you log in that day. You still get the daily reward as normal."
     ],
-    "changed": [
-      "Updated for Season 4: walking routes follow the changed terrain in the areas Auto-Gather already supported."
-    ],
-    "fixed": [],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoGather.git",
-  "commit": "07c2446e04092fbcabe4cd2053bd227e0cb4c253",
+  "commit": "79c1f11e0586dd9284242a2fc4d027d3c3b70ad4",
   "projectPath": ".",
-  "tag": "v1.2.1",
+  "tag": "v1.2.2",
   "i18n": {
     "ja": {
       "name": "自動採取",
@@ -48,13 +46,11 @@
         "鉱脈を自動で採取する自動採取 — 選んだ種類のポイントまで自動で移動し、すべて採取します。"
       ],
       "changelog": {
-        "added": [
-          "モンテノール渓谷で自動採取が使えるようになりました。崖の上や渓谷の底など、歩いてたどり着けないポイントは飛ばします。"
-        ],
-        "changed": [
-          "シーズン4に対応：これまで対応していたエリアの地形変更に合わせて、移動ルートを更新しました。"
-        ],
-        "fixed": []
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "自動採取が月額カードのデイリーポップアップを閉じたあとは、同じ日に再ログインしてもポップアップが再表示されなくなりました。デイリー報酬はこれまでどおり受け取れます。"
+        ]
       }
     },
     "th": {
@@ -65,13 +61,11 @@
         "เก็บเกี่ยวอัตโนมัติกำลังทำฟาร์มสายแร่ — มันเดินไปเก็บเกี่ยวทุกจุดของประเภทที่เลือกไว้ให้เองโดยอัตโนมัติ"
       ],
       "changelog": {
-        "added": [
-          "เก็บเกี่ยวอัตโนมัติใช้งานได้แล้วใน Montegnor Valley — จุดที่เดินไปไม่ถึง เช่น บนหน้าผาหรือก้นหุบเขา จะถูกข้ามไป"
-        ],
-        "changed": [
-          "รองรับซีซัน 4: อัปเดตเส้นทางเดินให้ตรงกับภูมิประเทศที่เปลี่ยนไปในพื้นที่ที่รองรับอยู่แล้ว"
-        ],
-        "fixed": []
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "เมื่อ เก็บเกี่ยวอัตโนมัติ ปิดป๊อปอัปรางวัลรายวันของบัตรรายเดือนให้แล้ว ป๊อปอัปจะไม่แสดงซ้ำเมื่อคุณล็อกอินใหม่ในวันเดียวกัน และคุณยังได้รับรางวัลรายวันตามปกติ"
+        ]
       }
     },
     "id": {
@@ -82,13 +76,11 @@
         "Kumpul Otomatis memanen urat bijih — ia berjalan ke dan memanen setiap node dari jenis yang dipilih dengan sendirinya."
       ],
       "changelog": {
-        "added": [
-          "Kumpul Otomatis kini berfungsi di Lembah Montenor. Titik yang tidak bisa dicapai dengan berjalan, misalnya di atas tebing atau di dasar ngarai, akan dilewati."
-        ],
-        "changed": [
-          "Diperbarui untuk Season 4: rute berjalan mengikuti perubahan medan di area yang sudah didukung sebelumnya."
-        ],
-        "fixed": []
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "Setelah Kumpul Otomatis menutup popup hadiah harian kartu bulanan, popup itu tidak muncul lagi saat kamu login ulang di hari yang sama. Hadiah harian tetap kamu terima seperti biasa."
+        ]
       }
     },
     "fil": {
@@ -99,13 +91,11 @@
         "Ang Awtomatikong Pag-ani ay nagfa-farm ng ugat ng mineral — lumalakad ito papunta at nag-aani ng bawat node ng napiling uri nang mag-isa."
       ],
       "changelog": {
-        "added": [
-          "Gumagana na ang Awtomatikong Pag-ani sa Montegnor Valley. Nilalaktawan ang mga node na hindi malalakaran, gaya ng nasa ibabaw ng bangin o nasa ilalim ng kanyon."
-        ],
-        "changed": [
-          "Para sa Season 4: sinusundan na ng mga ruta ng paglalakad ang nagbagong lupain sa mga lugar na dati nang sinusuportahan."
-        ],
-        "fixed": []
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "Kapag isinara ng Awtomatikong Pag-ani ang daily popup ng monthly card, hindi na ito lilitaw ulit kapag nag-log in ka muli sa parehong araw. Matatanggap mo pa rin ang daily reward gaya ng dati."
+        ]
       }
     },
     "ko": {
@@ -116,13 +106,11 @@
         "자동 채집이 광맥을 파밍하는 모습 — 선택한 종류의 채집물마다 스스로 걸어가 모두 채집합니다."
       ],
       "changelog": {
-        "added": [
-          "몽테놀 계곡에서 자동 채집을 사용할 수 있습니다. 절벽 위나 협곡 아래처럼 걸어서 갈 수 없는 지점은 건너뜁니다."
-        ],
-        "changed": [
-          "시즌 4 대응: 기존에 지원하던 지역의 지형 변화에 맞춰 이동 경로를 업데이트했습니다."
-        ],
-        "fixed": []
+        "added": [],
+        "changed": [],
+        "fixed": [
+          "자동 채집 기능이 월정액 카드 일일 팝업을 닫은 뒤에는 같은 날 다시 로그인해도 팝업이 다시 나타나지 않습니다. 일일 보상은 그대로 받을 수 있습니다."
+        ]
       }
     }
   }
