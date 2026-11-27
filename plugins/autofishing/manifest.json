@@ -2,7 +2,7 @@
   "id": "autofishing",
   "name": "Auto Fishing",
   "description": "Fully automates the fishing minigame — from casting to catch — with configurable tension control and auto rod change, so you can leave it running unattended.",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "dll": "Stellar.AutoFishing.dll",
   "author": "Stellar",
   "tags": [
@@ -23,30 +23,19 @@
   ],
   "guide": "guide.md",
   "minModSystemVersion": "2.30.0",
-  "date": "2026-11-17",
-  "capPriorVersionsAt": "2.29.1",
+  "date": "2026-11-27",
   "changelog": {
-    "added": [
-      "A Session panel counts the fish caught, fish missed and rods used since you pressed Start.",
-      "A short message at the bottom of the window after each catch, missed fish or rod change.",
-      "A ? button next to every setting explains what it does."
-    ],
-    "changed": [
-      "New look that follows your Stellar theme, with a new icon.",
-      "A status line under the title shows what the plugin is doing: go to a fishing spot, ready, running, or paused while it closes a popup.",
-      "Start is greyed out until you are at a fishing spot, and Stop turns amber while fishing runs.",
-      "Requires Stellar 2.30.0 or newer."
-    ],
+    "added": [],
+    "changed": [],
     "fixed": [
-      "Stopping or closing the window now also cancels a restart that was waiting for the daily login popup to close.",
-      "Keeping the window open no longer costs performance."
+      "When Auto Fishing closes the daily monthly card popup for you, it no longer shows up again the next time you log in that day. You still get the daily reward as normal."
     ],
     "removed": []
   },
   "repository": "https://github.com/StellarProtocol/StellarAutoFishingPlugin.git",
-  "commit": "1c3fc878060671391f537574c8c1a8f432c8813b",
+  "commit": "e9902eb1c51329dc7b7ad8d44f618d039bc65ee3",
   "projectPath": ".",
-  "tag": "v2.3.0",
+  "tag": "v2.3.1",
   "i18n": {
     "ja": {
       "name": "自動釣り",
@@ -56,20 +45,10 @@
         "すべての設定に、内容を説明する ? ボタンがあります。"
       ],
       "changelog": {
-        "added": [
-          "「セッション」パネルで、開始を押してから釣った数・逃した数・使ったロッドの数を表示します。",
-          "釣果・取り逃し・ロッド交換のたびに、ウィンドウ下部に短いメッセージを表示します。",
-          "すべての設定の横に、内容を説明する ? ボタンを追加しました。"
-        ],
-        "changed": [
-          "Stellar のテーマに合わせた新しい見た目と、新しいアイコンになりました。",
-          "タイトルの下の状態表示で、今なにをしているか（釣り場へ移動・準備完了・実行中・ポップアップを閉じるため一時停止）が分かります。",
-          "釣り場にいないときは開始ボタンが押せない表示になり、実行中は停止ボタンがオレンジ色になります。",
-          "Stellar 2.30.0 以降が必要です。"
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "停止またはウィンドウを閉じたときに、デイリーログインのポップアップ後に予定されていた再開も取り消されるようになりました。",
-          "ウィンドウを開いたままでも動作が重くならなくなりました。"
+          "自動釣りが月額カードのデイリーポップアップを閉じたあとは、同じ日に再ログインしてもポップアップが再表示されなくなりました。デイリー報酬はこれまでどおり受け取れます。"
         ]
       }
     },
@@ -81,20 +60,10 @@
         "ทุกการตั้งค่ามีปุ่ม ? ที่อธิบายว่าใช้ทำอะไร"
       ],
       "changelog": {
-        "added": [
-          "แผง \"เซสชัน\" นับจำนวนปลาที่จับได้ ปลาที่หลุด และคันเบ็ดที่ใช้ นับตั้งแต่กดเริ่ม",
-          "ข้อความสั้น ๆ ที่ด้านล่างหน้าต่างทุกครั้งที่จับปลาได้ ปลาหลุด หรือเปลี่ยนคันเบ็ด",
-          "ปุ่ม ? ข้างทุกการตั้งค่าเพื่ออธิบายว่าใช้ทำอะไร"
-        ],
-        "changed": [
-          "หน้าตาใหม่ที่เข้ากับธีม Stellar ของคุณ พร้อมไอคอนใหม่",
-          "บรรทัดสถานะใต้ชื่อบอกว่าปลั๊กอินกำลังทำอะไร: ไปที่จุดตกปลา พร้อม กำลังทำงาน หรือหยุดชั่วคราวระหว่างปิดป็อปอัพ",
-          "ปุ่มเริ่มจะเป็นสีจางจนกว่าคุณจะอยู่ที่จุดตกปลา และปุ่มหยุดเป็นสีส้มขณะกำลังตกปลา",
-          "ต้องใช้ Stellar 2.30.0 ขึ้นไป"
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "การกดหยุดหรือปิดหน้าต่างจะยกเลิกการเริ่มต่อที่รอให้ป็อปอัพล็อกอินรายวันปิดด้วย",
-          "การเปิดหน้าต่างค้างไว้ไม่ทำให้เกมหน่วงอีกต่อไป"
+          "เมื่อ ตกปลาอัตโนมัติ ปิดป๊อปอัปรางวัลรายวันของบัตรรายเดือนให้แล้ว ป๊อปอัปจะไม่แสดงซ้ำเมื่อคุณล็อกอินใหม่ในวันเดียวกัน และคุณยังได้รับรางวัลรายวันตามปกติ"
         ]
       }
     },
@@ -106,20 +75,10 @@
         "Setiap pengaturan punya tombol ? yang menjelaskan fungsinya."
       ],
       "changelog": {
-        "added": [
-          "Panel Sesi menghitung ikan yang tertangkap, ikan yang lepas, dan joran yang dipakai sejak kamu menekan Mulai.",
-          "Pesan singkat di bagian bawah jendela setiap kali dapat ikan, ikan lepas, atau joran diganti.",
-          "Tombol ? di samping setiap pengaturan menjelaskan fungsinya."
-        ],
-        "changed": [
-          "Tampilan baru yang mengikuti tema Stellar-mu, dengan ikon baru.",
-          "Baris status di bawah judul menunjukkan apa yang sedang dilakukan: pergi ke titik memancing, siap, berjalan, atau dijeda saat menutup popup.",
-          "Tombol Mulai tampak redup sampai kamu berada di titik memancing, dan tombol Stop berwarna oranye saat memancing berjalan.",
-          "Membutuhkan Stellar 2.30.0 atau lebih baru."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "Menekan Stop atau menutup jendela kini juga membatalkan mulai ulang yang menunggu popup login harian tertutup.",
-          "Membiarkan jendela terbuka tidak lagi membebani performa."
+          "Setelah Pancing Otomatis menutup popup hadiah harian kartu bulanan, popup itu tidak muncul lagi saat kamu login ulang di hari yang sama. Hadiah harian tetap kamu terima seperti biasa."
         ]
       }
     },
@@ -131,20 +90,10 @@
         "May ? na button ang bawat setting na nagpapaliwanag kung para saan ito."
       ],
       "changelog": {
-        "added": [
-          "Binibilang ng Session panel ang mga nahuling isda, nakawalang isda, at mga barong nagamit mula nang pindutin mo ang Simulan.",
-          "Maikling mensahe sa ibaba ng window tuwing may nahuli, nakawala, o napalitan ang baras.",
-          "May ? na button sa tabi ng bawat setting na nagpapaliwanag kung para saan ito."
-        ],
-        "changed": [
-          "Bagong itsura na sumusunod sa iyong Stellar theme, may bagong icon.",
-          "Ipinapakita ng status line sa ilalim ng pamagat ang ginagawa ng plugin: pumunta sa pangisdaan, handa, tumatakbo, o naka-pause habang nagsasara ng popup.",
-          "Malabo ang Simulan hangga't wala ka sa pangisdaan, at nagiging kulay-amber ang Itigil habang tumatakbo ang pangingisda.",
-          "Kailangan ng Stellar 2.30.0 o mas bago."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "Kapag pinindot ang Itigil o isinara ang window, kinakansela na rin ang restart na naghihintay magsara ang daily login popup.",
-          "Hindi na nakakabagal ang pag-iwan na bukas sa window."
+          "Kapag isinara ng Auto Pangingisda ang daily popup ng monthly card, hindi na ito lilitaw ulit kapag nag-log in ka muli sa parehong araw. Matatanggap mo pa rin ang daily reward gaya ng dati."
         ]
       }
     },
@@ -156,20 +105,10 @@
         "모든 설정에 무엇을 하는지 설명하는 ? 버튼이 있습니다."
       ],
       "changelog": {
-        "added": [
-          "세션 패널에서 시작을 누른 후 낚은 물고기, 놓친 물고기, 사용한 낚싯대 수를 보여 줍니다.",
-          "물고기를 낚거나 놓치거나 낚싯대를 교체할 때마다 창 아래쪽에 짧은 메시지가 표시됩니다.",
-          "모든 설정 옆에 무엇을 하는지 설명하는 ? 버튼이 추가되었습니다."
-        ],
-        "changed": [
-          "Stellar 테마를 따르는 새로운 디자인과 새 아이콘.",
-          "제목 아래 상태 표시로 지금 무엇을 하는지(낚시터로 이동, 준비 완료, 실행 중, 팝업을 닫는 중 일시 정지) 알 수 있습니다.",
-          "낚시터에 있지 않으면 시작 버튼이 흐리게 표시되고, 낚시 중에는 중지 버튼이 주황색으로 바뀝니다.",
-          "Stellar 2.30.0 이상이 필요합니다."
-        ],
+        "added": [],
+        "changed": [],
         "fixed": [
-          "중지를 누르거나 창을 닫으면 일일 로그인 팝업이 닫히기를 기다리던 재시작도 취소됩니다.",
-          "창을 열어 두어도 더 이상 성능에 부담을 주지 않습니다."
+          "자동 낚시 기능이 월정액 카드 일일 팝업을 닫은 뒤에는 같은 날 다시 로그인해도 팝업이 다시 나타나지 않습니다. 일일 보상은 그대로 받을 수 있습니다."
         ]
       }
     }
